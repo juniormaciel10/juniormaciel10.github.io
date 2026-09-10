@@ -1,0 +1,4 @@
+Lenis 1.3.26 (lenis.min.js + lenis.css)
+Origem: https://github.com/darkroomengineering/lenis (darkroom.engineering)
+Licenca: MIT. O build minificado distribuido pelo projeto nao traz o cabecalho; o texto da licenca esta no repositorio de origem (LICENSE).
+Uso neste site (decisao do autor em 10/09/2026, revertendo D20/D22): rolagem suave SOMENTE em desktop com ponteiro fino e hover (>=1024px), criada dentro do contexto GSAP matchMedia e destruida em toque, movimento reduzido, pausa e redimensionamento; parada (lenis.stop) enquanto o dialog da galeria esta aberto; regioes com data-lenis-prevent (dialog, trilho do dialog, recortes com rolagem local) mantem rolagem nativa. autoRaf desligado: o quadro e dirigido por gsap.ticker; ScrollTrigger.update ligado ao evento scroll da Lenis. Ancoras passam por lenis.scrollTo com o scroll-margin-top do alvo.
