@@ -117,7 +117,7 @@ html.movimento-ativo .ci-miniaturas.indicador-pronto a[aria-current] { border-co
 html.ci-dialog-aberto { overflow: hidden; }
 .ci-dialog { width: calc(100% - 2rem); max-width: 86rem; max-height: calc(100dvh - 2rem); margin: auto; padding: 0; border: 1px solid var(--borda); border-radius: var(--raio-papel); background: var(--fundo); color: var(--texto); overflow: auto; overscroll-behavior: contain; }
 .ci-dialog::backdrop { background: rgb(0 0 0 / .82); }
-/* Só html.movimento-ativo liga a transição: sistema em reduce sem escolha explícita nunca recebe a classe. */
+/* Só html.movimento-ativo liga a transição (sem JS a classe não existe e o dialog abre estático). */
 html.movimento-ativo .ci-dialog { opacity: 0; scale: var(--dialog-escala, .96); transition: opacity var(--duracao-dialog) var(--ease), scale var(--duracao-dialog) var(--ease), overlay var(--duracao-dialog) allow-discrete, display var(--duracao-dialog) allow-discrete; }
 html.movimento-ativo .ci-dialog[open] { opacity: 1; scale: 1; }
 html.movimento-ativo .ci-dialog::backdrop { transition: opacity var(--duracao-dialog) var(--ease), overlay var(--duracao-dialog) allow-discrete, display var(--duracao-dialog) allow-discrete; opacity: 0; }

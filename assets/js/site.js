@@ -2,18 +2,9 @@
 (function () {
   'use strict';
   const raiz = document.documentElement;
-  const sistemaReduzido = matchMedia('(prefers-reduced-motion: reduce)');
-  // Sem escolha salva, o sistema decide. "on"/"off" é a última ação explícita do visitante e vale acima do sistema.
-  let escolha = null, storageOk = true;
-  function lerEscolha() {
-    if (!storageOk) return;
-    try { const salvo = localStorage.getItem('portfolio-motion'); escolha = salvo === 'on' || salvo === 'off' ? salvo : null; } catch (_) { storageOk = false; }
-  }
-  lerEscolha();
-  const reduzido = { get matches() { return escolha ? escolha === 'off' : sistemaReduzido.matches; }, addEventListener: (tipo, fn) => sistemaReduzido.addEventListener(tipo, fn) };
+  // Decisão do autor (10/09/2026): movimento ligado por padrão, sem controle de pausa e sem consulta a prefers-reduced-motion.
+  // A única porta é html.movimento-ativo (motor + fontes prontas); sem JS a página fica estática. Risco registrado em DESIGN.md.
   const motor = typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined' && typeof SplitText !== 'undefined' && typeof Flip !== 'undefined' && typeof DrawSVGPlugin !== 'undefined' && typeof CustomEase !== 'undefined';
-  const controle = document.getElementById('movimento');
-  const rotuloControle = document.getElementById('movimento-rotulo');
   const topo = document.getElementById('topo');
   const menu = document.getElementById('menu');
   const nav = document.getElementById('navegacao');
@@ -163,7 +154,7 @@
     }
     function animarImagem(img) {
       if (transicao) { transicao.cancel(); transicao = null; }
-      if (ativo && !reduzido.matches && !document.hidden && !vistaEmCurso && img.complete && img.naturalWidth) {
+      if (ativo && !document.hidden && !vistaEmCurso && img.complete && img.naturalWidth) {
         transicao = img.animate([{ opacity: .6 }, { opacity: 1 }], { duration: 180, easing: 'ease-out' });
       }
     }
@@ -271,8 +262,6 @@
     });
     if ('ResizeObserver' in window) new ResizeObserver(alinhar).observe(trilho);
     else window.addEventListener('resize', alinhar, { passive: true });
-    reduzido.addEventListener('change', alinhar);
-    controle.addEventListener('click', alinhar);
     document.addEventListener('visibilitychange', alinhar);
 
     // Uma seleção acessível; o indicador é só continuidade visual, fora do layout.
@@ -311,7 +300,7 @@
         cancelarVista(false);
         if (flip) { flip.kill(); flip = null; }
         if (indice === atual) { selecionar(indice); return; }
-        if (document.startViewTransition && ativo && !reduzido.matches && !document.hidden) {
+        if (document.startViewTransition && ativo && !document.hidden) {
           const thumb = miniaturas[indice];
           const registro = {
             cancelada: false, aplicada: false,
@@ -434,7 +423,7 @@
         return visivel >= Math.min(area.height * .7, innerHeight * .4);
       }
       function cenaVisivel() { return areaVisivel(trilhas); }
-      function permitida() { return ativo && fontesProntas && !reduzido.matches && !document.hidden && cenaVisivel(); }
+      function permitida() { return ativo && fontesProntas && !document.hidden && cenaVisivel(); }
       function cancelarInicio() { cancelAnimationFrame(inicioPendente); inicioPendente = 0; }
       campoHero.dataset.entrada = heroConsumido ? 'concluida' : 'aguardando-visibilidade';
       configuracao.add('prepararHero', () => {
@@ -450,9 +439,9 @@
       });
       function sincronizar() {
         if (encerrando) return;
-        if (!heroConsumido && ativo && fontesProntas && !reduzido.matches && !document.hidden && areaVisivel(campoHero.querySelector('h1'))) configuracao.prepararHero();
+        if (!heroConsumido && ativo && fontesProntas && !document.hidden && areaVisivel(campoHero.querySelector('h1'))) configuracao.prepararHero();
         if (entradaHero && entradaHero.progress() < 1) {
-          if (ativo && fontesProntas && !reduzido.matches && !document.hidden) {
+          if (ativo && fontesProntas && !document.hidden) {
             heroConsumido = true;
             campoHero.dataset.entrada = 'em-curso';
             entradaHero.play();
@@ -496,7 +485,7 @@
       if (!entradaConsumida) configuracao.prepararEntrada();
       else estadoCena('disponivel', 'Animações ativas. Use Rever sequência para ver os percursos.');
       reverEntrada = () => {
-        if (!permitida() && (reduzido.matches || !ativo || !fontesProntas)) return;
+        if (!permitida() && (!ativo || !fontesProntas)) return;
         // Com a Lenis ativa, um salto nativo durante uma animação dela seria ignorado; immediate cancela a animação em curso e posiciona na hora.
         if (!cenaVisivel()) {
           if (lenis && !lenis.isStopped) lenis.scrollTo(trilhas, { immediate: true, offset: -Math.max(0, (innerHeight - trilhas.getBoundingClientRect().height) / 2) });
@@ -512,8 +501,8 @@
       // Rolagem suave: só desktop com ponteiro fino e hover. Nasce e morre com este contexto (pausa, reduce, toque e resize destroem).
       let rafLenis = null;
       if (desktop && fino && typeof Lenis !== 'undefined') {
-        // respectReducedMotion: false de propósito: a autoridade sobre movimento é a do site (sistema decide o padrão, a escolha explícita do visitante vence).
-        // A Lenis só existe dentro deste contexto; se ela consultasse o sistema por conta própria, zeraria a suavidade mesmo depois de o visitante ligar.
+        // respectReducedMotion: false de propósito: o site não consulta prefers-reduced-motion (decisão do autor, 10/09/2026); a Lenis também não deve,
+        // senão zeraria a suavidade por conta própria em máquinas com "Efeitos de animação" desligado.
         lenis = new Lenis({ lerp: .1, wheelMultiplier: 1, smoothWheel: true, syncTouch: false, autoRaf: false, anchors: false, allowNestedScroll: true, respectReducedMotion: false });
         lenis.on('scroll', ScrollTrigger.update);
         rafLenis = tempo => lenis.raf(tempo * 1000);
@@ -624,52 +613,23 @@
     }, document.getElementById('conteudo'));
     gsap.globalTimeline.paused(document.hidden);
   }
-  function pararMovimento() {
-    if (contexto) { contexto.revert(); contexto = null; }
-  }
-  function aplicarPreferencia() {
-    lerEscolha();
-    const proximo = motor && !reduzido.matches;
-    const sistema = sistemaReduzido.matches;
-    raiz.classList.toggle('movimento-ativo', proximo && fontesProntas);
-    raiz.classList.toggle('movimento-pausado', !proximo);
-    controle.hidden = !motor;
-    controle.dataset.sistema = sistema ? 'reduzido' : 'normal';
-    controle.setAttribute('aria-pressed', String(proximo));
-    // Sempre operável: o sistema define o padrão, a escolha do visitante prevalece e fica salva neste navegador.
-    const label = proximo
-      ? (sistema ? 'Pausar animações. Ativadas por escolha sua; o sistema pede movimento reduzido.' : 'Pausar animações')
-      : (sistema && !escolha ? 'Ativar animações. Sistema em movimento reduzido: a página está estática por padrão.' : 'Ativar animações');
-    controle.setAttribute('aria-label', label);
-    controle.title = label;
-    rotuloControle.textContent = proximo ? 'Pausar' : 'Ativar';
-    ativo = proximo;
-    if (!ativo) {
-      pararMovimento();
-      // Desligar o movimento interrompe transições em curso: o Chromium não cancela a do ::backdrop ao trocar a classe.
-      document.getElementById('ci-dialog')?.getAnimations?.({ subtree: true }).forEach(animacao => animacao.cancel());
-      campoHero.dataset.entrada = !motor ? 'estatica' : escolha === 'off' ? 'pausada' : 'reduzida';
-      if (!motor) estadoCena('estatica', 'Cena estática. Os percursos estão completos.');
-      else if (escolha === 'off') estadoCena('pausada', 'Animações pausadas. Preferência salva neste navegador.');
-      else estadoCena('reduzida', 'Movimento reduzido pelo sistema. Todos os percursos estão completos.');
+  // Movimento ligado por padrão: a classe entra quando há motor e as fontes estão prontas; o contexto GSAP nasce uma vez.
+  function aplicarMovimento() {
+    ativo = motor;
+    raiz.classList.toggle('movimento-ativo', motor && fontesProntas);
+    if (!motor) {
+      campoHero.dataset.entrada = 'estatica';
+      estadoCena('estatica', 'Cena estática. Os percursos estão completos.');
     } else if (!fontesProntas) {
       campoHero.dataset.entrada = 'aguardando-fontes';
       estadoCena('aguardando-fontes', 'Preparando a sequência. O conteúdo já está disponível.');
     } else if (!contexto) iniciarMovimento();
     atualizarLayout();
   }
-  controle.addEventListener('click', () => {
-    escolha = ativo ? 'off' : 'on';
-    try { localStorage.setItem('portfolio-motion', escolha); } catch (_) { storageOk = false; }
-    aplicarPreferencia();
-  });
-  // Outra aba do mesmo navegador mudou a escolha: acompanhar.
-  window.addEventListener('storage', e => { if (e.key === null || e.key === 'portfolio-motion') aplicarPreferencia(); });
   rever.addEventListener('click', () => {
-    if (!ativo || reduzido.matches || !fontesProntas || rever.getAttribute('aria-disabled') === 'true') return;
+    if (!ativo || !fontesProntas || rever.getAttribute('aria-disabled') === 'true') return;
     reverEntrada();
   });
-  reduzido.addEventListener('change', aplicarPreferencia);
   document.addEventListener('visibilitychange', () => {
     raiz.classList.toggle('documento-oculto', document.hidden);
     if (motor) gsap.globalTimeline.paused(document.hidden);
@@ -688,8 +648,8 @@
   }
   document.getElementById('ano').textContent = String(new Date().getFullYear());
   iniciarGaleria();
-  aplicarPreferencia();
-  if (document.fonts) document.fonts.ready.then(() => { fontesProntas = true; aplicarPreferencia(); });
+  aplicarMovimento();
+  if (document.fonts) document.fonts.ready.then(() => { fontesProntas = true; aplicarMovimento(); });
   window.addEventListener('load', atualizarLayout);
   window.addEventListener('resize', atualizarLayout, { passive: true });
 })();

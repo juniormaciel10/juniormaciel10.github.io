@@ -86,14 +86,7 @@ code { font-size: .875em; overflow-wrap: anywhere; }
 .nav a:hover, .nav a[aria-current] { color: var(--texto); }
 .nav a:hover::after, .nav a[aria-current]::after, .nav a:focus-visible::after { transform: scaleX(1); }
 .topo-controles { display: flex; align-items: center; gap: .5rem; }
-.movimento, .menu { border: 1px solid var(--borda); background: transparent; color: var(--prata); min-height: 44px; border-radius: var(--raio); padding: .5rem .75rem; font-size: .75rem; line-height: 1.25; }
-.movimento { display: inline-flex; justify-content: center; align-items: center; gap: .5rem; }
-.movimento-sinal { position: relative; display: block; width: 12px; height: 12px; border-inline: 3px solid currentColor; }
-.movimento[aria-pressed="false"] .movimento-sinal { border: 0; }
-.movimento[aria-pressed="false"] .movimento-sinal::before { content: ""; position: absolute; inset: 0; border-left: 10px solid currentColor; border-block: 6px solid transparent; }
-/* Sistema em movimento reduzido: o controle continua operável e a escolha explícita do visitante prevalece. */
-.movimento[data-sistema="reduzido"][aria-pressed="false"] { border-style: dashed; }
-.menu { display: none; }
+.menu { display: none; border: 1px solid var(--borda); background: transparent; color: var(--prata); min-height: 44px; border-radius: var(--raio); padding: .5rem .75rem; font-size: .75rem; line-height: 1.25; }
 
 /* Hero tipográfico: nome e apresentação disponíveis desde o primeiro quadro. */
 /* Hero com a captura da mesa (sanitizada) como fundo full-bleed atrás do nome (ordem do autor, 10/09/2026: "usar o que tem").
@@ -151,12 +144,13 @@ code { font-size: .875em; overflow-wrap: anywhere; }
 
 @media (hover: hover) {
   .botao-1:hover { background: var(--cobalto-hover); }
-  .botao-2:hover, .movimento:hover, .menu:hover { background: var(--superficie-2); border-color: var(--texto-2); }
+  .botao-2:hover, .menu:hover { background: var(--superficie-2); border-color: var(--texto-2); }
   .rever:not([aria-disabled="true"]):hover { color: var(--texto); border-color: var(--texto); }
 }
-/* html.movimento-ativo é a única porta do movimento: só existe quando o sistema permite ou o visitante ativou de propósito. */
-html.movimento-ativo .botao, html.movimento-ativo .movimento, html.movimento-ativo .menu { transition: background-color 150ms, border-color 150ms, scale 150ms; }
-html.movimento-ativo .botao:active, html.movimento-ativo .movimento:active, html.movimento-ativo .menu:active { scale: .96; }
+/* html.movimento-ativo é a única porta do movimento. Decisão do autor (10/09/2026): movimento ligado por padrão, sem controle de pausa e sem consulta a
+   prefers-reduced-motion; a classe existe sempre que há motor (GSAP) e fontes prontas. Sem JS a página fica estática (html:not(.movimento-ativo) abaixo). */
+html.movimento-ativo .botao, html.movimento-ativo .menu { transition: background-color 150ms, border-color 150ms, scale 150ms; }
+html.movimento-ativo .botao:active, html.movimento-ativo .menu:active { scale: .96; }
 html.movimento-ativo a .seta { transition: transform var(--duracao) var(--ease); }
 html.movimento-ativo .nav a::after { transition: transform var(--duracao-feedback) var(--ease); }
 html.movimento-ativo a:hover .seta { transform: translateX(4px); }
@@ -212,10 +206,6 @@ html.movimento-ativo a:hover .seta { transform: translateX(4px); }
   .marca { flex: 1 1 10rem; max-width: 24ch; }
   .topo-controles { flex: 0 1 auto; min-width: 0; max-width: 100%; flex-wrap: wrap; }
   .nav { flex-basis: 100%; order: 3; }
-  .movimento { min-width: 44px; max-width: 100%; padding: .65rem; }
-  .movimento-sinal { flex: 0 0 12px; }
-  #movimento-rotulo { display: none; }
-  .movimento[data-sistema="reduzido"] #movimento-rotulo { display: inline; min-width: 0; max-width: 7rem; text-align: left; }
 }
 /* Declarativo só onde o motor CSS existe; o fallback já é completamente visível. */
 @supports (animation-timeline: view()) {
@@ -229,13 +219,10 @@ html.movimento-ativo a:hover .seta { transform: translateX(4px); }
   }
 }
 @keyframes leitura-entra { from { opacity: .88; translate: 0 var(--entrada-lista); } to { opacity: 1; translate: 0 0; } }
+/* Sem JS (ou antes das fontes): estático. Não há bloco prefers-reduced-motion por decisão do autor (10/09/2026); risco registrado em DESIGN.md. */
 html:not(.movimento-ativo) *, html:not(.movimento-ativo) *::before, html:not(.movimento-ativo) *::after { animation: none !important; animation-timeline: auto !important; transition: none !important; }
 html.documento-oculto *, html.documento-oculto *::before, html.documento-oculto *::after { animation-play-state: paused !important; transition: none !important; }
 @media (max-width: 767px) { :root { --entrada-lista: 12px; } }
-/* Sistema em movimento reduzido: estático por padrão; a classe só aparece quando o visitante ativa o movimento de propósito. */
-@media (prefers-reduced-motion: reduce) {
-  html:not(.movimento-ativo) *, html:not(.movimento-ativo) *::before, html:not(.movimento-ativo) *::after { scroll-behavior: auto !important; animation: none !important; animation-timeline: auto !important; transition: none !important; }
-}
 @media print { body::before, .hero-fundo { display: none; } }
 @media (forced-colors: active) {
   body::before, .hero-fundo { display: none; }
