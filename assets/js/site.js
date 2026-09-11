@@ -524,8 +524,14 @@
         gsap.fromTo('.metodo-trilho-progresso', { drawSVG: 0 }, { drawSVG: '100%', ease: 'none', scrollTrigger: { id: 'metodo-trilho', trigger: '.metodo-passos', start: 'top center', end: 'bottom center', scrub: true } });
         document.querySelectorAll('.metodo-passos > li').forEach((passo, i) => {
           gsap.set(passo, { '--passo-luz': .55, '--passo-superficie': 0 });
+          // Um só tween de luz por passo. Em rolagem rápida (Lenis a >200px/quadro ou salto de âncora) o passo entra e sai no mesmo quadro:
+          // o tween de acender (.2s) ainda não tinha renderizado, `overwrite: 'auto'` não o enxergava e ele terminava depois, deixando o
+          // passo aceso fora do centro (revisão independente de 11/09/2026). Matar o anterior explicitamente resolve.
+          let luz = null;
           ScrollTrigger.create({ id: 'metodo-passo-' + (i + 1), trigger: passo, start: 'top center', end: 'bottom center', onToggle: self => {
-            gsap.to(passo, { '--passo-luz': self.isActive ? 1 : .55, '--passo-superficie': self.isActive ? 1 : 0, duration: self.isActive ? .2 : 0, overwrite: 'auto' });
+            if (luz) luz.kill();
+            const alvo = { '--passo-luz': self.isActive ? 1 : .55, '--passo-superficie': self.isActive ? 1 : 0 };
+            luz = self.isActive ? gsap.to(passo, { ...alvo, duration: .2 }) : gsap.set(passo, alvo);
           } });
         });
       }

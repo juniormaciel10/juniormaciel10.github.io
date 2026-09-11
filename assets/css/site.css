@@ -92,14 +92,19 @@ code { font-size: .875em; overflow-wrap: anywhere; }
 /* Hero com a captura da mesa (sanitizada) como fundo full-bleed atrás do nome (ordem do autor, 10/09/2026: "usar o que tem").
    O véu em gradiente escurece por faixas e fica sólido antes dos parágrafos; as paradas ficam em variáveis para o teste recompor
    o mesmo gradiente sobre a imagem e medir o contraste real do nome e do papel. */
-.hero { position: relative; isolation: isolate; overflow: clip; --veu-a: .46; --veu-b: .56; --veu-c: .8; --veu-b-pos: 40%; --veu-c-pos: 51%; --veu-fim: 59%; }
-.hero-fundo { position: absolute; z-index: 0; inset: 0; pointer-events: none; }
+.hero { position: relative; isolation: isolate; overflow: clip; --veu-a: .46; --veu-b: .56; --veu-c: .8; --veu-b-pos: 40%; --veu-c-pos: 51%; --veu-fim: 59%; --painel-fade: 3rem; --painel-solido: .5rem; }
+/* overflow: clip: a imagem em scale 1.08 vazava 19px abaixo da faixa de 480px no mobile e cortava o 2.º parágrafo (revisão de 11/09/2026). */
+.hero-fundo { position: absolute; z-index: 0; inset: 0; overflow: clip; pointer-events: none; }
 .hero-fundo img { width: 100%; height: 100%; max-width: none; object-fit: cover; object-position: 50% 30%; scale: 1.08; filter: grayscale(.35) brightness(.9); }
 .hero-veu { position: absolute; inset: 0; background: linear-gradient(180deg, rgb(17 18 21 / var(--veu-a)) 0%, rgb(17 18 21 / var(--veu-b)) var(--veu-b-pos), rgb(17 18 21 / var(--veu-c)) var(--veu-c-pos), var(--fundo) var(--veu-fim), var(--fundo) 100%); }
 .hero-conteudo { position: relative; z-index: 1; padding-block: clamp(2.5rem, 4vw, 3.5rem) 1rem; }
 .titulo { font-size: var(--t-h1); line-height: 1; letter-spacing: -.03em; text-wrap: pretty; max-width: 100%; }
 .hero-intro { max-width: 42ch; margin-top: 1.5rem; color: var(--foco); font-family: var(--display); font-weight: 600; font-size: clamp(1.65rem, 3.1vw, 2.75rem); line-height: 1.18; letter-spacing: -.02em; }
-.hero-apresentacao { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); align-items: start; gap: 2rem clamp(2rem, 5vw, 5rem); margin-top: 1.5rem; }
+.hero-apresentacao { position: relative; display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); align-items: start; gap: 2rem clamp(2rem, 5vw, 5rem); margin-top: 1.5rem; }
+/* Painel ancorado ao CONTEÚDO: o véu em % só ficava sólido antes dos parágrafos em 1440 e 390; entre 768 e 1280 a coluna única sobe os
+   parágrafos e o texto assentava sobre os terminais (revisão de 11/09/2026). Este painel começa --painel-fade acima dos parágrafos, fica
+   sólido --painel-solido acima deles e cobre o resto do hero, em qualquer largura; o teste recompõe véu+painel no canvas. */
+.hero-apresentacao::before { content: ""; position: absolute; z-index: -1; left: -100vw; right: -100vw; top: calc(-1 * var(--painel-fade)); bottom: -100vh; pointer-events: none; background: linear-gradient(180deg, rgb(17 18 21 / 0) 0, var(--fundo) calc(var(--painel-fade) - var(--painel-solido)), var(--fundo) 100%); }
 .hero-texto { max-width: 70ch; color: var(--prata); }
 .hero-texto p + p { margin-top: 1.25rem; color: var(--texto-2); }
 .hero-ficha { margin: 0; min-width: 0; padding: .5rem 1.5rem; background: var(--superficie); border-top: 1px solid var(--filete-luz); border-radius: var(--raio-papel); box-shadow: var(--sombra-papel); }
@@ -165,6 +170,11 @@ html.movimento-ativo a:hover .seta { transform: translateX(4px); }
   html.movimento-ativo .faixa-operacao { transition: translate var(--duracao-feedback) var(--ease), box-shadow var(--duracao-feedback) var(--ease); }
   html.movimento-ativo .faixa-operacao:hover { translate: 0 -4px; box-shadow: var(--sombra-elevada); }
 }
+/* Faixa intermediária (768–1279): o papel (.hero-intro) cai inteiro na parte a→b do véu e media 3,83–4,13:1 (mínimo 4,5; medido em
+   11/09/2026 nas larguras 768/820/900/1024/1100). Paradas mais escuras só aqui; 1440 e 390 ficam como aprovadas pelo autor. */
+@media (min-width: 768px) and (max-width: 1279px) {
+  .hero { --veu-a: .5; --veu-b: .7; --veu-c: .86; --veu-b-pos: 34%; --veu-c-pos: 44%; --veu-fim: 52%; }
+}
 @media (max-width: 1100px) {
   .topo-interior { gap: .75rem; }
   .nav { gap: .25rem; }
@@ -223,9 +233,9 @@ html.movimento-ativo a:hover .seta { transform: translateX(4px); }
 html:not(.movimento-ativo) *, html:not(.movimento-ativo) *::before, html:not(.movimento-ativo) *::after { animation: none !important; animation-timeline: auto !important; transition: none !important; }
 html.documento-oculto *, html.documento-oculto *::before, html.documento-oculto *::after { animation-play-state: paused !important; transition: none !important; }
 @media (max-width: 767px) { :root { --entrada-lista: 12px; } }
-@media print { body::before, .hero-fundo { display: none; } }
+@media print { body::before, .hero-fundo, .hero-apresentacao::before { display: none; } }
 @media (forced-colors: active) {
-  body::before, .hero-fundo { display: none; }
+  body::before, .hero-fundo, .hero-apresentacao::before { display: none; }
   :focus-visible { outline-color: Highlight; }
   .marca-ponto, .seta::before { background: CanvasText; }
   .faixa-operacao, .botao { border: 1px solid ButtonText; }
