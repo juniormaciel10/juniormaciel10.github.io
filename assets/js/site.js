@@ -431,11 +431,13 @@
         campoHero.dataset.entrada = 'em-curso';
         entradaHero = gsap.timeline({ id: 'entrada-hero', defaults: { ease: 'montagem' }, onComplete: () => { campoHero.dataset.entrada = 'concluida'; } });
         linhas(document.getElementById('titulo'), entradaHero);
-        entradaHero.fromTo('.hero-intro', { y: mobile ? 14.4 : 24, autoAlpha: .88 }, { y: 0, autoAlpha: 1, duration: mobile ? .54 : .9 }, .08)
-          .fromTo('.hero-texto p', { y: mobile ? 10.8 : 18, opacity: .94 }, { y: 0, opacity: 1, duration: mobile ? .48 : .8, stagger: mobile ? .072 : .12 }, .16)
+        // Só deslocamento: o hero é "texto opaco desde o primeiro frame" (DESIGN/README). Os micro-fades .88/.94 que existiam aqui contrariavam
+        // essa decisão e tinham afrouxado o contrato de legibilidade para >= .84 sem registro (revisão independente de 11/09/2026, D34).
+        entradaHero.fromTo('.hero-intro', { y: mobile ? 14.4 : 24 }, { y: 0, duration: mobile ? .54 : .9 }, .08)
+          .fromTo('.hero-texto p', { y: mobile ? 10.8 : 18 }, { y: 0, duration: mobile ? .48 : .8, stagger: mobile ? .072 : .12 }, .16)
           .fromTo('.hero-ficha', { scale: mobile ? .988 : .98, y: mobile ? 6 : 10 }, { scale: 1, y: 0, duration: mobile ? .7 : 1.04 }, .32)
           .fromTo('.ficha-filete', { scaleX: 0 }, { scaleX: 1, duration: mobile ? .42 : .7, stagger: mobile ? .048 : .08 }, .42)
-          .fromTo('.hero-acoes', { y: mobile ? 6 : 10, opacity: .94 }, { y: 0, opacity: 1, duration: mobile ? .55 : .65 }, mobile ? .81 : .95);
+          .fromTo('.hero-acoes', { y: mobile ? 6 : 10 }, { y: 0, duration: mobile ? .55 : .65 }, mobile ? .81 : .95);
       });
       function sincronizar() {
         if (encerrando) return;

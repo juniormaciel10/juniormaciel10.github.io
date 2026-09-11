@@ -78,7 +78,8 @@ code { font-size: .875em; overflow-wrap: anywhere; }
   .topo { container-type: scroll-state; }
   @container scroll-state(stuck: top) { .topo-interior { border-bottom-color: var(--borda); background: var(--fundo-secao); } }
 }
-.marca { display: inline-flex; align-items: baseline; gap: .4rem; min-width: 0; font-weight: 600; font-size: .875rem; line-height: 1.4; letter-spacing: -.015em; text-decoration: none; }
+/* padding-block: alvo ≥ 24px (WCAG 2.2 2.5.8; media 20px sem ele) sem mover o layout: o topo tem min-height 76/68px. */
+.marca { display: inline-flex; align-items: baseline; gap: .4rem; min-width: 0; padding-block: .25rem; font-weight: 600; font-size: .875rem; line-height: 1.4; letter-spacing: -.015em; text-decoration: none; }
 .marca-ponto { flex: 0 0 6px; width: 6px; height: 6px; background: var(--cobalto); border-radius: 50%; }
 .nav { display: flex; align-items: center; gap: clamp(.25rem, 1.05vw, 1rem); margin-left: auto; }
 .nav a { position: relative; padding: 12px 4px; min-height: 44px; font-size: .8125rem; text-decoration: none; color: var(--texto-2); white-space: nowrap; }
