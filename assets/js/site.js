@@ -362,10 +362,18 @@
       const titulosDivididos = new Set();
       const limparInteracoes = [];
       let entrada = null, entradaHero = null, inicioPendente = 0, iniciada = false, encerrando = false;
-      function linhas(titulo, timeline, posicao = 0) {
+      // Divide o título em linhas mascaradas JÁ ESCONDIDAS (yPercent 100). Os capítulos abaixo da dobra são divididos no setup, não na hora do
+      // gatilho: antes, o título aparecia inteiro, sumia para as máscaras e só então entrava (pedido do autor, 11/09/2026, D35).
+      function dividir(titulo) {
         const split = SplitText.create(titulo, { type: 'lines', mask: 'lines', linesClass: 'linha-titulo', aria: 'auto', autoSplit: false });
-        const registro = { split, tween: null };
+        gsap.set(split.lines, { yPercent: 100 });
+        const registro = { titulo, split, tween: null };
         titulosDivididos.add(registro);
+        return registro;
+      }
+      function linhas(titulo, timeline, posicao = 0) {
+        const registro = Array.from(titulosDivididos).find(r => r.titulo === titulo) || dividir(titulo);
+        const { split } = registro;
         registro.tween = gsap.fromTo(split.lines, { yPercent: 100 }, {
           yPercent: 0, duration: mobile ? .54 : .9, stagger: Math.min(.08, .24 / Math.max(1, split.lines.length - 1)), ease: 'montagem',
           onComplete: () => { split.revert(); titulosDivididos.delete(registro); }
@@ -374,19 +382,25 @@
       }
       function concluirTitulos() {
         if (entradaHero && entradaHero.progress() < 1) entradaHero.progress(1);
-        Array.from(titulosDivididos).forEach(registro => { registro.tween.progress(1); registro.split.revert(); });
-        titulosDivididos.clear();
+        Array.from(titulosDivididos).forEach(registro => {
+          registro.split.revert(); titulosDivididos.delete(registro);
+          if (registro.tween) registro.tween.progress(1);
+          // Pendente (ainda abaixo da dobra): redividir na largura nova, continua escondido até o gatilho.
+          else if (!encerrando && registro.titulo.getBoundingClientRect().top >= innerHeight) dividir(registro.titulo);
+        });
       }
       window.addEventListener('resize', concluirTitulos, { passive: true });
       function capitulo(seletor, complementar) {
         const titulo = document.querySelector(seletor);
         const id = titulo.id || titulo.closest('article').id;
-        if (capitulosConsumidos.has(id) || titulo.getBoundingClientRect().bottom < topo.getBoundingClientRect().height) {
+        // Já visível (ou acima) no setup: fica como está, sem entrada. Só o que está abaixo da dobra é pré-escondido e revelado ao entrar.
+        if (capitulosConsumidos.has(id) || titulo.getBoundingClientRect().top < innerHeight) {
           capitulosConsumidos.add(id);
           titulo.dataset.entrada = 'concluida';
           return;
         }
         titulo.dataset.entrada = 'aguardando';
+        dividir(titulo);
         const funcao = 'revelar-' + id;
         configuracao.add(funcao, () => {
           if (encerrando || capitulosConsumidos.has(id)) return;
@@ -396,7 +410,8 @@
           linhas(titulo, timeline);
           if (complementar) complementar(timeline);
         });
-        ScrollTrigger.create({ id: 'capitulo-' + id, trigger: titulo, start: 'top 80%', once: true, toggleActions: 'play none none none', onEnter: () => configuracao[funcao]() });
+        // 'top bottom': revela no instante em que o título entra na vista (já está escondido nas máscaras); 80% deixava-o oculto na tela.
+        ScrollTrigger.create({ id: 'capitulo-' + id, trigger: titulo, start: 'top bottom', once: true, toggleActions: 'play none none none', onEnter: () => configuracao[funcao]() });
       }
       function magnetizar(seletor) {
         if (!fino) return;
