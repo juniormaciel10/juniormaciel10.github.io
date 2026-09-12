@@ -53,13 +53,13 @@
 </section>
 
 <section class="secao faixa como-trabalho" id="como-trabalho" aria-labelledby="titulo-trabalho">
-  <h2 id="titulo-trabalho">Método antes de ferramenta.</h2>
+  <h2 id="titulo-trabalho" data-ancora="como-trabalho">Método antes de ferramenta.</h2>
   <div class="trabalho-texto"><p>Um harness é o ambiente que liga o modelo de IA às ferramentas, ao contexto e às regras de um projeto. Domino os principais harnesses de agentes de IA e escolho o mais adequado ao controle que cada projeto exige, sem depender de uma única ferramenta.</p><p>Antes de produzir, escrevo o contrato do projeto: fontes de verdade, regras, papéis dos agentes e critérios de aceite. Os agentes leem esse contrato a cada tarefa. O que pode ser medido é verificado por script; o que exige julgamento passa por revisão e por mim.</p><p>Separo produção e revisão. Um agente produz; outro, com contexto limpo e muitas vezes com outro modelo, confere a entrega antes da minha aprovação. Falha bloqueia a entrega até a causa ser corrigida.</p></div>
   <div class="trabalho-pratica"><div><h3>Com o que trabalho</h3><ul class="lista-texto"><li>Harnesses de agentes de IA, com subagentes para pesquisa, execução e revisão.</li><li>Vários modelos de IA, escolhidos por tarefa e por custo, com modelos diferentes para produzir e revisar quando faz sentido.</li><li>Skills e instruções versionadas por projeto e por marca.</li><li>Python, Node.js e Playwright para automações, testes e exportação de arquivos.</li><li>HTML, CSS e JavaScript para páginas, templates de peças e este site.</li></ul></div><div><h3>Onde tenho mais facilidade</h3><p>Em desenhar o processo: escrever o contrato, dividir o trabalho em tarefas delimitadas, definir o que é verificado por script e o que passa por revisão. E em produzir com agentes nas frentes de texto, conteúdo educacional e imagem. Código entra quando o projeto precisa de uma automação, de uma ferramenta própria ou de uma correção de comportamento.</p></div></div>
 </section>
 
 <section class="secao faixa metodo" id="metodo" aria-labelledby="titulo-metodo">
-  <div class="abertura-secao"><h2 id="titulo-metodo">Como um projeto é pensado e feito.</h2><p>Antes de produzir, escrevo o contrato do projeto: o que é fonte de verdade, o que cada agente pode fazer, o que é verificado por script e o que exige aprovação minha. A pasta segue esse contrato.</p></div>
+  <div class="abertura-secao"><h2 id="titulo-metodo" data-ancora="metodo">Como um projeto é pensado e feito.</h2><p>Antes de produzir, escrevo o contrato do projeto: o que é fonte de verdade, o que cada agente pode fazer, o que é verificado por script e o que exige aprovação minha. A pasta segue esse contrato.</p></div>
   <div class="metodo-percurso"><div class="metodo-mapa"><div class="estrutura-projeto"><code>projeto/</code><dl class="diretorios-projeto"><div><dt><code>AGENTS.md</code></dt><dd>o contrato: fontes, regras, papéis e gates</dd></div><div><dt><code>MEMORY.md</code></dt><dd>lições verificadas, para não repetir erro</dd></div><div><dt><code>skills/</code></dt><dd>instruções de produção e revisão daquela marca ou tarefa</dd></div><div><dt><code>ferramentas/</code></dt><dd>scripts que medem, exportam e auditam</dd></div><div><dt><code>estado/</code></dt><dd>o que está pendente, o que foi aprovado</dd></div><div><dt><code>entregas/</code></dt><dd>o que sai para o cliente ou para o uso</dd></div></dl></div></div>
   <div class="metodo-sequencia"><h3 class="metodo-subtitulo">Os passos</h3>
   <svg class="metodo-trilho" viewBox="0 0 4 1000" preserveAspectRatio="none" aria-hidden="true"><path class="metodo-trilho-base" d="M2 0V1000"/><path class="metodo-trilho-progresso" d="M2 0V1000"/></svg>
@@ -73,7 +73,7 @@
 </section>
 
 <section class="secao faixa na-pratica" id="na-pratica" aria-labelledby="titulo-pratica">
-  <h2 id="titulo-pratica">Vários projetos em paralelo.</h2>
+  <h2 id="titulo-pratica" data-ancora="na-pratica">Vários projetos em paralelo.</h2>
   <p class="pratica-texto">Cada projeto roda na sua própria sessão, com seu contexto, suas fontes e sua entrega. Os agentes executam tarefas delimitadas e devolvem o resultado com evidência; eu decido o escopo, resolvo exceções e aprovo o que sai. Um cliente recebe software, outro recebe peças de campanha, outro recebe documentos de estudo.</p>
   <figure class="registro-execucao registro-mesa">
     <a class="registro-imagem" href="assets/img/mesa-real.png" target="_blank" rel="noopener" aria-label="Ver captura inteira em outra aba"><img src="assets/img/mesa-real.png" width="1919" height="1033" alt="Captura real da área de trabalho com cinco janelas de terminal, uma sessão de agentes por projeto." loading="lazy"></a>
@@ -83,9 +83,9 @@
   <div class="cena-frentes" id="cena-frentes" data-estado="estatica">
       <figure class="cena-percursos" id="frentes" aria-labelledby="cena-legenda">
         <div class="cena-trilhas">
-          <div class="faixa-operacao operacao-software" id="frente-software"><strong class="origem-cena">Software</strong><svg class="caminho-cena" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true"><path class="caminho-base" d="M0 6H100"/><path class="caminho-ativo" d="M0 6H100"/></svg><span class="entrega-cena">Arquivo e teste<svg class="seta-destino" viewBox="0 0 18 12" aria-hidden="true"><path d="M0 6H17M11 1L16 6L11 11"/></svg></span></div>
-          <div class="faixa-operacao operacao-campanhas" id="frente-campanhas"><strong class="origem-cena">Campanhas</strong><svg class="caminho-cena" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true"><path class="caminho-base" d="M0 6H100"/><path class="caminho-ativo" d="M0 6H100"/></svg><span class="entrega-cena">Peça revisada<svg class="seta-destino" viewBox="0 0 18 12" aria-hidden="true"><path d="M0 6H17M11 1L16 6L11 11"/></svg></span></div>
-          <div class="faixa-operacao operacao-conteudo" id="frente-conteudo"><strong class="origem-cena">Conteúdo</strong><svg class="caminho-cena" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true"><path class="caminho-base" d="M0 6H100"/><path class="caminho-ativo" d="M0 6H100"/></svg><span class="entrega-cena">Documento conferido<svg class="seta-destino" viewBox="0 0 18 12" aria-hidden="true"><path d="M0 6H17M11 1L16 6L11 11"/></svg></span></div>
+          <div class="faixa-operacao operacao-software" id="frente-software"><strong class="origem-cena"><svg class="icone-origem" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4h8l4 4v12H4V4h4z"/><path d="M8 13l2 2 4-4"/></svg>Software</strong><svg class="caminho-cena" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true"><path class="caminho-base" d="M0 6H100"/><path class="caminho-ativo" d="M0 6H100"/></svg><span class="entrega-cena">Arquivo e teste<svg class="seta-destino" viewBox="0 0 18 12" aria-hidden="true"><path d="M0 6H17M11 1L16 6L11 11"/></svg></span></div>
+          <div class="faixa-operacao operacao-campanhas" id="frente-campanhas"><strong class="origem-cena"><svg class="icone-origem" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l14-6v14L3 13z"/><path d="M17 8a4 4 0 0 1 0 8"/><path d="M7 13l1 6h3l-1-5"/></svg>Campanhas</strong><svg class="caminho-cena" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true"><path class="caminho-base" d="M0 6H100"/><path class="caminho-ativo" d="M0 6H100"/></svg><span class="entrega-cena">Peça revisada<svg class="seta-destino" viewBox="0 0 18 12" aria-hidden="true"><path d="M0 6H17M11 1L16 6L11 11"/></svg></span></div>
+          <div class="faixa-operacao operacao-conteudo" id="frente-conteudo"><strong class="origem-cena"><svg class="icone-origem" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M9 12h7M9 16h7M9 8h3"/></svg>Conteúdo</strong><svg class="caminho-cena" viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true"><path class="caminho-base" d="M0 6H100"/><path class="caminho-ativo" d="M0 6H100"/></svg><span class="entrega-cena">Documento conferido<svg class="seta-destino" viewBox="0 0 18 12" aria-hidden="true"><path d="M0 6H17M11 1L16 6L11 11"/></svg></span></div>
         </div>
         <figcaption id="cena-legenda">Exemplos de caminhos, não tarefas ao vivo. Cada projeto chega à sua própria entrega.</figcaption>
         <div class="cena-controles"><p id="cena-status" role="status" aria-live="polite" aria-atomic="true">Cena estática. Os percursos estão completos.</p><button class="rever" id="rever-sequencia" type="button" aria-controls="cena-frentes" aria-describedby="cena-status" hidden>Rever sequência<span class="seta" aria-hidden="true"></span></button></div>
@@ -94,7 +94,7 @@
 </section>
 
 <section class="secao faixa projetos" id="projetos" aria-labelledby="titulo-projetos">
-  <div class="abertura-secao"><h2 id="titulo-projetos">Projetos.</h2><p>Cada um com seu contexto, suas ferramentas e sua entrega.</p></div>
+  <div class="abertura-secao"><h2 id="titulo-projetos" data-ancora="projetos">Projetos.</h2><p>Cada um com seu contexto, suas ferramentas e sua entrega.</p></div>
   <nav class="indice" aria-label="Projetos desta página"><a href="#p-ciclo">Ferramenta de estudos</a><a href="#p-copy">Copy de campanha</a><a href="#p-resumos">Resumos de estudo</a><a href="#p-funil">Identidade e produção visual</a><a href="#p-transcricao">Transcrição</a><a href="#experimentos">Jogos</a></nav>
 
   <article class="projeto ciclo" id="p-ciclo" aria-labelledby="titulo-ciclo">
@@ -156,7 +156,7 @@
 </section>
 
 <section class="secao faixa experiencia" id="experiencia" aria-labelledby="titulo-experiencia">
-  <h2 id="titulo-experiencia">Experiência e formação</h2><p class="secao-intro">Fui dono de uma lan house em Bagé por mais de cinco anos, cursei oito semestres de Direito e migrei para tecnologia. Hoje curso Análise e Desenvolvimento de Sistemas na UniCesumar e me preparo para o concurso da Polícia Rodoviária Federal.</p>
+  <h2 id="titulo-experiencia" data-ancora="experiencia">Experiência e formação</h2><p class="secao-intro">Fui dono de uma lan house em Bagé por mais de cinco anos, cursei oito semestres de Direito e migrei para tecnologia. Hoje curso Análise e Desenvolvimento de Sistemas na UniCesumar e me preparo para o concurso da Polícia Rodoviária Federal.</p>
   <div class="experiencia-grade"><ol class="tempo">
     <li><span class="quando">2026</span><div class="oque"><h3>Copywriting e automação com agentes, freelance</h3><p>Editora de cursos preparatórios para concursos. Lançamentos, WhatsApp, e-mail e páginas de vendas, com aprovação do responsável de copy.</p></div></li>
     <li><span class="quando">2026</span><div class="oque"><h3>Marketing e produção criativa</h3><p>Planejamento de estudos: identidade visual em código, peças digitais e pipelines de conteúdo educacional.</p></div></li>
@@ -168,7 +168,7 @@
 
 <section class="secao faixa" id="contato" aria-labelledby="titulo-contato"><div class="contato"><h2 id="titulo-contato">Vamos conversar sobre o próximo projeto.</h2><p class="nota">Aberto a projetos e vagas em automação com agentes de IA, software e produção de conteúdo. Remoto, a partir de Bagé, RS.</p><p class="contato-links"><a href="https://www.linkedin.com/in/franklin-junior-maciel/"><span class="botao-rotulo"><span>LinkedIn</span></span><span class="seta" aria-hidden="true"></span></a><a href="https://github.com/juniormaciel10"><span class="botao-rotulo"><span>GitHub</span></span><span class="seta" aria-hidden="true"></span></a></p><p class="contato-email"><a id="email" href="mailto:jrmaciell92@gmail.com">jrmaciell92@gmail.com</a><button class="copiar" id="copiar" type="button" hidden>Copiar e-mail</button></p><p class="so-leitor" id="aviso-copia" role="status"></p></div></section>
 </main>
-<footer class="rodape faixa"><p>HTML, CSS e JavaScript.</p><p>© <span id="ano">2026</span> Franklin Junior Maciel.</p></footer>
+<footer class="rodape faixa"><p>HTML, CSS e JavaScript.</p><div class="rodape-status" aria-label="Estado do site"><span class="status-repo">portfolio-site</span><span class="status-item"><span class="status-nome">verificar</span> <span class="status-num" data-suite="verificar">321/321</span></span><span class="status-item"><span class="status-nome">movimento</span> <span class="status-num" data-suite="movimento">45/45</span></span><span class="status-item"><span class="status-nome">galeria</span> <span class="status-num" data-suite="galeria">31/32</span> <span class="status-nota">1 herdado</span></span><span class="status-pub">publicado</span><span class="status-build">build <code id="build-hash"></code> <time id="build-data"></time></span></div><p>© <span id="ano">2026</span> Franklin Junior Maciel.</p></footer>
 <script src="assets/vendor/gsap.min.js" defer></script>
 <script src="assets/vendor/ScrollTrigger.min.js" defer></script>
 <script src="assets/vendor/SplitText.min.js" defer></script>

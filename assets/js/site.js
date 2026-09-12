@@ -592,22 +592,30 @@
         .fromTo('.ci-galeria-quadro', { y: mobile ? 36 : 56, scale: mobile ? .93 : .9, transformOrigin: '50% 0%' }, { y: 0, scale: 1, duration: 1, ease: 'power2.out' }, 0)
         .fromTo('.ci-galeria-imagem', { '--moldura-corte': '82%' }, { '--moldura-corte': '0%', duration: 1 }, 0);
       capitulo('#titulo-experiencia');
-      gsap.set(document.body, { '--fundo-secao': '#111215' });
+      // Fundo por seção (D37, aprovado pelo autor em 11/09/2026): uma família tonal e um clímax. Grafite -> ardósia (Como trabalho) -> grafite-claro
+      // (Método) -> verde de terminal dessaturado (Na prática: a cor dos painéis da captura real) -> grafite (Projetos) -> azul-profundo (Contato).
+      // As superfícies (balões, ficha, cards, bordas) derivam de --fundo-secao por color-mix no CSS, então o ambiente inteiro muda, não só o fundo.
+      const CORES_SECAO = { base: '#111215', trabalho: '#131722', metodo: '#1B1D23', pratica: '#121A16', projetos: '#111215', contato: '#19275C' };
+      gsap.set(document.body, { '--fundo-secao': CORES_SECAO.base });
       const pintarFundo = gsap.quickSetter(document.body, '--fundo-secao');
-      let trechosFundo = [];
+      let trechosFundo = [], corPintada = CORES_SECAO.base;
       const medirFundo = () => {
         const top = seletor => document.querySelector(seletor).getBoundingClientRect().top + scrollY;
+        const trecho = (seletor, de, para, a = .85, b = .35) => ({ inicio: top(seletor) - innerHeight * a, fim: top(seletor) - innerHeight * b, cor: gsap.utils.interpolate(de, para) });
         trechosFundo = [
-          { inicio: top('#metodo') - innerHeight * .85, fim: top('#metodo') - innerHeight * .35, cor: gsap.utils.interpolate('#111215', '#1B1D23') },
-          { inicio: top('#na-pratica') - innerHeight * .85, fim: top('#na-pratica') - innerHeight * .35, cor: gsap.utils.interpolate('#1B1D23', '#111215') },
-          { inicio: top('#contato') - innerHeight * .92, fim: top('#contato') - innerHeight * .4, cor: gsap.utils.interpolate('#111215', '#19275C') }
+          trecho('#como-trabalho', CORES_SECAO.base, CORES_SECAO.trabalho),
+          trecho('#metodo', CORES_SECAO.trabalho, CORES_SECAO.metodo),
+          trecho('#na-pratica', CORES_SECAO.metodo, CORES_SECAO.pratica),
+          trecho('#projetos', CORES_SECAO.pratica, CORES_SECAO.projetos),
+          trecho('#contato', CORES_SECAO.projetos, CORES_SECAO.contato, .92, .4)
         ];
       };
       const atualizarFundo = self => {
         const posicao = self.scroll();
-        let cor = '#111215';
+        let cor = CORES_SECAO.base;
         trechosFundo.forEach(trecho => { if (posicao >= trecho.inicio) cor = trecho.cor(gsap.utils.clamp(0, 1, (posicao - trecho.inicio) / (trecho.fim - trecho.inicio))); });
-        pintarFundo(cor);
+        // Só pinta quando muda: fora das zonas de transição não há recálculo de estilo (as superfícies derivadas dependem desta variável).
+        if (cor !== corPintada) { corPintada = cor; pintarFundo(cor); }
       };
       medirFundo();
       ScrollTrigger.create({ id: 'fundo-secoes', start: 0, end: 'max', scrub: true, onUpdate: atualizarFundo, onRefresh: self => { medirFundo(); atualizarFundo(self); } });
@@ -670,6 +678,32 @@
     });
   }
   document.getElementById('ano').textContent = String(new Date().getFullYear());
+  // Textura de editor (D37): numeração de linha na margem esquerda de Método e Projetos, só quando a margem existe (>=1440px). Decorativa,
+  // fora da árvore de acessibilidade e fora do fluxo (absoluta): não muda medida alguma do conteúdo.
+  const gutters = ['metodo', 'projetos'].map(id => { const secao = document.getElementById(id); const g = document.createElement('div'); g.className = 'gutter'; g.setAttribute('aria-hidden', 'true'); secao.append(g); return { secao, g }; });
+  const numerarGutters = () => {
+    const largo = matchMedia('(min-width: 1440px)').matches;
+    gutters.forEach(({ secao, g }) => {
+      if (!largo) { g.replaceChildren(); return; }
+      const linhas = Math.min(400, Math.floor(secao.getBoundingClientRect().height / 24));
+      if (g.childElementCount === linhas) return;
+      g.replaceChildren(...Array.from({ length: linhas }, (_, i) => { const s = document.createElement('span'); s.textContent = String(i + 1).padStart(2, '0'); return s; }));
+    });
+  };
+  numerarGutters();
+  window.addEventListener('resize', numerarGutters, { passive: true });
+  if (window.ResizeObserver) gutters.forEach(({ secao }) => new ResizeObserver(numerarGutters).observe(secao));
+  // Carimbo de build (D37): assets/build.json é gravado DEPOIS do commit de conteúdo e aponta para ele (commit + data); a suíte confere.
+  // No arquivo único (file://) o JSON vem embutido; sem JSON e sem JS, o rodapé fica sem o carimbo (nada inventado).
+  const carimbar = dados => {
+    if (!dados || !/^[0-9a-f]{7,40}$/.test(dados.commit || '')) return;
+    const hash = document.getElementById('build-hash'), data = document.getElementById('build-data');
+    if (hash) hash.textContent = dados.commit.slice(0, 7);
+    if (data && /^\d{4}-\d{2}-\d{2}/.test(dados.data || '')) { const [a, m, d] = dados.data.slice(0, 10).split('-'); data.textContent = `${d}/${m}/${a}`; data.setAttribute('datetime', dados.data.slice(0, 10)); }
+  };
+  const embutido = document.getElementById('build-json');
+  if (embutido) { try { carimbar(JSON.parse(embutido.textContent)); } catch (e) { /* carimbo ausente: rodapé fica sem hash */ } }
+  else if (location.protocol !== 'file:') fetch('assets/build.json', { cache: 'no-cache' }).then(r => r.ok ? r.json() : null).then(carimbar).catch(() => {});
   iniciarGaleria();
   aplicarMovimento();
   if (document.fonts) document.fonts.ready.then(() => { fontesProntas = true; aplicarMovimento(); });

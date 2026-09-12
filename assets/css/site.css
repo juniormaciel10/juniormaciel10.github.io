@@ -44,7 +44,9 @@
 }
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; scrollbar-color: var(--borda) var(--fundo); }
-body { --fundo-secao: var(--fundo); margin: 0; background: var(--fundo-secao); color: var(--texto); font-family: var(--sans); font-size: var(--t-corpo); line-height: 1.65; overflow-wrap: anywhere; -webkit-font-smoothing: antialiased; }
+/* Superfícies DERIVADAS do fundo da seção (D37): quando --fundo-secao muda pela rolagem, balões, ficha, cards e bordas mudam junto (color-mix
+   com o texto, em sRGB). Em #111215 reproduzem exatamente os tokens antigos: superfície #1B1D23 (6%), superfície-2 #242730 (10%), borda #393E4A (23.5%). */
+body { --fundo-secao: var(--fundo); --superficie: color-mix(in srgb, var(--fundo-secao) 94%, var(--texto) 6%); --superficie-2: color-mix(in srgb, var(--fundo-secao) 90%, var(--texto) 10%); --borda: color-mix(in srgb, var(--fundo-secao) 76.5%, var(--texto) 23.5%); margin: 0; background: var(--fundo-secao); color: var(--texto); font-family: var(--sans); font-size: var(--t-corpo); line-height: 1.65; overflow-wrap: anywhere; -webkit-font-smoothing: antialiased; }
 /* Grão estático no viewport: nunca cria uma área rolável nem recebe eventos. */
 body::before { content: ""; position: fixed; inset: 0; z-index: 25; pointer-events: none; opacity: .035; mix-blend-mode: soft-light; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='grao'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.84' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23fff' filter='url(%23grao)' d='M0 0h180v180H0z'/%3E%3C/svg%3E"); }
 .linha-titulo { overflow: visible; }
@@ -97,22 +99,27 @@ code { font-size: .875em; overflow-wrap: anywhere; }
 /* overflow: clip: a imagem em scale 1.08 vazava 19px abaixo da faixa de 480px no mobile e cortava o 2.º parágrafo (revisão de 11/09/2026). */
 .hero-fundo { position: absolute; z-index: 0; inset: 0; overflow: clip; pointer-events: none; }
 .hero-fundo img { width: 100%; height: 100%; max-width: none; object-fit: cover; object-position: 50% 30%; scale: 1.08; filter: grayscale(.35) brightness(.9); }
-.hero-veu { position: absolute; inset: 0; background: linear-gradient(180deg, rgb(17 18 21 / var(--veu-a)) 0%, rgb(17 18 21 / var(--veu-b)) var(--veu-b-pos), rgb(17 18 21 / var(--veu-c)) var(--veu-c-pos), var(--fundo) var(--veu-fim), var(--fundo) 100%); }
+.hero-veu { position: absolute; inset: 0; background: linear-gradient(180deg, rgb(17 18 21 / var(--veu-a)) 0%, rgb(17 18 21 / var(--veu-b)) var(--veu-b-pos), rgb(17 18 21 / var(--veu-c)) var(--veu-c-pos), var(--fundo-secao) var(--veu-fim), var(--fundo-secao) 100%); }
 .hero-conteudo { position: relative; z-index: 1; padding-block: clamp(2.5rem, 4vw, 3.5rem) 1rem; }
 .titulo { font-size: var(--t-h1); line-height: 1; letter-spacing: -.03em; text-wrap: pretty; max-width: 100%; }
+/* Cursor de terminal depois do nome (D37): só quando a entrada por linhas já reverteu o DOM (senão cairia numa linha própria durante o split). */
+.titulo::after { content: "" / ""; display: none; width: .38em; height: .82em; margin-left: .06em; vertical-align: -.06em; border-radius: .04em; background: var(--cobalto); animation: cursor-terminal 1.15s steps(1, end) infinite; }
+.hero[data-entrada="concluida"] .titulo::after { display: inline-block; }
+@keyframes cursor-terminal { 50% { opacity: 0; } }
 .hero-intro { max-width: 42ch; margin-top: 1.5rem; color: var(--foco); font-family: var(--display); font-weight: 600; font-size: clamp(1.65rem, 3.1vw, 2.75rem); line-height: 1.18; letter-spacing: -.02em; }
 .hero-apresentacao { position: relative; display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); align-items: start; gap: 2rem clamp(2rem, 5vw, 5rem); margin-top: 1.5rem; }
 /* Painel ancorado ao CONTEÚDO: o véu em % só ficava sólido antes dos parágrafos em 1440 e 390; entre 768 e 1280 a coluna única sobe os
    parágrafos e o texto assentava sobre os terminais (revisão de 11/09/2026). Este painel começa --painel-fade acima dos parágrafos, fica
    sólido --painel-solido acima deles e cobre o resto do hero, em qualquer largura; o teste recompõe véu+painel no canvas. */
-.hero-apresentacao::before { content: ""; position: absolute; z-index: -1; left: -100vw; right: -100vw; top: calc(-1 * var(--painel-fade)); bottom: -100vh; pointer-events: none; background: linear-gradient(180deg, rgb(17 18 21 / 0) 0, var(--fundo) calc(var(--painel-fade) - var(--painel-solido)), var(--fundo) 100%); }
+.hero-apresentacao::before { content: ""; position: absolute; z-index: -1; left: -100vw; right: -100vw; top: calc(-1 * var(--painel-fade)); bottom: -100vh; pointer-events: none; background: linear-gradient(180deg, rgb(17 18 21 / 0) 0, var(--fundo-secao) calc(var(--painel-fade) - var(--painel-solido)), var(--fundo-secao) 100%); }
 .hero-texto { max-width: 70ch; color: var(--prata); }
 .hero-texto p + p { margin-top: 1.25rem; color: var(--texto-2); }
 .hero-ficha { margin: 0; min-width: 0; padding: .5rem 1.5rem; background: var(--superficie); border-top: 1px solid var(--filete-luz); border-radius: var(--raio-papel); box-shadow: var(--sombra-papel); }
 .hero-ficha > div { position: relative; display: grid; grid-template-columns: 5.25rem minmax(0, 1fr); gap: .5rem 1rem; padding-block: .875rem; }
 .ficha-filete { position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--borda); transform-origin: left; pointer-events: none; }
 .hero-ficha > div:first-child .ficha-filete { display: none; }
-.hero-ficha dt { font-size: .8125rem; color: var(--texto-2); }
+.hero-ficha dt { font-size: .8125rem; color: var(--texto-2); font-family: var(--mono); font-weight: 450; letter-spacing: -.01em; }
+.hero-ficha dd { font-variant-numeric: tabular-nums slashed-zero; }
 .hero-ficha dd { margin: 0; font-size: .875rem; color: var(--prata); }
 .hero-acoes { display: flex; flex-wrap: wrap; gap: .75rem; align-items: start; margin-top: 1.5rem; }
 .botao { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; gap: 1.25rem; border: 1px solid transparent; border-radius: var(--raio); padding: .75rem 1.1rem; font-size: .875rem; font-weight: 500; text-decoration: none; }
@@ -132,7 +139,10 @@ code { font-size: .875em; overflow-wrap: anywhere; }
 .operacao-software { background: var(--cobalto); color: var(--texto); }
 .operacao-campanhas { background: var(--lavanda); }
 .operacao-conteudo { background: var(--salvia); }
-.origem-cena { font-family: var(--display); font-size: clamp(1.2rem, 2.05vw, 1.75rem); font-weight: 600; letter-spacing: -.025em; line-height: 1.15; }
+.origem-cena { display: inline-flex; align-items: center; gap: .45em; min-width: 0; font-family: var(--display); font-size: clamp(1.2rem, 2.05vw, 1.75rem); font-weight: 600; letter-spacing: -.025em; line-height: 1.15; }
+/* Ícones dos destinos (D37): mesmo traço das setas; só a partir de 768px (em 390 a célula de origem tem ~110px). */
+.icone-origem { display: none; flex: 0 0 auto; width: .95em; height: .95em; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+@media (min-width: 768px) { .icone-origem { display: block; } }
 .caminho-cena { width: 100%; height: 12px; display: block; overflow: visible; padding-inline: .5rem; }
 .caminho-cena path { fill: none; stroke: currentColor; stroke-width: 1.5; }
 .caminho-base { opacity: .3; }

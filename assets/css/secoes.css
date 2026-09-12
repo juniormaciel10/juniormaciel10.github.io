@@ -1,6 +1,15 @@
 /* Seções e projetos: texto editorial, registros nos passos a que pertencem. */
 .secao { position: relative; padding-top: clamp(4.5rem, 8vw, 7.5rem); }
 .secao h2 { font-size: var(--t-h2); }
+/* Títulos de seção com voz de terminal (D37): comentário `// 02 #como-trabalho` acima (numeração por contador CSS, âncora real) e prompt ❯ em cobalto
+   antes do texto. Tudo em pseudo-elemento com texto alternativo vazio: não entra na copy nem no leitor de tela; o SplitText divide só o texto do h2. */
+main { counter-reset: secao; }
+main > section { counter-increment: secao; } /* o hero (Quem sou) é a 01; Como trabalho = 02 … Contato = 07 */
+.secao > h2, .secao > .abertura-secao > h2 { position: relative; padding-left: 1.05em; }
+.secao > h2::before, .secao > .abertura-secao > h2::before { content: "// " counter(secao, decimal-leading-zero) "  #" attr(data-ancora) / ""; position: absolute; left: 0; right: 0; top: -2.2rem; font: 450 .75rem/1 var(--mono); letter-spacing: .04em; color: var(--texto-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-variant-numeric: tabular-nums slashed-zero; }
+.secao > h2::after, .secao > .abertura-secao > h2::after { content: "❯" / ""; position: absolute; left: 0; top: 0; font-family: var(--mono); font-weight: 600; color: var(--cobalto); line-height: inherit; }
+#contato h2 { padding-left: 0; }
+#contato h2::before, #contato h2::after { content: none; }
 .abertura-secao { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(2rem, 5vw, 5rem); align-items: end; }
 .abertura-secao > p, .secao-intro { max-width: 70ch; color: var(--texto-2); }
 .secao-intro { margin-top: 1.25rem; }
@@ -71,6 +80,9 @@ summary:hover { text-decoration: underline; text-underline-offset: .25em; }
 .indice a { min-height: 44px; display: inline-flex; align-items: center; font-size: .875rem; color: var(--prata); }
 .projeto { border-top: 1px solid var(--borda); padding-top: 3rem; margin-top: 3rem; min-width: 0; }
 .projeto h3 { font-size: clamp(2rem, 3.2vw, 2.75rem); max-width: 34ch; }
+/* Seleção de editor atrás dos títulos dos projetos (D37): mesmo desenho do pill dos passos do Método, fixo. */
+.projeto h3 { position: relative; width: fit-content; z-index: 0; }
+.projeto h3::before { content: ""; position: absolute; z-index: -1; inset: -.28em -.5em; background: var(--superficie); border-radius: var(--raio); pointer-events: none; }
 .projeto h4 { font-size: 1.45rem; }
 .ciclo-titulo h3 { font-size: clamp(2.5rem, 4.8vw, 4rem); max-width: 28ch; }
 .ciclo-titulo > p { color: var(--salvia); margin-top: .75rem; font-size: 1.1875rem; }
@@ -188,7 +200,7 @@ html.movimento-ativo .ci-dialog[open]::backdrop { opacity: 1; }
 .experiencia-grade { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: clamp(2rem, 7vw, 6rem); margin-top: 2.5rem; }
 .tempo { padding: 0; margin: 0; list-style: none; }
 .tempo li { display: grid; grid-template-columns: 6rem minmax(0, 1fr); gap: 1.25rem; padding-block: 1.4rem; border-top: 1px solid var(--borda); }
-.quando { font-size: .8125rem; color: var(--texto-2); font-variant-numeric: tabular-nums; }
+.quando { font-size: .8125rem; color: var(--texto-2); font-family: var(--mono); font-weight: 450; letter-spacing: -.01em; font-variant-numeric: tabular-nums slashed-zero; }
 .quando.vazio { font-style: italic; }
 .oque h3 { font-family: var(--sans); font-size: 1rem; font-weight: 500; letter-spacing: -.01em; line-height: 1.45; }
 .oque p { margin-top: .5rem; font-size: .875rem; color: var(--texto-2); max-width: 70ch; }
@@ -208,6 +220,29 @@ html.movimento-ativo .ci-dialog[open]::backdrop { opacity: 1; }
 .contato-email a { display: inline-flex; align-items: center; min-height: 44px; color: var(--texto); text-underline-offset: .25em; }
 .copiar { min-height: 44px; padding: .6rem 1rem; border: 1px solid var(--prata); color: var(--texto); background: transparent; border-radius: var(--raio); font-size: .8125rem; }
 .rodape { padding-block: 2rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: .75rem 2rem; color: var(--texto-2); font-size: .75rem; }
+/* Barra de status (D37): números REAIS das suítes (cada suíte confere o seu) e o carimbo do commit publicado (assets/build.json). */
+.rodape-status { flex: 1 1 100%; order: 1; display: flex; flex-wrap: wrap; align-items: center; gap: .35rem 1.35rem; padding: .55rem .9rem; border: 1px solid var(--borda); border-radius: var(--raio); background: color-mix(in srgb, var(--fundo-secao) 88%, black 12%); font-family: var(--mono); font-size: .75rem; font-variant-numeric: tabular-nums slashed-zero; color: var(--texto-2); }
+.rodape > p { order: 2; }
+.status-repo::before { content: "❯ " / ""; color: var(--cobalto); }
+.status-nome { color: var(--texto-2); }
+.status-num { color: var(--salvia); }
+.status-nota { color: var(--texto-2); opacity: .8; }
+.status-nota::before { content: "(" / ""; } .status-nota::after { content: ")" / ""; }
+.status-pub::before { content: "● " / ""; color: #D08CFF; }
+.status-build code { font: inherit; color: var(--foco); background: color-mix(in srgb, var(--fundo-secao) 80%, var(--texto) 20%); padding: .1em .4em; border-radius: 4px; }
+.status-build code:empty { display: none; }
+.status-build time:empty { display: none; }
+.status-build:has(code:empty) { display: none; }
+/* Textura de editor (D37): numeração de linha na margem esquerda e grade de pontos, só nas seções longas (Método e Projetos) e só quando há margem. */
+.gutter { display: none; }
+@media (min-width: 1440px) {
+  .gutter { display: block; position: absolute; top: 0; bottom: 0; left: calc(-1 * var(--lateral) + .5rem); width: 2.25rem; padding-top: clamp(4.5rem, 8vw, 7.5rem); overflow: hidden; pointer-events: none; font: 400 .6875rem/24px var(--mono); font-variant-numeric: tabular-nums slashed-zero; color: var(--texto-2); opacity: .34; text-align: right; border-right: 1px solid color-mix(in srgb, var(--texto) 7%, transparent); }
+  .gutter span { display: block; padding-right: .5rem; }
+}
+@media (min-width: 1024px) {
+  #metodo, #projetos { isolation: isolate; }
+  #metodo::before, #projetos::before { content: ""; position: absolute; z-index: -1; inset: 0; pointer-events: none; background-image: radial-gradient(circle at 1px 1px, rgb(255 255 255 / .06) 1px, transparent 1.4px); background-size: 28px 28px; mask-image: linear-gradient(180deg, transparent 0, black 6rem, black calc(100% - 6rem), transparent 100%); }
+}
 
 
 .experimentos > p { margin-top: .75rem; color: var(--texto-2); }
@@ -283,6 +318,8 @@ html.movimento-ativo .ci-dialog[open]::backdrop { opacity: 1; }
   .ciclo-produto, .incerteza, .contato, .trabalho-texto p, .estrutura-projeto { border: 1px solid CanvasText; }
   .contato { background: Canvas; }
   .contato::before, .passo-texto h4::before, .ci-selecao { display: none !important; }
+  .secao h2::before, .secao h2::after, .titulo::after, .projeto h3::before, #metodo::before, #projetos::before, .gutter { display: none !important; }
+  .secao > h2, .secao > .abertura-secao > h2 { padding-left: 0; }
   .metodo-trilho path { stroke: CanvasText; }
   html.movimento-ativo .ci-miniaturas.indicador-pronto a[aria-current] { border-color: Highlight; }
   .ciclo-produto :focus-visible, .ci-dialog :focus-visible { outline-color: Highlight; }
@@ -292,7 +329,8 @@ html.movimento-ativo .ci-dialog[open]::backdrop { opacity: 1; }
 @media print {
   :root { --fundo: white; --texto: black; --texto-2: #333; --prata: #222; --borda: #aaa; }
   body { --fundo-secao: white !important; }
-  .contato::before { display: none; }
+  .contato::before, .secao h2::before, .secao h2::after, .titulo::after, .projeto h3::before, #metodo::before, #projetos::before, .gutter, .rodape-status { display: none !important; }
+  .secao > h2, .secao > .abertura-secao > h2 { padding-left: 0 !important; }
   .topo, .hero-acoes, .copiar, .ci-dialog, .cena-controles { display: none; }
   .hero, .abertura-secao, .projeto-conteudo, .experiencia-grade { display: block; }
   .faixa-operacao, .ciclo-produto, .incerteza, .contato { background: white; color: black; box-shadow: none; }
