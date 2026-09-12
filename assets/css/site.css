@@ -103,7 +103,7 @@ code { font-size: .875em; overflow-wrap: anywhere; }
 .hero-conteudo { position: relative; z-index: 1; padding-block: clamp(2.5rem, 4vw, 3.5rem) 1rem; }
 .titulo { font-size: var(--t-h1); line-height: 1; letter-spacing: -.03em; text-wrap: pretty; max-width: 100%; }
 /* Cursor de terminal depois do nome (D37): só quando a entrada por linhas já reverteu o DOM (senão cairia numa linha própria durante o split). */
-.titulo::after { content: "" / ""; display: none; width: .38em; height: .82em; margin-left: .06em; vertical-align: -.06em; border-radius: .04em; background: var(--cobalto); animation: cursor-terminal 1.15s steps(1, end) infinite; }
+.titulo::after { content: "" / ""; display: none; width: .16em; height: .74em; margin-left: .08em; vertical-align: -.03em; border-radius: .04em; background: var(--cobalto); animation: cursor-terminal 1.15s steps(1, end) infinite; }
 .hero[data-entrada="concluida"] .titulo::after { display: inline-block; }
 @keyframes cursor-terminal { 50% { opacity: 0; } }
 .hero-intro { max-width: 42ch; margin-top: 1.5rem; color: var(--foco); font-family: var(--display); font-weight: 600; font-size: clamp(1.65rem, 3.1vw, 2.75rem); line-height: 1.18; letter-spacing: -.02em; }
@@ -139,7 +139,7 @@ code { font-size: .875em; overflow-wrap: anywhere; }
 .operacao-software { background: var(--cobalto); color: var(--texto); }
 .operacao-campanhas { background: var(--lavanda); }
 .operacao-conteudo { background: var(--salvia); }
-.origem-cena { display: inline-flex; align-items: center; gap: .45em; min-width: 0; font-family: var(--display); font-size: clamp(1.2rem, 2.05vw, 1.75rem); font-weight: 600; letter-spacing: -.025em; line-height: 1.15; }
+.origem-cena { display: inline-flex; align-items: center; gap: .45em; min-width: 0; overflow-wrap: anywhere; font-family: var(--display); font-size: clamp(1.2rem, 2.05vw, 1.75rem); font-weight: 600; letter-spacing: -.025em; line-height: 1.15; }
 /* Ícones dos destinos (D37): mesmo traço das setas; só a partir de 768px (em 390 a célula de origem tem ~110px). */
 .icone-origem { display: none; flex: 0 0 auto; width: .95em; height: .95em; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
 @media (min-width: 768px) { .icone-origem { display: block; } }
@@ -216,7 +216,7 @@ html.movimento-ativo a:hover .seta { transform: translateX(4px); }
   .hero-acoes { margin-top: 1.25rem; }
   .hero-acoes .botao { padding-inline: .875rem; gap: .75rem; }
   .cena-frentes { margin-top: 2rem; }
-  .faixa-operacao { min-height: 60px; padding: .65rem .875rem; grid-template-columns: minmax(0, 1fr) 2.5rem minmax(0, 1.25fr); }
+  .faixa-operacao { min-height: 60px; padding: .65rem .875rem; grid-template-columns: fit-content(60%) minmax(1.25rem, 2.5rem) minmax(0, 1fr); column-gap: .5rem; }
   .caminho-cena { padding-inline: .25rem; }
   .origem-cena { font-size: 1.2rem; }
   .entrega-cena { font-size: .8125rem; gap: .4rem; }

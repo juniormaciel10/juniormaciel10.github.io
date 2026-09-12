@@ -82,7 +82,7 @@ summary:hover { text-decoration: underline; text-underline-offset: .25em; }
 .projeto h3 { font-size: clamp(2rem, 3.2vw, 2.75rem); max-width: 34ch; }
 /* Seleção de editor atrás dos títulos dos projetos (D37): mesmo desenho do pill dos passos do Método, fixo. */
 .projeto h3 { position: relative; width: fit-content; z-index: 0; }
-.projeto h3::before { content: ""; position: absolute; z-index: -1; inset: -.28em -.5em; background: var(--superficie); border-radius: var(--raio); pointer-events: none; }
+.projeto h3::before { content: ""; position: absolute; z-index: -1; inset: -.28em min(.5em, .75rem); background: var(--superficie); border-radius: var(--raio); pointer-events: none; }
 .projeto h4 { font-size: 1.45rem; }
 .ciclo-titulo h3 { font-size: clamp(2.5rem, 4.8vw, 4rem); max-width: 28ch; }
 .ciclo-titulo > p { color: var(--salvia); margin-top: .75rem; font-size: 1.1875rem; }
@@ -309,6 +309,8 @@ html.movimento-ativo .ci-dialog[open]::backdrop { opacity: 1; }
   .tempo li { grid-template-columns: minmax(0, 1fr); gap: .5rem; }
   .tempo-formacao { grid-template-columns: minmax(0, 1fr); gap: 0; }
   .contato { padding: 2rem 1.5rem; }
+  /* Em coluna estreita o título escala com a largura: a 2,6rem "Vamos conversar" (316px) não cabia em 302px e o balance abria 4–5 linhas. */
+  .contato h2 { max-width: none; font-size: clamp(1.5rem, 7.6vw, 2.6rem); }
   .contato .nota { font-size: .9375rem; }
   .contato-links { gap: .75rem 2rem; }
   .contato-links a { gap: 2rem; font-size: 1rem; }
