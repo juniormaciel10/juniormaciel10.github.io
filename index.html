@@ -4,6 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="dark">
+  <script>
+    document.documentElement.classList.add('js');
+    document.addEventListener('error', function (event) {
+      if (event.target.tagName === 'SCRIPT' && event.target.src) document.documentElement.classList.remove('js');
+    }, true);
+  </script>
   <meta name="description" content="Franklin Junior Maciel. Projetos em software, conteúdo e automação com agentes de IA.">
   <title>Franklin Junior Maciel · Projetos e tecnologia</title>
   <meta name="theme-color" content="#0c1017">
@@ -42,7 +48,7 @@
   }
 }
 </script>
-<link rel="stylesheet" href="assets/css/site.3d0041a19870.css">
+<link rel="stylesheet" href="assets/css/site.cf46b2629174.css">
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
@@ -643,6 +649,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
   -->
-  <script src="assets/js/site.5d0bbee2ddae.js" defer></script>
+  <script src="assets/js/site.b092c9602a26.js" defer></script>
 </body>
 </html>
