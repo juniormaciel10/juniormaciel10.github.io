@@ -57,6 +57,8 @@ summary:hover { text-decoration: underline; text-underline-offset: .25em; }
 .metodo-passos .registro-execucao { margin: .5rem 0 0 calc((100% - clamp(1.5rem, 4vw, 4rem)) * .55 / 1.55 + clamp(1.5rem, 4vw, 4rem)); }
 /* A escala nativa preserva a leitura. O overflow pertence só à região focável. */
 .registro-rolagem { max-width: 100%; overflow-x: auto; overscroll-behavior-x: contain; margin-block: 1.25rem .875rem; padding: 6px; background: #0C0D0E; scrollbar-color: var(--foco) var(--superficie); scrollbar-width: auto; }
+/* A folha da Lenis contém os dois eixos por padrão. Aqui só o horizontal é local. */
+.lenis .registro-rolagem { overscroll-behavior-y: auto; }
 .registro-rolagem .registro-imagem { width: max-content; max-width: none; margin: 0; box-shadow: none; }
 .registro-rolagem img { max-width: none; }
 /* Reserva anterior ao lazy load: atributos HTML sozinhos não dimensionam max-content. */

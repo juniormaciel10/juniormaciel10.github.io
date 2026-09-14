@@ -26,8 +26,13 @@
     gsap.registerPlugin(ScrollTrigger, SplitText, Flip, DrawSVGPlugin, CustomEase);
     CustomEase.create('montagem', 'M0,0 C0.16,1 0.3,1 1,1');
   }
-  // Mudança de altura lazy deve atualizar os gatilhos, não apenas o cabeçalho.
-  document.querySelectorAll('img[loading="lazy"]').forEach(img => img.addEventListener('load', atualizarLayout));
+  // Só mudanças reais de tamanho pedem novo cálculo. As imagens da galeria
+  // alternam dentro de uma moldura fixa e não devem recalcular a página inteira.
+  if ('ResizeObserver' in window) {
+    new ResizeObserver(atualizarLayout).observe(document.getElementById('conteudo'));
+  } else {
+    document.querySelectorAll('img[loading="lazy"]').forEach(img => img.addEventListener('load', atualizarLayout));
+  }
   if ('IntersectionObserver' in window) new IntersectionObserver(([entrada]) => {
     topo.classList.toggle('topo-preso', !entrada.isIntersecting);
   }).observe(document.querySelector('.topo-sentinela'));
@@ -47,12 +52,15 @@
     if (layoutPendente) return;
     layoutPendente = requestAnimationFrame(() => {
       layoutPendente = 0;
-      if (motor) ScrollTrigger.refresh();
+      if (motor) ScrollTrigger.refresh(true);
       atualizarNavegacao();
       sincronizarCena();
     });
   }
   window.addEventListener('scroll', () => {
+    // Teclado, barra de rolagem e ancoragem do navegador têm prioridade sobre
+    // uma inércia anterior. Sem sincronizar, a Lenis puxava a página de volta.
+    if (lenis && lenis.isScrolling === 'smooth' && Math.abs(lenis.actualScroll - lenis.animatedScroll) > 2) lenis.reset();
     if (!navPendente) navPendente = requestAnimationFrame(() => { atualizarNavegacao(); sincronizarCena(); });
   }, { passive: true });
   if ('ResizeObserver' in window) {
@@ -567,7 +575,13 @@
       if (desktop && fino && typeof Lenis !== 'undefined') {
         // respectReducedMotion: false de propósito: o site não consulta prefers-reduced-motion (decisão do autor, 10/09/2026); a Lenis também não deve,
         // senão zeraria a suavidade por conta própria em máquinas com "Efeitos de animação" desligado.
-        lenis = new Lenis({ lerp: .1, wheelMultiplier: 1, smoothWheel: true, syncTouch: false, autoRaf: false, anchors: false, allowNestedScroll: true, respectReducedMotion: false });
+        lenis = new Lenis({
+          lerp: .1, wheelMultiplier: 1, smoothWheel: true, syncTouch: false,
+          autoRaf: false, anchors: false, allowNestedScroll: true, respectReducedMotion: false,
+          // Shift + roda conserva a leitura lateral dos registros. A roda vertical
+          // segue na mesma instância de Lenis, mesmo com o ponteiro sobre um quadro.
+          virtualScroll: ({ event }) => !(event.shiftKey && event.target.closest?.('.registro-rolagem'))
+        });
         lenis.on('scroll', ScrollTrigger.update);
         rafLenis = tempo => lenis.raf(tempo * 1000);
         gsap.ticker.add(rafLenis);
