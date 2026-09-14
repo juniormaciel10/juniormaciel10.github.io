@@ -49,6 +49,7 @@ html { -webkit-text-size-adjust: 100%; scrollbar-color: var(--borda) var(--fundo
 body { --fundo-secao: var(--fundo); --superficie: color-mix(in srgb, var(--fundo-secao) 94%, var(--texto) 6%); --superficie-2: color-mix(in srgb, var(--fundo-secao) 90%, var(--texto) 10%); --borda: color-mix(in srgb, var(--fundo-secao) 76.5%, var(--texto) 23.5%); margin: 0; background: var(--fundo-secao); color: var(--texto); font-family: var(--sans); font-size: var(--t-corpo); line-height: 1.65; overflow-wrap: anywhere; -webkit-font-smoothing: antialiased; }
 /* Grão estático no viewport: nunca cria uma área rolável nem recebe eventos. */
 body::before { content: ""; position: fixed; inset: 0; z-index: 25; pointer-events: none; opacity: .035; mix-blend-mode: soft-light; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='grao'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.84' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23fff' filter='url(%23grao)' d='M0 0h180v180H0z'/%3E%3C/svg%3E"); }
+html.movimento-ativo :is(h2, h3)[data-entrada="aguardando"] { opacity: 0; }
 .linha-titulo { overflow: visible; }
 .linha-titulo-mask { overflow: clip; }
 [hidden] { display: none !important; }
@@ -247,3 +248,5 @@ html.documento-oculto *, html.documento-oculto *::before, html.documento-oculto 
   .faixa-operacao, .botao { border: 1px solid ButtonText; }
   .caminho-cena path { stroke: CanvasText; }
 }
+
+@media print { :is(h2, h3)[data-entrada] { opacity: 1 !important; } }

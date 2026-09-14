@@ -118,7 +118,9 @@
     const miniaturas = Array.from(galeria.querySelectorAll('[data-ci-tela]'));
     const telas = miniaturas.map(link => ({
       href: link.getAttribute('href'), titulo: link.querySelector('span').textContent,
-      alt: link.dataset.descricao, imagem: link.querySelector('img')
+      alt: link.dataset.descricao, imagem: link.querySelector('img'),
+      largura: Number(link.dataset.ciLargura || link.querySelector('img').getAttribute('width')),
+      altura: Number(link.dataset.ciAltura || link.querySelector('img').getAttribute('height'))
     }));
     const abrir = Array.from(galeria.querySelectorAll('[data-ci-ampliar]'));
     const imagem = document.getElementById('ci-galeria-imagem');
@@ -134,6 +136,8 @@
     const intervaloRotacao = 5000;
     let rotacaoPausada = false, galeriaVisivel = false, ponteiroNaImagem = false;
     let timerRotacao = 0, geracaoRotacao = 0;
+    let pedidoMiniatura = 0, selecionandoMiniatura = false;
+    const imagensPreparadas = new Map();
     let atual = 0, origem = null, fimScroll = 0, tamanhoPendente = 0, transicao = null, tocando = false;
     let trocarMiniatura = indice => selecionar(indice), realinharIndicador = () => {}, cancelarGaleriaVista = () => {}, vistaEmCurso = false;
     const quadros = telas.map((tela, indice) => {
@@ -141,7 +145,9 @@
       quadro.className = 'ci-dialog-tela';
       quadro.setAttribute('aria-label', `Tela ${indice + 1} de ${telas.length} · ${tela.titulo}`);
       if (indice !== atual) quadro.setAttribute('aria-hidden', 'true');
-      const img = tela.imagem.cloneNode();
+      const img = document.createElement('img');
+      img.width = tela.largura;
+      img.height = tela.altura;
       img.alt = tela.alt;
       img.addEventListener('load', () => { if (atual === indice) anunciar(); });
       img.addEventListener('error', () => { if (atual === indice) anunciar(); });
@@ -150,9 +156,22 @@
       return quadro;
     });
     const cliqueNormal = e => !e.defaultPrevented && e.button === 0 && !e.metaKey && !e.ctrlKey && !e.altKey && !e.shiftKey;
+    function prepararImagem(indice) {
+      if (!telas[indice]) return Promise.resolve();
+      if (!imagensPreparadas.has(indice)) {
+        const img = new Image();
+        img.src = telas[indice].href;
+        imagensPreparadas.set(indice, img.decode().catch(error => { imagensPreparadas.delete(indice); throw error; }));
+      }
+      return imagensPreparadas.get(indice);
+    }
+    function carregarQuadro(indice) {
+      const img = quadros[indice]?.querySelector('img');
+      if (img && !img.hasAttribute('src')) img.src = telas[indice].href;
+    }
     function podeRodar() {
       const focoNaGaleria = galeria.contains(document.activeElement) && document.activeElement !== rotacao;
-      return !rotacaoPausada && galeriaVisivel && !document.hidden && !dialog.open && !ponteiroNaImagem && !focoNaGaleria;
+      return !rotacaoPausada && !selecionandoMiniatura && galeriaVisivel && !document.hidden && !dialog.open && !ponteiroNaImagem && !focoNaGaleria;
     }
     function sincronizarRotacao() {
       clearTimeout(timerRotacao);
@@ -163,12 +182,11 @@
       status.setAttribute('aria-live', rodando ? 'off' : 'polite');
       rotacao.textContent = rotacaoPausada ? 'Retomar telas' : 'Pausar telas';
       if (!rodando) return;
+      prepararImagem((atual + 1) % telas.length).catch(() => {});
       timerRotacao = setTimeout(async () => {
         const indice = (atual + 1) % telas.length;
-        const proximaImagem = new Image();
-        proximaImagem.src = telas[indice].href;
         // Só troca por uma imagem pronta; uma falha de rede preserva a tela que já estava aberta.
-        try { await proximaImagem.decode(); } catch { if (geracao === geracaoRotacao) sincronizarRotacao(); return; }
+        try { await prepararImagem(indice); } catch { if (geracao === geracaoRotacao) sincronizarRotacao(); return; }
         if (geracao !== geracaoRotacao || !podeRodar()) return;
         selecionar(indice, !reduzirRotacao.matches);
         sincronizarRotacao();
@@ -206,6 +224,7 @@
       return img.naturalWidth ? tela : tela + ' · Não foi possível carregar. Tente abrir o arquivo da tela.';
     }
     function anunciar() {
+      if (selecionandoMiniatura && !dialog.open) return;
       const texto = mensagem(imagem);
       if (status.textContent !== texto) status.textContent = texto;
       if (dialog.open) {
@@ -222,10 +241,10 @@
     function selecionar(indice, animado = true) {
       atual = Math.max(0, Math.min(telas.length - 1, indice));
       const tela = telas[atual];
-      if (imagem.getAttribute('src') !== tela.href) {
+      if (imagem.getAttribute('src') !== tela.href || (imagem.complete && !imagem.naturalWidth)) {
         imagem.alt = tela.alt;
-        imagem.width = Number(tela.imagem.getAttribute('width'));
-        imagem.height = Number(tela.imagem.getAttribute('height'));
+        imagem.width = tela.largura;
+        imagem.height = tela.altura;
         imagem.src = tela.href;
         if (!dialog.open && animado) animarImagem(imagem);
       }
@@ -244,6 +263,11 @@
       arquivo.href = arquivoDialog.href = tela.href;
       anterior.setAttribute('aria-disabled', String(atual === 0));
       proxima.setAttribute('aria-disabled', String(atual === telas.length - 1));
+      if (dialog.open) {
+        carregarQuadro(atual);
+        carregarQuadro(atual - 1);
+        carregarQuadro(atual + 1);
+      }
       anunciar();
       realinharIndicador();
     }
@@ -267,9 +291,18 @@
     }
     imagem.addEventListener('load', anunciar);
     imagem.addEventListener('error', anunciar);
-    miniaturas.forEach((link, indice) => link.addEventListener('click', e => {
+    miniaturas.forEach((link, indice) => link.addEventListener('click', async e => {
       if (!cliqueNormal(e)) return;
       e.preventDefault();
+      const pedido = ++pedidoMiniatura;
+      selecionandoMiniatura = true;
+      sincronizarRotacao();
+      status.textContent = `Tela ${indice + 1} de ${telas.length} · ${telas[indice].titulo} · Carregando imagem…`;
+      galeria.setAttribute('aria-busy', 'true');
+      try { await prepararImagem(indice); } catch { /* A seleção mantém o link e anuncia o erro da imagem. */ }
+      if (pedido !== pedidoMiniatura) return;
+      selecionandoMiniatura = false;
+      galeria.removeAttribute('aria-busy');
       trocarMiniatura(indice);
       sincronizarRotacao();
     }));
@@ -279,6 +312,9 @@
       link.addEventListener('click', e => {
         if (!cliqueNormal(e)) return;
         e.preventDefault();
+        pedidoMiniatura++;
+        selecionandoMiniatura = false;
+        galeria.removeAttribute('aria-busy');
         cancelarGaleriaVista();
         origem = link;
         raiz.classList.add('ci-dialog-aberto');
@@ -286,7 +322,6 @@
         sincronizarRotacao();
         // A página atrás do dialog não rola: a Lenis para; o dialog e o trilho têm data-lenis-prevent e rolam nativos.
         if (lenis) lenis.stop();
-        quadros.forEach(quadro => { quadro.querySelector('img').loading = 'eager'; });
         navegar(atual, false);
       });
     });
@@ -340,9 +375,10 @@
       let vista = null, flip = null;
       function posicionar() {
         const link = miniaturas[atual];
-        indicador.style.width = link.offsetWidth + 'px';
-        indicador.style.height = link.offsetHeight + 'px';
-        indicador.style.transform = `translate(${link.offsetLeft}px, ${link.offsetTop}px)`;
+        const largura = link.offsetWidth, altura = link.offsetHeight, x = link.offsetLeft, y = link.offsetTop;
+        indicador.style.width = largura + 'px';
+        indicador.style.height = altura + 'px';
+        indicador.style.transform = `translate(${x}px, ${y}px)`;
         navMiniaturas.classList.add('indicador-pronto');
       }
       function cancelarVista(aplicar = true) {
@@ -426,8 +462,8 @@
       const titulosDivididos = new Set();
       const limparInteracoes = [];
       let entrada = null, entradaHero = null, inicioPendente = 0, iniciada = false, encerrando = false;
-      // Divide o título em linhas mascaradas JÁ ESCONDIDAS (yPercent 100). Os capítulos abaixo da dobra são divididos no setup, não na hora do
-      // gatilho: antes, o título aparecia inteiro, sumia para as máscaras e só então entrava (pedido do autor, 11/09/2026, D35).
+      // Títulos distantes preservam a geometria e ficam ocultos por CSS. A divisão
+      // em linhas só acontece quando se aproximam da vista, antes da revelação.
       function dividir(titulo) {
         const split = SplitText.create(titulo, { type: 'lines', mask: 'lines', linesClass: 'linha-titulo', aria: 'auto', autoSplit: false });
         gsap.set(split.lines, { yPercent: 100 });
@@ -444,38 +480,73 @@
         });
         timeline.add(registro.tween, posicao);
       }
+      let larguraTitulos = innerWidth;
+      const capitulos = new Map();
+      const preparacaoTitulos = new IntersectionObserver(entradas => {
+        entradas.forEach(entrada => {
+          if (entrada.isIntersecting) capitulos.get(entrada.target)?.preparar();
+        });
+      }, { rootMargin: '25% 0px' });
+      const revelacaoTitulos = new IntersectionObserver(entradas => {
+        entradas.forEach(entrada => {
+          if (entrada.isIntersecting) capitulos.get(entrada.target)?.revelar();
+        });
+      });
+      limparInteracoes.push(() => { preparacaoTitulos.disconnect(); revelacaoTitulos.disconnect(); });
       function concluirTitulos() {
+        if (innerWidth === larguraTitulos) return;
+        larguraTitulos = innerWidth;
         if (entradaHero && entradaHero.progress() < 1) entradaHero.progress(1);
         Array.from(titulosDivididos).forEach(registro => {
-          registro.split.revert(); titulosDivididos.delete(registro);
           if (registro.tween) registro.tween.progress(1);
-          // Pendente (ainda abaixo da dobra): redividir na largura nova, continua escondido até o gatilho.
-          else if (!encerrando && registro.titulo.getBoundingClientRect().top >= innerHeight) dividir(registro.titulo);
+          else {
+            registro.split.revert(); titulosDivididos.delete(registro);
+            if (!encerrando) preparacaoTitulos.observe(registro.titulo);
+          }
         });
       }
       window.addEventListener('resize', concluirTitulos, { passive: true });
       function capitulo(seletor, complementar) {
         const titulo = document.querySelector(seletor);
         const id = titulo.id || titulo.closest('article').id;
-        // Já visível (ou acima) no setup: fica como está, sem entrada. Só o que está abaixo da dobra é pré-escondido e revelado ao entrar.
         if (capitulosConsumidos.has(id) || titulo.getBoundingClientRect().top < innerHeight) {
           capitulosConsumidos.add(id);
           titulo.dataset.entrada = 'concluida';
           return;
         }
         titulo.dataset.entrada = 'aguardando';
-        dividir(titulo);
+        const preparar = () => {
+          if (encerrando || capitulosConsumidos.has(id)) return;
+          if (!Array.from(titulosDivididos).some(r => r.titulo === titulo)) dividir(titulo);
+          preparacaoTitulos.unobserve(titulo);
+        };
         const funcao = 'revelar-' + id;
         configuracao.add(funcao, () => {
           if (encerrando || capitulosConsumidos.has(id)) return;
+          preparar();
           capitulosConsumidos.add(id);
+          preparacaoTitulos.unobserve(titulo);
+          revelacaoTitulos.unobserve(titulo);
           titulo.dataset.entrada = 'em-curso';
           const timeline = gsap.timeline({ id: 'entrada-' + id, onComplete: () => { titulo.dataset.entrada = 'concluida'; } });
           linhas(titulo, timeline);
           if (complementar) complementar(timeline);
         });
-        // 'top bottom': revela no instante em que o título entra na vista (já está escondido nas máscaras); 80% deixava-o oculto na tela.
-        ScrollTrigger.create({ id: 'capitulo-' + id, trigger: titulo, start: 'top bottom', once: true, toggleActions: 'play none none none', onEnter: () => configuracao[funcao]() });
+        capitulos.set(titulo, { preparar, revelar: () => configuracao[funcao]() });
+        preparacaoTitulos.observe(titulo);
+        revelacaoTitulos.observe(titulo);
+      }
+      let tarefasProximas = 0;
+      function quandoProximo(elemento, iniciar, margem = '50% 0px') {
+        const nome = 'proximo-' + (++tarefasProximas);
+        configuracao.add(nome, iniciar);
+        const observador = new IntersectionObserver(entradas => {
+          if (encerrando || !entradas.some(entrada => entrada.isIntersecting)) return;
+          observador.disconnect();
+          configuracao[nome]();
+        }, { rootMargin: margem });
+        observador.observe(elemento);
+        limparInteracoes.push(() => observador.disconnect());
       }
       function magnetizar(seletor) {
         if (!fino) return;
@@ -563,8 +634,10 @@
         estadoCena('aguardando-visibilidade');
         sincronizar();
       });
-      if (!entradaConsumida) configuracao.prepararEntrada();
-      else estadoCena('concluida');
+      if (!entradaConsumida && !cenaVisivel()) {
+        estadoCena('aguardando-visibilidade');
+        quandoProximo(trilhas, () => configuracao.prepararEntrada());
+      } else { entradaConsumida = true; estadoCena('concluida'); }
       sincronizarCena = sincronizar;
       const observador = new IntersectionObserver(sincronizar, { threshold: [0, .4, .7, 1] });
       observador.observe(trilhas);
@@ -594,7 +667,7 @@
       // A captura do fundo fica um pouco atrás do próprio hero (profundidade); a escala 1.08 (≈36px de folga em 900px) cobre os −3%.
       if (desktop) gsap.fromTo('.hero-fundo img', { yPercent: 0 }, { yPercent: -3, ease: 'none', immediateRender: false, scrollTrigger: { id: 'hero-fundo-parallax', trigger: campoHero, start: 'top top', end: 'bottom top', scrub: true, invalidateOnRefresh: true } });
       capitulo('#titulo-trabalho', timeline => {
-        timeline.fromTo('.trabalho-texto > p', { y: mobile ? 19.2 : 32, rotation: i => (i % 2 ? -1 : 1) * (mobile ? .9 : 1.5) }, { y: 0, rotation: 0, duration: mobile ? .54 : .9, stagger: mobile ? .072 : .12, ease: 'montagem' }, .12);
+        timeline.fromTo('.trabalho-texto > p', { y: mobile ? 12 : 20 }, { y: 0, duration: mobile ? .42 : .65, stagger: .08, ease: 'montagem' }, .12);
       });
       capitulo('#titulo-metodo');
       if (desktop) {
@@ -627,30 +700,32 @@
           timeline.fromTo(corpo, { y: mobile ? 10.8 : 18, opacity: .94 }, { y: 0, opacity: 1, duration: mobile ? .42 : .7, ease: 'montagem' }, .12);
         });
       }
-      limparInteracoes.push(prepararGaleriaMovimento(configuracao, mobile));
-      if (fino) {
-        const imagem = document.getElementById('ci-galeria-imagem');
-        const area = imagem.parentElement;
-        gsap.set(imagem, { transformPerspective: 900 });
-        const x = gsap.quickTo(imagem, 'rotationX', { duration: .35, ease: 'montagem' });
-        const y = gsap.quickTo(imagem, 'rotationY', { duration: .35, ease: 'montagem' });
-        const inclinar = e => {
-          if (document.hidden || e.pointerType === 'touch') return;
-          const r = area.getBoundingClientRect(), limite = mobile ? 1.2 : 2;
-          x(gsap.utils.clamp(-limite, limite, (r.top + r.height / 2 - e.clientY) / r.height * limite * 2));
-          y(gsap.utils.clamp(-limite, limite, (e.clientX - r.left - r.width / 2) / r.width * limite * 2));
-        };
-        const assentar = () => { x(0); y(0); };
-        area.addEventListener('pointermove', inclinar); area.addEventListener('pointerleave', assentar);
-        limparInteracoes.push(() => { area.removeEventListener('pointermove', inclinar); area.removeEventListener('pointerleave', assentar); });
-      }
       const cena = (id, trigger, start, end) => gsap.timeline({
         defaults: { ease: 'none' },
         scrollTrigger: { id, trigger, start, end, scrub: true, invalidateOnRefresh: true }
       });
-      cena('quadro-ci', '.ci-galeria-grade', 'top 92%', 'top 34%')
-        .fromTo('.ci-galeria-quadro', { y: mobile ? 36 : 56, scale: mobile ? .93 : .9, transformOrigin: '50% 0%' }, { y: 0, scale: 1, duration: 1, ease: 'power2.out' }, 0)
-        .fromTo('.ci-galeria-imagem', { '--moldura-corte': '82%' }, { '--moldura-corte': '0%', duration: 1 }, 0);
+      quandoProximo(document.getElementById('ci-galeria'), () => {
+        limparInteracoes.push(prepararGaleriaMovimento(configuracao, mobile));
+        if (fino) {
+          const imagem = document.getElementById('ci-galeria-imagem');
+          const area = imagem.parentElement;
+          gsap.set(imagem, { transformPerspective: 900 });
+          const x = gsap.quickTo(imagem, 'rotationX', { duration: .35, ease: 'montagem' });
+          const y = gsap.quickTo(imagem, 'rotationY', { duration: .35, ease: 'montagem' });
+          const inclinar = e => {
+            if (document.hidden || e.pointerType === 'touch') return;
+            const r = area.getBoundingClientRect(), limite = mobile ? 1.2 : 2;
+            x(gsap.utils.clamp(-limite, limite, (r.top + r.height / 2 - e.clientY) / r.height * limite * 2));
+            y(gsap.utils.clamp(-limite, limite, (e.clientX - r.left - r.width / 2) / r.width * limite * 2));
+          };
+          const assentar = () => { x(0); y(0); };
+          area.addEventListener('pointermove', inclinar); area.addEventListener('pointerleave', assentar);
+          limparInteracoes.push(() => { area.removeEventListener('pointermove', inclinar); area.removeEventListener('pointerleave', assentar); });
+        }
+        cena('quadro-ci', '.ci-galeria-grade', 'top 92%', 'top 34%')
+          .fromTo('.ci-galeria-quadro', { y: mobile ? 36 : 56, scale: mobile ? .93 : .9, transformOrigin: '50% 0%' }, { y: 0, scale: 1, duration: 1, ease: 'power2.out' }, 0)
+          .fromTo('.ci-galeria-imagem', { '--moldura-corte': '82%' }, { '--moldura-corte': '0%', duration: 1 }, 0);
+      });
       capitulo('#titulo-experiencia');
       // Fundo por seção (D37, aprovado pelo autor em 11/09/2026): uma família tonal e um clímax. Grafite -> ardósia (Como trabalho) -> grafite-claro
       // (Método) -> verde de terminal dessaturado (Na prática: a cor dos painéis da captura real) -> grafite (Projetos) -> azul-profundo (Contato).
@@ -735,19 +810,31 @@
   document.getElementById('ano').textContent = String(new Date().getFullYear());
   // Textura de editor (D37): numeração de linha na margem esquerda de Método e Projetos, só quando a margem existe (>=1440px). Decorativa,
   // fora da árvore de acessibilidade e fora do fluxo (absoluta): não muda medida alguma do conteúdo.
-  const gutters = ['metodo', 'projetos'].map(id => { const secao = document.getElementById(id); const g = document.createElement('div'); g.className = 'gutter'; g.setAttribute('aria-hidden', 'true'); secao.append(g); return { secao, g }; });
-  const numerarGutters = () => {
-    const largo = matchMedia('(min-width: 1440px)').matches;
-    gutters.forEach(({ secao, g }) => {
-      if (!largo) { g.replaceChildren(); return; }
-      const linhas = Math.min(400, Math.floor(secao.getBoundingClientRect().height / 24));
-      if (g.childElementCount === linhas) return;
-      g.replaceChildren(...Array.from({ length: linhas }, (_, i) => { const s = document.createElement('span'); s.textContent = String(i + 1).padStart(2, '0'); return s; }));
-    });
+  const gutters = ['metodo', 'projetos'].map(id => ({ secao: document.getElementById(id), g: null }));
+  const numerarGutter = registro => {
+    if (!registro.g) return;
+    if (!matchMedia('(min-width: 1440px)').matches) { registro.g.replaceChildren(); return; }
+    const linhas = Math.min(400, Math.floor(registro.secao.getBoundingClientRect().height / 24));
+    if (registro.g.childElementCount === linhas) return;
+    registro.g.replaceChildren(...Array.from({ length: linhas }, (_, i) => {
+      const span = document.createElement('span'); span.textContent = String(i + 1).padStart(2, '0'); return span;
+    }));
   };
-  numerarGutters();
-  window.addEventListener('resize', numerarGutters, { passive: true });
-  if (window.ResizeObserver) gutters.forEach(({ secao }) => new ResizeObserver(numerarGutters).observe(secao));
+  const prepararGutter = registro => {
+    if (!registro.g) {
+      registro.g = document.createElement('div');
+      registro.g.className = 'gutter'; registro.g.setAttribute('aria-hidden', 'true'); registro.secao.append(registro.g);
+      if (window.ResizeObserver) new ResizeObserver(() => numerarGutter(registro)).observe(registro.secao);
+    }
+    numerarGutter(registro);
+  };
+  if ('IntersectionObserver' in window) {
+    const proximidadeGutters = new IntersectionObserver(entradas => {
+      entradas.forEach(entrada => { if (entrada.isIntersecting) { prepararGutter(gutters.find(r => r.secao === entrada.target)); proximidadeGutters.unobserve(entrada.target); } });
+    }, { rootMargin: '150px 0px' });
+    gutters.forEach(r => proximidadeGutters.observe(r.secao));
+  }
+  window.addEventListener('resize', () => gutters.forEach(numerarGutter), { passive: true });
   iniciarGaleria();
   aplicarMovimento();
   if (document.fonts) document.fonts.ready.then(() => { fontesProntas = true; aplicarMovimento(); });

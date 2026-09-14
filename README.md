@@ -1,0 +1,58 @@
+# Franklin Junior Maciel · Portfólio
+
+Site pessoal de automação e orquestração de agentes de IA, publicado em https://juniormaciel10.github.io/.
+
+HTML, CSS e JavaScript, com fontes e bibliotecas de animação locais. O build reúne e minifica CSS/JavaScript, identifica os arquivos por hash e gera um pacote estático para o GitHub Pages.
+
+## Desenvolvimento
+
+Requer Node.js 22 ou superior.
+
+```sh
+npm ci
+npx playwright install chromium
+npm run dev
+```
+
+A prévia abre em `http://127.0.0.1:4175`. Execute `npm run build` após alterar os arquivos-fonte para atualizar a prévia.
+
+## Verificação
+
+```sh
+npm run verify
+```
+
+A suíte usa o próprio Playwright do projeto e verifica layout responsivo, navegação, rolagem, carregamento progressivo, galeria, recuperação de erros, downloads e conteúdo sem JavaScript. Relatórios ficam em `playwright-report/` e evidências em `test-results/`.
+
+Para executar contra o site publicado, configure a variável `SITE_URL`. Os testes usam somente os arquivos e o ambiente deste projeto.
+
+```sh
+npm run audit
+```
+
+O Lighthouse usa a prévia já aberta e salva os relatórios em `artifacts/`. É possível informar outra URL após `--`.
+
+## Publicação
+
+O código-fonte fica em `main`; o pacote compilado de `dist/` é publicado em `gh-pages`. Fontes, capturas completas, PDF e DOCX continuam acessíveis; imagens da página e miniaturas usam formatos otimizados. Arquivos de desenvolvimento não são incluídos no site.
+
+A publicação requer Git e GitHub CLI autenticados, com acesso de escrita ao repositório e à configuração do GitHub Pages. Não exige permissão para criar workflows.
+
+Depois de revisar e commitar as alterações:
+
+```sh
+npm run publish:site
+```
+
+O comando gera o build, executa os testes, confere a integridade do pacote e envia `main` e `gh-pages`, sem sobrescrever o histórico remoto. Também configura o GitHub Pages para servir `gh-pages`. O GitHub conclui a atualização do endereço público após receber o pacote.
+
+`dist/assets/build.json` e `dist/manifest.json` são gerados automaticamente a partir do commit, sem informações técnicas no rodapé e sem um segundo commit manual. O diretório temporário de publicação é removido ao final.
+
+## Estrutura
+
+- `index.html` e `assets/`: conteúdo, estilos, comportamento e mídia.
+- `scripts/`: build, prévia, auditoria e publicação.
+- `tests/`: verificações de interface e funcionamento.
+- `dist/`: saída gerada, não versionada.
+
+GSAP e Lenis mantêm seus avisos de licença. As fontes incluem sua documentação de origem e licença em `assets/fonts/`.

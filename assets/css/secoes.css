@@ -26,10 +26,12 @@ summary:hover { text-decoration: underline; text-underline-offset: .25em; }
 
 /* O método é apresentado antes da demonstração em Na prática. */
 .como-trabalho > h2, .na-pratica > h2 { max-width: 24ch; }
-.trabalho-texto { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 1.25rem; margin-top: 2.5rem; color: var(--prata); }
-.trabalho-texto p { position: relative; grid-column: 1 / 8; max-width: 70ch; padding: clamp(1.5rem, 3vw, 2.5rem); background: var(--superficie); border-top: 1px solid var(--filete-luz); border-radius: var(--raio-campo) var(--raio-campo) var(--raio-campo) 4px; box-shadow: var(--sombra-papel); }
-.trabalho-texto p:nth-child(2) { grid-column: 8 / -1; grid-row: 1 / 3; align-self: center; background: var(--prata); color: var(--tinta); border-radius: var(--raio-campo) var(--raio-campo) 4px var(--raio-campo); }
-.trabalho-texto p:nth-child(3) { grid-column: 2 / 8; background: var(--azul-profundo); color: var(--azul-texto); }
+.trabalho-texto { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: clamp(1.5rem, 4vw, 4rem); margin-top: 2rem; max-width: 76rem; color: var(--prata); }
+.trabalho-texto p { max-width: 62ch; font-size: 1.0625rem; }
+.trabalho-texto p + p { color: var(--texto-2); }
+.processo-detalhes { margin-top: 1.75rem; border-top: 1px solid var(--borda); }
+.processo-detalhes > summary { color: var(--prata); font-weight: 500; }
+.processo-detalhes .trabalho-pratica { margin-top: 1rem; padding-bottom: .75rem; }
 .pratica-texto { margin-top: 2rem; max-width: 70ch; color: var(--texto-2); }
 .registro-mesa { margin-top: 2.5rem; }
 .registro-mesa .registro-imagem { position: relative; width: 100%; margin-top: 0; }
@@ -86,6 +88,17 @@ summary:hover { text-decoration: underline; text-underline-offset: .25em; }
 .ciclo-funcionamento { display: grid; grid-template-columns: minmax(0, .55fr) minmax(0, 1fr); gap: clamp(2rem, 5vw, 5rem); margin-top: 2.5rem; }
 .ciclo-funcionamento .lista-texto { margin-top: 0; }
 .projeto-conteudo { margin-top: 1.5rem; }
+.caso-fatos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 2rem; margin: 1.5rem 0 0; padding-top: 1.25rem; border-top: 1px solid var(--borda); }
+.caso-fatos dt { font-size: .75rem; font-weight: 500; color: var(--texto-2); }
+.caso-fatos dd { margin: .35rem 0 0; max-width: 48ch; font-size: .9375rem; line-height: 1.55; color: var(--prata); }
+.projeto-detalhes { margin-top: 1.75rem; border-top: 1px solid var(--borda); }
+.projeto-detalhes > summary { color: var(--prata); font-weight: 500; }
+.detalhes-projeto { padding-block: 1rem; }
+.detalhes-projeto > :first-child, .detalhes-projeto .ciclo-ideia { margin-top: 0; }
+.detalhes-projeto > p, .detalhes-projeto .lista-texto { color: var(--texto-2); font-size: .9375rem; max-width: 70ch; }
+.detalhes-projeto .inventario { margin-top: 1.5rem; }
+.projeto-texto .caso-resultado { margin-top: 1.5rem; color: var(--prata); }
+
 .projeto-texto { min-width: 0; }
 .projeto-texto p, .projeto-texto .lista-texto { max-width: 70ch; color: var(--texto-2); font-size: .9375rem; }
 .projeto-texto h4 { margin-top: 2rem; }
@@ -99,11 +112,21 @@ summary:hover { text-decoration: underline; text-underline-offset: .25em; }
 .workflow-resumos .projeto-conteudo, .workflow-visual .projeto-conteudo, .workflow-transcricao .projeto-conteudo { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: clamp(2rem, 5vw, 5rem); align-items: start; }
 .workflow-resumos .inventario { align-self: center; }
 .resumo-evidencias { min-width: 0; }
-.resumo-amostra { padding: 1.5rem 0 1.75rem; border-top: 1px solid var(--borda); }
+.resumo-amostra { display: grid; grid-template-columns: minmax(0, 1fr) clamp(6.25rem, 10vw, 9rem); gap: .75rem 1.25rem; align-items: start; padding: 1.5rem; border: 1px solid var(--borda); border-radius: var(--raio-papel); background: var(--superficie); }
+.resumo-amostra > h4, .resumo-amostra > p { grid-column: 1; }
 .resumo-amostra > p { margin-top: .75rem; color: var(--prata); }
 .resumo-amostra .resumo-detalhes { margin-top: .25rem; color: var(--texto-2); font-size: .8125rem; }
-.resumo-amostra .botao { margin-top: 1.25rem; }
+.resumo-amostra .botao { margin-top: 0; }
 .resumo-evidencias .inventario { margin-top: 1rem; }
+.resumo-previa { grid-column: 2; grid-row: 1 / 3; margin: 0; width: 100%; }
+.resumo-previa a { display: block; border-radius: 6px; overflow: clip; background: #fff; }
+.resumo-previa img { width: 100%; height: auto; aspect-ratio: 960 / 1358; }
+.resumo-previa figcaption { margin-top: .75rem; font-size: .75rem; color: var(--texto-2); }
+.resumo-acoes { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1.25rem; }
+.resumo-docx { display: inline-flex; align-items: center; min-height: 44px; color: var(--prata); font-size: .875rem; }
+@media (max-width: 600px) { .caso-fatos { grid-template-columns: minmax(0, 1fr); } .resumo-amostra { padding: 1rem; gap: .75rem; } }
+@media (min-width: 768px) and (max-width: 1100px) { .workflow-resumos .projeto-conteudo { grid-template-columns: minmax(0, 1fr); } }
+
 
 /* Capturas inteiras; miniaturas são links reais mesmo sem o dialog. */
 .ciclo-produto { min-width: 0; margin-top: 2rem; background: var(--superficie); padding: clamp(1rem, 2.5vw, 2rem); border-radius: var(--raio-campo); }
@@ -248,10 +271,6 @@ html.movimento-ativo .ci-dialog[open]::backdrop { opacity: 1; }
   .passo-texto h4 { position: relative; isolation: isolate; width: fit-content; max-width: 100%; margin-bottom: .875rem; }
   .passo-texto h4::before { content: ""; position: absolute; z-index: -1; inset: -.45rem -.65rem; background: var(--superficie-2); border-radius: var(--raio-papel); opacity: var(--passo-superficie, 0); pointer-events: none; }
 }
-@media (hover: hover) and (pointer: fine) {
-  html.movimento-ativo .trabalho-texto p { transition: translate var(--duracao-feedback) var(--ease), box-shadow var(--duracao-feedback) var(--ease); }
-  html.movimento-ativo .trabalho-texto p:hover { translate: 0 -4px; box-shadow: var(--sombra-elevada); }
-}
 @media (hover: hover) {
   .copiar:hover { background: rgb(250 251 252 / .12); border-color: var(--texto); }
 }
@@ -274,7 +293,7 @@ html.movimento-ativo .ci-dialog[open]::backdrop { opacity: 1; }
   .abertura-secao > p, .secao-intro, .trabalho-texto, .pratica-texto { font-size: .9375rem; }
   .registro-mesa { margin-top: 1.75rem; }
   .trabalho-pratica { gap: 2.5rem; }
-  .trabalho-texto p, .trabalho-texto p:nth-child(2), .trabalho-texto p:nth-child(3) { grid-column: auto; grid-row: auto; padding: 1.5rem; }
+  .trabalho-texto p { padding: 0; }
   .metodo-passos { padding-left: 1.5rem; }
   .metodo-passos > li { padding-left: .25rem; }
   .passo-texto { gap: .75rem; }

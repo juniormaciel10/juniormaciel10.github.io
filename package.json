@@ -1,0 +1,26 @@
+{
+  "name": "franklin-maciel-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portfólio de Franklin Junior Maciel",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "preview": "node scripts/serve.mjs",
+    "dev": "npm run build && npm run preview",
+    "test": "playwright test",
+    "verify": "npm run build && npm test",
+    "publish:site": "node scripts/publish.mjs",
+    "audit": "node scripts/audit.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "esbuild": "0.28.2",
+    "lighthouse": "13.4.1"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true
+  }
+}
