@@ -1,0 +1,193 @@
+{
+  "commit": "fa4dbf350d1c183aebb8844f10c534e9ec6a4f4e",
+  "files": {
+    ".nojekyll": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "assets/img/og.png": {
+      "sha256": "30d71d64cfc685a45e45662c28f78956b551f6fd05f88d868f8abd2a3c744652",
+      "bytes": 10437
+    },
+    "assets/img/mesa-hero.png": {
+      "sha256": "cbc0e0b78f0adb0aa9ffde877e895d12e26eb3c1eaea1a4d4fb6d6d6cba0c61d",
+      "bytes": 322160
+    },
+    "assets/img/mesa-real.png": {
+      "sha256": "a67f186480ca0d8571c16aff64821663515e0e39241dc8226baa4d1c8e7783bd",
+      "bytes": 501416
+    },
+    "assets/fonts/ClashDisplay-FFL.txt": {
+      "sha256": "145e7fe2429a3336ba215c070ef722000e01348a3e1baaa127e871bb5012f554",
+      "bytes": 12734
+    },
+    "assets/fonts/ClashDisplay-SOURCE.txt": {
+      "sha256": "9a25b7067bdb6adf110e81fc8c8e6f86f1df88f339b417799e33a21bc304759c",
+      "bytes": 664
+    },
+    "assets/css/fontes.css": {
+      "sha256": "542ea08f5749068825cd7924b856ff8131dd1dcb0cd6821bf070993139a4cdcc",
+      "bytes": 1055
+    },
+    "assets/vendor/lenis.css": {
+      "sha256": "2f668ae84a668327f246faf8a770383a2bf69196d214290fbc4d5548910606c5",
+      "bytes": 513
+    },
+    "assets/css/site.css": {
+      "sha256": "2f37b69cbb0b8a5aebe95bcaffddf4e90abdee5dc348dd1720af16b9c049c7c9",
+      "bytes": 20588
+    },
+    "assets/css/secoes.css": {
+      "sha256": "39bbbf6ca70f93286b81dd18f2363f3302bdddb7db4bbdc2399ed46f75c0ba37",
+      "bytes": 29628
+    },
+    "assets/vendor/gsap.min.js": {
+      "sha256": "92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fbb",
+      "bytes": 72927
+    },
+    "assets/vendor/ScrollTrigger.min.js": {
+      "sha256": "b0b14d67b55b0c43c756ac0b106cfcb09d0879945f6ead64451065b0672916a2",
+      "bytes": 44575
+    },
+    "assets/vendor/SplitText.min.js": {
+      "sha256": "419f7027a5f086a12cb7988736d8fdd3a6ed2200229661de25b6628ca7ced344",
+      "bytes": 7732
+    },
+    "assets/vendor/Flip.min.js": {
+      "sha256": "cbe3ca726350f8d230da38a14ce2384e7772e05a45cee6144dd7fe6dde868c2f",
+      "bytes": 25534
+    },
+    "assets/vendor/DrawSVGPlugin.min.js": {
+      "sha256": "beb19529f54c1212f1f5117d027be01afda2f363a4926d32aa979bc11140edc1",
+      "bytes": 4351
+    },
+    "assets/vendor/CustomEase.min.js": {
+      "sha256": "466e426a5c60c21c94b15a30a3dffacac9bb39ce8f4e07d071d7d4bb1be43390",
+      "bytes": 7143
+    },
+    "assets/vendor/lenis.min.js": {
+      "sha256": "53195c9797e7ce7bf9d7fa9242b08209e57f46de4c9dac126a6494fa780e3346",
+      "bytes": 18722
+    },
+    "assets/js/site.js": {
+      "sha256": "1a87584f1c8ae52c0e9ec902c93ba037017cf4083c87d4f30eb89a1e42d5a248",
+      "bytes": 48497
+    },
+    "assets/fonts/ClashDisplay-Bold.woff2": {
+      "sha256": "aee84bf2818acb62280d04e7e1cf5d9d704c6b65e0930385709b9805fe470331",
+      "bytes": 15428
+    },
+    "assets/fonts/ClashDisplay-Semibold.woff2": {
+      "sha256": "5271b81f6d403a5accdcee2d3791edd3f7d81b9f71efe121fc399f446dc5b591",
+      "bytes": 16576
+    },
+    "assets/fonts/Geist.woff2": {
+      "sha256": "19f9c92546aa300c312235e3125af1b81394d8db9a4bc4a425cd5b641d2d54e1",
+      "bytes": 29400
+    },
+    "assets/fonts/GeistMono.woff2": {
+      "sha256": "684ad5b531f81d43c1e8c7038262d5db7cdc1f68006e04d6c7769efa8d33c8cc",
+      "bytes": 23128
+    },
+    "assets/img/mesa-hero.webp": {
+      "sha256": "3dec254f328a9c604035b1865a4bc238c748559c97151817b031f91b53e85543",
+      "bytes": 239926
+    },
+    "assets/img/execucao-subagentes.png": {
+      "sha256": "c417e4d5c8c62a65b27640ef9e487c5ce786ab0ba573d6277d305a82c60704ad",
+      "bytes": 8874
+    },
+    "assets/img/execucao-supervisao.png": {
+      "sha256": "16064496e86416eaa2d24544f59ec6fcf46826e50aa540add2966714d7c50e72",
+      "bytes": 14801
+    },
+    "assets/img/execucao-validacao.png": {
+      "sha256": "0f813de7db512f13dc302db360d18de8b62e108310e1798e6cd3bfba472d08b1",
+      "bytes": 6766
+    },
+    "assets/img/mesa-real.webp": {
+      "sha256": "ab5161835bd96c2f54c31268ca871ae51aa065442e95a5712b9e729c7fc9d758",
+      "bytes": 300496
+    },
+    "assets/img/estudo-galeria-disponibilidade.png": {
+      "sha256": "61bd3503c279077332274d64c40c1a995264d1012480c34c177ad3c5d8a3f8ab",
+      "bytes": 54502
+    },
+    "assets/img/estudo-thumb-disponibilidade.webp": {
+      "sha256": "4c7e86ec541f69426c6e7ded80f8e42b1397f776d45a84830a2a7306c8f6e510",
+      "bytes": 3242
+    },
+    "assets/img/estudo-galeria-disciplinas.png": {
+      "sha256": "cd00976a0baf442dfbb724a7f64e9ffe0ec66a7c66ca5ea3f1b88018a64aba4f",
+      "bytes": 59986
+    },
+    "assets/img/estudo-thumb-disciplinas.webp": {
+      "sha256": "7bb0731248a95ef1bbbbe9919f6c509f2b2a51f8d92d8d9a78cdb87e3fa38266",
+      "bytes": 3716
+    },
+    "assets/img/estudo-galeria-formatos.png": {
+      "sha256": "47063045088794772b56fcbe7c9cc685a407034bca7609d52a2ed0b50cdcf4d3",
+      "bytes": 59726
+    },
+    "assets/img/estudo-thumb-formatos.webp": {
+      "sha256": "3af593bc80db5b4297e5865efc996229362f2fee7a5d729792d8a3d703fe3205",
+      "bytes": 3632
+    },
+    "assets/img/estudo-galeria-retomada.png": {
+      "sha256": "ca884ed833ad8b09217bbec69bd39dec8a9edf88ae820bd82b8f0d101b72f202",
+      "bytes": 57868
+    },
+    "assets/img/estudo-thumb-retomada.webp": {
+      "sha256": "9869acaa4706caaa55b03f4e9d32ae41d1d71c1fc289486d47228c06991b38a7",
+      "bytes": 3736
+    },
+    "assets/img/estudo-galeria-tarefas.png": {
+      "sha256": "256c42cad7b800acbc04a9a3be95068bde223c46987f68e410bf90b87f507025",
+      "bytes": 84781
+    },
+    "assets/img/estudo-thumb-tarefas.webp": {
+      "sha256": "531903bee61269db77370933863e15532ce539ee0061473f0f2a3db4c814613e",
+      "bytes": 3764
+    },
+    "assets/img/estudo-galeria-revisoes.png": {
+      "sha256": "44ab9a168a8ab932ad03ee023d6f437934d881383e56fa60f1cbae3909b36499",
+      "bytes": 77739
+    },
+    "assets/img/estudo-thumb-revisoes.webp": {
+      "sha256": "23f2ed6ae65f65bca6e7c5bde033f9b497f16205dd74c4ec5aa855b7b2945871",
+      "bytes": 3092
+    },
+    "assets/img/auditoria-inventario.png": {
+      "sha256": "4b19bddb35be5aa2059fd3467a900a18fd38faf4f1cec354ca7e99a672f9235f",
+      "bytes": 3848
+    },
+    "assets/downloads/resumo-inteligencia-artificial.pdf": {
+      "sha256": "0cb787ab5c935a464a85a11b66aeec8798e8cf464ab96be9186a0a4cc1eb3c3c",
+      "bytes": 308010
+    },
+    "assets/img/resumo-ia-previa.webp": {
+      "sha256": "3e710550292e74df6bb0063b3f7850589f385062330331bda214d1e6a22341cd",
+      "bytes": 59718
+    },
+    "assets/downloads/resumo-inteligencia-artificial.docx": {
+      "sha256": "3fdfc0a0def3e8e62299fc1ac91ff628c23433e83b684a2d4f96c73c48a44699",
+      "bytes": 50985
+    },
+    "index.html": {
+      "sha256": "91d021b6dc41e3b7fa311dcd6482b0e78ed783df7440068f0b18aa355734319b",
+      "bytes": 32712
+    },
+    "assets/css/site.54edb4dc0323.css": {
+      "sha256": "54edb4dc03239ebef330c53ef454288b50691d608c459b050d42479b6f879cd6",
+      "bytes": 40885
+    },
+    "assets/js/site.335fa577a2f7.js": {
+      "sha256": "335fa577a2f71778e93ce187679a677cefcbf11725b77e44df3eeadc807058fe",
+      "bytes": 206501
+    },
+    "assets/build.json": {
+      "sha256": "4072b5f9848bad4f97ae8dd4a3fc06ac6f49079d42bf4045f88d004f557ea536",
+      "bytes": 203
+    }
+  }
+}
