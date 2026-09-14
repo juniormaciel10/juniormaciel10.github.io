@@ -2,21 +2,19 @@
 (function () {
   'use strict';
   const raiz = document.documentElement;
-  // Decisão do autor (10/09/2026): movimento ligado por padrão, sem controle de pausa e sem consulta a prefers-reduced-motion.
-  // A única porta é html.movimento-ativo (motor + fontes prontas); sem JS a página fica estática. Risco registrado em DESIGN.md.
+  // Animações das seções ligadas por padrão, conforme decisão do autor (10/09/2026).
+  // A galeria tem pausa própria; movimento reduzido torna suas trocas automáticas instantâneas.
   const motor = typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined' && typeof SplitText !== 'undefined' && typeof Flip !== 'undefined' && typeof DrawSVGPlugin !== 'undefined' && typeof CustomEase !== 'undefined';
   const topo = document.getElementById('topo');
   const menu = document.getElementById('menu');
   const nav = document.getElementById('navegacao');
   const campoHero = document.getElementById('quem-sou');
   const campoCena = document.querySelector('#na-pratica #cena-frentes');
-  const statusCena = document.getElementById('cena-status');
-  const rever = document.getElementById('rever-sequencia');
   const secoes = Array.from(nav.querySelectorAll('a')).map(link => ({ link, alvo: document.querySelector(link.hash) }));
   let ativo = false, contexto = null, entradaConsumida = false, heroConsumido = false;
   // Rolagem suave (Lenis) só existe dentro do contexto de movimento em desktop com ponteiro fino; fora dele a rolagem é nativa.
   let lenis = null;
-  let fontesProntas = !document.fonts, reverEntrada = () => {}, sincronizarCena = () => {};
+  let fontesProntas = !document.fonts, sincronizarCena = () => {};
   let prepararGaleriaMovimento = () => () => {};
   const capitulosConsumidos = new Set();
   let layoutPendente = 0, navPendente = 0, alturaTopo = 0;
@@ -123,6 +121,11 @@
     const arquivoDialog = document.getElementById('ci-dialog-arquivo');
     const anterior = document.getElementById('ci-anterior');
     const proxima = document.getElementById('ci-proxima');
+    const rotacao = document.getElementById('ci-rotacao');
+    const reduzirRotacao = matchMedia('(prefers-reduced-motion: reduce)');
+    const intervaloRotacao = 5000;
+    let rotacaoPausada = false, galeriaVisivel = false, ponteiroNaImagem = false;
+    let timerRotacao = 0, geracaoRotacao = 0;
     let atual = 0, origem = null, fimScroll = 0, tamanhoPendente = 0, transicao = null, tocando = false;
     let trocarMiniatura = indice => selecionar(indice), realinharIndicador = () => {}, cancelarGaleriaVista = () => {}, vistaEmCurso = false;
     const quadros = telas.map((tela, indice) => {
@@ -139,6 +142,56 @@
       return quadro;
     });
     const cliqueNormal = e => !e.defaultPrevented && e.button === 0 && !e.metaKey && !e.ctrlKey && !e.altKey && !e.shiftKey;
+    function podeRodar() {
+      const focoNaGaleria = galeria.contains(document.activeElement) && document.activeElement !== rotacao;
+      return !rotacaoPausada && galeriaVisivel && !document.hidden && !dialog.open && !ponteiroNaImagem && !focoNaGaleria;
+    }
+    function sincronizarRotacao() {
+      clearTimeout(timerRotacao);
+      const geracao = ++geracaoRotacao;
+      const rodando = podeRodar();
+      galeria.dataset.rotacao = rodando ? 'ativa' : 'pausada';
+      // Mudanças automáticas não interrompem a leitura assistiva; seleções manuais continuam anunciadas.
+      status.setAttribute('aria-live', rodando ? 'off' : 'polite');
+      rotacao.textContent = rotacaoPausada ? 'Retomar telas' : 'Pausar telas';
+      if (!rodando) return;
+      timerRotacao = setTimeout(async () => {
+        const indice = (atual + 1) % telas.length;
+        const proximaImagem = new Image();
+        proximaImagem.src = telas[indice].href;
+        // Só troca por uma imagem pronta; uma falha de rede preserva a tela que já estava aberta.
+        try { await proximaImagem.decode(); } catch { if (geracao === geracaoRotacao) sincronizarRotacao(); return; }
+        if (geracao !== geracaoRotacao || !podeRodar()) return;
+        selecionar(indice, !reduzirRotacao.matches);
+        sincronizarRotacao();
+      }, intervaloRotacao);
+    }
+    rotacao.hidden = false;
+    rotacao.addEventListener('click', () => {
+      rotacaoPausada = !rotacaoPausada;
+      sincronizarRotacao();
+    });
+    galeria.addEventListener('focusin', sincronizarRotacao);
+    galeria.addEventListener('focusout', () => queueMicrotask(sincronizarRotacao));
+    imagem.parentElement.addEventListener('pointerenter', e => {
+      if (e.pointerType === 'touch') return;
+      ponteiroNaImagem = true;
+      sincronizarRotacao();
+    });
+    imagem.parentElement.addEventListener('pointerleave', () => { ponteiroNaImagem = false; sincronizarRotacao(); });
+    document.addEventListener('visibilitychange', sincronizarRotacao);
+    window.addEventListener('pagehide', () => { clearTimeout(timerRotacao); geracaoRotacao++; });
+    window.addEventListener('pageshow', sincronizarRotacao);
+    reduzirRotacao.addEventListener('change', () => {
+      if (reduzirRotacao.matches && transicao) { transicao.cancel(); transicao = null; }
+      sincronizarRotacao();
+    });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(([entrada]) => {
+        galeriaVisivel = entrada.isIntersecting && entrada.intersectionRatio >= .35;
+        sincronizarRotacao();
+      }, { threshold: [0, .35] }).observe(imagem);
+    }
     function mensagem(img) {
       const tela = `Tela ${atual + 1} de ${telas.length} · ${telas[atual].titulo}`;
       if (!img.complete) return tela + ' · Carregando imagem…';
@@ -158,7 +211,7 @@
         transicao = img.animate([{ opacity: .6 }, { opacity: 1 }], { duration: 180, easing: 'ease-out' });
       }
     }
-    function selecionar(indice) {
+    function selecionar(indice, animado = true) {
       atual = Math.max(0, Math.min(telas.length - 1, indice));
       const tela = telas[atual];
       if (imagem.getAttribute('src') !== tela.href) {
@@ -166,7 +219,7 @@
         imagem.width = Number(tela.imagem.getAttribute('width'));
         imagem.height = Number(tela.imagem.getAttribute('height'));
         imagem.src = tela.href;
-        if (!dialog.open) animarImagem(imagem);
+        if (!dialog.open && animado) animarImagem(imagem);
       }
       miniaturas.forEach((link, i) => {
         if (i === atual) {
@@ -210,6 +263,7 @@
       if (!cliqueNormal(e)) return;
       e.preventDefault();
       trocarMiniatura(indice);
+      sincronizarRotacao();
     }));
     abrir.forEach(link => {
       link.setAttribute('aria-haspopup', 'dialog');
@@ -221,6 +275,7 @@
         origem = link;
         raiz.classList.add('ci-dialog-aberto');
         dialog.showModal();
+        sincronizarRotacao();
         // A página atrás do dialog não rola: a Lenis para; o dialog e o trilho têm data-lenis-prevent e rolam nativos.
         if (lenis) lenis.stop();
         quadros.forEach(quadro => { quadro.querySelector('img').loading = 'eager'; });
@@ -258,7 +313,10 @@
       tocando = false;
       raiz.classList.remove('ci-dialog-aberto');
       if (lenis) lenis.start();
-      if (origem && origem.isConnected) origem.focus({ preventScroll: true });
+      // O navegador pode devolver o foco antes de emitir close. Se o visitante já
+      // escolheu outro controle, o evento tardio preserva essa escolha.
+      if (origem && origem.isConnected && (document.activeElement === document.body || dialog.contains(document.activeElement))) origem.focus({ preventScroll: true });
+      sincronizarRotacao();
     });
     if ('ResizeObserver' in window) new ResizeObserver(alinhar).observe(trilho);
     else window.addEventListener('resize', alinhar, { passive: true });
@@ -346,13 +404,11 @@
       };
     };
     anunciar();
+    sincronizarRotacao();
   }
 
-  function estadoCena(estado, mensagem) {
+  function estadoCena(estado) {
     campoCena.dataset.estado = estado;
-    if (statusCena.textContent !== mensagem) statusCena.textContent = mensagem;
-    rever.hidden = !motor;
-    rever.setAttribute('aria-disabled', String(!ativo || !fontesProntas || estado === 'em-curso'));
   }
   function iniciarMovimento() {
     contexto = gsap.matchMedia();
@@ -468,7 +524,7 @@
         if (!permitida()) {
           cancelarInicio();
           entrada.pause();
-          if (entrada.progress() < 1) estadoCena(iniciada ? 'suspensa' : 'aguardando-visibilidade', iniciada ? 'Sequência suspensa fora de vista. Continua ao voltar.' : 'Sequência pronta. Começa quando os percursos estiverem visíveis.');
+          if (entrada.progress() < 1) estadoCena(iniciada ? 'suspensa' : 'aguardando-visibilidade');
           return;
         }
         if (entrada.progress() >= 1 || inicioPendente) return;
@@ -478,7 +534,7 @@
           if (encerrando || !entrada || !permitida()) return;
           iniciada = true;
           entradaConsumida = true;
-          estadoCena('em-curso', 'Frentes em movimento, cada uma com seu destino.');
+          estadoCena('em-curso');
           entrada.play();
         });
       }
@@ -490,26 +546,17 @@
         // Medir a folga antes de escrever estilos evita atravessar o nome da frente.
         const distancias = entregas.map(el => Math.min(mobile ? 32 : 104, el.previousElementSibling.getBoundingClientRect().width - 8));
         entrada = gsap.timeline({ id: 'entrada-frentes', paused: true, defaults: { ease: 'power2.inOut' }, onComplete: () => {
-          estadoCena('concluida', 'Sequência concluída. Explore cada percurso ou reveja por ação.');
+          estadoCena('concluida');
         } });
         entrada.addLabel('abrir', 0)
           .fromTo(entregas, { x: i => -Math.max(0, distancias[i]) }, { x: 0, duration: 1.5, stagger: .25 }, 'abrir+=.15')
           .fromTo('.caminho-ativo', { drawSVG: 0 }, { drawSVG: '100%', duration: 1.5, stagger: .25, clearProps: 'strokeDasharray,strokeDashoffset' }, 'abrir+=.2');
         if (!mobile) entrada.fromTo('.seta-destino path', { drawSVG: 0 }, { drawSVG: '100%', duration: .7, stagger: .15, clearProps: 'strokeDasharray,strokeDashoffset' }, 1.2);
-        estadoCena('aguardando-visibilidade', 'Sequência pronta. Começa quando os percursos estiverem visíveis.');
+        estadoCena('aguardando-visibilidade');
         sincronizar();
       });
       if (!entradaConsumida) configuracao.prepararEntrada();
-      else estadoCena('disponivel', 'Animações ativas. Use Rever sequência para ver os percursos.');
-      reverEntrada = () => {
-        if (!permitida() && (!ativo || !fontesProntas)) return;
-        // Com a Lenis ativa, um salto nativo durante uma animação dela seria ignorado; immediate cancela a animação em curso e posiciona na hora.
-        if (!cenaVisivel()) {
-          if (lenis && !lenis.isStopped) lenis.scrollTo(trilhas, { immediate: true, offset: -Math.max(0, (innerHeight - trilhas.getBoundingClientRect().height) / 2) });
-          else trilhas.scrollIntoView({ behavior: 'instant', block: 'center' });
-        }
-        configuracao.prepararEntrada();
-      };
+      else estadoCena('concluida');
       sincronizarCena = sincronizar;
       const observador = new IntersectionObserver(sincronizar, { threshold: [0, .4, .7, 1] });
       observador.observe(trilhas);
@@ -537,7 +584,6 @@
       });
       capitulo('#titulo-metodo');
       if (desktop) {
-        ScrollTrigger.create({ id: 'metodo-pin', trigger: '.estrutura-projeto', pin: true, pinSpacing: true, start: 'top 88px', endTrigger: '.metodo-sequencia', end: 'bottom bottom', invalidateOnRefresh: true });
         gsap.fromTo('.metodo-trilho-progresso', { drawSVG: 0 }, { drawSVG: '100%', ease: 'none', scrollTrigger: { id: 'metodo-trilho', trigger: '.metodo-passos', start: 'top center', end: 'bottom center', scrub: true } });
         document.querySelectorAll('.metodo-passos > li').forEach((passo, i) => {
           gsap.set(passo, { '--passo-luz': .55, '--passo-superficie': 0 });
@@ -560,7 +606,7 @@
       capitulo('#titulo-pratica');
       if (desktop) gsap.fromTo('.registro-mesa .registro-imagem', { y: 24 }, { y: -24, ease: 'none', scrollTrigger: { id: 'mesa-parallax', trigger: '.registro-mesa', start: 'top bottom', end: 'bottom top', scrub: true } });
       capitulo('#titulo-projetos');
-      for (const seletor of ['#titulo-ciclo', '#p-copy > h3', '#p-resumos > h3', '#p-funil > h3', '#p-transcricao > h3', '#experimentos > h3']) {
+      for (const seletor of ['#titulo-ciclo', '#p-resumos > h3', '#p-funil > h3', '#p-transcricao > h3', '#p-copy > h3', '#experimentos > h3']) {
         capitulo(seletor, timeline => {
           const artigo = document.querySelector(seletor).closest('article');
           const corpo = artigo.querySelector('.projeto-conteudo') || artigo.querySelector('.ciclo-titulo > p') || artigo.querySelector(':scope > p');
@@ -638,7 +684,6 @@
         titulosDivididos.clear();
         limparInteracoes.forEach(limpar => limpar());
         document.querySelectorAll('h2[data-entrada], h3[data-entrada]').forEach(titulo => { if (capitulosConsumidos.has(titulo.id || titulo.closest('article')?.id)) titulo.dataset.entrada = 'concluida'; });
-        reverEntrada = () => {};
         sincronizarCena = () => {};
       };
     }, document.getElementById('conteudo'));
@@ -650,17 +695,13 @@
     raiz.classList.toggle('movimento-ativo', motor && fontesProntas);
     if (!motor) {
       campoHero.dataset.entrada = 'estatica';
-      estadoCena('estatica', 'Cena estática. Os percursos estão completos.');
+      estadoCena('estatica');
     } else if (!fontesProntas) {
       campoHero.dataset.entrada = 'aguardando-fontes';
-      estadoCena('aguardando-fontes', 'Preparando a sequência. O conteúdo já está disponível.');
+      estadoCena('aguardando-fontes');
     } else if (!contexto) iniciarMovimento();
     atualizarLayout();
   }
-  rever.addEventListener('click', () => {
-    if (!ativo || !fontesProntas || rever.getAttribute('aria-disabled') === 'true') return;
-    reverEntrada();
-  });
   document.addEventListener('visibilitychange', () => {
     raiz.classList.toggle('documento-oculto', document.hidden);
     if (motor) gsap.globalTimeline.paused(document.hidden);
@@ -693,17 +734,6 @@
   numerarGutters();
   window.addEventListener('resize', numerarGutters, { passive: true });
   if (window.ResizeObserver) gutters.forEach(({ secao }) => new ResizeObserver(numerarGutters).observe(secao));
-  // Carimbo de build (D37): assets/build.json é gravado DEPOIS do commit de conteúdo e aponta para ele (commit + data); a suíte confere.
-  // No arquivo único (file://) o JSON vem embutido; sem JSON e sem JS, o rodapé fica sem o carimbo (nada inventado).
-  const carimbar = dados => {
-    if (!dados || !/^[0-9a-f]{7,40}$/.test(dados.commit || '')) return;
-    const hash = document.getElementById('build-hash'), data = document.getElementById('build-data');
-    if (hash) hash.textContent = dados.commit.slice(0, 7);
-    if (data && /^\d{4}-\d{2}-\d{2}/.test(dados.data || '')) { const [a, m, d] = dados.data.slice(0, 10).split('-'); data.textContent = `${d}/${m}/${a}`; data.setAttribute('datetime', dados.data.slice(0, 10)); }
-  };
-  const embutido = document.getElementById('build-json');
-  if (embutido) { try { carimbar(JSON.parse(embutido.textContent)); } catch (e) { /* carimbo ausente: rodapé fica sem hash */ } }
-  else if (location.protocol !== 'file:') fetch('assets/build.json', { cache: 'no-cache' }).then(r => r.ok ? r.json() : null).then(carimbar).catch(() => {});
   iniciarGaleria();
   aplicarMovimento();
   if (document.fonts) document.fonts.ready.then(() => { fontesProntas = true; aplicarMovimento(); });

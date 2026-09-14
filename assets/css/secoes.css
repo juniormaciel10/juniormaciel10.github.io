@@ -40,20 +40,14 @@ summary:hover { text-decoration: underline; text-underline-offset: .25em; }
 .trabalho-pratica p, .trabalho-pratica .lista-texto { color: var(--texto-2); font-size: .9375rem; max-width: 70ch; }
 .trabalho-pratica p { margin-top: 1.25rem; }
 
-/* Esquema textual, sem fingir screenshot ou caminho de cliente. */
+/* O percurso usa os passos e seus registros reais, em uma coluna contínua. */
 .metodo-percurso { margin-top: 2.5rem; }
-.metodo-mapa, .metodo-sequencia { min-width: 0; }
+.metodo-sequencia { min-width: 0; }
 .metodo-sequencia { position: relative; }
-.estrutura-projeto { padding: 1.5rem; background: var(--superficie); border-top: 1px solid var(--filete-luz); border-radius: var(--raio-papel); box-shadow: var(--sombra-papel); }
 .metodo-trilho { display: none; position: absolute; left: 0; top: 5rem; bottom: 2rem; width: 4px; height: calc(100% - 7rem); pointer-events: none; }
 .metodo-trilho path { fill: none; stroke: var(--foco); stroke-width: 1; vector-effect: non-scaling-stroke; }
 .metodo-trilho-base { opacity: .25; }
-.estrutura-projeto > code { color: var(--prata); }
-.diretorios-projeto { margin: .75rem 0 0 1.5rem; }
-.diretorios-projeto > div { display: grid; grid-template-columns: 11rem minmax(0, 1fr); gap: 1rem; padding-block: .65rem; }
-.diretorios-projeto dt { color: var(--foco); }
-.diretorios-projeto dd { margin: 0; font-size: .9375rem; color: var(--prata); max-width: 70ch; }
-.metodo-subtitulo { margin-top: 3rem; }
+.metodo-subtitulo { margin-top: 0; }
 .metodo-passos { padding-left: 1.75rem; margin: 1.5rem 0 0; }
 .metodo-passos > li { position: relative; padding: 1.5rem 0 1.75rem .75rem; border-top: 1px solid var(--borda); }
 .metodo-passos > li::marker { color: var(--foco); font-variant-numeric: tabular-nums; font-weight: 500; }
@@ -73,7 +67,6 @@ summary:hover { text-decoration: underline; text-underline-offset: .25em; }
 .registro-rolagem:focus-visible { outline-offset: 3px; }
 .ferramentas-dominio { display: grid; grid-template-columns: minmax(0, .55fr) minmax(0, 1fr); gap: clamp(2rem, 5vw, 5rem); margin-top: 2.5rem; }
 .ferramentas-dominio .lista-texto { margin-top: 0; color: var(--texto-2); font-size: .9375rem; }
-.metodo-final { margin-top: 2rem; max-width: 70ch; color: var(--prata); }
 
 /* Projetos individuais; o primeiro abre com as seis telas anônimas. */
 .indice { display: flex; flex-wrap: wrap; gap: .25rem 1.75rem; margin-top: 1.5rem; }
@@ -85,20 +78,30 @@ summary:hover { text-decoration: underline; text-underline-offset: .25em; }
 .projeto h3::before { content: ""; position: absolute; z-index: -1; inset: -.28em min(.5em, .75rem); background: var(--superficie); border-radius: var(--raio); pointer-events: none; }
 .projeto h4 { font-size: 1.45rem; }
 .ciclo-titulo h3 { font-size: clamp(2.5rem, 4.8vw, 4rem); max-width: 28ch; }
-.ciclo-titulo > p { color: var(--salvia); margin-top: .75rem; font-size: 1.1875rem; }
+.ciclo-titulo > p { color: var(--salvia); max-width: 70ch; margin-top: 1rem; font-size: 1.125rem; }
 .ciclo-ideia { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(2rem, 5vw, 5rem); margin-top: 2.5rem; }
-.ciclo-ideia p, .ciclo-funcionamento .lista-texto, .projeto-limite { color: var(--texto-2); font-size: .9375rem; max-width: 70ch; }
+.ciclo-ideia p, .ciclo-funcionamento .lista-texto { color: var(--texto-2); font-size: .9375rem; max-width: 70ch; }
 .ciclo-funcionamento { display: grid; grid-template-columns: minmax(0, .55fr) minmax(0, 1fr); gap: clamp(2rem, 5vw, 5rem); margin-top: 2.5rem; }
 .ciclo-funcionamento .lista-texto { margin-top: 0; }
-.projeto-limite { margin-top: 2rem; }
 .projeto-conteudo { margin-top: 1.5rem; }
 .projeto-texto { min-width: 0; }
 .projeto-texto p, .projeto-texto .lista-texto { max-width: 70ch; color: var(--texto-2); font-size: .9375rem; }
 .projeto-texto h4 { margin-top: 2rem; }
 .projeto-texto > p + p, .projeto-texto .lista-texto + p { margin-top: 1.5rem; }
-.workflow-copy .projeto-texto { max-width: 70ch; }
+.projeto.workflow-copy { padding-top: 2rem; }
+.projeto.workflow-copy h3 { font-size: clamp(1.5rem, 2.2vw, 1.8rem); }
+.projeto.workflow-copy h3::before { display: none; }
+.workflow-copy .projeto-conteudo { margin-top: .75rem; }
+.workflow-copy .projeto-texto { max-width: 78ch; }
+.workflow-copy .projeto-texto p { max-width: 78ch; }
 .workflow-resumos .projeto-conteudo, .workflow-visual .projeto-conteudo, .workflow-transcricao .projeto-conteudo { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: clamp(2rem, 5vw, 5rem); align-items: start; }
 .workflow-resumos .inventario { align-self: center; }
+.resumo-evidencias { min-width: 0; }
+.resumo-amostra { padding: 1.5rem 0 1.75rem; border-top: 1px solid var(--borda); }
+.resumo-amostra > p { margin-top: .75rem; color: var(--prata); }
+.resumo-amostra .resumo-detalhes { margin-top: .25rem; color: var(--texto-2); font-size: .8125rem; }
+.resumo-amostra .botao { margin-top: 1.25rem; }
+.resumo-evidencias .inventario { margin-top: 1rem; }
 
 /* Capturas inteiras; miniaturas são links reais mesmo sem o dialog. */
 .ciclo-produto { min-width: 0; margin-top: 2rem; background: var(--superficie); padding: clamp(1rem, 2.5vw, 2rem); border-radius: var(--raio-campo); }
@@ -106,13 +109,13 @@ summary:hover { text-decoration: underline; text-underline-offset: .25em; }
 .ci-galeria-cabecalho h4 { font-size: clamp(1.6rem, 2.6vw, 2.2rem); color: var(--salvia); }
 .ci-galeria-acoes { display: flex; flex-wrap: wrap; gap: .75rem; }
 .ci-galeria-acoes .botao { max-width: 100%; text-align: center; }
+.ci-galeria-acoes button.botao-2 { background: transparent; }
 .ci-galeria-grade { display: grid; grid-template-columns: minmax(0, 1fr) minmax(12rem, 15rem); gap: 1.5rem; align-items: start; }
 .ci-galeria-quadro { min-width: 0; }
 .ci-galeria-imagem { position: relative; isolation: isolate; display: block; aspect-ratio: 6 / 5; max-height: 43rem; background: var(--fundo); box-shadow: var(--sombra-papel); }
 /* Máscara só na moldura; a captura segura nunca é recortada. */
 .ci-galeria-imagem::before { content: ""; position: absolute; z-index: -1; inset: -.5rem; border: 1px solid var(--salvia); border-radius: 6px; clip-path: inset(0 0 var(--moldura-corte, 0%) 0); pointer-events: none; }
 .ci-galeria-imagem img { width: 100%; height: 100%; object-fit: contain; }
-.ci-galeria-quadro figcaption { font-size: .8125rem; color: var(--texto-2); margin-top: 1rem; max-width: 70ch; }
 .ci-miniaturas { position: relative; isolation: isolate; display: grid; grid-template-columns: minmax(0, 1fr); gap: .5rem; min-width: 0; }
 .ci-selecao { display: none; position: absolute; z-index: -1; top: 0; left: 0; border: 2px solid var(--foco); border-radius: var(--raio); background: var(--azul-profundo); pointer-events: none; }
 html.movimento-ativo .ci-miniaturas.indicador-pronto .ci-selecao { display: block; }
@@ -219,20 +222,7 @@ html.movimento-ativo .ci-dialog[open]::backdrop { opacity: 1; }
 .contato-email { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1.25rem; margin-top: 1.5rem; font-size: 1rem; color: var(--azul-texto); }
 .contato-email a { display: inline-flex; align-items: center; min-height: 44px; color: var(--texto); text-underline-offset: .25em; }
 .copiar { min-height: 44px; padding: .6rem 1rem; border: 1px solid var(--prata); color: var(--texto); background: transparent; border-radius: var(--raio); font-size: .8125rem; }
-.rodape { padding-block: 2rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: .75rem 2rem; color: var(--texto-2); font-size: .75rem; }
-/* Barra de status (D37): números REAIS das suítes (cada suíte confere o seu) e o carimbo do commit publicado (assets/build.json). */
-.rodape-status { flex: 1 1 100%; order: 1; display: flex; flex-wrap: wrap; align-items: center; gap: .35rem 1.35rem; padding: .55rem .9rem; border: 1px solid var(--borda); border-radius: var(--raio); background: color-mix(in srgb, var(--fundo-secao) 88%, black 12%); font-family: var(--mono); font-size: .75rem; font-variant-numeric: tabular-nums slashed-zero; color: var(--texto-2); }
-.rodape > p { order: 2; }
-.status-repo::before { content: "❯ " / ""; color: var(--cobalto); }
-.status-nome { color: var(--texto-2); }
-.status-num { color: var(--salvia); }
-.status-nota { color: var(--texto-2); opacity: .8; }
-.status-nota::before { content: "(" / ""; } .status-nota::after { content: ")" / ""; }
-.status-pub::before { content: "● " / ""; color: #D08CFF; }
-.status-build code { font: inherit; color: var(--foco); background: color-mix(in srgb, var(--fundo-secao) 80%, var(--texto) 20%); padding: .1em .4em; border-radius: 4px; }
-.status-build code:empty { display: none; }
-.status-build time:empty { display: none; }
-.status-build:has(code:empty) { display: none; }
+.rodape { padding-block: 2rem; display: flex; justify-content: flex-end; color: var(--texto-2); font-size: .75rem; }
 /* Textura de editor (D37): numeração de linha na margem esquerda e grade de pontos, só nas seções longas (Método e Projetos) e só quando há margem. */
 .gutter { display: none; }
 @media (min-width: 1440px) {
@@ -249,18 +239,12 @@ html.movimento-ativo .ci-dialog[open]::backdrop { opacity: 1; }
 .experimentos-grade { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem 4rem; margin-top: 1.5rem; }
 .experimentos-grade p { font-size: .9375rem; color: var(--texto-2); max-width: 70ch; }
 @media (min-width: 1024px) {
-  .metodo-percurso { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: clamp(2.5rem, 5vw, 5rem); align-items: start; }
-  .diretorios-projeto { margin-left: 0; }
-  .diretorios-projeto > div { grid-template-columns: minmax(0, 1fr); gap: .2rem; padding-block: .55rem; }
-  .diretorios-projeto dd { font-size: .875rem; line-height: 1.5; }
   .metodo-subtitulo { margin-top: 0; }
   .metodo-trilho { display: block; }
   .metodo-passos { padding-left: 2rem; }
   .metodo-passos > li::before { content: ""; position: absolute; left: -2.1rem; top: 1.95rem; width: 7px; height: 7px; border-radius: 50%; background: var(--foco); opacity: var(--passo-luz, 1); pointer-events: none; }
-  .metodo-passos .passo-texto { display: block; }
   .passo-texto h4 { position: relative; isolation: isolate; width: fit-content; max-width: 100%; margin-bottom: .875rem; }
   .passo-texto h4::before { content: ""; position: absolute; z-index: -1; inset: -.45rem -.65rem; background: var(--superficie-2); border-radius: var(--raio-papel); opacity: var(--passo-superficie, 0); pointer-events: none; }
-  .metodo-passos .registro-execucao { margin-left: 0; }
 }
 @media (hover: hover) and (pointer: fine) {
   html.movimento-ativo .trabalho-texto p { transition: translate var(--duracao-feedback) var(--ease), box-shadow var(--duracao-feedback) var(--ease); }
@@ -278,7 +262,7 @@ html.movimento-ativo .ci-dialog[open]::backdrop { opacity: 1; }
 }
 @media (max-width: 1024px) {
   .experiencia-grade { grid-template-columns: 1fr; }
-  .tempo-formacao { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; }
+  .tempo-formacao { display: block; }
 }
 @media (max-width: 767px) {
   :root { --duracao-dialog: 192ms; --duracao-galeria: 216ms; --dialog-escala: .976; }
@@ -289,8 +273,6 @@ html.movimento-ativo .ci-dialog[open]::backdrop { opacity: 1; }
   .registro-mesa { margin-top: 1.75rem; }
   .trabalho-pratica { gap: 2.5rem; }
   .trabalho-texto p, .trabalho-texto p:nth-child(2), .trabalho-texto p:nth-child(3) { grid-column: auto; grid-row: auto; padding: 1.5rem; }
-  .diretorios-projeto { margin-left: .75rem; }
-  .diretorios-projeto > div { grid-template-columns: minmax(0, 1fr); gap: .25rem; padding-block: .75rem; }
   .metodo-passos { padding-left: 1.5rem; }
   .metodo-passos > li { padding-left: .25rem; }
   .passo-texto { gap: .75rem; }
@@ -317,7 +299,7 @@ html.movimento-ativo .ci-dialog[open]::backdrop { opacity: 1; }
   .contato-email { font-size: .9375rem; }
 }
 @media (forced-colors: active) {
-  .ciclo-produto, .incerteza, .contato, .trabalho-texto p, .estrutura-projeto { border: 1px solid CanvasText; }
+  .ciclo-produto, .incerteza, .contato, .trabalho-texto p { border: 1px solid CanvasText; }
   .contato { background: Canvas; }
   .contato::before, .passo-texto h4::before, .ci-selecao { display: none !important; }
   .secao h2::before, .secao h2::after, .titulo::after, .projeto h3::before, #metodo::before, #projetos::before, .gutter { display: none !important; }
@@ -331,9 +313,9 @@ html.movimento-ativo .ci-dialog[open]::backdrop { opacity: 1; }
 @media print {
   :root { --fundo: white; --texto: black; --texto-2: #333; --prata: #222; --borda: #aaa; }
   body { --fundo-secao: white !important; }
-  .contato::before, .secao h2::before, .secao h2::after, .titulo::after, .projeto h3::before, #metodo::before, #projetos::before, .gutter, .rodape-status { display: none !important; }
+  .contato::before, .secao h2::before, .secao h2::after, .titulo::after, .projeto h3::before, #metodo::before, #projetos::before, .gutter { display: none !important; }
   .secao > h2, .secao > .abertura-secao > h2 { padding-left: 0 !important; }
-  .topo, .hero-acoes, .copiar, .ci-dialog, .cena-controles { display: none; }
+  .topo, .hero-acoes, .copiar, .ci-dialog, .ci-galeria-acoes { display: none; }
   .hero, .abertura-secao, .projeto-conteudo, .experiencia-grade { display: block; }
   .faixa-operacao, .ciclo-produto, .incerteza, .contato { background: white; color: black; box-shadow: none; }
   .secao, .projeto { padding-top: 2rem; }

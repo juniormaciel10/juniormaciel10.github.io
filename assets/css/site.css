@@ -148,10 +148,6 @@ code { font-size: .875em; overflow-wrap: anywhere; }
 .caminho-base { opacity: .3; }
 .entrega-cena { display: flex; align-items: center; justify-content: space-between; gap: .65rem; padding-left: .5rem; font-size: .8125rem; line-height: 1.35; font-weight: 500; background: inherit; }
 .cena-percursos figcaption { color: var(--texto-2); font-size: .8125rem; line-height: 1.5; max-width: 65ch; margin-top: .85rem; }
-.cena-controles { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: .5rem 1rem; margin-top: .625rem; }
-#cena-status { max-width: 42ch; font-size: .75rem; line-height: 1.5; color: var(--texto-2); }
-.rever { display: inline-flex; gap: .75rem; align-items: center; background: transparent; border: 0; border-bottom: 1px solid var(--borda); color: var(--prata); min-height: 44px; padding: .5rem 0; font-size: .8125rem; }
-.rever[aria-disabled="true"] { color: var(--texto-2); border-bottom-style: dashed; cursor: default; }
 .registro-execucao { min-width: 0; }
 .registro-imagem { display: grid; align-items: center; width: fit-content; max-width: 100%; min-height: 44px; margin-block: 1.25rem .875rem; background: #0C0D0E; box-shadow: var(--sombra-papel); border-radius: var(--raio-papel); }
 .registro-imagem img { max-width: 100%; height: auto; object-fit: contain; }
@@ -161,7 +157,6 @@ code { font-size: .875em; overflow-wrap: anywhere; }
 @media (hover: hover) {
   .botao-1:hover { background: var(--cobalto-hover); }
   .botao-2:hover, .menu:hover { background: var(--superficie-2); border-color: var(--texto-2); }
-  .rever:not([aria-disabled="true"]):hover { color: var(--texto); border-color: var(--texto); }
 }
 /* html.movimento-ativo é a única porta do movimento. Decisão do autor (10/09/2026): movimento ligado por padrão, sem controle de pausa e sem consulta a
    prefers-reduced-motion; a classe existe sempre que há motor (GSAP) e fontes prontas. Sem JS a página fica estática (html:not(.movimento-ativo) abaixo). */
@@ -230,7 +225,7 @@ html.movimento-ativo a:hover .seta { transform: translateX(4px); }
 }
 /* Declarativo só onde o motor CSS existe; o fallback já é completamente visível. */
 @supports (animation-timeline: view()) {
-  html.movimento-ativo :is(.trabalho-pratica .lista-texto > li, .ferramentas-dominio .lista-texto > li, .ciclo-funcionamento .lista-texto > li, .projeto-texto .lista-texto > li, .tempo > li, .abertura-secao > p, .secao-intro, .pratica-texto, .ciclo-ideia p, .trabalho-pratica p, .metodo-final, .projeto-limite) {
+  html.movimento-ativo :is(.trabalho-pratica .lista-texto > li, .ferramentas-dominio .lista-texto > li, .ciclo-funcionamento .lista-texto > li, .projeto-texto .lista-texto > li, .tempo > li, .abertura-secao > p, .secao-intro, .pratica-texto, .ciclo-ideia p, .trabalho-pratica p) {
     animation: leitura-entra linear both;
     animation-timeline: view();
     animation-range: entry 0% entry 40%;
