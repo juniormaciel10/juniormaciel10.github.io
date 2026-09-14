@@ -35,7 +35,8 @@ button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var
 .round-button:hover,.round-link:hover{background:var(--blue);border-color:var(--blue)}
 .round-button:active,.round-link:active{transform:scale(.96)}
 .menu-toggle{display:none;width:44px;height:44px}
-body:not(.js) .menu-toggle,body:not(.js) .gallery-toolbar,body:not(.js) .copy-email{display:none}
+html.js body:not(.js) .menu-toggle,html.js body:not(.js) .autoplay-control,html.js body:not(.js) .copy-email{visibility:hidden}
+html:not(.js) .menu-toggle,html:not(.js) .gallery-toolbar,html:not(.js) .copy-email{display:none}
 .hero{position:relative;width:100%;max-width:calc(1440px + var(--gutter)*2);min-height:min(790px,calc(100svh - 76px));padding:78px var(--gutter) 110px;isolation:isolate;overflow:clip}
 .hero-copy{position:relative;z-index:2;max-width:69%}
 .eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:550;color:var(--muted);margin-bottom:34px}
@@ -207,8 +208,8 @@ html:has(.gallery-dialog[open]){overflow:hidden}
   .header-inner{height:70px;gap:14px}.brand{font-size:17px;letter-spacing:-.055em}.brand-stroke{display:none}
   .menu-toggle{display:inline-flex}.main-nav{display:flex;flex-direction:column;align-items:stretch;position:absolute;top:70px;left:0;right:0;padding:15px var(--gutter) 25px;background:var(--bg);gap:0;border-bottom:1px solid var(--line)}
   .js .main-nav{display:none}.js .site-header[data-open] .main-nav{display:flex}.main-nav>a{padding:10px 0;font-size:18px;min-height:56px}.main-nav>.nav-contact{padding-left:0}
-  body:not(.js) .site-header{margin-bottom:190px}
-  body:not(.js) .menu-toggle,body:not(.js) .gallery-toolbar{display:none}
+  html:not(.js) .site-header{margin-bottom:190px}
+  html:not(.js) .menu-toggle,html:not(.js) .gallery-toolbar{display:none}
   .hero{padding:46px var(--gutter) 16px;min-height:0}
   .hero-copy{max-width:100%}.eyebrow{font-size:10px;letter-spacing:.17em;margin-bottom:26px}
   .hero h1{font-size:clamp(39px,12.8vw,89px);line-height:1.05;letter-spacing:-.045em}
@@ -300,8 +301,8 @@ html:has(.gallery-dialog[open]){overflow:hidden}
 .dialog-file a{display:inline-flex;align-items:center;min-height:44px;text-decoration:underline;text-underline-offset:4px}
 .dialog-image-wrap img{max-height:calc(100dvh - 285px)}
 .gallery-tabs a{display:inline-flex;align-items:center}
-body:not(.js) .gallery-toolbar{display:flex}
-body:not(.js) .autoplay-control{display:none}
+html:not(.js) .gallery-toolbar{display:flex}
+html:not(.js) .autoplay-control{display:none}
 @media(max-width:760px){
   .case-details>summary{font-size:14px;gap:18px}
   .case-details-body{font-size:15px}

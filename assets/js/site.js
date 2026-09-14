@@ -28,6 +28,7 @@
   matchMedia('(min-width: 761px)').addEventListener('change', e => {
     if (e.matches) closeMenu();
   });
+  document.documentElement.classList.add('js');
   document.body.classList.add('js');
 
   function revealTarget(hash, focus = false) {

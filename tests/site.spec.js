@@ -98,3 +98,21 @@ test('Movimento reduzido preserva conteúdo e simplifica a abertura',async({brow
  const context=await browser.newContext({baseURL,reducedMotion:'reduce',viewport:{width:390,height:844}});const page=await context.newPage();
  try{await page.goto('/');await expect(page.locator('h1')).toBeVisible();expect(await page.locator('.hero-art').evaluate(e=>getComputedStyle(e).animationName)).toBe('none');await page.locator('.hero .button').click();await expect(page).toHaveURL(/#projetos$/)}finally{await context.close()}
 });
+
+test('JavaScript lento não desloca a abertura no celular',async({page})=>{
+ await page.setViewportSize({width:390,height:844});
+ let release;const gate=new Promise(resolve=>{release=resolve});
+ await page.route('**/assets/js/site.*.js',async route=>{await gate;await route.continue()});
+ const navigation=page.goto('/');
+ try{
+  await page.locator('h1').waitFor({state:'visible'});await page.waitForFunction(()=>document.querySelector('link[rel="stylesheet"]').sheet);await page.evaluate(()=>document.fonts.ready);await page.waitForTimeout(350);
+  const before=await page.locator('#inicio').boundingBox();
+  release();await navigation;await expect(page.locator('body')).toHaveClass(/\bjs\b/);
+  const after=await page.locator('#inicio').boundingBox();expect(Math.abs(after.y-before.y)).toBeLessThanOrEqual(1);
+ }finally{release();await navigation.catch(()=>{})}
+});
+
+test('Falha do JavaScript conserva o menu e os links das capturas',async({page})=>{
+ await page.setViewportSize({width:390,height:844});await page.route('**/assets/js/site.*.js',route=>route.abort('failed'));
+ await page.goto('/');await expect(page.locator('#main-nav')).toBeVisible();await expect(page.locator('.menu-toggle')).not.toBeVisible();await expect(page.locator('h1')).toBeVisible();await expect(page.locator('[data-slide]')).toHaveCount(6);
+});

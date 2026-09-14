@@ -4,6 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="dark">
+  <script>
+    document.documentElement.classList.add('js');
+    document.addEventListener('error', function (event) {
+      if (event.target.tagName === 'SCRIPT' && event.target.src) document.documentElement.classList.remove('js');
+    }, true);
+  </script>
   <meta name="description" content="Franklin Junior Maciel. Projetos em software, conteúdo e automação com agentes de IA.">
   <title>Franklin Junior Maciel · Projetos e tecnologia</title>
   <meta name="theme-color" content="#0c1017">
