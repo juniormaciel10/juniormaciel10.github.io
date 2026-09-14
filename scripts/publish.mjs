@@ -97,6 +97,8 @@ try {
       cwd: root, env, encoding: 'utf8', stdio: ['pipe', 'inherit', 'inherit'],
       input: JSON.stringify({ build_type: 'legacy', source: { branch: 'gh-pages', path: '/' } })
     });
+    // Agenda a primeira publicação após mudar a origem do Pages.
+    run('gh', ['api', '--method', 'POST', `repos/${repository}/pages/builds`]);
   }
 } finally {
   if (added) {
