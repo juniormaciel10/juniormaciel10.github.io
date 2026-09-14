@@ -2,7 +2,7 @@
 
 Site pessoal de automação e orquestração de agentes de IA, publicado em https://juniormaciel10.github.io/.
 
-HTML, CSS e JavaScript, com fontes e bibliotecas de animação locais. O build reúne e minifica CSS/JavaScript, identifica os arquivos por hash e gera um pacote estático para o GitHub Pages.
+HTML, CSS e JavaScript, com fontes locais, animações em CSS e rolagem nativa. O build reúne e minifica CSS/JavaScript, identifica os arquivos por hash e gera um pacote estático para o GitHub Pages.
 
 ## Desenvolvimento
 
@@ -34,7 +34,7 @@ O Lighthouse usa a prévia já aberta e salva os relatórios em `artifacts/`. É
 
 ## Publicação
 
-O código-fonte fica em `main`; o pacote compilado de `dist/` é publicado em `gh-pages`. Fontes, capturas completas, PDF e DOCX continuam acessíveis; imagens da página e miniaturas usam formatos otimizados. Arquivos de desenvolvimento não são incluídos no site.
+O código-fonte fica em `main`; o pacote compilado de `dist/` é publicado em `gh-pages`. Fontes, capturas completas, PDF e DOCX continuam acessíveis; as imagens principais usam WebP e as capturas originais continuam disponíveis. Arquivos de desenvolvimento não são incluídos no site.
 
 A publicação requer Git e GitHub CLI autenticados, com acesso de escrita ao repositório e à configuração do GitHub Pages. Não exige permissão para criar workflows.
 
@@ -55,4 +55,4 @@ O comando gera o build, executa os testes, confere a integridade do pacote e env
 - `tests/`: verificações de interface e funcionamento.
 - `dist/`: saída gerada, não versionada.
 
-GSAP e Lenis mantêm seus avisos de licença. As fontes incluem sua documentação de origem e licença em `assets/fonts/`.
+Ícones Tabler sob licença MIT, incorporada no HTML. As fontes incluem documentação de origem e licença em `assets/fonts/`. `scripts/public-assets.json` preserva URLs de arquivos públicos e os bundles da versão anterior para visitantes com a página em cache. Os bundles anteriores conservam os avisos de GSAP e Lenis.

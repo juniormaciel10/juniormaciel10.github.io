@@ -1,127 +1,100 @@
-const { test, expect } = require('@playwright/test');
-const crypto = require('node:crypto');
-const sha = data => crypto.createHash('sha256').update(data).digest('hex');
-const titles = ['#titulo-trabalho', '#titulo-metodo', '#titulo-pratica', '#titulo-projetos', '#titulo-ciclo', '#p-resumos > h3', '#p-funil > h3', '#p-transcricao > h3', '#p-copy > h3', '#titulo-experiencia', '#titulo-contato'];
-async function open(page, width = 1440) {
-  await page.setViewportSize({ width, height: 900 });
-  await page.goto('/');
-  await page.evaluate(() => document.fonts.ready);
-  await expect(page.locator('#quem-sou')).toHaveAttribute('data-entrada', 'concluida');
-}
-async function settle(page) {
-  await expect.poll(() => page.evaluate(() => document.documentElement.classList.contains('lenis-smooth'))).toBe(false);
-  await page.evaluate(() => new Promise(resolve => {
-    let previous = scrollY, since = performance.now();
-    (function frame() {
-      if (Math.abs(scrollY - previous) > .5) { previous = scrollY; since = performance.now(); }
-      if (performance.now() - since >= 150) resolve(); else requestAnimationFrame(frame);
-    })();
-  }));
-}
-async function jump(page, selector) {
-  await settle(page);
-  await page.locator(selector).evaluate(e => e.scrollIntoView({ block: 'center', behavior: 'instant' }));
-}
+const {test,expect}=require('@playwright/test');
+const crypto=require('node:crypto');
+const {open,jump,settle}=require('./helpers.cjs');
+const sha=data=>crypto.createHash('sha256').update(data).digest('hex');
 
-test('Build restrito ao site, com CSS e JS identificados por hash', async ({ page, request }) => {
-  const manifest = await (await request.get('/manifest.json')).json();
-  const files = Object.keys(manifest.files);
-  expect(files.some(f => /^(?:scripts|tests|tools|node_modules|\.github)\//.test(f))).toBe(false);
-  expect(files.some(f => /package(?:-lock)?\.json|\.md$|\.env/.test(f))).toBe(false);
-  for (const file of ['/package.json', '/scripts/build.mjs', '/tests/site.spec.js', '/README.md']) expect((await request.get(file)).status()).toBe(404);
-  await open(page);
-  const css = await page.locator('link[rel="stylesheet"]').evaluateAll(es => es.map(e => e.getAttribute('href')));
-  const js = await page.locator('script[src]').evaluateAll(es => es.map(e => e.getAttribute('src')));
-  expect(css).toHaveLength(1); expect(js).toHaveLength(1);
-  expect(css[0]).toMatch(/^assets\/css\/site\.[0-9a-f]{12}\.css$/);
-  expect(js[0]).toMatch(/^assets\/js\/site\.[0-9a-f]{12}\.js$/);
-  for (const file of [...css, ...js]) {
-    const response = await request.get('/' + file);
-    expect(response.ok()).toBe(true);
-    expect(sha(await response.body())).toBe(manifest.files[file].sha256);
+test('Publicação contém apenas o site; bundles íntegros e metadados do perfil',async({page,request})=>{
+ const manifest=await(await request.get('/manifest.json')).json();
+ expect(Object.keys(manifest.files).some(file=>/^(?:scripts|tests|tools|node_modules|\.prototypes|\.github)\//.test(file))).toBe(false);
+ for(const file of ['/package.json','/scripts/build.mjs','/tests/site.spec.js','/README.md','/.prototypes/premium-v2.html'])expect((await request.get(file)).status()).toBe(404);
+ await open(page);
+ const css=await page.locator('link[rel="stylesheet"]').evaluateAll(es=>es.map(e=>e.getAttribute('href')));
+ const js=await page.locator('script[src]').evaluateAll(es=>es.map(e=>e.getAttribute('src')));
+ expect(css).toHaveLength(1);expect(js).toHaveLength(1);
+ expect(css[0]).toMatch(/^assets\/css\/site\.[a-f0-9]{12}\.css$/);
+ expect(js[0]).toMatch(/^assets\/js\/site\.[a-f0-9]{12}\.js$/);
+ for(const file of [...css,...js])expect(sha(await(await request.get('/'+file)).body())).toBe(manifest.files[file].sha256);
+ expect(manifest.files[js[0]].bytes).toBeLessThan(20000);
+ await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href','https://juniormaciel10.github.io/');
+ const profile=JSON.parse(await page.locator('script[type="application/ld+json"]').textContent());
+ expect(profile.mainEntity.name).toBe('Franklin Junior Maciel');expect(profile.mainEntity.sameAs).toHaveLength(2);
+ const ids=await page.locator('[id]').evaluateAll(es=>es.map(e=>e.id));expect(new Set(ids).size).toBe(ids.length);
+ expect(await page.locator('a[href^="#"]').evaluateAll(es=>es.map(e=>e.hash).filter(hash=>!document.getElementById(hash.slice(1))))).toEqual([]);
+});
+
+test('Visual aprovado, ordem dos projetos, textos removidos e rodapé simples',async({page})=>{
+ await open(page);
+ await expect(page.locator('h1')).toHaveText('Inteligênciaem aplicação.');
+ await expect(page.locator('.hero-intro')).toContainText('Desenho soluções e coordeno agentes de IA.');
+ expect(await page.locator('#p-ciclo,#p-resumos,#p-funil,#p-transcricao,#p-copy,#experimentos').evaluateAll(es=>es.map(e=>e.id))).toEqual(['p-ciclo','p-resumos','p-funil','p-transcricao','p-copy','experimentos']);
+ expect(await page.locator('body').innerText()).not.toMatch(/confiro cada entrega|copywriter|remoto.*Bagé|setembro/i);
+ await expect(page.locator('footer')).toHaveText('© 2026 Franklin Junior Maciel.');
+ await page.locator('.hero .button').click();await settle(page);
+ await expect(page).toHaveURL(/#projetos$/);await expect(page.locator('#projetos')).toBeFocused();
+});
+
+for(const width of [320,390,768,1000,1024,1440,1920]){
+ test('Layout e leitura sem cortes em '+width+'px',async({page})=>{
+  const errors=[];page.on('pageerror',e=>errors.push(e.message));await open(page,width);
+  const cta=await page.locator('.hero .button').boundingBox();expect(cta.y+cta.height).toBeLessThan(960);
+  for(const selector of ['#hero-title','#work-title','#software-title','#document-title','.other-work>h3','#method-title','#contact-title']){
+   await jump(page,selector);await expect(page.locator(selector)).toBeVisible();
+   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+   const box=await page.locator(selector).boundingBox();expect(box.x).toBeGreaterThanOrEqual(-1);expect(box.x+box.width).toBeLessThanOrEqual(width+1);
   }
-  const ids = await page.locator('[id]').evaluateAll(es => es.map(e => e.id));
-  expect(new Set(ids).size).toBe(ids.length);
-  expect(await page.locator('a[href^="#"]').evaluateAll(es => es.map(e => e.hash).filter(hash => !document.getElementById(hash.slice(1))))).toEqual([]);
-});
-
-test('Perfil, ordem dos projetos e acesso direto às entregas', async ({ page }) => {
-  await open(page);
-  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://juniormaciel10.github.io/');
-  const profile = JSON.parse(await page.locator('script[type="application/ld+json"]').textContent());
-  expect(profile['@type']).toBe('ProfilePage');
-  expect(profile.mainEntity.name).toBe('Franklin Junior Maciel');
-  expect(profile.mainEntity.sameAs).toHaveLength(2);
-  expect(await page.locator('#projetos > article').evaluateAll(es => es.map(e => e.id))).toEqual(['p-ciclo', 'p-resumos', 'p-funil', 'p-transcricao', 'p-copy', 'experimentos']);
-  await page.getByRole('link', { name: 'Ver projetos', exact: true }).click();
-  await settle(page);
-  await expect(page).toHaveURL(/#projetos$/);
-  await expect(page.locator('#projetos')).toBeFocused();
-  expect(await page.locator('#p-ciclo').evaluate(e => e.getBoundingClientRect().top + scrollY)).toBeLessThan(5200);
-});
-
-for (const width of [320, 390, 768, 1024, 1440, 1920]) {
-  test(`Leitura e títulos progressivos sem overflow em ${width}px`, async ({ page }) => {
-    const errors = []; page.on('pageerror', e => errors.push(e.message));
-    await open(page, width);
-    for (const selector of titles) {
-      await jump(page, selector);
-      await expect(page.locator(selector)).toHaveAttribute('data-entrada', 'concluida');
-      expect(await page.locator(selector).evaluate(e => getComputedStyle(e).visibility)).toBe('visible');
-      expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
-      const rect = await page.locator(selector).boundingBox();
-      expect(rect.x).toBeGreaterThanOrEqual(-1);
-      expect(rect.x + rect.width).toBeLessThanOrEqual(width + 1);
-    }
-    for (const selector of ['#p-ciclo .projeto-detalhes', '#p-resumos .projeto-detalhes', '#p-funil .projeto-detalhes']) {
-      await jump(page, selector);
-      await page.locator(selector + ' > summary').click();
-      await expect(page.locator(selector)).toHaveJSProperty('open', true);
-      expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
-    }
-    await jump(page, '#resumo-pdf');
-    for (const selector of ['#resumo-pdf', '#resumo-download', '.projeto-detalhes > summary']) {
-      const sizes = await page.locator(selector).evaluateAll(es => es.filter(e => e.getClientRects().length).map(e => e.getBoundingClientRect().height));
-      expect(sizes.every(h => h >= 44)).toBe(true);
-    }
-    expect(errors).toEqual([]);
-  });
+  await jump(page,'#software-gallery');
+  expect(await page.locator('#gallery-expand').evaluate(e=>{const r=e.getBoundingClientRect(),s=e.closest('.software-stage').getBoundingClientRect();return r.top>=s.top&&r.left>=s.left&&r.bottom<=s.bottom&&r.right<=s.right})).toBe(true);
+  for(const id of ['#ciclo-detalhes','#resumo-detalhes','#p-funil','#metodo-detalhes','#experiencia']){
+   await jump(page,id+' > summary');await page.locator(id+' > summary').click();await expect(page.locator(id)).toHaveJSProperty('open',true);
+   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+  }
+  const controls=await page.locator('.button,.menu-toggle,.case-details>summary,.project-row>summary,[data-slide],.copy-email').evaluateAll(es=>es.filter(e=>e.getClientRects().length).map(e=>e.getBoundingClientRect().height));
+  expect(controls.every(h=>h>=44)).toBe(true);expect(errors).toEqual([]);
+ });
 }
 
-test('Texto ampliado mantém leitura e controles', async ({ page }) => {
-  await open(page, 390);
-  await page.evaluate(() => { document.documentElement.style.fontSize = '200%'; });
-  for (const selector of ['#titulo', '#titulo-metodo', '#resumo-pdf', '#contato']) {
-    await jump(page, selector);
-    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
-  }
+test('Menu móvel, Escape e navegação restauram o foco',async({page})=>{
+ await open(page,390);const toggle=page.locator('.menu-toggle');
+ await toggle.click();await expect(toggle).toHaveAttribute('aria-expanded','true');
+ await page.keyboard.press('Escape');await expect(toggle).toHaveAttribute('aria-expanded','false');await expect(toggle).toBeFocused();
+ await toggle.click();await page.locator('#main-nav a[href="#metodo"]').click();await expect(toggle).toHaveAttribute('aria-expanded','false');await settle(page);
+ await expect(page.locator('#metodo')).toBeFocused();
+ await toggle.click();await page.setViewportSize({width:1440,height:960});await expect(toggle).toHaveAttribute('aria-expanded','false');
 });
 
-test('PDF e DOCX corretos, com download por ação do visitante', async ({ page, request }) => {
-  const pdf = await request.get('/assets/downloads/resumo-inteligencia-artificial.pdf');
-  expect(pdf.status()).toBe(200);
-  expect(pdf.headers()['content-type']).toContain('application/pdf');
-  expect(sha(await pdf.body())).toBe('0cb787ab5c935a464a85a11b66aeec8798e8cf464ab96be9186a0a4cc1eb3c3c');
-  await open(page);
-  await jump(page, '#resumo-download');
-  const waiting = page.waitForEvent('download');
-  await page.locator('#resumo-download').click();
-  const download = await waiting;
-  expect(download.suggestedFilename()).toBe('Resumo-Inteligencia-Artificial.docx');
-  const docx = await request.get('/assets/downloads/resumo-inteligencia-artificial.docx');
-  expect(sha(await docx.body())).toBe('3fdfc0a0def3e8e62299fc1ac91ff628c23433e83b684a2d4f96c73c48a44699');
+test('Links dos projetos e endereços antigos abrem o conteúdo completo',async({page})=>{
+ await open(page);await jump(page,'#p-ciclo .project-footnote');await page.getByRole('link',{name:'Conhecer o projeto',exact:true}).click();
+ await expect(page.locator('#ciclo-detalhes')).toHaveJSProperty('open',true);
+ for(const [hash,parent] of [['#p-funil','#p-funil'],['#resumo-detalhes','#resumo-detalhes'],['#registro-validacao','#metodo-detalhes'],['#experiencia','#experiencia']]){
+  await page.goto('/'+hash);await page.evaluate(()=>document.fonts.ready);await expect(page.locator(parent)).toHaveJSProperty('open',true);
+  await expect(page.locator(hash)).toBeInViewport();
+ }
+ for(const hash of ['#quem-sou','#como-trabalho','#na-pratica','#titulo','#ci-galeria']){await page.goto('/'+hash);await expect(page.locator(hash)).toHaveCount(1)}
+ await page.goto('/#experimentos');await expect(page.locator('#p-gametwo')).toContainText('de outro desenvolvedor');await expect(page.locator('#p-govoice')).toContainText('código ainda não publicado');
 });
 
-test('Sem JavaScript: conteúdo, detalhes e arquivos permanecem disponíveis', async ({ browser, baseURL }) => {
-  const context = await browser.newContext({ baseURL, javaScriptEnabled: false, viewport: { width: 390, height: 900 } });
-  const page = await context.newPage();
-  try {
-    await page.goto('/');
-    await expect(page.locator('#ci-rotacao')).not.toBeVisible();
-    await page.locator('#p-resumos .projeto-detalhes > summary').click();
-    await expect(page.locator('#p-resumos .projeto-detalhes')).toHaveJSProperty('open', true);
-    await expect(page.locator('#resumo-pdf')).toHaveAttribute('href', /\.pdf$/);
-    await expect(page.locator('[data-ci-tela]')).toHaveCount(6);
-    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
-  } finally { await context.close(); }
+test('PDF e DOCX íntegros, com download por ação do visitante',async({page,request})=>{
+ const pdf=await request.get('/assets/downloads/resumo-inteligencia-artificial.pdf');expect(pdf.status()).toBe(200);expect(pdf.headers()['content-type']).toContain('application/pdf');
+ expect(sha(await pdf.body())).toBe('0cb787ab5c935a464a85a11b66aeec8798e8cf464ab96be9186a0a4cc1eb3c3c');
+ await open(page);await jump(page,'#resumo-download');const waiting=page.waitForEvent('download');await page.locator('#resumo-download').click();expect((await waiting).suggestedFilename()).toBe('Resumo-Inteligencia-Artificial.docx');
+ expect(sha(await(await request.get('/assets/downloads/resumo-inteligencia-artificial.docx')).body())).toBe('3fdfc0a0def3e8e62299fc1ac91ff628c23433e83b684a2d4f96c73c48a44699');
+});
+
+for(const width of [390,1440])test('Sem JavaScript: navegação, detalhes e seis capturas em '+width+'px',async({browser,baseURL})=>{
+ const context=await browser.newContext({baseURL,javaScriptEnabled:false,viewport:{width,height:960}});const page=await context.newPage();
+ try{await page.goto('/');await expect(page.locator('#main-nav')).toBeVisible();await expect(page.locator('.menu-toggle')).not.toBeVisible();await expect(page.locator('#gallery-pause')).not.toBeVisible();await expect(page.locator('[data-slide]')).toHaveCount(6);
+  await page.locator('#p-funil>summary').click();await expect(page.locator('#p-funil')).toHaveJSProperty('open',true);await expect(page.locator('#resumo-pdf')).toHaveAttribute('href',/\.pdf$/);expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+ }finally{await context.close()}
+});
+
+test('Cópia do e-mail sinaliza sucesso e indisponibilidade da permissão',async({page})=>{
+ await open(page,390);await page.evaluate(()=>Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async value=>{window.copiedEmail=value}}}));
+ await page.locator('.copy-email').click();await expect(page.locator('.copy-email span')).toHaveText('E-mail copiado');expect(await page.evaluate(()=>window.copiedEmail)).toBe('jrmaciell92@gmail.com');
+ await page.evaluate(()=>Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async()=>{throw new Error('Negado')}}}));
+ await page.locator('.copy-email').click();await expect(page.locator('#copy-status')).toContainText('Não foi possível');
+});
+
+test('Movimento reduzido preserva conteúdo e simplifica a abertura',async({browser,baseURL})=>{
+ const context=await browser.newContext({baseURL,reducedMotion:'reduce',viewport:{width:390,height:844}});const page=await context.newPage();
+ try{await page.goto('/');await expect(page.locator('h1')).toBeVisible();expect(await page.locator('.hero-art').evaluate(e=>getComputedStyle(e).animationName)).toBe('none');await page.locator('.hero .button').click();await expect(page).toHaveURL(/#projetos$/)}finally{await context.close()}
 });

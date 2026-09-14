@@ -32,6 +32,12 @@ const files = new Set([
   'assets/fonts/ClashDisplay-FFL.txt', 'assets/fonts/ClashDisplay-SOURCE.txt',
   ...styles.map(m => m[1]), ...scripts.map(m => m[1])
 ]);
+// URLs públicas da versão anterior, inclusive seus bundles, continuam válidas
+// para visitantes com uma página anterior ainda em cache.
+for (const file of JSON.parse(await fs.readFile(path.join(root, 'scripts/public-assets.json'), 'utf8'))) {
+  if (!/^assets\/[\w./-]+$/.test(file) || file.split('/').some(part => part === '..' || part === '.')) throw new Error('Arquivo de compatibilidade inválido.');
+  files.add(file);
+}
 function addReference(reference, relativeTo = '') {
   if (!reference || /^(?:[a-z]+:|\/\/|#)/i.test(reference)) return;
   const clean = decodeURIComponent(reference.split(/[?#]/)[0]);
