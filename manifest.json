@@ -1,5 +1,5 @@
 {
-  "commit": "f64b68ba0305fff4481763cea93c2c57d27ed6a9",
+  "commit": "e6c4ea5e3af4618520e9cdbc3e3c917ed80586eb",
   "files": {
     ".nojekyll": {
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -37,6 +37,10 @@
       "sha256": "118bb7e3d8bf8ffc3ef88fa83e919b9efbc8150550616ade473412889f343915",
       "bytes": 5057
     },
+    "assets/css/backdrops.css": {
+      "sha256": "be4f482d27213f90e7b815ffc4ef8e1d059e40fc823f194efa1a81803162536a",
+      "bytes": 18725
+    },
     "assets/css/projects.css": {
       "sha256": "1dc5c3969e04e4f61bdb79fedf75b243be0b63c2a682884952d98d3094c44595",
       "bytes": 8762
@@ -48,6 +52,10 @@
     "assets/js/motion.js": {
       "sha256": "b2f1ce11272f59a1367b5e7920afc557209834d8b74fb30dde60751005c231a4",
       "bytes": 16071
+    },
+    "assets/js/backdrops.js": {
+      "sha256": "5f4ed16471916e8cf88346d94f7e86443315de0f4e626b97ba94cac4e6434b39",
+      "bytes": 24260
     },
     "assets/css/site.190a2da95ab3.css": {
       "sha256": "190a2da95ab30895dea585620722c4d15e0ff88cb1c7781fe57fe99be35e08ac",
@@ -72,6 +80,10 @@
     "assets/css/site.cf46b2629174.css": {
       "sha256": "cf46b26291745684d273b67877afb8a3c0876041f7eeb2079ca548985c3b2cb8",
       "bytes": 31669
+    },
+    "assets/css/site.fb0e9bcb3cec.css": {
+      "sha256": "fb0e9bcb3cecebb0a39e5ca52d557982e7feabe52488cb34140dbb2b929de116",
+      "bytes": 51769
     },
     "assets/downloads/resumo-inteligencia-artificial.docx": {
       "sha256": "3fdfc0a0def3e8e62299fc1ac91ff628c23433e83b684a2d4f96c73c48a44699",
@@ -193,6 +205,10 @@
       "sha256": "aaa39e960ec14ac6dcbc2d90042d8db69b070d92d7f1527811501a83e4063f8e",
       "bytes": 17652
     },
+    "assets/js/site.b073de5d6b1d.js": {
+      "sha256": "b073de5d6b1d7b5fb4adce724d506857f4f4a62d6ea61e6b132f513f73a8c294",
+      "bytes": 17430
+    },
     "assets/js/site.b092c9602a26.js": {
       "sha256": "b092c9602a26689f988d78d911172cfe184a1cf864958bd01cd1a78609bc154f",
       "bytes": 7412
@@ -218,27 +234,27 @@
       "bytes": 472
     },
     "index.html": {
-      "sha256": "7d8593cbbc6d5673949551270a5061e0de87c53503465427a99c683792f3c307",
-      "bytes": 41660
+      "sha256": "e58cc9b1c7a5e078bb6d448e72d8506dfd01891fa1974f0e858d7c795cd31fc2",
+      "bytes": 46798
     },
     "projetos/planejamento-de-estudos/index.html": {
-      "sha256": "0d98882d8ed2d9c8d6af6a5eb42d46c60e4589281dd9f0710da6ec9ae132f7d1",
+      "sha256": "f5299aa13cc54f3cf1a899e494dc8804c03ecd159bb9c8924bb69fc906f510d9",
       "bytes": 20719
     },
     "projetos/resumos-de-estudo/index.html": {
-      "sha256": "54c8bef5e2d03133f830636a663b20a7e5de0e9bb71147f88dbe0debfcb901b3",
+      "sha256": "fced32529cb35391cd014183058f042579eb6295188c2b167861cd2bd03ff1d5",
       "bytes": 13491
     },
-    "assets/css/site.fb0e9bcb3cec.css": {
-      "sha256": "fb0e9bcb3cecebb0a39e5ca52d557982e7feabe52488cb34140dbb2b929de116",
-      "bytes": 51769
+    "assets/css/site.a69ac67412a8.css": {
+      "sha256": "a69ac67412a834a95baacc15c2eaa8d02893e56f277ee8911b2308d5f6e3b472",
+      "bytes": 68319
     },
-    "assets/js/site.b073de5d6b1d.js": {
-      "sha256": "b073de5d6b1d7b5fb4adce724d506857f4f4a62d6ea61e6b132f513f73a8c294",
-      "bytes": 17430
+    "assets/js/site.1df6404ae2a7.js": {
+      "sha256": "1df6404ae2a7549d213c2a677daf84f6af90bb8ebeb3d71a375620a4c63cdb2b",
+      "bytes": 33431
     },
     "assets/build.json": {
-      "sha256": "67e8c680e9ab3dab697c3c42071ca3dffe7f67773b3a81f17d6e20301318ff34",
+      "sha256": "f5f8468b01e25447183ff282a27be04f3d9ac4f70d4c6e3a8ffb0bfa0c891b19",
       "bytes": 203
     },
     "sitemap.xml": {
