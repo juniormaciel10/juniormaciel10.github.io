@@ -61,17 +61,14 @@ test('Detalhes revertem cliques e mantêm aberto o destino de navegação',async
  await summary.focus();await page.keyboard.press('Space');await accordionDone(page,selector,false);await page.keyboard.press('Enter');await accordionDone(page,selector,true);
 });
 
-test('Mudança da preferência do sistema interrompe e retoma as animações',async({page})=>{
+test('Animações continuam ativas quando a configuração do sistema muda',async({page})=>{
  await page.emulateMedia({reducedMotion:'reduce'});await open(page);
- await expect(page.locator('html')).toHaveAttribute('data-motion','reduced');
- expect(await page.locator('.hero').evaluate(e=>e.getAnimations({subtree:true}).length)).toBe(0);
- await page.emulateMedia({reducedMotion:'no-preference'});await expect(page.locator('html')).toHaveAttribute('data-intro-state','playing');
- await page.emulateMedia({reducedMotion:'reduce'});await expect(page.locator('html')).toHaveAttribute('data-motion','reduced');
- await expect.poll(()=>page.locator('.hero').evaluate(e=>e.getAnimations({subtree:true}).length)).toBe(0);
- await jump(page,'#gallery-expand');await page.mouse.move(2,20);
- const before=await page.locator('#gallery-expand').evaluate(e=>getComputedStyle(e).transform);await page.locator('#gallery-expand').hover();
- expect(await page.locator('#gallery-expand').evaluate(e=>getComputedStyle(e).transform)).toBe(before);
- await page.emulateMedia({reducedMotion:'no-preference'});await expect(page.locator('html')).toHaveAttribute('data-motion','full');await complete(page,'.software-stage');
+ await expect(page.locator('html')).toHaveAttribute('data-motion','full');
+ await expect(page.locator('html')).toHaveAttribute('data-intro-state','playing');
+ await page.emulateMedia({reducedMotion:'no-preference'});await page.emulateMedia({reducedMotion:'reduce'});
+ await expect(page.locator('html')).toHaveAttribute('data-motion','full');
+ await enter(page,'.document-art');expect(await page.locator('.sheet-front').evaluate(e=>parseFloat(getComputedStyle(e).rotate))).toBeGreaterThan(.1);
+ await complete(page,'.document-art');
 });
 
 test('O conteúdo aparece se o script ultrapassa o prazo e não reinicia ao chegar tarde',async({page})=>{

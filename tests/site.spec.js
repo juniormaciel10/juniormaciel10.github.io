@@ -97,9 +97,9 @@ test('Cópia do e-mail sinaliza sucesso e indisponibilidade da permissão',async
  await page.locator('.copy-email').click();await expect(page.locator('#copy-status')).toContainText('Não foi possível');
 });
 
-test('Movimento reduzido preserva conteúdo e simplifica a abertura',async({browser,baseURL})=>{
+test('Animações são o padrão também quando o sistema pede movimento reduzido',async({browser,baseURL})=>{
  const context=await browser.newContext({baseURL,reducedMotion:'reduce',viewport:{width:390,height:844}});const page=await context.newPage();
- try{await page.goto('/');await expect(page.locator('h1')).toBeVisible();expect(await page.locator('.hero-art').evaluate(e=>getComputedStyle(e).animationName)).toBe('none');await page.locator('.hero .button').click();await expect(page).toHaveURL(/#projetos$/)}finally{await context.close()}
+ try{await page.goto('/');await expect(page.locator('h1')).toBeVisible();await expect(page.locator('html')).toHaveAttribute('data-motion','full');await expect(page.locator('#motion-toggle')).toHaveCount(0);await page.locator('.hero .button').click();await expect(page).toHaveURL(/#projetos$/)}finally{await context.close()}
 });
 
 test('JavaScript lento não desloca a abertura no celular',async({page})=>{

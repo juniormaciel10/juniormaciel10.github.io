@@ -6,7 +6,9 @@ HTML, CSS e JavaScript, com fontes locais, animações em CSS e rolagem nativa. 
 
 As entradas em camadas e a profundidade ao ponteiro ficam em `assets/js/motion.js`; transições, folhas em leque e movimento do contato usam `assets/css/motion.css`. Os detalhes têm transições reversíveis e a galeria mantém sua pausa própria.
 
-O controle **Animações**, na navegação, permite ativar ou reduzir o movimento por escolha do visitante. A escolha fica salva neste navegador e vale para as três páginas. Sem uma escolha salva, o site acompanha a preferência do sistema, inclusive quando ela muda durante a visita.
+As animações ficam ativas por padrão, sem botão de ativação, conforme a escolha do autor. A preferência de movimento reduzido do sistema e escolhas antigas salvas no navegador não desligam os efeitos. Galeria e vídeo mantêm seus controles próprios de pausa.
+
+Os fundos das seções ficam em `assets/css/surfaces.css`, com superfícies de abertura, software, papel, leitura, índice, método e contato. Os fundos são camadas estáticas em CSS e não controlam a rolagem.
 
 ## Desenvolvimento
 
