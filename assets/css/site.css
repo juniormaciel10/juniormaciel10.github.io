@@ -164,15 +164,6 @@ html:not(.js) .menu-toggle,html:not(.js) .gallery-toolbar,html:not(.js) .copy-em
 .dialog-bottom{display:flex;align-items:center;justify-content:center;gap:26px;padding-top:18px;font-size:13px;color:var(--muted)}
 #dialog-prev .icon{transform:rotate(180deg)}
 html:has(.gallery-dialog[open]){overflow:hidden}
-@media(prefers-reduced-motion:no-preference){
-  .hero h1 span{animation:title-arrive .95s cubic-bezier(.16,1,.3,1) both}
-  .hero h1 span:nth-child(2){animation-delay:80ms}
-  .hero-art{animation:art-arrive 1.3s cubic-bezier(.16,1,.3,1) both}
-  .reveal.is-arriving{animation:section-arrive .85s cubic-bezier(.16,1,.3,1) both}
-  @keyframes title-arrive{from{transform:translateY(28px)}to{transform:translateY(0)}}
-  @keyframes art-arrive{from{opacity:0;transform:translate3d(30px,40px,0)}to{opacity:1;transform:translate3d(0,0,0)}}
-  @keyframes section-arrive{from{transform:translateY(32px)}to{transform:translateY(0)}}
-}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}.hero-art-inner{transform:scale(var(--art-scale,1))}}
 @media(min-width:1650px){.hero-art{right:0;top:35px;--art-scale:1.09}.hero-copy{max-width:66%}.hero{padding-top:85px}.software-stage{height:690px}.main-screen{width:56%;max-width:730px;left:12%}}
 @media(max-width:1250px){

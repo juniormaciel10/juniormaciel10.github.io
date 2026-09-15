@@ -44,6 +44,8 @@ test('Deslize horizontal no modal troca a tela; gesto vertical preserva a seleç
   await session.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:rect.x+rect.width*.8,y}]});
   await session.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:rect.x+rect.width*.2,y}]});
   await session.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await screen(page,1);
+  await page.getByRole('button',{name:'Fechar imagem'}).tap();await expect(page.locator('#gallery-dialog')).not.toBeVisible();await expect(page.locator('#gallery-expand')).toBeFocused();
+  await page.locator('#gallery-expand').tap();
   const after=await page.locator('.dialog-image-wrap').boundingBox(),x=after.x+after.width/2;
   await session.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x,y:after.y+after.height*.3}]});
   await session.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x,y:after.y+after.height*.7}]});

@@ -15,6 +15,8 @@ test('Publicação contém apenas o site; bundles íntegros e metadados do perfi
  expect(js[0]).toMatch(/^assets\/js\/site\.[a-f0-9]{12}\.js$/);
  for(const file of [...css,...js])expect(sha(await(await request.get('/'+file)).body())).toBe(manifest.files[file].sha256);
  expect(manifest.files[js[0]].bytes).toBeLessThan(20000);
+ expect(await page.content()).not.toMatch(/preview-replay|motion-preview-tools|__motionPreview/);
+ expect((await(await request.get('/'+js[0])).text())).not.toMatch(/__motionPreview|preview-replay/);
  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href','https://juniormaciel10.github.io/');
  const profile=JSON.parse(await page.locator('script[type="application/ld+json"]').textContent());
  expect(profile.mainEntity.name).toBe('Franklin Junior Maciel');expect(profile.mainEntity.sameAs).toHaveLength(2);

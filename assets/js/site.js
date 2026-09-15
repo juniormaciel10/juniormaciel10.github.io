@@ -53,31 +53,6 @@
   revealTarget(location.hash);
 
   const motionPreference = matchMedia('(prefers-reduced-motion: reduce)');
-  const finePointer = matchMedia('(min-width: 1024px) and (pointer: fine)');
-  const hero = document.querySelector('.hero');
-  const art = document.querySelector('.hero-art-inner');
-  let pointerFrame = 0;
-  hero.addEventListener('pointermove', e => {
-    if (!finePointer.matches || motionPreference.matches || pointerFrame) return;
-    pointerFrame = requestAnimationFrame(() => {
-      pointerFrame = 0;
-      const rect = hero.getBoundingClientRect();
-      art.style.setProperty('--mx', ((e.clientX - rect.left) / rect.width - .5) * 12 + 'px');
-      art.style.setProperty('--my', ((e.clientY - rect.top) / rect.height - .5) * 9 + 'px');
-    });
-  }, { passive: true });
-  hero.addEventListener('pointerleave', () => {
-    art.style.setProperty('--mx', '0px');
-    art.style.setProperty('--my', '0px');
-  });
-  const revealObserver = new IntersectionObserver(entries => {
-    for (const entry of entries) {
-      if (!entry.isIntersecting) continue;
-      entry.target.classList.add('is-arriving');
-      revealObserver.unobserve(entry.target);
-    }
-  }, { threshold: .1 });
-  document.querySelectorAll('.reveal').forEach(element => revealObserver.observe(element));
 
   const activeNav = new IntersectionObserver(entries => {
     for (const entry of entries) {
@@ -212,6 +187,11 @@
     touch = e.touches.length === 1 && (!window.visualViewport || window.visualViewport.scale <= 1.05)
       ? { x: e.touches[0].clientX, y: e.touches[0].clientY } : null;
   }, { passive: true });
+  dialogViewport.addEventListener('touchmove', e => {
+    if (!touch || e.touches.length !== 1 || (window.visualViewport && visualViewport.scale > 1.05)) return;
+    const dx = e.touches[0].clientX - touch.x, dy = e.touches[0].clientY - touch.y;
+    if (Math.abs(dx) > 10 && Math.abs(dx) > Math.abs(dy) * 1.5 && e.cancelable) e.preventDefault();
+  }, { passive: false });
   dialogViewport.addEventListener('touchend', e => {
     if (!touch || !e.changedTouches[0]) return;
     const dx = e.changedTouches[0].clientX - touch.x;
@@ -239,7 +219,6 @@
   window.addEventListener('pagehide', () => {
     clearTimeout(timer);
     clearTimeout(copyTimer);
-    cancelAnimationFrame(pointerFrame);
   });
   window.addEventListener('pageshow', schedule);
 })();

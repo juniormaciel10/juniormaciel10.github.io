@@ -16,5 +16,10 @@ async function settle(page) {
 async function jump(page, selector, block = 'center') {
   await page.locator(selector).evaluate((element, block) => element.scrollIntoView({block,behavior:'instant'}), block);
   await settle(page);
+  await page.waitForFunction(selector => {
+    const element = document.querySelector(selector);
+    const scene = element?.closest('[data-motion-scene]');
+    return scene?.dataset.motionScene !== 'playing' && !element?.closest('[data-motion-changing]');
+  }, selector);
 }
 module.exports = { open, settle, jump };
