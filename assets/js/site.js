@@ -53,6 +53,20 @@
   revealTarget(location.hash);
 
   const motionPreference = matchMedia('(prefers-reduced-motion: reduce)');
+  const root = document.documentElement;
+  root.classList.add('has-motion');
+  root.dataset.motion = motionPreference.matches ? 'reduced' : 'full';
+  motionPreference.addEventListener('change', e => { root.dataset.motion = e.matches ? 'reduced' : 'full'; });
+  const smallScreen = matchMedia('(max-width:760px)');
+  function syncMenu() {
+    const hidden = smallScreen.matches && !header.hasAttribute('data-open');
+    nav.inert = hidden;
+    if (hidden) nav.setAttribute('aria-hidden', 'true'); else nav.removeAttribute('aria-hidden');
+  }
+  new MutationObserver(syncMenu).observe(header, { attributes: true, attributeFilter: ['data-open'] });
+  smallScreen.addEventListener('change', syncMenu);
+  syncMenu();
+  new ResizeObserver(() => root.style.setProperty('--site-header-height', header.getBoundingClientRect().height + 'px')).observe(header);
 
   const activeNav = new IntersectionObserver(entries => {
     for (const entry of entries) {
@@ -63,9 +77,17 @@
       }
     }
   }, { rootMargin: '-15% 0px -65% 0px' });
-  ['inicio', 'projetos', 'metodo', 'contato'].forEach(id => activeNav.observe(document.getElementById(id)));
+  const sections = new Set(['inicio', ...[...nav.querySelectorAll('a[href^="#"]')].map(link => link.hash.slice(1))]);
+  sections.forEach(id => { const section = document.getElementById(id); if (section) activeNav.observe(section); });
+
+  document.querySelectorAll('video').forEach(video => {
+    const disclosure = video.closest('details');
+    disclosure?.addEventListener('toggle', () => { if (!disclosure.open) video.pause(); });
+    document.addEventListener('visibilitychange', () => { if (document.hidden) video.pause(); });
+  });
 
   const gallery = document.getElementById('software-gallery');
+  if (!gallery) return;
   const galleryImage = document.getElementById('gallery-image');
   const galleryButtons = [...document.querySelectorAll('[data-slide]')];
   const expand = document.getElementById('gallery-expand');
@@ -203,7 +225,7 @@
 
   const copyButton = document.querySelector('.copy-email');
   let copyTimer = 0;
-  copyButton.addEventListener('click', async () => {
+  copyButton?.addEventListener('click', async () => {
     clearTimeout(copyTimer);
     try {
       await navigator.clipboard.writeText('jrmaciell92@gmail.com');

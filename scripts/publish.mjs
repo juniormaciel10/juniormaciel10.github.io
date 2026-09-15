@@ -33,7 +33,7 @@ if (manifest.commit !== sourceCommit) throw new Error('O build não corresponde 
 const files = [...new Set([...Object.keys(manifest.files), 'manifest.json'])];
 if (!files.includes('index.html') || !files.includes('.nojekyll')) throw new Error('Build incompleto.');
 for (const file of files) {
-  if (!/^(?:assets\/[\w./-]+|index\.html|\.nojekyll|manifest\.json)$/.test(file) || file.split('/').some(part => !part || part === '.' || part === '..')) {
+  if (!/^(?:assets\/[\w./-]+|projetos\/[a-z0-9-]+\/index\.html|index\.html|\.nojekyll|manifest\.json|sitemap\.xml|robots\.txt)$/.test(file) || file.split('/').some(part => !part || part === '.' || part === '..')) {
     throw new Error(`Arquivo fora do pacote público: ${file}`);
   }
   const data = await fs.readFile(path.join(output, file));

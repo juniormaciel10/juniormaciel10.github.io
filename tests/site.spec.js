@@ -67,7 +67,7 @@ test('Menu móvel, Escape e navegação restauram o foco',async({page})=>{
 
 test('Links dos projetos e endereços antigos abrem o conteúdo completo',async({page})=>{
  await open(page);await jump(page,'#p-ciclo .project-footnote');await page.getByRole('link',{name:'Conhecer o projeto',exact:true}).click();
- await expect(page.locator('#ciclo-detalhes')).toHaveJSProperty('open',true);
+ await expect(page).toHaveURL(/\/projetos\/planejamento-de-estudos\/$/);await expect(page.locator('h1')).toHaveText('Planejamentode estudos.');
  for(const [hash,parent] of [['#p-funil','#p-funil'],['#resumo-detalhes','#resumo-detalhes'],['#registro-validacao','#metodo-detalhes'],['#experiencia','#experiencia']]){
   await page.goto('/'+hash);await page.evaluate(()=>document.fonts.ready);await expect(page.locator(parent)).toHaveJSProperty('open',true);
   await expect(page.locator(hash)).toBeInViewport();

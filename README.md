@@ -18,6 +18,10 @@ npm run dev
 
 A prévia abre em `http://127.0.0.1:4175`. Execute `npm run build` após alterar os arquivos-fonte para atualizar a prévia.
 
+As páginas de projeto ficam em `projetos/`, com as entradas listadas em `scripts/pages.json`. O build compartilha os bundles entre as páginas, resolve as referências relativas e gera `sitemap.xml` e `robots.txt`.
+
+A página do planejador oferece um percurso de 24 segundos pelas seis telas reais, em MP4, com legendas e descrição textual. O vídeo carrega sob demanda e pausa quando sua área é fechada.
+
 ## Verificação
 
 ```sh
@@ -53,6 +57,7 @@ O comando gera o build, executa os testes, confere a integridade do pacote e env
 ## Estrutura
 
 - `index.html` e `assets/`: conteúdo, estilos, comportamento e mídia.
+- `projetos/`: páginas de apresentação dos principais trabalhos.
 - `scripts/`: build, prévia, auditoria e publicação.
 - `tests/`: verificações de interface e funcionamento.
 - `dist/`: saída gerada, não versionada.

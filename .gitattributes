@@ -7,8 +7,10 @@
 *.json text eol=lf
 *.yml text eol=lf
 *.md text eol=lf
+*.vtt text eol=lf
 *.woff2 binary
 *.png binary
 *.webp binary
 *.pdf binary
 *.docx binary
+*.mp4 binary
