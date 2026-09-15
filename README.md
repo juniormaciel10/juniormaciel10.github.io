@@ -8,7 +8,7 @@ As entradas em camadas e a profundidade ao ponteiro ficam em `assets/js/motion.j
 
 As animações ficam ativas por padrão, sem botão de ativação, conforme a escolha do autor. A preferência de movimento reduzido do sistema e escolhas antigas salvas no navegador não desligam os efeitos. Galeria e vídeo mantêm seus controles próprios de pausa.
 
-Os fundos das seções ficam em `assets/css/surfaces.css`, com superfícies de abertura, software, papel, leitura, índice, método e contato. Os fundos são camadas estáticas em CSS e não controlam a rolagem.
+As superfícies das seções ficam em `assets/css/surfaces.css`. Os grafismos e o percurso luminoso da página inicial ficam em `assets/css/backdrops.css` e `assets/js/backdrops.js`. O indicador entra pelo alto, acompanha a rolagem e informa a dobra atual com mouse, teclado ou toque. O movimento pausa fora da área visível ou quando a aba fica oculta; a rolagem permanece nativa.
 
 ## Desenvolvimento
 
@@ -32,7 +32,7 @@ A página do planejador oferece um percurso de 24 segundos pelas seis telas reai
 npm run verify
 ```
 
-A suíte usa o próprio Playwright do projeto e verifica layout responsivo, navegação, rolagem, carregamento progressivo, galeria, recuperação de erros, downloads e conteúdo sem JavaScript. Relatórios ficam em `playwright-report/` e evidências em `test-results/`.
+A suíte usa o próprio Playwright do projeto e verifica layout responsivo, navegação, rolagem, carregamento progressivo, galeria, recuperação de erros, downloads, indicador de localização e conteúdo sem JavaScript. O bundle de JavaScript tem limites de 36 KB minificados e 12,5 KB comprimidos, incluindo o controlador do percurso. Relatórios ficam em `playwright-report/` e evidências em `test-results/`.
 
 Para executar contra o site publicado, configure a variável `SITE_URL`. Os testes usam somente os arquivos e o ambiente deste projeto.
 

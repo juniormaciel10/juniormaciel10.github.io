@@ -79,6 +79,7 @@ test('O conteúdo aparece se o script ultrapassa o prazo e não reinicia ao cheg
   await page.locator('h1').waitFor({state:'visible'});await expect(page.locator('html')).not.toHaveClass(/motion-pending/,{timeout:5000});
   expect(await page.locator('.art-screen-front').evaluate(e=>getComputedStyle(e).opacity)).toBe('1');
   release();await navigation;await expect(page.locator('html')).toHaveAttribute('data-intro-state','complete');
-  expect(await page.locator('.hero').evaluate(e=>e.getAnimations({subtree:true}).filter(a=>a.playState==='running').length)).toBe(0);
+  // Os fundos podem seguir animados; a chegada tardia não deve reiniciar o conteúdo da abertura.
+  expect(await page.locator('.hero-copy,.hero-art').evaluateAll(elements=>elements.flatMap(e=>e.getAnimations({subtree:true})).filter(a=>a.playState==='running').length)).toBe(0);
  }finally{release();await navigation.catch(()=>{})}
 });

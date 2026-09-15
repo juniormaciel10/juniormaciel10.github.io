@@ -1,0 +1,224 @@
+/* Fundos e percurso aprovados. Movimento automático, com pausa fora da tela. */
+body.portfolio-home #conteudo { background: rgb(12, 20, 37); }
+.portfolio-home .art-initial { visibility: hidden; }
+.portfolio-home :is(.hero, .software-case, .document-case, .other-work, .method-section, .contact-section) { position: relative; isolation: isolate; }
+.section-backdrop { position: absolute; inset-block: 0px; left: 50%; width: 100vw; transform: translateX(-50%); z-index: -1; overflow: hidden; pointer-events: none; }
+.section-backdrop > * { display: none; }
+.backdrop-routes { position: absolute; width: 100%; height: 100%; inset: 0px; min-height: 650px; color: rgb(105, 146, 214); }
+.route-underlay { stroke: rgb(38, 71, 116); stroke-width: 22; opacity: 0.25; }
+.route-main { stroke: rgb(99, 137, 199); stroke-width: 3.5; opacity: 0.85; }
+.route-secondary { stroke: rgb(57, 92, 146); stroke-width: 2; opacity: 0.8; }
+.route-tertiary { stroke: rgb(56, 86, 128); stroke-width: 1.5; opacity: 0.55; }
+.route-signal { stroke: rgb(190, 212, 255); stroke-width: 4; stroke-dasharray: 0.065, 0.935; stroke-dashoffset: 1; opacity: 0; }
+body[data-background="fluxos"] .is-backdrop-visible .route-signal { animation: 3.6s cubic-bezier(0.2, 0, 0.2, 1) 0s 1 normal both running backdrop-flow; }
+@keyframes backdrop-flow {
+  0% { opacity: 0; stroke-dashoffset: 1; }
+  12%, 75% { opacity: 0.9; }
+  100% { opacity: 0; stroke-dashoffset: -0.12; }
+}
+.route-junctions { fill: rgb(20, 33, 58); stroke: rgb(111, 150, 215); stroke-width: 2.5; }
+.route-centers { fill: rgb(149, 178, 233); }
+.backdrop-monogram { position: absolute; right: -40px; bottom: -10px; font-family: Clash, Geist, sans-serif; font-size: clamp(360px, 48vw, 760px); font-weight: 600; line-height: 0.84; letter-spacing: -0.11em; color: rgb(47, 75, 124); transform: rotate(-12deg); opacity: 0.58; }
+body[data-background="fluxos"] .backdrop-routes { display: block; }
+.portfolio-home .hero .section-backdrop { z-index: 0; }
+.portfolio-home .hero .backdrop-routes { mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 57%, rgb(0, 0, 0) 75%), linear-gradient(0deg, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 16%, transparent 37%); }
+.portfolio-home .hero .backdrop-mobile-routes { display: none; }
+.portfolio-home [data-surface="software"]::before { background-image: none; }
+.portfolio-home .software-case .section-backdrop { inset-block: -60px -40px; }
+.portfolio-home .software-case .backdrop-routes { opacity: 0.75; mask-image: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 2.5%, transparent 4%, transparent 96%, rgb(0, 0, 0) 97.5%); }
+.portfolio-home .document-case .backdrop-routes { color: rgb(66, 98, 140); opacity: 0.4; }
+.portfolio-home .document-case .route-main { stroke: rgb(64, 98, 143); }
+.portfolio-home .document-case .route-junctions { fill: rgb(233, 238, 245); stroke: rgb(88, 115, 151); }
+.portfolio-home .document-case .route-centers { fill: rgb(64, 98, 143); }
+.portfolio-home .other-work .backdrop-routes { opacity: 0.55; }
+.portfolio-home .method-section .backdrop-routes { opacity: 0.68; }
+.portfolio-home .contact-surface .section-backdrop { left: 0px; width: 100%; transform: none; z-index: 0; }
+.portfolio-home .contact-surface::after,
+.portfolio-home .contact-motion-ornament { display: none; }
+.portfolio-home .contact-section .backdrop-monogram { color: rgb(197, 213, 255); opacity: 0.12; font-size: 510px; right: -50px; bottom: -90px; }
+body[data-background="fluxos"] .contact-section .backdrop-monogram { display: block; }
+@media (max-width: 760px) {
+.backdrop-routes { width: 150%; left: -25%; min-height: 720px; }
+.portfolio-home .hero .backdrop-desktop-routes { display: none; }
+.portfolio-home[data-background="fluxos"] .hero .backdrop-mobile-routes { display: block; top: 0px; left: 0px; width: 100%; height: 100%; min-height: 0px; opacity: 0.7; mask-image: none; }
+.portfolio-home .document-case .backdrop-routes { height: 600px; min-height: 0px; mask-image: linear-gradient(rgb(0, 0, 0) 70%, transparent); }
+.portfolio-home .other-work .backdrop-routes { opacity: 0.32; mask-image: linear-gradient(90deg, transparent, rgb(0, 0, 0)); }
+.portfolio-home .method-section .backdrop-routes { mask-image: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 2%, transparent 5%, transparent 95%, rgb(0, 0, 0) 98%); }
+.backdrop-monogram { font-size: 510px; right: -265px; bottom: 30px; opacity: 0.52; }
+.portfolio-home .contact-section .backdrop-monogram { font-size: 430px; right: -260px; bottom: 0px; }
+}
+@media (forced-colors: active) {
+.section-backdrop { display: none; }
+}
+@media print {
+.section-backdrop { display: none; }
+}
+.portfolio-home { --image-edge: #c4d3f3; --image-edge-dark: #8799ba; --image-shadow: #071328; }
+.portfolio-home #conteudo { position: relative; }
+.portfolio-home .art-screen { border-color: rgba(196, 211, 243, 0.5); }
+.portfolio-home .art-screen-back { border-color: rgba(196, 211, 243, 0.267); }
+.portfolio-home .art-document { box-shadow: -3px 5px 0 var(--image-edge-dark),0 22px 48px #07132873; }
+.portfolio-home .software-stage { box-shadow: rgba(138, 168, 243, 0.3) 0px 0px 0px 1px inset; }
+.portfolio-home .main-screen { box-shadow: -3px 4px 0 #c4d3f3,-8px 10px 0 var(--image-edge-dark),0 32px 62px #07132866; }
+.portfolio-home #p-resumos .sheet { box-shadow: -3px 5px 0 var(--image-edge-dark),0 28px 55px #17294c2e; }
+.portfolio-home #p-resumos .document-orbit { border-color: rgba(52, 83, 245, 0.23); background: linear-gradient(150deg, rgba(52, 83, 245, 0.11), transparent 68%); }
+.portfolio-home #p-resumos .document-orbit::before { border-color: rgba(52, 83, 245, 0.14); }
+.portfolio-home .workspace > a { border-color: rgba(140, 166, 217, 0.5); box-shadow: rgb(49, 72, 110) -3px 4px 0px, rgba(7, 19, 40, 0.22) 0px 20px 46px; }
+.story-thread { position: absolute; inset: 0px; z-index: 3; width: 100%; height: 100%; overflow: hidden; pointer-events: none; display: none; }
+.portfolio-home[data-background="fluxos"] .story-thread { display: block; }
+.story-thread path { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.story-thread-bed { stroke: url("#story-thread-colors"); stroke-width: 10; opacity: 0.075; }
+.story-thread-line { stroke: url("#story-thread-colors"); stroke-width: 2; opacity: 0.65; }
+.story-thread-progress { stroke: url("#story-thread-colors"); stroke-width: 2; opacity: 0; }
+.story-thread-branches { stroke: url("#story-thread-colors"); stroke-width: 1.5; opacity: 0.68; }
+.story-thread-port { fill: rgb(20, 36, 64); stroke: rgb(119, 154, 203); stroke-width: 1.5; }
+.story-thread-port[data-tone="paper"] { fill: rgb(233, 238, 245); stroke: rgb(89, 118, 163); }
+.story-thread-port[data-tone="contact"] { fill: rgb(182, 202, 255); stroke: rgb(182, 202, 255); }
+.story-mobile-exit { stroke: rgb(57, 92, 146); stroke-width: 2; opacity: 0.8; }
+@supports (animation-timeline:scroll()) {
+.portfolio-home[data-background="fluxos"] .story-thread-progress { opacity: 0.75; stroke-dasharray: 1; stroke-dashoffset: 1; animation-duration: 1s; animation-timing-function: linear; animation-delay: 0s; animation-iteration-count: 1; animation-direction: normal; animation-fill-mode: both; animation-play-state: running; animation-name: story-thread-reveal; animation-range: normal; animation-timeline: scroll(root); }
+@keyframes story-thread-reveal {
+  100% { stroke-dashoffset: 0; }
+}
+}
+@media (max-width: 760px) {
+.portfolio-home .main-screen { box-shadow: -2px 3px 0 #c4d3f3,-5px 7px 0 var(--image-edge-dark),0 25px 40px #0713284d; }
+.portfolio-home .workspace > a { box-shadow: rgb(49, 72, 110) -2px 3px 0px, rgba(7, 19, 40, 0.18) 0px 14px 30px; }
+.story-thread-bed { stroke-width: 6; opacity: 0.06; }
+.story-thread-line,
+.story-thread-progress { stroke-width: 1.5; }
+.story-thread-branches { stroke-width: 1.25; }
+}
+@media (forced-colors: active) {
+.story-thread,
+.story-mobile-exit { display: none !important; }
+}
+@media print {
+.story-thread,
+.story-mobile-exit { display: none !important; }
+}
+.portfolio-home { --ambient-state: running; --ambient-x: 6px; --ambient-y: 8px; }
+.portfolio-home .section-backdrop { --ambient-state: paused; }
+.portfolio-home .section-backdrop.is-backdrop-visible { --ambient-state: running; }
+body.portfolio-home[data-background="fluxos"] .section-backdrop .route-signal { animation-duration: 13s; animation-timing-function: linear; animation-delay: -2s; animation-iteration-count: infinite; animation-direction: normal; animation-fill-mode: none; animation-name: ambient-route; animation-timeline: auto; animation-range: normal; animation-play-state: var(--ambient-state); stroke-width: 3.5; }
+@keyframes ambient-route {
+  0% { stroke-dashoffset: 1; opacity: 0; }
+  12%, 72% { opacity: 0.52; }
+  88%, 100% { stroke-dashoffset: -0.12; opacity: 0; }
+}
+.ambient-trace { fill: none; stroke: currentcolor; stroke-width: 2; stroke-linecap: round; opacity: 0; }
+body.portfolio-home[data-background="fluxos"] .ambient-trace { stroke-dasharray: 0.085, 0.915; animation-duration: ; animation-timing-function: ; animation-delay: ; animation-iteration-count: ; animation-direction: ; animation-fill-mode: ; animation-name: ; animation-timeline: ; animation-range-start: ; animation-range-end: ; animation-play-state: var(--ambient-state); }
+body.portfolio-home[data-background="fluxos"] .route-centers { animation-duration: 8s; animation-timing-function: ease-in-out; animation-delay: -2s; animation-iteration-count: infinite; animation-direction: normal; animation-fill-mode: none; animation-name: ambient-nodes; animation-timeline: auto; animation-range: normal; animation-play-state: var(--ambient-state); }
+@keyframes ambient-nodes {
+  0%, 100% { opacity: 0.58; }
+  50% { opacity: 1; }
+}
+.story-thread-ambient { stroke: url("#story-thread-colors"); stroke-width: 2.2; stroke-dasharray: 0.008, 0.158; opacity: 0.4; animation-duration: 16s; animation-timing-function: linear; animation-delay: 0s; animation-iteration-count: infinite; animation-direction: normal; animation-fill-mode: none; animation-name: ambient-thread; animation-timeline: auto; animation-range: normal; animation-play-state: var(--ambient-state); }
+@keyframes ambient-thread {
+  0% { stroke-dashoffset: 0.166; }
+  100% { stroke-dashoffset: 0; }
+}
+body.portfolio-home[data-background="fluxos"] .contact-section .backdrop-monogram { animation-duration: 18s; animation-timing-function: ease-in-out; animation-delay: -3s; animation-iteration-count: infinite; animation-direction: normal; animation-fill-mode: none; animation-name: ambient-letter; animation-timeline: auto; animation-range: normal; animation-play-state: var(--ambient-state); }
+@keyframes ambient-letter {
+  0%, 100% { translate: 0px; }
+  50% { translate: var(--ambient-x) calc(var(--ambient-y) * -1); }
+}
+html[data-ambient-paused] body.portfolio-home,
+html[data-ambient-paused] body.portfolio-home .section-backdrop { --ambient-state: paused; }
+@media (max-width: 760px) {
+.portfolio-home { --ambient-x: 3px; --ambient-y: 4px; }
+.story-thread-ambient { stroke-width: 1.6; opacity: 0.32; }
+}
+@media (forced-colors: active) {
+.ambient-trace,
+.story-thread-ambient { display: none !important; }
+}
+@media print {
+.portfolio-home .section-backdrop *,
+.portfolio-home .story-thread-ambient { animation: auto ease 0s 1 normal none running none !important; }
+}
+body.portfolio-home[data-background="fluxos"] .hero { z-index: 4; }
+.portfolio-home .hero .section-backdrop { max-width: 1920px; }
+.portfolio-home [data-guide-anchor] { visibility: hidden; }
+.portfolio-home .story-thread-bed { stroke-width: 21; opacity: 0.12; }
+.portfolio-home .story-thread-line { stroke-width: 3.5; opacity: 0.85; }
+body.portfolio-home[data-background="fluxos"] .story-thread-progress { stroke-width: 3.5; stroke-dasharray: 1; stroke-dashoffset: 1; opacity: 0.68; animation: auto ease 0s 1 normal none running none !important; }
+.route-guide { --guide-size: 38px; --guide-hit: 44px; position: absolute; inset: 0px auto auto 0px; z-index: 8; width: 0px; height: 0px; display: none; pointer-events: none; }
+body.portfolio-home[data-background="fluxos"] .route-guide[data-ready] { display: block; }
+.route-guide-button { position: absolute; left: 0px; top: 0px; translate: -50% -50%; display: grid; place-items: center; width: var(--guide-hit); height: var(--guide-hit); padding: 0px; background: transparent; border: 0px; border-radius: 11px; pointer-events: auto; touch-action: manipulation; }
+.route-guide-symbol { display: grid; place-items: center; width: var(--guide-size); height: var(--guide-size); border: 2.5px solid rgb(137, 169, 220); border-radius: 9px; background: rgb(20, 33, 58); box-shadow: rgba(32, 57, 88, 0.13) 0px 0px 0px 5px; pointer-events: none; transition: background 0.18s, border-color 0.18s; }
+.route-guide-symbol::after { content: ""; width: 10px; height: 10px; border-radius: 2px; background: rgb(164, 190, 233); }
+.route-guide-button:focus-visible { outline: rgb(201, 217, 250) solid 3px; outline-offset: 2px; }
+.route-guide[data-tone="paper"] .route-guide-button:focus-visible { outline-color: rgb(39, 69, 185); }
+.route-guide-button[aria-expanded="true"] .route-guide-symbol { background: rgb(32, 55, 88); border-color: rgb(189, 209, 243); }
+@media (hover: hover) {
+.route-guide-button:hover .route-guide-symbol { background: rgb(32, 55, 88); border-color: rgb(189, 209, 243); }
+}
+.route-guide-tooltip { position: absolute; left: 0px; top: 0px; min-width: 126px; max-width: min(232px, -24px + 100vw); padding: 11px 15px; border: 1px solid rgb(102, 127, 172); border-radius: 11px; background: rgba(17, 27, 43, 0.96); box-shadow: rgba(2, 8, 21, 0.2) 0px 8px 24px; color: rgb(242, 245, 250); font-family: Geist, Arial, sans-serif; font-size: 14px; line-height: 1.45; white-space: normal; pointer-events: auto; }
+.route-guide-tooltip > span { display: block; font-size: 11px; color: rgb(189, 203, 225); margin-bottom: 3px; }
+.route-guide-tooltip > strong { display: block; font-size: 14px; font-weight: 550; }
+.route-guide-tooltip[hidden] { display: none !important; }
+@media (max-width: 1050px) {
+.route-guide { --guide-size: 16px; --guide-hit: 28px; }
+.route-guide-button { width: 24px; height: 44px; border-radius: 7px; }
+.route-guide-symbol { border-width: 1.5px; border-radius: 4px; box-shadow: rgba(32, 57, 88, 0.094) 0px 0px 0px 3px; }
+.route-guide-symbol::after { width: 4px; height: 4px; border-radius: 1px; }
+.route-guide-button:focus-visible { outline-width: 2px; outline-offset: -2px; }
+.route-guide-tooltip { min-width: 116px; padding: 10px 12px; }
+}
+@media (max-width: 760px) {
+.portfolio-home .story-thread-line,
+.portfolio-home .story-thread-progress { stroke-width: 2.5; }
+.portfolio-home .story-thread-bed { stroke-width: 13; }
+}
+@media (forced-colors: active) {
+.portfolio-home .route-guide-symbol { background: buttonface; border-color: buttontext; box-shadow: none; }
+.portfolio-home .route-guide-symbol::after { background: buttontext; }
+.portfolio-home .route-guide-button:focus-visible { outline-color: highlight; }
+.route-guide[data-tone] .route-guide-button:focus-visible { outline-color: highlight; }
+.route-guide-tooltip { background: canvas; color: canvastext; border-color: canvastext; box-shadow: none; }
+.route-guide-tooltip > span { color: canvastext; }
+}
+@media print {
+.route-guide { display: none !important; }
+}
+body.portfolio-home { --ambient-x: 12px; --ambient-y: 14px; }
+body.portfolio-home[data-background="fluxos"] .section-backdrop .route-signal { stroke: rgb(196, 220, 255); stroke-width: 5; stroke-dasharray: 0.15, 0.85; animation-duration: 9s; animation-timing-function: linear; animation-delay: -0.8s; animation-iteration-count: infinite; animation-direction: normal; animation-fill-mode: none; animation-name: presence-route; animation-timeline: auto; animation-range: normal; animation-play-state: var(--ambient-state); }
+@keyframes presence-route {
+  0% { stroke-dashoffset: 1; opacity: 0; }
+  10%, 78% { opacity: 0.95; }
+  96%, 100% { stroke-dashoffset: -0.17; opacity: 0; }
+}
+body.portfolio-home[data-background="fluxos"] .ambient-trace { stroke: rgb(174, 207, 255); stroke-width: 3; stroke-dasharray: 0.18, 0.82; animation-duration: ; animation-timing-function: ; animation-delay: ; animation-iteration-count: ; animation-direction: ; animation-fill-mode: ; animation-name: ; animation-timeline: ; animation-range-start: ; animation-range-end: ; animation-play-state: var(--ambient-state); }
+body.portfolio-home .document-case .ambient-trace { stroke: rgb(48, 91, 183); }
+body.portfolio-home .story-thread-ambient,
+body.portfolio-home .story-thread-ambient-halo { fill: none; stroke: url("#story-thread-light"); stroke-linecap: round; stroke-dasharray: 0.024, 0.144; animation-duration: 8.5s; animation-timing-function: linear; animation-delay: 0s; animation-iteration-count: infinite; animation-direction: normal; animation-fill-mode: none; animation-name: presence-thread; animation-timeline: auto; animation-range: normal; animation-play-state: var(--ambient-state); }
+body.portfolio-home .story-thread-ambient { stroke-width: 4.8; opacity: 0.96; }
+body.portfolio-home .story-thread-ambient-halo { stroke-width: 12; opacity: 0.2; }
+@keyframes presence-thread {
+  0% { stroke-dashoffset: 0.168; }
+  100% { stroke-dashoffset: 0; }
+}
+body.portfolio-home[data-background="fluxos"] .route-centers { animation-duration: 4.8s; animation-timing-function: ease-in-out; animation-delay: -1s; animation-iteration-count: infinite; animation-direction: normal; animation-fill-mode: none; animation-name: presence-nodes; animation-timeline: auto; animation-range: normal; animation-play-state: var(--ambient-state); }
+@keyframes presence-nodes {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+body.portfolio-home[data-background="fluxos"] .route-junctions { animation-duration: 4.8s; animation-timing-function: ease-in-out; animation-delay: -1s; animation-iteration-count: infinite; animation-direction: normal; animation-fill-mode: none; animation-name: presence-junctions; animation-timeline: auto; animation-range: normal; animation-play-state: var(--ambient-state); }
+@keyframes presence-junctions {
+  0%, 100% { stroke: rgb(111, 150, 215); }
+  50% { stroke: rgb(194, 220, 255); }
+}
+@media (max-width: 760px) {
+body.portfolio-home { --ambient-x: 6px; --ambient-y: 7px; }
+body.portfolio-home .story-thread-ambient { stroke-width: 3.4; opacity: 0.9; }
+body.portfolio-home .story-thread-ambient-halo { stroke-width: 8; opacity: 0.18; }
+body.portfolio-home[data-background="fluxos"] .section-backdrop .route-signal { stroke-width: 4; }
+}
+@media (forced-colors: active) {
+.story-thread-ambient-halo { display: none !important; }
+}
+@media print {
+.story-thread-ambient-halo { display: none !important; }
+}
+@media print{body.portfolio-home #conteudo{background:#fff}}
