@@ -51,7 +51,8 @@ for(const width of [320,390,768,1000,1024,1440,1920]){
    expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
   }
   const controls=await page.locator('.button,.menu-toggle,.case-details>summary,.project-row>summary,[data-slide],.copy-email').evaluateAll(es=>es.filter(e=>e.getClientRects().length).map(e=>e.getBoundingClientRect().height));
-  expect(controls.every(h=>h>=44)).toBe(true);expect(errors).toEqual([]);
+  // Uma translação pode representar 44px como 43.99993896484375 no DOMRect.
+  expect(controls.every(h=>Math.round(h*1000)/1000>=44)).toBe(true);expect(errors).toEqual([]);
  });
 }
 

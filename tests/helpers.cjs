@@ -14,6 +14,8 @@ async function settle(page) {
   }));
 }
 async function jump(page, selector, block = 'center') {
+  // O destino só deve ser alinhado depois que seu contêiner tiver a altura final.
+  await page.waitForFunction(selector => !document.querySelector(selector)?.closest('[data-motion-changing]'), selector);
   await page.locator(selector).evaluate((element, block) => element.scrollIntoView({block,behavior:'instant'}), block);
   await settle(page);
   await page.waitForFunction(selector => {
