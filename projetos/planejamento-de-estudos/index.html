@@ -7,12 +7,7 @@
   <meta name="theme-color" content="#0c1017">
   <script>
     document.documentElement.classList.add('js');
-    var motionChoice = 'system';
-    try { motionChoice = localStorage.getItem('portfolio-motion') || 'system'; } catch {}
-    if (motionChoice !== 'full' && motionChoice !== 'reduced') motionChoice = 'system';
-    document.documentElement.dataset.motionPreference = motionChoice;
-    document.documentElement.dataset.motion = motionChoice === 'system'
-      ? (matchMedia('(prefers-reduced-motion: reduce)').matches ? 'reduced' : 'full') : motionChoice;
+    document.documentElement.dataset.motion = 'full';
     document.addEventListener('error',function(event){if(event.target.tagName==='SCRIPT'&&event.target.src)document.documentElement.classList.remove('js','has-motion')},true);
   </script>
   <title>Planejamento de estudos · Franklin Junior Maciel</title>
@@ -30,7 +25,7 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%232448EE'/%3E%3Ctext x='32' y='41' font-family='sans-serif' font-size='24' font-weight='700' fill='%23FAFBFC' text-anchor='middle'%3Efj.%3C/text%3E%3C/svg%3E">
   <link rel="preload" href="../../assets/fonts/ClashDisplay-Semibold.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../../assets/fonts/Geist.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="../../assets/css/site.59bfafdb9e02.css">
+  <link rel="stylesheet" href="../../assets/css/site.fb0e9bcb3cec.css">
   
   <script type="application/ld+json">{
   "@context": "https://schema.org",
@@ -50,6 +45,7 @@
     "url": "https://juniormaciel10.github.io/"
   }
 }</script>
+
 </head>
 <body class="project-page">
   <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
@@ -66,12 +62,12 @@
   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
   <path d="M17 7l-10 10"></path>
   <path d="M8 7l9 0l0 9"></path>
-</svg></a><label class="motion-control"><input id="motion-toggle" type="checkbox"><span>Animações</span></label></nav>
+</svg></a></nav>
     </div>
   </header>
   <main id="conteudo" class="wrap">
     <nav class="case-breadcrumb" aria-label="Caminho"><a href="../../#projetos">Projetos</a><span aria-hidden="true">/</span><span>Software</span></nav>
-    <header class="case-hero" id="visao-geral">
+    <header class="case-hero" data-surface="intro" id="visao-geral">
       <div class="case-intro"><p class="eyebrow">Software · Planejamento de estudos</p><h1>Planejamento<br>de estudos<span class="accent-text">.</span></h1><p class="case-lead">Da disponibilidade real de tempo à próxima tarefa, com revisões integradas à rotina.</p><div class="case-actions"><a class="button button-primary" href="#telas">Explorar as telas<span class="button-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-up-right">
   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
   <path d="M17 7l-10 10"></path>
@@ -87,12 +83,12 @@
   <path d="M8 7l9 0l0 9"></path>
 </svg></span></a><figcaption>Tarefas e revisões na interface do projeto.</figcaption></figure>
     </header>
-    <div class="case-facts"><dl class="caso-fatos"><div><dt>Minha atuação</dt><dd>Planejamento, desenho das telas e implementação com agentes.</dd></div><div><dt>Entrega</dt><dd>Uma ferramenta de uso próprio para organizar tarefas e revisões.</dd></div></dl></div>
-    <section class="case-section case-story" aria-labelledby="desafio-titulo"><div><p class="case-kicker">O ponto de partida</p><h2 id="desafio-titulo">Uma necessidade<br>da minha rotina.</h2></div><div class="case-prose"><p>A ideia nasceu da minha própria rotina. Quem estuda para concurso lida com muitas disciplinas, pouco tempo e a dúvida diária sobre o que estudar agora. Eu queria um planejador que partisse das horas que a pessoa realmente tem, ajustasse o peso de cada disciplina pela dificuldade e trouxesse de volta o que precisa ser revisado, sem refazer o plano toda semana.</p></div></section>
-    <section class="case-section" id="decisoes" aria-labelledby="decisoes-titulo"><div class="case-story"><div><p class="case-kicker">Desenho da solução</p><h2 id="decisoes-titulo">Primeiro as regras.<br>Depois, as telas.</h2></div><div class="case-prose"><p>Projetei a ferramenta para mim. Comecei pelo problema e pelas regras do plano, depois escrevi um roteiro em nove etapas com as telas, o comportamento do planejamento e o que a IA pode e não pode fazer. A implementação seguiu esse roteiro, e o roteiro foi ajustado conforme o uso.</p></div></div>
+    <div class="case-facts" data-surface="index"><dl class="caso-fatos"><div><dt>Minha atuação</dt><dd>Planejamento, desenho das telas e implementação com agentes.</dd></div><div><dt>Entrega</dt><dd>Uma ferramenta de uso próprio para organizar tarefas e revisões.</dd></div></dl></div>
+    <section class="case-section case-story" data-surface="reading" aria-labelledby="desafio-titulo"><div><p class="case-kicker">O ponto de partida</p><h2 id="desafio-titulo">Uma necessidade<br>da minha rotina.</h2></div><div class="case-prose"><p>A ideia nasceu da minha própria rotina. Quem estuda para concurso lida com muitas disciplinas, pouco tempo e a dúvida diária sobre o que estudar agora. Eu queria um planejador que partisse das horas que a pessoa realmente tem, ajustasse o peso de cada disciplina pela dificuldade e trouxesse de volta o que precisa ser revisado, sem refazer o plano toda semana.</p></div></section>
+    <section class="case-section" data-surface="software" id="decisoes" aria-labelledby="decisoes-titulo"><div class="case-story"><div><p class="case-kicker">Desenho da solução</p><h2 id="decisoes-titulo">Primeiro as regras.<br>Depois, as telas.</h2></div><div class="case-prose"><p>Projetei a ferramenta para mim. Comecei pelo problema e pelas regras do plano, depois escrevi um roteiro em nove etapas com as telas, o comportamento do planejamento e o que a IA pode e não pode fazer. A implementação seguiu esse roteiro, e o roteiro foi ajustado conforme o uso.</p></div></div>
       <ol class="case-decisions"><li><h3>Disponibilidade real</h3><p>Partir de quantas tarefas a pessoa consegue fazer por dia.</p></li><li><h3>Disciplinas e formatos</h3><p>Ordenar as disciplinas, definir a dificuldade e escolher os formatos de estudo de cada uma.</p></li><li><h3>Retomada</h3><p>Marcar o que já foi estudado para continuar do ponto certo.</p></li><li><h3>Tarefas e revisões</h3><p>Gerar a fila de próximas tarefas e trazer de volta o conteúdo que precisa ser revisado.</p></li></ol>
     </section>
-    <section class="case-section case-gallery" id="telas" aria-labelledby="telas-titulo"><div class="case-section-heading"><p class="case-kicker">O projeto em telas</p><h2 id="telas-titulo">Do tempo disponível<br>à próxima tarefa.</h2><p>Explore as seis telas do planejamento. Cada captura pode ser ampliada.</p></div><details class="case-details case-demo" id="percurso">
+    <section class="case-section case-gallery" data-surface="software" id="telas" aria-labelledby="telas-titulo"><div class="case-section-heading"><p class="case-kicker">O projeto em telas</p><h2 id="telas-titulo">Do tempo disponível<br>à próxima tarefa.</h2><p>Explore as seis telas do planejamento. Cada captura pode ser ampliada.</p></div><details class="case-details case-demo" id="percurso">
       <summary><span>Ver percurso em vídeo</span><span class="demo-duration">24 segundos</span><span class="row-toggle"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></summary>
       <div class="case-demo-body"><figure>
         <video id="project-video" width="1280" height="960" controls playsinline muted preload="none" poster="../../assets/img/planejamento-percurso.webp" aria-label="Percurso pelas telas do planejador de estudos" aria-describedby="percurso-descricao">
@@ -141,7 +137,7 @@
   <path d="M7 4v16l13 -8z"></path>
 </svg></span><span data-pause-text="">Pausar</span></button>
         </div><p class="sr-only" id="gallery-announcement" role="status"></p></section>
-    <section class="case-section case-story" aria-labelledby="entrega-titulo"><div><p class="case-kicker">A entrega</p><h2 id="entrega-titulo">Uma ferramenta<br>de uso próprio.</h2></div><div class="case-prose"><p>Planejamento, desenho das telas e implementação com agentes, a partir de um roteiro ajustado conforme o uso.</p><p>Além da fila de tarefas, o projeto reúne caderno de erros, revisões inteligentes, simulados e prática de discursivas com avaliação orientativa por IA.</p><a class="text-link" href="../../#metodo">Conhecer meu método <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-up-right">
+    <section class="case-section case-story" data-surface="method" aria-labelledby="entrega-titulo"><div><p class="case-kicker">A entrega</p><h2 id="entrega-titulo">Uma ferramenta<br>de uso próprio.</h2></div><div class="case-prose"><p>Planejamento, desenho das telas e implementação com agentes, a partir de um roteiro ajustado conforme o uso.</p><p>Além da fila de tarefas, o projeto reúne caderno de erros, revisões inteligentes, simulados e prática de discursivas com avaliação orientativa por IA.</p><a class="text-link" href="../../#metodo">Conhecer meu método <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-up-right">
   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
   <path d="M17 7l-10 10"></path>
   <path d="M8 7l9 0l0 9"></path>
@@ -200,6 +196,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
   -->
-  <script src="../../assets/js/site.791a93a07030.js" defer></script>
+  <script src="../../assets/js/site.b073de5d6b1d.js" defer></script>
 </body>
 </html>

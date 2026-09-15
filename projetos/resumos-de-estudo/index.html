@@ -7,12 +7,7 @@
   <meta name="theme-color" content="#0c1017">
   <script>
     document.documentElement.classList.add('js');
-    var motionChoice = 'system';
-    try { motionChoice = localStorage.getItem('portfolio-motion') || 'system'; } catch {}
-    if (motionChoice !== 'full' && motionChoice !== 'reduced') motionChoice = 'system';
-    document.documentElement.dataset.motionPreference = motionChoice;
-    document.documentElement.dataset.motion = motionChoice === 'system'
-      ? (matchMedia('(prefers-reduced-motion: reduce)').matches ? 'reduced' : 'full') : motionChoice;
+    document.documentElement.dataset.motion = 'full';
     document.addEventListener('error',function(event){if(event.target.tagName==='SCRIPT'&&event.target.src)document.documentElement.classList.remove('js','has-motion')},true);
   </script>
   <title>Da aula ao resumo · Franklin Junior Maciel</title>
@@ -30,7 +25,7 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%232448EE'/%3E%3Ctext x='32' y='41' font-family='sans-serif' font-size='24' font-weight='700' fill='%23FAFBFC' text-anchor='middle'%3Efj.%3C/text%3E%3C/svg%3E">
   <link rel="preload" href="../../assets/fonts/ClashDisplay-Semibold.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../../assets/fonts/Geist.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="../../assets/css/site.59bfafdb9e02.css">
+  <link rel="stylesheet" href="../../assets/css/site.fb0e9bcb3cec.css">
   
   <script type="application/ld+json">{
   "@context": "https://schema.org",
@@ -50,6 +45,7 @@
     "url": "https://juniormaciel10.github.io/"
   }
 }</script>
+
 </head>
 <body class="project-page">
   <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
@@ -66,12 +62,12 @@
   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
   <path d="M17 7l-10 10"></path>
   <path d="M8 7l9 0l0 9"></path>
-</svg></a><label class="motion-control"><input id="motion-toggle" type="checkbox"><span>Animações</span></label></nav>
+</svg></a></nav>
     </div>
   </header>
   <main id="conteudo" class="wrap">
-    <nav class="case-breadcrumb" aria-label="Caminho"><a href="../../#projetos">Projetos</a><span aria-hidden="true">/</span><span>Conteúdo</span></nav>
-    <header class="case-hero" id="visao-geral">
+    <nav class="case-breadcrumb" data-surface="paper" aria-label="Caminho"><a href="../../#projetos">Projetos</a><span aria-hidden="true">/</span><span>Conteúdo</span></nav>
+    <header class="case-hero" data-surface="paper" id="visao-geral">
       <div class="case-intro"><p class="eyebrow">Conteúdo · Documentos de estudo</p><h1>Da aula<br>ao resumo<span class="accent-text">.</span></h1><p class="case-lead">Estruturei a produção de resumos a partir de aulas em PDF, com revisão por agentes e documentos prontos para estudar.</p><div class="case-actions"><a class="button button-primary" href="../../assets/downloads/resumo-inteligencia-artificial.pdf" target="_blank" rel="noopener">Ler amostra em PDF<span class="button-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-up-right">
   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
   <path d="M17 7l-10 10"></path>
@@ -84,15 +80,15 @@
 </svg></a></div></div>
       <figure class="case-cover document-cover"><a href="../../assets/downloads/resumo-inteligencia-artificial.pdf" target="_blank" rel="noopener" aria-label="Ler o resumo completo de Inteligência Artificial em PDF"><img src="../../assets/img/resumo-ia-previa.webp" width="480" height="679" alt="Página real do resumo de Inteligência Artificial, com conceitos e quadros de comparação." fetchpriority="high"></a><figcaption>Inteligência Artificial · amostra real em PDF e DOCX.</figcaption></figure>
     </header>
-    <div class="case-facts"><dl class="caso-fatos"><div><dt>Minha atuação</dt><dd>Estruturar a produção, a revisão independente e as verificações dos arquivos.</dd></div><div><dt>Entrega</dt><dd>Resumos em DOCX, prontos para estudar e revisar.</dd></div></dl></div>
-    <section class="case-section case-story" aria-labelledby="fonte-titulo"><div><p class="case-kicker">O ponto de partida</p><h2 id="fonte-titulo">O PDF é<br>a referência.</h2></div><div class="case-prose"><p>A produção parte da aula em PDF e de uma estrutura definida para o resumo. O documento é confrontado com a fonte e passa por revisão em contexto separado da produção.</p><p>Minha atuação é estruturar a produção, a revisão independente e as verificações dos arquivos.</p></div></section>
-    <section class="case-section case-story" id="processo" aria-labelledby="processo-titulo"><div><p class="case-kicker">Como o resumo é produzido</p><h2 id="processo-titulo">Produção e revisão<br>em etapas próprias.</h2></div><ol class="case-process"><li><h3>Produzir</h3><p>Estrutura definida, PDF como fonte e auditoria mecânica do arquivo.</p></li><li><h3>Confrontar com a fonte</h3><p>Um agente revisa em contexto separado da produção.</p></li><li><h3>Revisar em cópia</h3><p>Outro agente faz a revisão posterior, preservando o original.</p></li><li><h3>Revalidar e registrar</h3><p>Conferir o arquivo corrigido e documentar o retrabalho.</p></li></ol></section>
-    <section class="case-section case-story" aria-labelledby="verificacao-titulo"><div><p class="case-kicker">Verificação do arquivo</p><h2 id="verificacao-titulo">Conferir antes<br>de entregar.</h2></div><div class="case-prose"><p>Scripts verificam páginas, questões, gabaritos e âncoras de ligação com o PDF. Se falta dependência, o hash diverge ou a auditoria reprova, o avanço para e a causa é corrigida antes de registrar a entrega.</p><div class="case-evidence"><figure class="inventario"><img src="../../assets/img/auditoria-inventario.png" width="615" height="182" alt="Exemplo real de inventário agregado da auditoria: 37 questões únicas, zero resíduos e zero questões perdidas pela heurística." loading="lazy"><figcaption>Recorte literal do instrumento. É um exemplo, não uma medida de qualidade de todas as aulas.</figcaption></figure><a class="text-link" href="../../assets/img/auditoria-inventario.png" target="_blank" rel="noopener">Ampliar o registro <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-up-right">
+    <div class="case-facts" data-surface="index"><dl class="caso-fatos"><div><dt>Minha atuação</dt><dd>Estruturar a produção, a revisão independente e as verificações dos arquivos.</dd></div><div><dt>Entrega</dt><dd>Resumos em DOCX, prontos para estudar e revisar.</dd></div></dl></div>
+    <section class="case-section case-story" data-surface="reading" aria-labelledby="fonte-titulo"><div><p class="case-kicker">O ponto de partida</p><h2 id="fonte-titulo">O PDF é<br>a referência.</h2></div><div class="case-prose"><p>A produção parte da aula em PDF e de uma estrutura definida para o resumo. O documento é confrontado com a fonte e passa por revisão em contexto separado da produção.</p><p>Minha atuação é estruturar a produção, a revisão independente e as verificações dos arquivos.</p></div></section>
+    <section class="case-section case-story" data-surface="method" id="processo" aria-labelledby="processo-titulo"><div><p class="case-kicker">Como o resumo é produzido</p><h2 id="processo-titulo">Produção e revisão<br>em etapas próprias.</h2></div><ol class="case-process"><li><h3>Produzir</h3><p>Estrutura definida, PDF como fonte e auditoria mecânica do arquivo.</p></li><li><h3>Confrontar com a fonte</h3><p>Um agente revisa em contexto separado da produção.</p></li><li><h3>Revisar em cópia</h3><p>Outro agente faz a revisão posterior, preservando o original.</p></li><li><h3>Revalidar e registrar</h3><p>Conferir o arquivo corrigido e documentar o retrabalho.</p></li></ol></section>
+    <section class="case-section case-story" data-surface="reading" aria-labelledby="verificacao-titulo"><div><p class="case-kicker">Verificação do arquivo</p><h2 id="verificacao-titulo">Conferir antes<br>de entregar.</h2></div><div class="case-prose"><p>Scripts verificam páginas, questões, gabaritos e âncoras de ligação com o PDF. Se falta dependência, o hash diverge ou a auditoria reprova, o avanço para e a causa é corrigida antes de registrar a entrega.</p><div class="case-evidence"><figure class="inventario"><img src="../../assets/img/auditoria-inventario.png" width="615" height="182" alt="Exemplo real de inventário agregado da auditoria: 37 questões únicas, zero resíduos e zero questões perdidas pela heurística." loading="lazy"><figcaption>Recorte literal do instrumento. É um exemplo, não uma medida de qualidade de todas as aulas.</figcaption></figure><a class="text-link" href="../../assets/img/auditoria-inventario.png" target="_blank" rel="noopener">Ampliar o registro <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-up-right">
   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
   <path d="M17 7l-10 10"></path>
   <path d="M8 7l9 0l0 9"></path>
 </svg></a></div></div></section>
-    <section class="case-section case-download" aria-labelledby="amostra-titulo"><div><p class="case-kicker">A entrega em mãos</p><h2 id="amostra-titulo">Explore o resumo<br>de Inteligência Artificial.</h2><p>Conceitos e quadros de comparação em uma amostra real do trabalho.</p></div><div class="case-actions"><a class="button button-primary" href="../../assets/downloads/resumo-inteligencia-artificial.pdf" target="_blank" rel="noopener">Ler amostra em PDF<span class="button-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-up-right">
+    <section class="case-section case-download" data-surface="paper" aria-labelledby="amostra-titulo"><div><p class="case-kicker">A entrega em mãos</p><h2 id="amostra-titulo">Explore o resumo<br>de Inteligência Artificial.</h2><p>Conceitos e quadros de comparação em uma amostra real do trabalho.</p></div><div class="case-actions"><a class="button button-primary" href="../../assets/downloads/resumo-inteligencia-artificial.pdf" target="_blank" rel="noopener">Ler amostra em PDF<span class="button-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-up-right">
   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
   <path d="M17 7l-10 10"></path>
   <path d="M8 7l9 0l0 9"></path>
@@ -138,6 +134,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
   -->
-  <script src="../../assets/js/site.791a93a07030.js" defer></script>
+  <script src="../../assets/js/site.b073de5d6b1d.js" defer></script>
 </body>
 </html>

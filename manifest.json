@@ -1,5 +1,5 @@
 {
-  "commit": "9e2925bc3492e2267679ff97f3c1dca21ad10b1c",
+  "commit": "f64b68ba0305fff4481763cea93c2c57d27ed6a9",
   "files": {
     ".nojekyll": {
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -26,24 +26,28 @@
       "bytes": 664
     },
     "assets/css/site.css": {
-      "sha256": "c2425af90b5e564993ecd47ea7dd0ef8b9e6126824b0802e6846d88586745006",
-      "bytes": 32436
+      "sha256": "577ef89af8f145d383abd8af61af463782c6e8d45925b9d689672068f9e6d737",
+      "bytes": 31681
     },
     "assets/css/motion.css": {
       "sha256": "c670868669576d311b3572177be545cf733581fd7ba24961fd813dfb199f34e4",
       "bytes": 7698
+    },
+    "assets/css/surfaces.css": {
+      "sha256": "118bb7e3d8bf8ffc3ef88fa83e919b9efbc8150550616ade473412889f343915",
+      "bytes": 5057
     },
     "assets/css/projects.css": {
       "sha256": "1dc5c3969e04e4f61bdb79fedf75b243be0b63c2a682884952d98d3094c44595",
       "bytes": 8762
     },
     "assets/js/site.js": {
-      "sha256": "2396ced21ffa6b08ad28d83145d3fd41c5d5d8f90c3b392edbee99dc459c657d",
-      "bytes": 13268
+      "sha256": "d81e81a53e97178b21382da67507e24eeb2c7b45ee55f9e6a2e33b21012ade1c",
+      "bytes": 11573
     },
     "assets/js/motion.js": {
-      "sha256": "88e51f8083903ede2ea966ecdc91b59108c18dfeb553015624e221e829f4d8fa",
-      "bytes": 16203
+      "sha256": "b2f1ce11272f59a1367b5e7920afc557209834d8b74fb30dde60751005c231a4",
+      "bytes": 16071
     },
     "assets/css/site.190a2da95ab3.css": {
       "sha256": "190a2da95ab30895dea585620722c4d15e0ff88cb1c7781fe57fe99be35e08ac",
@@ -60,6 +64,10 @@
     "assets/css/site.54edb4dc0323.css": {
       "sha256": "54edb4dc03239ebef330c53ef454288b50691d608c459b050d42479b6f879cd6",
       "bytes": 40885
+    },
+    "assets/css/site.59bfafdb9e02.css": {
+      "sha256": "59bfafdb9e02ca1addd7dec9212f670a47b97a89600d2b562e04d1c48f07df48",
+      "bytes": 47886
     },
     "assets/css/site.cf46b2629174.css": {
       "sha256": "cf46b26291745684d273b67877afb8a3c0876041f7eeb2079ca548985c3b2cb8",
@@ -173,6 +181,10 @@
       "sha256": "5d0bbee2ddaec28f6ca29cc1b7dd78e34121ad223bd7462775bec222b24bc5f6",
       "bytes": 7367
     },
+    "assets/js/site.791a93a07030.js": {
+      "sha256": "791a93a0703015f89aae0613ccecd96a78154fea8981dbd53b76e671c6c856bc",
+      "bytes": 18406
+    },
     "assets/js/site.9c400e10dd33.js": {
       "sha256": "9c400e10dd33851517e674977a45d707afa9055e56288d85e2db06da9c72e0da",
       "bytes": 17226
@@ -206,27 +218,27 @@
       "bytes": 472
     },
     "index.html": {
-      "sha256": "f68425316e56f830de819bbcccc1bdb7413a7b09218bc4a62235b28c8e1c20ef",
-      "bytes": 42030
+      "sha256": "7d8593cbbc6d5673949551270a5061e0de87c53503465427a99c683792f3c307",
+      "bytes": 41660
     },
     "projetos/planejamento-de-estudos/index.html": {
-      "sha256": "ba89d5a785f6c13250330886a29d72496fe90886f158a400dc00da47f6d48a97",
-      "bytes": 21088
+      "sha256": "0d98882d8ed2d9c8d6af6a5eb42d46c60e4589281dd9f0710da6ec9ae132f7d1",
+      "bytes": 20719
     },
     "projetos/resumos-de-estudo/index.html": {
-      "sha256": "6e015c8e6504f19069aa9b26c6edbedf19395e93f39b1f0fea7597098530597a",
-      "bytes": 13843
+      "sha256": "54c8bef5e2d03133f830636a663b20a7e5de0e9bb71147f88dbe0debfcb901b3",
+      "bytes": 13491
     },
-    "assets/css/site.59bfafdb9e02.css": {
-      "sha256": "59bfafdb9e02ca1addd7dec9212f670a47b97a89600d2b562e04d1c48f07df48",
-      "bytes": 47886
+    "assets/css/site.fb0e9bcb3cec.css": {
+      "sha256": "fb0e9bcb3cecebb0a39e5ca52d557982e7feabe52488cb34140dbb2b929de116",
+      "bytes": 51769
     },
-    "assets/js/site.791a93a07030.js": {
-      "sha256": "791a93a0703015f89aae0613ccecd96a78154fea8981dbd53b76e671c6c856bc",
-      "bytes": 18406
+    "assets/js/site.b073de5d6b1d.js": {
+      "sha256": "b073de5d6b1d7b5fb4adce724d506857f4f4a62d6ea61e6b132f513f73a8c294",
+      "bytes": 17430
     },
     "assets/build.json": {
-      "sha256": "a75f79559ea7430875149cbbafa5c6601578eaf4f3078d52996a9e97940018db",
+      "sha256": "67e8c680e9ab3dab697c3c42071ca3dffe7f67773b3a81f17d6e20301318ff34",
       "bytes": 203
     },
     "sitemap.xml": {

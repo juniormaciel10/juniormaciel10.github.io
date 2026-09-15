@@ -52,44 +52,9 @@
   window.addEventListener('hashchange', () => revealTarget(location.hash));
   revealTarget(location.hash);
 
-  const motionPreference = matchMedia('(prefers-reduced-motion: reduce)');
   const root = document.documentElement;
   root.classList.add('has-motion');
-  const motionToggle = document.getElementById('motion-toggle');
-  const normalizeChoice = value => value === 'full' || value === 'reduced' ? value : 'system';
-  let motionChoice = normalizeChoice(root.dataset.motionPreference);
-  function readMotionChoice() {
-    try { return normalizeChoice(localStorage.getItem('portfolio-motion')); }
-    catch { return motionChoice; }
-  }
-  function applyMotionChoice() {
-    const previous = root.dataset.motion;
-    const mode = motionChoice === 'system' ? (motionPreference.matches ? 'reduced' : 'full') : motionChoice;
-    root.dataset.motionPreference = motionChoice;
-    root.dataset.motion = mode;
-    if (motionToggle) {
-      motionToggle.checked = mode === 'full';
-      motionToggle.title = mode === 'full' ? 'Reduzir animações' : 'Ativar animações';
-    }
-    if (previous !== mode) root.dispatchEvent(new Event('portfolio:motionchange'));
-  }
-  motionChoice = readMotionChoice();
-  applyMotionChoice();
-  motionPreference.addEventListener('change', () => { if (motionChoice === 'system') applyMotionChoice(); });
-  motionToggle?.addEventListener('change', () => {
-    motionChoice = motionToggle.checked ? 'full' : 'reduced';
-    try { localStorage.setItem('portfolio-motion', motionChoice); } catch {}
-    applyMotionChoice();
-    if (smallScreen.matches) closeMenu(true);
-  });
-  addEventListener('storage', event => {
-    if (event.key !== 'portfolio-motion' && event.key !== null) return;
-    motionChoice = readMotionChoice();
-    applyMotionChoice();
-  });
-  addEventListener('pageshow', event => {
-    if (event.persisted) { motionChoice = readMotionChoice(); applyMotionChoice(); }
-  });
+  root.dataset.motion = 'full';
   const smallScreen = matchMedia('(max-width:760px)');
   function syncMenu() {
     const hidden = smallScreen.matches && !header.hasAttribute('data-open');

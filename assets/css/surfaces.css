@@ -1,0 +1,91 @@
+/* Fundos das seções. Camadas estáticas, independentes da rolagem e do conteúdo. */
+:root{
+  --surface-intro:#0d1831;
+  --surface-software:#111e30;
+  --surface-reading:#141c2a;
+  --surface-index:#1c1b30;
+  --surface-method:#0c2830;
+  --surface-contact:#132243;
+  --surface-intro-light:#2a52c45c;
+  --surface-grid:#93a7ff0c;
+  --surface-method-light:#2a77733d;
+  --surface-paper:#e9eef5;
+  --surface-paper-shade:#dce5f0;
+  --paper-text:#192637;
+  --paper-muted:#4b5a6d;
+  --paper-line:#b7c3d4;
+  --paper-link:#2745b9;
+  --paper-rule:#385b820c;
+  --dark-text:var(--text);
+  --dark-muted:var(--muted);
+}
+body:not(.project-page) #conteudo{
+  overflow-x:clip;
+  background:radial-gradient(ellipse 840px 680px at 82% 330px,var(--surface-intro-light),transparent 75%),var(--surface-intro);
+}
+[data-surface]{position:relative;isolation:isolate}
+[data-surface]::before{
+  content:"";position:absolute;inset-block:0;left:50%;width:100vw;transform:translateX(-50%);z-index:-1;pointer-events:none;
+  background:var(--section-bg,var(--surface-reading));
+}
+[data-surface="software"]{--section-bg:var(--surface-software)}
+[data-surface="software"]::before{
+  background-image:linear-gradient(var(--surface-grid) 1px,transparent 1px),linear-gradient(90deg,var(--surface-grid) 1px,transparent 1px);
+  background-size:88px 88px;
+}
+[data-surface="reading"]{--section-bg:var(--surface-reading)}
+[data-surface="index"]{--section-bg:var(--surface-index)}
+[data-surface="index"]::before{background-image:radial-gradient(ellipse at 100% 0,#6964a81a,transparent 60%)}
+[data-surface="method"]{--section-bg:var(--surface-method)}
+[data-surface="method"]::before{
+  background-image:radial-gradient(ellipse at 0 55%,var(--surface-method-light),transparent 65%),repeating-linear-gradient(135deg,#b7e6eb05 0 1px,transparent 1px 64px);
+}
+[data-surface="contact"]{--section-bg:var(--surface-contact)}
+[data-surface="contact"]::before{background-image:radial-gradient(ellipse at 80% 100%,#3453f52b,transparent 70%)}
+[data-surface="paper"]{
+  --text:var(--paper-text);--muted:var(--paper-muted);--line:var(--paper-line);--blue-light:var(--paper-link);
+  color:var(--text);color-scheme:light;
+}
+[data-surface="paper"]::before{background:linear-gradient(90deg,var(--surface-paper),var(--surface-paper-shade))}
+#p-resumos .document-art{background:repeating-linear-gradient(0deg,var(--paper-rule) 0 1px,transparent 1px 44px)}
+#p-resumos .document-word{color:#24456b0c}
+#p-resumos .document-orbit{border-color:#47648833;background:linear-gradient(150deg,#c3d1e16b,transparent 65%)}
+#p-resumos .document-orbit::before{border-color:#4764881f}
+#p-resumos .sheet{box-shadow:0 30px 65px #18294129}
+[data-surface="paper"] .case-details[open]>summary .row-toggle{color:#fff}
+[data-surface="paper"] .case-details>summary:hover .row-toggle{color:#fff;background:var(--blue);border-color:var(--blue)}
+.other-work[data-surface]{padding-top:84px}
+.method-section[data-surface]{background:transparent;border-color:#34565e}
+.experience-section[data-surface]{padding-bottom:40px}
+.contact-section[data-surface]{padding-bottom:42px}
+
+/* Nas páginas internas, os fundos ocupam a tela e os textos mantêm os mesmos eixos. */
+.project-page #conteudo.wrap{width:100%;max-width:none;margin:0;overflow-x:clip;background:var(--surface-intro)}
+.project-page #conteudo> :is(.case-breadcrumb,.case-hero,.case-facts,.case-section,.case-next){width:calc(100% - var(--gutter)*2);max-width:1440px;margin-inline:auto}
+.project-page .case-hero[data-surface="intro"]::before{background:radial-gradient(ellipse at 85% 50%,var(--surface-intro-light),transparent 65%),var(--surface-intro)}
+.project-page [data-surface="paper"] .document-cover{
+  --text:var(--dark-text);--muted:var(--dark-muted);color:var(--text);border-color:#ffffff12;
+}
+.project-page .case-download[data-surface="paper"]{background:transparent;border:0;border-radius:0;padding:52px 0}
+.project-page .case-breadcrumb[data-surface="paper"]{color:var(--muted)}
+.project-page .case-facts[data-surface]{border-color:var(--line)}
+.project-page .case-next{padding-bottom:42px}
+@media(max-width:760px){
+  body:not(.project-page) #conteudo{background-image:radial-gradient(ellipse 650px 620px at 75% 650px,var(--surface-intro-light),transparent 75%)}
+  [data-surface="software"]::before{background-size:64px 64px}
+  .other-work[data-surface]{padding-top:64px}
+  .experience-section[data-surface]{padding-bottom:28px}
+  .contact-section[data-surface]{padding-bottom:28px}
+  .project-page .case-download[data-surface="paper"]{padding-block:40px}
+}
+@media(forced-colors:active){
+  [data-surface]::before{display:none}
+  [data-surface="paper"]{color:CanvasText;--text:CanvasText;--muted:CanvasText;--blue-light:LinkText;--line:CanvasText}
+  #p-resumos .document-art{background:none}
+}
+@media print{
+  [data-surface]::before{display:none}
+  body:not(.project-page) #conteudo,.project-page #conteudo.wrap{background:#fff;overflow:visible}
+  [data-surface]{color:#111;--text:#111;--muted:#333;--blue-light:#2342b5;--line:#aaa}
+  #p-resumos .document-art{background:none}
+}

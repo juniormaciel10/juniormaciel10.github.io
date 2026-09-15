@@ -7,12 +7,7 @@
   <script>
     document.documentElement.classList.add('js');
     document.documentElement.classList.add('motion-pending');
-    var motionChoice = 'system';
-    try { motionChoice = localStorage.getItem('portfolio-motion') || 'system'; } catch {}
-    if (motionChoice !== 'full' && motionChoice !== 'reduced') motionChoice = 'system';
-    document.documentElement.dataset.motionPreference = motionChoice;
-    document.documentElement.dataset.motion = motionChoice === 'system'
-      ? (matchMedia('(prefers-reduced-motion: reduce)').matches ? 'reduced' : 'full') : motionChoice;
+    document.documentElement.dataset.motion = 'full';
     setTimeout(function () {
       if (!document.documentElement.classList.contains('motion-pending')) return;
       document.documentElement.classList.remove('motion-pending');
@@ -60,7 +55,8 @@
   }
 }
 </script>
-<link rel="stylesheet" href="assets/css/site.59bfafdb9e02.css">
+<link rel="stylesheet" href="assets/css/site.fb0e9bcb3cec.css">
+
 
 </head>
 <body>
@@ -104,7 +100,7 @@
   <path d="M17 7l-10 10" />
   <path d="M8 7l9 0l0 9" />
 </svg></a>
-      <label class="motion-control"><input id="motion-toggle" type="checkbox"><span>Animações</span></label></nav>
+      </nav>
     </div>
   </header>
   <main id="conteudo" tabindex="-1">
@@ -142,7 +138,7 @@
       </div>
     </section>
 
-    <section class="selected-work wrap" id="projetos" tabindex="-1" aria-labelledby="work-title">
+    <section class="selected-work wrap" data-surface="software" id="projetos" tabindex="-1" aria-labelledby="work-title">
       <div class="section-heading reveal">
         <h2 id="work-title">Projetos para<br>ver de perto<span class="accent-text">.</span></h2>
         <p>Ferramentas, documentos e processos que já desenvolvi.</p>
@@ -270,7 +266,7 @@
     <div class="ciclo-funcionamento"><h4>Como funciona</h4><ul class="lista-texto"><li>A pessoa informa a disponibilidade: quantas tarefas consegue fazer por dia.</li><li>Escolhe e ordena as disciplinas, define a dificuldade e os formatos de estudo de cada uma.</li><li>Marca o que já estudou, para retomar do ponto certo.</li><li>O plano gera a fila de próximas tarefas e as revisões planejadas.</li><li>Caderno de erros e revisões inteligentes trazem de volta o que rendeu menos.</li><li>Simulados e prática de discursivas com avaliação orientativa por IA.</li></ul></div></div></details>
       </article>
 
-      <article class="document-case" id="p-resumos" aria-labelledby="document-title">
+      <article class="document-case" data-surface="paper" id="p-resumos" aria-labelledby="document-title">
         <div class="document-art reveal">
           <span class="document-word" aria-hidden="true">Ler.</span>
           <div class="document-orbit" aria-hidden="true"></div>
@@ -335,7 +331,7 @@
   <path d="M5 12l14 0" />
 </svg></span></summary><div class="case-details-body"><dl class="caso-fatos"><div><dt>Minha atuação</dt><dd>Estruturar a produção, a revisão independente e as verificações dos arquivos.</dd></div><div><dt>Entrega</dt><dd>Resumos em DOCX, prontos para estudar e revisar.</dd></div></dl><h4>Como funciona</h4><ul class="lista-texto"><li>Produzir: estrutura definida, PDF como fonte e auditoria mecânica do arquivo.</li><li>Confrontar com a fonte: um agente revisa em contexto separado da produção.</li><li>Revisar em cópia: outro agente faz a revisão posterior, preservando o original.</li><li>Revalidar e registrar: conferir o arquivo corrigido e documentar o retrabalho.</li></ul><p>Scripts verificam páginas, questões, gabaritos e âncoras de ligação com o PDF. Se falta dependência, o hash diverge ou a auditoria reprova, o avanço para e a causa é corrigida antes de registrar a entrega.</p><figure class="inventario"><img src="assets/img/auditoria-inventario.png" width="615" height="182" alt="Exemplo real de inventário agregado da auditoria: 37 questões únicas, zero resíduos e zero questões perdidas pela heurística." loading="lazy"><figcaption>Recorte literal do instrumento. É um exemplo, não uma medida de qualidade de todas as aulas.</figcaption></figure></div></details></article>
 
-      <div class="other-work reveal">
+      <div class="other-work reveal" data-surface="index">
         <h3>Outras frentes<span class="accent-text">.</span></h3>
         <div class="project-index">
           <details class="project-row" id="p-funil">
@@ -417,7 +413,7 @@
       </div>
     </section>
 
-    <section class="method-section" id="metodo" aria-labelledby="method-title">
+    <section class="method-section" data-surface="method" id="metodo" aria-labelledby="method-title">
       <div class="wrap">
         <span class="anchor-alias" id="como-trabalho" aria-hidden="true"></span><div class="method-top reveal">
           <h2 id="method-title">Por trás<br>dos projetos<span class="accent-text">.</span></h2>
@@ -489,7 +485,7 @@
       </div>
     </section>
 
-    <section class="experience-section wrap"><details class="case-details" id="experiencia"><summary>Experiência e formação<span class="row-toggle"><svg
+    <section class="experience-section wrap" data-surface="reading"><details class="case-details" id="experiencia"><summary>Experiência e formação<span class="row-toggle"><svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -514,7 +510,7 @@
     <li><span class="quando">2017 a 2019</span><div class="oque"><h3>Estágio jurídico</h3><p>Dois anos, durante o curso de Direito.</p></div></li>
   </ol><ol class="tempo tempo-formacao"><li><span class="quando">em curso</span><div class="oque"><h3>Análise e Desenvolvimento de Sistemas</h3><p>UniCesumar.</p></div></li></ol></div>
 </div></details></section>
-    <section class="contact-section wrap" id="contato" aria-labelledby="contact-title">
+    <section class="contact-section wrap" data-surface="contact" id="contato" aria-labelledby="contact-title">
       <div class="contact-surface reveal"><span class="contact-motion-ornament" aria-hidden="true"></span>
         <h2 id="contact-title">Qual é o<br>próximo projeto?</h2>
         <div class="contact-bottom">
@@ -663,7 +659,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
   -->
-  <script src="assets/js/site.791a93a07030.js" defer></script>
+  <script src="assets/js/site.b073de5d6b1d.js" defer></script>
   
 </body>
 </html>

@@ -176,7 +176,7 @@
     if (node.getBoundingClientRect().top > innerHeight) prepareScene(result);
     sceneObserver.observe(node);
   }
-  scene('.section-heading', [['h2',{y:36,duration:1050}],['p',{y:18,delay:150,opacity:.65}]]);
+  scene('.section-heading', [['h2',{y:36,duration:1050}],['p',{y:18,delay:150}]]);
   scene('.project-heading', [['h3',{y:28}],['p',{y:16,delay:120}]]);
   scene('.software-stage', [
     ['.main-screen',{x:-24,y:24,angle:-1.2,duration:1200,delay:90}],
@@ -190,7 +190,7 @@
     ['.document-orbit',{x:20,y:18,angle:5,duration:1600,opacity:.3}],
     ['.document-word',{x:-20,delay:240,opacity:.35,duration:1300}]
   ]);
-  scene('.document-copy', [['h3',{y:28,duration:1100}],['p',{y:16,opacity:.6,delay:130}],['.document-file',{y:12,delay:230}]]);
+  scene('.document-copy', [['h3',{y:28,duration:1100}],['p',{y:16,delay:130}],['.document-file',{y:12,delay:230}]]);
   scene('.other-work', [
     ['h3',{y:30}],
     ...[...document.querySelectorAll('.project-row')].map((_,i)=>['.project-row:nth-child('+(i+1)+')',{y:18,delay:120+i*85,duration:900}])
@@ -271,7 +271,7 @@
     details.style.height = end+'px';
     state.timer = setTimeout(()=>completeAccordion(details,state),(wanted?420:260)+80);
     if (wanted) {
-      state.contentAnimation = entrance(contents[0]?.element,{y:10,opacity:.65,delay:70,duration:350});
+      state.contentAnimation = entrance(contents[0]?.element,{y:10,delay:70,duration:350});
     }
     if (Math.abs(before-end)<1) completeAccordion(details,state);
   }
@@ -320,7 +320,6 @@
     });
     if (enabled && replay && heroVisible) playIntro();
   }
-  root.addEventListener('portfolio:motionchange',()=>setMotion(root.dataset.motion === 'full'));
   const pausedWhenHidden = new Set();
   document.addEventListener('visibilitychange',()=>{
     if (document.hidden) {
