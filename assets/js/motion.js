@@ -219,19 +219,6 @@
     holder.insertBefore(track,icon);
     track.append(icon,copy);
   });
-  const header = document.querySelector('.site-header');
-  const nav = document.querySelector('.main-nav');
-  new ResizeObserver(() => {
-    root.style.setProperty('--site-header-height',header.getBoundingClientRect().height+'px');
-  }).observe(header);
-  function syncMenu() {
-    const hidden = smallScreen.matches && !header.hasAttribute('data-open');
-    nav.inert = hidden;
-    if (hidden) nav.setAttribute('aria-hidden','true'); else nav.removeAttribute('aria-hidden');
-  }
-  new MutationObserver(syncMenu).observe(header,{attributes:true,attributeFilter:['data-open']});
-  smallScreen.addEventListener('change',syncMenu);
-  syncMenu();
   function clearAccordionTransition(details, state) {
     clearTimeout(state.timer);
     details.removeEventListener('transitionend',state.onEnd);
@@ -333,7 +320,6 @@
       else item.node.dataset.motionScene = 'static';
     });
     if (enabled && replay && heroVisible) playIntro();
-    syncMenu();
   }
   systemMotion.addEventListener('change',event=>setMotion(!event.matches));
   const pausedWhenHidden = new Set();

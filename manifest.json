@@ -1,5 +1,5 @@
 {
-  "commit": "adbd82128fe7eb4c24e7052a678c9c33a5ba4430",
+  "commit": "6b1b33cce364c66f0b86c4d56a4a77098ebe620f",
   "files": {
     ".nojekyll": {
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -33,13 +33,21 @@
       "sha256": "c670868669576d311b3572177be545cf733581fd7ba24961fd813dfb199f34e4",
       "bytes": 7698
     },
+    "assets/css/projects.css": {
+      "sha256": "1dc5c3969e04e4f61bdb79fedf75b243be0b63c2a682884952d98d3094c44595",
+      "bytes": 8762
+    },
     "assets/js/site.js": {
-      "sha256": "a76ce0a4843ddb19311d04aaae00a64ac4ce8ce96f11efef5e8b6669cd8396ce",
-      "bytes": 10491
+      "sha256": "5aa4bfa796d976f50baab30843d286033708eab6c3777b2317e47bf10551d505",
+      "bytes": 11793
     },
     "assets/js/motion.js": {
-      "sha256": "f2c670fe50d49e4cf56fa2020d4f8e564f9940e5e0b40bfb72f1db062d9f3bd7",
-      "bytes": 16880
+      "sha256": "809050130906dca93233a8bffdd331f67af466c4df74165fcf0f3c62c07d80d0",
+      "bytes": 16221
+    },
+    "assets/css/site.190a2da95ab3.css": {
+      "sha256": "190a2da95ab30895dea585620722c4d15e0ff88cb1c7781fe57fe99be35e08ac",
+      "bytes": 38410
     },
     "assets/css/site.3d0041a19870.css": {
       "sha256": "3d0041a19870f877500d1e4221716bb13d53daa6d019a1bc81b3c3aa6c89c6aa",
@@ -161,6 +169,10 @@
       "sha256": "5d0bbee2ddaec28f6ca29cc1b7dd78e34121ad223bd7462775bec222b24bc5f6",
       "bytes": 7367
     },
+    "assets/js/site.9c400e10dd33.js": {
+      "sha256": "9c400e10dd33851517e674977a45d707afa9055e56288d85e2db06da9c72e0da",
+      "bytes": 17226
+    },
     "assets/js/site.b092c9602a26.js": {
       "sha256": "b092c9602a26689f988d78d911172cfe184a1cf864958bd01cd1a78609bc154f",
       "bytes": 7412
@@ -173,21 +185,49 @@
       "sha256": "7ac847127c84a17e0d8e8df0c9f6a6af48e1ef0a39ce6a83f3bebf61657182fa",
       "bytes": 31766
     },
+    "assets/img/planejamento-percurso.webp": {
+      "sha256": "5056dc58c4988fe3571e2177f2d71a13cb89dc104d424d08f5ab35e9a3dff7ea",
+      "bytes": 43414
+    },
+    "assets/video/planejamento-percurso.mp4": {
+      "sha256": "8eec8f0cec8f93a288a0333c7fe0ab459e4adfa9524c45fe66d01d3eee9456d2",
+      "bytes": 315445
+    },
+    "assets/video/planejamento-percurso.vtt": {
+      "sha256": "e7c687bc855c31e86c0f362d6ca5789cb179e8f3be69a5347691b816a3b162ba",
+      "bytes": 472
+    },
     "index.html": {
-      "sha256": "ef9c8707a932cc2b1f1a2d8c9b49b1e75a75671d90b4bc67b72d3b5a2aa7e80b",
-      "bytes": 41282
+      "sha256": "27d65281a87ac471e132b195c7a79ed6274cf7499d8a6abf21614c246c4f94c4",
+      "bytes": 41594
     },
-    "assets/css/site.190a2da95ab3.css": {
-      "sha256": "190a2da95ab30895dea585620722c4d15e0ff88cb1c7781fe57fe99be35e08ac",
-      "bytes": 38410
+    "projetos/planejamento-de-estudos/index.html": {
+      "sha256": "f4ee6a26b85035eadf852388d222e9b8c3ca761088dec1881182ff40cc8df620",
+      "bytes": 20503
     },
-    "assets/js/site.9c400e10dd33.js": {
-      "sha256": "9c400e10dd33851517e674977a45d707afa9055e56288d85e2db06da9c72e0da",
-      "bytes": 17226
+    "projetos/resumos-de-estudo/index.html": {
+      "sha256": "6cbca95283e03b00730584f624670c82822be68413265edce694e6e0dd871f43",
+      "bytes": 13258
+    },
+    "assets/css/site.47f3e57a5e0e.css": {
+      "sha256": "47f3e57a5e0ec13830a6e99be77168c55b6e2f83f09e791f4695df39acae295c",
+      "bytes": 47001
+    },
+    "assets/js/site.aaa39e960ec1.js": {
+      "sha256": "aaa39e960ec14ac6dcbc2d90042d8db69b070d92d7f1527811501a83e4063f8e",
+      "bytes": 17652
     },
     "assets/build.json": {
-      "sha256": "ecaa6e28b0c410239b1991e7edd4cd4ed7922afc3b434cacf8f79d6bba3a8b99",
+      "sha256": "27a66f52ac6bf9dbad87d005cbac2ad69b91f988a29372676233d5a73ffe082b",
       "bytes": 203
+    },
+    "sitemap.xml": {
+      "sha256": "758af957d3457b83bd700445dd20768d2dcb0a6ac41d0588246ccd765ded3d9e",
+      "bytes": 431
+    },
+    "robots.txt": {
+      "sha256": "12fa3f163273ff8b7596c5e3c8d6a9f3777ef1c135c83e4a3502723146996e23",
+      "bytes": 77
     }
   }
 }
