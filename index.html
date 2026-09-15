@@ -6,8 +6,15 @@
   <meta name="color-scheme" content="dark">
   <script>
     document.documentElement.classList.add('js');
+    document.documentElement.classList.add('motion-pending');
+    document.documentElement.dataset.motion = matchMedia('(prefers-reduced-motion: reduce)').matches ? 'reduced' : 'full';
+    setTimeout(function () {
+      if (!document.documentElement.classList.contains('motion-pending')) return;
+      document.documentElement.classList.remove('motion-pending');
+      document.documentElement.dataset.introState = 'complete';
+    }, 3500);
     document.addEventListener('error', function (event) {
-      if (event.target.tagName === 'SCRIPT' && event.target.src) document.documentElement.classList.remove('js');
+      if (event.target.tagName === 'SCRIPT' && event.target.src) document.documentElement.classList.remove('js', 'motion-pending', 'has-motion');
     }, true);
   </script>
   <meta name="description" content="Franklin Junior Maciel. Projetos em software, conteúdo e automação com agentes de IA.">
@@ -48,7 +55,8 @@
   }
 }
 </script>
-<link rel="stylesheet" href="assets/css/site.cf46b2629174.css">
+<link rel="stylesheet" href="assets/css/site.190a2da95ab3.css">
+
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
@@ -155,7 +163,7 @@
 </svg></a>
         </div>
         <span class="anchor-alias" id="ci-galeria" aria-hidden="true"></span><div class="software-stage reveal" id="software-gallery">
-          <span class="stage-word" aria-hidden="true">Estudo.</span>
+          <span class="stage-word" aria-hidden="true"><span class="stage-word-inner">Estudo.</span></span>
           <div class="stage-plane" aria-hidden="true"></div>
           <div class="secondary-screen" aria-hidden="true"><img src="assets/img/estudo-revisoes.webp" width="1031" height="854" alt="" loading="lazy"></div>
           <a class="main-screen" id="gallery-expand" href="assets/img/estudo-galeria-disponibilidade.png" target="_blank" rel="noopener" aria-label="Ampliar a tela de disponibilidade">
@@ -501,7 +509,7 @@
   </ol><ol class="tempo tempo-formacao"><li><span class="quando">em curso</span><div class="oque"><h3>Análise e Desenvolvimento de Sistemas</h3><p>UniCesumar.</p></div></li></ol></div>
 </div></details></section>
     <section class="contact-section wrap" id="contato" aria-labelledby="contact-title">
-      <div class="contact-surface reveal">
+      <div class="contact-surface reveal"><span class="contact-motion-ornament" aria-hidden="true"></span>
         <h2 id="contact-title">Qual é o<br>próximo projeto?</h2>
         <div class="contact-bottom">
           <div class="email-group"><a class="email-link" id="email" href="mailto:jrmaciell92@gmail.com">jrmaciell92@gmail.com <svg
@@ -649,6 +657,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
   -->
-  <script src="assets/js/site.b092c9602a26.js" defer></script>
+  <script src="assets/js/site.9c400e10dd33.js" defer></script>
+  
 </body>
 </html>
