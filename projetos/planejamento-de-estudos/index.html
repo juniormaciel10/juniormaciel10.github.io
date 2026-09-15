@@ -5,7 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="dark">
   <meta name="theme-color" content="#0c1017">
-  <script>document.documentElement.classList.add('js');document.addEventListener('error',function(event){if(event.target.tagName==='SCRIPT'&&event.target.src)document.documentElement.classList.remove('js')},true);</script>
+  <script>
+    document.documentElement.classList.add('js');
+    var motionChoice = 'system';
+    try { motionChoice = localStorage.getItem('portfolio-motion') || 'system'; } catch {}
+    if (motionChoice !== 'full' && motionChoice !== 'reduced') motionChoice = 'system';
+    document.documentElement.dataset.motionPreference = motionChoice;
+    document.documentElement.dataset.motion = motionChoice === 'system'
+      ? (matchMedia('(prefers-reduced-motion: reduce)').matches ? 'reduced' : 'full') : motionChoice;
+    document.addEventListener('error',function(event){if(event.target.tagName==='SCRIPT'&&event.target.src)document.documentElement.classList.remove('js','has-motion')},true);
+  </script>
   <title>Planejamento de estudos · Franklin Junior Maciel</title>
   <meta name="description" content="Da disponibilidade real de tempo à próxima tarefa. Como projetei uma ferramenta de uso próprio para organizar estudos e revisões.">
   <link rel="canonical" href="https://juniormaciel10.github.io/projetos/planejamento-de-estudos/">
@@ -57,7 +66,7 @@
   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
   <path d="M17 7l-10 10"></path>
   <path d="M8 7l9 0l0 9"></path>
-</svg></a></nav>
+</svg></a><label class="motion-control"><input id="motion-toggle" type="checkbox"><span>Animações</span></label></nav>
     </div>
   </header>
   <main id="conteudo" class="wrap">

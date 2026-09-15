@@ -4,7 +4,9 @@ Site pessoal de automação e orquestração de agentes de IA, publicado em http
 
 HTML, CSS e JavaScript, com fontes locais, animações em CSS e rolagem nativa. O build reúne e minifica CSS/JavaScript, identifica os arquivos por hash e gera um pacote estático para o GitHub Pages.
 
-As entradas em camadas e a profundidade ao ponteiro ficam em `assets/js/motion.js`; transições, folhas em leque e movimento do contato usam `assets/css/motion.css`. A preferência de movimento reduzido do sistema é respeitada, inclusive quando muda durante a visita. Os detalhes têm transições reversíveis e a galeria mantém sua pausa própria.
+As entradas em camadas e a profundidade ao ponteiro ficam em `assets/js/motion.js`; transições, folhas em leque e movimento do contato usam `assets/css/motion.css`. Os detalhes têm transições reversíveis e a galeria mantém sua pausa própria.
+
+O controle **Animações**, na navegação, permite ativar ou reduzir o movimento por escolha do visitante. A escolha fica salva neste navegador e vale para as três páginas. Sem uma escolha salva, o site acompanha a preferência do sistema, inclusive quando ela muda durante a visita.
 
 ## Desenvolvimento
 

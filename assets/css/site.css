@@ -31,6 +31,13 @@ button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var
 .main-nav>a:hover,.main-nav>a[aria-current]{color:var(--text)}
 .main-nav>.nav-contact{color:var(--text);padding-left:18px}
 .main-nav>.nav-contact .icon{width:20px}
+.motion-control{display:none;align-items:center;gap:9px;min-height:44px;padding:8px 12px;border:1px solid var(--line);border-radius:10px;color:var(--muted);font-size:13px;white-space:nowrap;cursor:pointer;flex:none}
+html.js .motion-control{display:inline-flex}
+html.js body:not(.js) .motion-control{visibility:hidden}
+.motion-control:hover{color:var(--text);background:var(--surface)}
+.motion-control input{width:16px;height:16px;margin:0;accent-color:var(--blue-light);cursor:pointer;flex:none}
+.motion-control input:focus-visible{outline:2px solid var(--blue-light);outline-offset:4px}
+.motion-control:has(input:checked){color:var(--text);border-color:var(--blue-light)}
 .round-button,.round-link{width:56px;height:56px;border:1px solid var(--line);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:transparent;flex:none;transition:background .2s,border-color .2s,transform .2s}
 .round-button:hover,.round-link:hover{background:var(--blue);border-color:var(--blue)}
 .round-button:active,.round-link:active{transform:scale(.96)}
@@ -164,7 +171,7 @@ html:not(.js) .menu-toggle,html:not(.js) .gallery-toolbar,html:not(.js) .copy-em
 .dialog-bottom{display:flex;align-items:center;justify-content:center;gap:26px;padding-top:18px;font-size:13px;color:var(--muted)}
 #dialog-prev .icon{transform:rotate(180deg)}
 html:has(.gallery-dialog[open]){overflow:hidden}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}.hero-art-inner{transform:scale(var(--art-scale,1))}}
+@media(prefers-reduced-motion:reduce){html:not([data-motion="full"]){scroll-behavior:auto}html:not([data-motion="full"]) *,html:not([data-motion="full"]) *::before,html:not([data-motion="full"]) *::after{animation-duration:.01ms!important;transition-duration:.01ms!important}html:not([data-motion="full"]) .hero-art-inner{transform:scale(var(--art-scale,1))}}
 @media(min-width:1650px){.hero-art{right:0;top:35px;--art-scale:1.09}.hero-copy{max-width:66%}.hero{padding-top:85px}.software-stage{height:690px}.main-screen{width:56%;max-width:730px;left:12%}}
 @media(max-width:1250px){
   .hero-art{width:505px;right:0;top:110px;--art-scale:.79}
@@ -199,6 +206,7 @@ html:has(.gallery-dialog[open]){overflow:hidden}
   .header-inner{height:70px;gap:14px}.brand{font-size:17px;letter-spacing:-.055em}.brand-stroke{display:none}
   .menu-toggle{display:inline-flex}.main-nav{display:flex;flex-direction:column;align-items:stretch;position:absolute;top:70px;left:0;right:0;padding:15px var(--gutter) 25px;background:var(--bg);gap:0;border-bottom:1px solid var(--line)}
   .js .main-nav{display:none}.js .site-header[data-open] .main-nav{display:flex}.main-nav>a{padding:10px 0;font-size:18px;min-height:56px}.main-nav>.nav-contact{padding-left:0}
+  .main-nav .motion-control{font-size:15px;margin-top:12px;align-self:flex-start}
   html:not(.js) .site-header{margin-bottom:190px}
   html:not(.js) .menu-toggle,html:not(.js) .gallery-toolbar{display:none}
   .hero{padding:46px var(--gutter) 16px;min-height:0}
