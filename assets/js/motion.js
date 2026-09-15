@@ -1,7 +1,6 @@
 (() => {
   'use strict';
   const root = document.documentElement;
-  const systemMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const finePointer = matchMedia('(min-width:1024px) and (pointer:fine)');
   const smallScreen = matchMedia('(max-width:760px)');
   const hero = document.querySelector('.hero');
@@ -11,7 +10,7 @@
   const activeAnimations = new Set();
   const scenes = [];
   const accordions = new Map();
-  let enabled = !systemMotion.matches;
+  let enabled = root.dataset.motion === 'full';
   root.dataset.motion = enabled ? 'full' : 'reduced';
   let heroVisible = true, heroReady = false, introToken = 0, pointerFrame = 0;
   let lastPointer = { x:0, y:0 };
@@ -321,7 +320,7 @@
     });
     if (enabled && replay && heroVisible) playIntro();
   }
-  systemMotion.addEventListener('change',event=>setMotion(!event.matches));
+  root.addEventListener('portfolio:motionchange',()=>setMotion(root.dataset.motion === 'full'));
   const pausedWhenHidden = new Set();
   document.addEventListener('visibilitychange',()=>{
     if (document.hidden) {
@@ -345,7 +344,7 @@
     resetPointer();
   });
   addEventListener('pageshow',event=>{
-    if (event.persisted) setMotion(enabled);
+    if (event.persisted) setMotion(root.dataset.motion === 'full');
   });
   if (!enabled) setMotion(false);
   else if (initialEntrance) playIntro(true);

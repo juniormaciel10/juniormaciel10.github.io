@@ -5,7 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="dark">
   <meta name="theme-color" content="#0c1017">
-  <script>document.documentElement.classList.add('js');document.addEventListener('error',function(event){if(event.target.tagName==='SCRIPT'&&event.target.src)document.documentElement.classList.remove('js')},true);</script>
+  <script>
+    document.documentElement.classList.add('js');
+    var motionChoice = 'system';
+    try { motionChoice = localStorage.getItem('portfolio-motion') || 'system'; } catch {}
+    if (motionChoice !== 'full' && motionChoice !== 'reduced') motionChoice = 'system';
+    document.documentElement.dataset.motionPreference = motionChoice;
+    document.documentElement.dataset.motion = motionChoice === 'system'
+      ? (matchMedia('(prefers-reduced-motion: reduce)').matches ? 'reduced' : 'full') : motionChoice;
+    document.addEventListener('error',function(event){if(event.target.tagName==='SCRIPT'&&event.target.src)document.documentElement.classList.remove('js','has-motion')},true);
+  </script>
   <title>Da aula ao resumo · Franklin Junior Maciel</title>
   <meta name="description" content="Produção de resumos a partir de aulas em PDF, com confronto com a fonte, revisão independente e uma amostra real para leitura e download.">
   <link rel="canonical" href="https://juniormaciel10.github.io/projetos/resumos-de-estudo/">
@@ -21,7 +30,7 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%232448EE'/%3E%3Ctext x='32' y='41' font-family='sans-serif' font-size='24' font-weight='700' fill='%23FAFBFC' text-anchor='middle'%3Efj.%3C/text%3E%3C/svg%3E">
   <link rel="preload" href="../../assets/fonts/ClashDisplay-Semibold.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../../assets/fonts/Geist.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="../../assets/css/site.47f3e57a5e0e.css">
+  <link rel="stylesheet" href="../../assets/css/site.59bfafdb9e02.css">
   
   <script type="application/ld+json">{
   "@context": "https://schema.org",
@@ -57,7 +66,7 @@
   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
   <path d="M17 7l-10 10"></path>
   <path d="M8 7l9 0l0 9"></path>
-</svg></a></nav>
+</svg></a><label class="motion-control"><input id="motion-toggle" type="checkbox"><span>Animações</span></label></nav>
     </div>
   </header>
   <main id="conteudo" class="wrap">
@@ -129,6 +138,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
   -->
-  <script src="../../assets/js/site.aaa39e960ec1.js" defer></script>
+  <script src="../../assets/js/site.791a93a07030.js" defer></script>
 </body>
 </html>

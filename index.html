@@ -7,7 +7,12 @@
   <script>
     document.documentElement.classList.add('js');
     document.documentElement.classList.add('motion-pending');
-    document.documentElement.dataset.motion = matchMedia('(prefers-reduced-motion: reduce)').matches ? 'reduced' : 'full';
+    var motionChoice = 'system';
+    try { motionChoice = localStorage.getItem('portfolio-motion') || 'system'; } catch {}
+    if (motionChoice !== 'full' && motionChoice !== 'reduced') motionChoice = 'system';
+    document.documentElement.dataset.motionPreference = motionChoice;
+    document.documentElement.dataset.motion = motionChoice === 'system'
+      ? (matchMedia('(prefers-reduced-motion: reduce)').matches ? 'reduced' : 'full') : motionChoice;
     setTimeout(function () {
       if (!document.documentElement.classList.contains('motion-pending')) return;
       document.documentElement.classList.remove('motion-pending');
@@ -55,7 +60,7 @@
   }
 }
 </script>
-<link rel="stylesheet" href="assets/css/site.47f3e57a5e0e.css">
+<link rel="stylesheet" href="assets/css/site.59bfafdb9e02.css">
 
 </head>
 <body>
@@ -99,7 +104,7 @@
   <path d="M17 7l-10 10" />
   <path d="M8 7l9 0l0 9" />
 </svg></a>
-      </nav>
+      <label class="motion-control"><input id="motion-toggle" type="checkbox"><span>Animações</span></label></nav>
     </div>
   </header>
   <main id="conteudo" tabindex="-1">
@@ -658,7 +663,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
   -->
-  <script src="assets/js/site.aaa39e960ec1.js" defer></script>
+  <script src="assets/js/site.791a93a07030.js" defer></script>
   
 </body>
 </html>
