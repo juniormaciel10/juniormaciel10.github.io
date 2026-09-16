@@ -32,7 +32,7 @@ test('Visual aprovado, ordem dos projetos, textos removidos e rodapé simples',a
  await open(page);
  await expect(page.locator('h1')).toHaveText('Inteligênciaem aplicação.');
  await expect(page.locator('.hero-intro')).toContainText('Desenho soluções e coordeno agentes de IA.');
- expect(await page.locator('#p-ciclo,#p-resumos,#p-funil,#p-transcricao,#p-copy,#experimentos').evaluateAll(es=>es.map(e=>e.id))).toEqual(['p-ciclo','p-resumos','p-funil','p-transcricao','p-copy','experimentos']);
+ expect(await page.locator('#p-ciclo,#p-resumos,#p-funil,#p-instagram,#p-transcricao,#p-copy,#experimentos').evaluateAll(es=>es.map(e=>e.id))).toEqual(['p-ciclo','p-resumos','p-funil','p-instagram','p-transcricao','p-copy','experimentos']);
  expect(await page.locator('body').innerText()).not.toMatch(/confiro cada entrega|copywriter|remoto.*Bagé|setembro/i);
  await expect(page.locator('footer')).toHaveText('© 2026 Franklin Junior Maciel.');
  await page.locator('.hero .button').click();await settle(page);
@@ -50,7 +50,7 @@ for(const width of [320,390,768,1000,1024,1440,1920]){
   }
   await jump(page,'#software-gallery');
   expect(await page.locator('#gallery-expand').evaluate(e=>{const r=e.getBoundingClientRect(),s=e.closest('.software-stage').getBoundingClientRect();return r.top>=s.top&&r.left>=s.left&&r.bottom<=s.bottom&&r.right<=s.right})).toBe(true);
-  for(const id of ['#ciclo-detalhes','#resumo-detalhes','#p-funil','#metodo-detalhes','#experiencia']){
+  for(const id of ['#ciclo-detalhes','#resumo-detalhes','#p-funil','#p-instagram','#metodo-detalhes','#experiencia']){
    await jump(page,id+' > summary');await page.locator(id+' > summary').click();await expect(page.locator(id)).toHaveJSProperty('open',true);
    expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
   }
@@ -72,7 +72,7 @@ test('Menu móvel, Escape e navegação restauram o foco',async({page})=>{
 test('Links dos projetos e endereços antigos abrem o conteúdo completo',async({page})=>{
  await open(page);await jump(page,'#p-ciclo .project-footnote');await page.getByRole('link',{name:'Conhecer o projeto',exact:true}).click();
  await expect(page).toHaveURL(/\/projetos\/planejamento-de-estudos\/$/);await expect(page.locator('h1')).toHaveText('Planejamentode estudos.');
- for(const [hash,parent] of [['#p-funil','#p-funil'],['#resumo-detalhes','#resumo-detalhes'],['#registro-validacao','#metodo-detalhes'],['#experiencia','#experiencia']]){
+ for(const [hash,parent] of [['#p-funil','#p-funil'],['#p-instagram','#p-instagram'],['#resumo-detalhes','#resumo-detalhes'],['#registro-validacao','#metodo-detalhes'],['#experiencia','#experiencia']]){
   await page.goto('/'+hash);await page.evaluate(()=>document.fonts.ready);await expect(page.locator(parent)).toHaveJSProperty('open',true);
   await expect(page.locator(hash)).toBeInViewport();
  }
