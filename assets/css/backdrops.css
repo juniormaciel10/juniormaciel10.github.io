@@ -107,7 +107,7 @@ body.portfolio-home[data-background="fluxos"] .section-backdrop .route-signal { 
   88%, 100% { stroke-dashoffset: -0.12; opacity: 0; }
 }
 .ambient-trace { fill: none; stroke: currentcolor; stroke-width: 2; stroke-linecap: round; opacity: 0; }
-body.portfolio-home[data-background="fluxos"] .ambient-trace { stroke-dasharray: 0.085, 0.915; animation-duration: ; animation-timing-function: ; animation-delay: ; animation-iteration-count: ; animation-direction: ; animation-fill-mode: ; animation-name: ; animation-timeline: ; animation-range-start: ; animation-range-end: ; animation-play-state: var(--ambient-state); }
+body.portfolio-home[data-background="fluxos"] .ambient-trace { stroke-dasharray: 0.085, 0.915;           animation-play-state: var(--ambient-state); }
 body.portfolio-home[data-background="fluxos"] .route-centers { animation-duration: 8s; animation-timing-function: ease-in-out; animation-delay: -2s; animation-iteration-count: infinite; animation-direction: normal; animation-fill-mode: none; animation-name: ambient-nodes; animation-timeline: auto; animation-range: normal; animation-play-state: var(--ambient-state); }
 @keyframes ambient-nodes {
   0%, 100% { opacity: 0.58; }
@@ -189,7 +189,21 @@ body.portfolio-home[data-background="fluxos"] .section-backdrop .route-signal { 
   10%, 78% { opacity: 0.95; }
   96%, 100% { stroke-dashoffset: -0.17; opacity: 0; }
 }
-body.portfolio-home[data-background="fluxos"] .ambient-trace { stroke: rgb(174, 207, 255); stroke-width: 3; stroke-dasharray: 0.18, 0.82; animation-duration: ; animation-timing-function: ; animation-delay: ; animation-iteration-count: ; animation-direction: ; animation-fill-mode: ; animation-name: ; animation-timeline: ; animation-range-start: ; animation-range-end: ; animation-play-state: var(--ambient-state); }
+body.portfolio-home[data-background="fluxos"] .ambient-trace { stroke: rgb(174, 207, 255); stroke-width: 3; stroke-dasharray: 0.18, 0.82;           animation-play-state: var(--ambient-state); }
+/* Propriedades separadas preservam o atraso variável sem invalidar a animação. */
+body.portfolio-home[data-background="fluxos"] .ambient-trace {
+ animation-name: presence-trace;
+ animation-duration: 10.5s;
+ animation-timing-function: linear;
+ animation-iteration-count: infinite;
+ animation-delay: var(--ambient-delay, 0s);
+ animation-play-state: var(--ambient-state);
+}
+@keyframes presence-trace {
+ 0% { stroke-dashoffset: 1; opacity: 0; }
+ 12%, 76% { opacity: .88; }
+ 96%, 100% { stroke-dashoffset: -.2; opacity: 0; }
+}
 body.portfolio-home .document-case .ambient-trace { stroke: rgb(48, 91, 183); }
 body.portfolio-home .story-thread-ambient,
 body.portfolio-home .story-thread-ambient-halo { fill: none; stroke: url("#story-thread-light"); stroke-linecap: round; stroke-dasharray: 0.024, 0.144; animation-duration: 8.5s; animation-timing-function: linear; animation-delay: 0s; animation-iteration-count: infinite; animation-direction: normal; animation-fill-mode: none; animation-name: presence-thread; animation-timeline: auto; animation-range: normal; animation-play-state: var(--ambient-state); }

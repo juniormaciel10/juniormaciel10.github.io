@@ -10,6 +10,8 @@ As animações ficam ativas por padrão, sem botão de ativação, conforme a es
 
 As superfícies das seções ficam em `assets/css/surfaces.css`. Os grafismos e o percurso luminoso da página inicial ficam em `assets/css/backdrops.css` e `assets/js/backdrops.js`. O indicador entra pelo alto, acompanha a rolagem e informa a dobra atual com mouse, teclado ou toque. O movimento pausa fora da área visível ou quando a aba fica oculta; a rolagem permanece nativa.
 
+O percurso usa uma tabela geométrica calculada quando o desenho muda, com subdivisão adaptativa das curvas. A animação reutiliza essa tabela sem consultar a geometria SVG a cada quadro. Leituras de layout precedem as atualizações do desenho, os nós de máscara e gradiente são reutilizados e o conteúdo de detalhes fechados não é medido. Os testes comparam a interpolação com a geometria nativa do navegador.
+
 ## Desenvolvimento
 
 Requer Node.js 22 ou superior.

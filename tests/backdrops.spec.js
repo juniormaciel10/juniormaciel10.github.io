@@ -40,6 +40,11 @@ for(const width of [390,1440])test('Indicador identifica a dobra e mantém a eti
  const hero=width<=760?'.backdrop-mobile-routes .route-signal':'.backdrop-desktop-routes .route-signal';
  await expect(page.locator('.hero '+hero)).toHaveCSS('animation-play-state','paused');
  await expect(page.locator('.document-case .ambient-trace').first()).toHaveCSS('animation-play-state','running');
+ const trace=page.locator('.document-case .ambient-trace').first();
+ await expect(trace).toHaveCSS('animation-name','presence-trace');
+ const dash=await trace.evaluate(el=>getComputedStyle(el).strokeDashoffset);
+ await page.waitForTimeout(650);
+ expect(await trace.evaluate(el=>getComputedStyle(el).strokeDashoffset)).not.toBe(dash);
  expect(errors).toEqual([]);
 });
 

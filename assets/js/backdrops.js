@@ -2,11 +2,17 @@
 (()=>{
  const main=document.getElementById('conteudo');
  if(!main||!document.body.classList.contains('portfolio-home'))return;
+ const header=document.querySelector('.site-header');
+ const footer=document.querySelector('.site-footer');
+ const sectionHeading=main.querySelector('.section-heading');
  const ns='http://www.w3.org/2000/svg';
  const make=(tag,attributes={})=>{
   const element=document.createElementNS(ns,tag);
   for(const [key,value]of Object.entries(attributes))element.setAttribute(key,String(value));
   return element;
+ };
+ const setAttributes=(element,attributes)=>{
+  for(const [key,value]of Object.entries(attributes))if(element.getAttribute(key)!==String(value))element.setAttribute(key,String(value));
  };
  const canvas=make('svg',{'class':'story-thread','aria-hidden':'true',focusable:'false'});
  const definitions=make('defs');
@@ -60,6 +66,8 @@
  main.querySelector('.hero').after(guide);
  let routeLength=0,samples=[],currentLength=0,targetLength=0,initialized=false,motionFrame=0,lastTime=0;
  let velocity=0;
+ let cachedPath='',pathLookup=[],collisionFrame=0,tooltipSize=null;
+ const lengthProbe=make('path');
  let geometryData=null,collisions=[],sections=[],hovered=false,focused=false,pinned=false,suppressed=false,held=false,closeTimer=0;
 
  const selectors={hero:'.hero',software:'.software-case',stage:'.software-stage',paper:'.document-case',paperArt:'.document-art',method:'.method-section',workspace:'.workspace',contact:'.contact-surface'};
@@ -72,7 +80,51 @@
   while(current&&current!==main){x+=current.offsetLeft;y+=current.offsetTop;current=current.offsetParent;}
   return{x,y,width:element.offsetWidth,height:element.offsetHeight,right:x+element.offsetWidth,bottom:y+element.offsetHeight};
  };
- const padding=(element,edge)=>parseFloat(getComputedStyle(element)['padding'+edge])||0;
+ const computedStyles=new WeakMap();
+ const styleOf=element=>{if(!computedStyles.has(element))computedStyles.set(element,getComputedStyle(element));return computedStyles.get(element);};
+ const padding=(element,edge)=>parseFloat(styleOf(element)['padding'+edge])||0;
+
+ // Flatten only the generated M/L/Q/C geometry. Adaptive subdivision keeps the
+ // guide on the curve without querying SVG layout on every animation frame.
+ function buildPathLookup(d,length){
+  const tokens=d.match(/[MLQC]|[-+]?(?:\d*\.?\d+)(?:e[-+]?\d+)?/gi);
+  let index=0,current={x:0,y:0},distance=0;
+  const points=[];
+  const point=()=>({x:Number(tokens[index++]),y:Number(tokens[index++])});
+  const gap=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
+  const middle=(a,b)=>({x:(a.x+b.x)/2,y:(a.y+b.y)/2});
+  const add=end=>{distance+=gap(current,end);points.push({...end,distance});current=end;};
+  const deviation=(p,a,b)=>{
+   const size=gap(a,b);return size?Math.abs((b.y-a.y)*p.x-(b.x-a.x)*p.y+b.x*a.y-b.y*a.x)/size:gap(p,a);
+  };
+  function quadratic(a,b,c,depth=0){
+   if(depth>=14||(deviation(b,a,c)<.02&&gap(a,b)+gap(b,c)-gap(a,c)<.01)){add(c);return;}
+   const ab=middle(a,b),bc=middle(b,c),center=middle(ab,bc);
+   quadratic(a,ab,center,depth+1);quadratic(center,bc,c,depth+1);
+  }
+  function cubic(a,b,c,d,depth=0){
+   if(depth>=14||(Math.max(deviation(b,a,d),deviation(c,a,d))<.02&&gap(a,b)+gap(b,c)+gap(c,d)-gap(a,d)<.01)){add(d);return;}
+   const ab=middle(a,b),bc=middle(b,c),cd=middle(c,d),left=middle(ab,bc),right=middle(bc,cd),center=middle(left,right);
+   cubic(a,ab,left,center,depth+1);cubic(center,right,cd,d,depth+1);
+  }
+  while(index<tokens.length){
+   const command=tokens[index++];
+   if(command==='M'){current=point();points.push({...current,distance});}
+   else if(command==='L')add(point());
+   else if(command==='Q'){const control=point(),end=point();quadratic(current,control,end);}
+   else if(command==='C'){const first=point(),second=point(),end=point();cubic(current,first,second,end);}
+   else throw new Error('Comando de percurso inválido.');
+  }
+  const factor=distance?length/distance:1;
+  return points.map(item=>({...item,distance:item.distance*factor}));
+ }
+ function pointAt(distance){
+  const target=Math.max(0,Math.min(routeLength,distance));
+  let low=0,high=pathLookup.length-1;
+  while(low+1<high){const middle=(low+high)>>1;if(pathLookup[middle].distance<target)low=middle;else high=middle;}
+  const a=pathLookup[low],b=pathLookup[high],fraction=Math.max(0,Math.min(1,(target-a.distance)/(b.distance-a.distance||1)));
+  return{x:a.x+(b.x-a.x)*fraction,y:a.y+(b.y-a.y)*fraction};
+ }
  const rounded=(points,radius)=>{
   let result=`M${points[0][0]},${points[0][1]}`;
   for(let index=1;index<points.length-1;index++){
@@ -88,6 +140,35 @@
  };
 
  const protectedSelectors='.section-heading,.project-heading,.gallery-toolbar,.project-footnote,.document-copy,.case-details,.project-index,.method-top,.profile-note,.experience-section,.contact-surface h2,.contact-bottom';
+ const protectedElements=[...main.querySelectorAll(protectedSelectors)];
+ const controls=[...main.querySelectorAll('a,button,summary')].filter(element=>!guide.contains(element)&&!element.closest('.gallery-tabs'));
+ const maskRects=protectedElements.map(()=>make('rect',{rx:3,fill:'black'}));
+ mask.append(...maskRects);
+ const gradientStops=Array.from({length:9},()=>make('stop'));
+ gradient.append(...gradientStops);
+ const portRects=Array.from({length:4},()=>make('rect',{'class':'story-thread-port',rx:2}));
+ ports.append(...portRects);
+
+ function readCollisions(data){
+  const result=[];
+  for(const element of controls){
+   let hidden=false;
+   // Querying geometry inside a closed details element can lay out its entire
+   // hidden subtree. Check native disclosure state before any style or size read.
+   for(let ancestor=element;ancestor&&ancestor!==main;ancestor=ancestor.parentElement){
+    if(ancestor.tagName==='DETAILS'&&!ancestor.open&&!ancestor.querySelector(':scope>summary')?.contains(element)){hidden=true;break;}
+   }
+   if(hidden)continue;
+   for(let ancestor=element;ancestor&&ancestor!==main;ancestor=ancestor.parentElement){
+    const style=styleOf(ancestor);if(style.display==='none'||style.visibility==='hidden'){hidden=true;break;}
+   }
+   if(hidden)continue;
+   const rect=element.getBoundingClientRect();
+   if(!rect.width||!rect.height)continue;
+   result.push({left:rect.left-data.mainLeft,right:rect.right-data.mainLeft,top:rect.top+scrollY-data.mainTop,bottom:rect.bottom+scrollY-data.mainTop});
+  }
+  return result;
+ }
  let queued=0;
  function draw(){
   queued=0;
@@ -100,15 +181,15 @@
   const rail=mobile?12:compact?18:Math.max(28,Math.min(38,gutter*.5));
   const left=rail,right=width-rail;
   const heroSvg=main.querySelector(mobile?'.backdrop-mobile-routes':'.backdrop-desktop-routes');
-  if(!mobile)heroSvg.setAttribute('preserveAspectRatio','xMidYMid slice');
   const svgBounds=heroSvg?.getBoundingClientRect();
-  let matrix=svgBounds?.width&&svgBounds?.height?heroSvg.getScreenCTM():null;
   const mainRect=main.getBoundingClientRect();
-  let exitPoint=matrix?new DOMPoint(mobile?220:510,mobile?477:670).matrixTransform(matrix):null;
-  if(!mobile&&exitPoint&&exitPoint.y-mainRect.top>boxes.hero.bottom-40){
-   heroSvg.setAttribute('preserveAspectRatio','none');
-   matrix=heroSvg.getScreenCTM();exitPoint=new DOMPoint(510,670).matrixTransform(matrix);
+  if(!mobile&&svgBounds.width&&svgBounds.height){
+   const scale=Math.max(svgBounds.width/1440,svgBounds.height/850);
+   const junction=svgBounds.top-mainRect.top+(svgBounds.height-850*scale)/2+670*scale;
+   const aspect=junction>boxes.hero.bottom-40?'none':'xMidYMid slice';
+   if(heroSvg.getAttribute('preserveAspectRatio')!==aspect)heroSvg.setAttribute('preserveAspectRatio',aspect);
   }
+  const matrix=svgBounds?.width&&svgBounds?.height?heroSvg.getScreenCTM():null;
   const map=(x,y)=>{
    if(matrix){const point=new DOMPoint(x,y).matrixTransform(matrix);return{x:point.x-mainRect.left,y:point.y-mainRect.top};}
    return{x:boxes.hero.x+x*boxes.hero.width/(mobile?390:1440),y:boxes.hero.y+y*boxes.hero.height/850};
@@ -117,7 +198,7 @@
   const start=map(mobile?367:820,mobile?-40:-60);
   const junction=map(mobile?220:510,mobile?477:670);
   const exitX=junction.x,junctionY=junction.y,startY=start.y;
-  const introGap=Math.max(10,Math.min(36,(box(main.querySelector('.section-heading')).y-boxes.hero.bottom)*.5));
+  const introGap=Math.max(10,Math.min(36,(box(sectionHeading).y-boxes.hero.bottom)*.5));
   const paperEntry=boxes.paper.y+padding(elements.paper,'Top')*.44;
   const paperExit=boxes.paper.bottom-padding(elements.paper,'Bottom')*.44;
   const methodEntry=boxes.method.y+padding(elements.method,'Top')*.44;
@@ -138,74 +219,63 @@
    ?`M${coordinate(367,-40)}L${coordinate(367,355)}Q${coordinate(367,412)} ${coordinate(310,412)}L${coordinate(250,412)}Q${coordinate(220,412)} ${coordinate(220,442)}L${coordinate(220,477)}`
    :`M${coordinate(820,-60)}L${coordinate(820,504)}Q${coordinate(820,560)} ${coordinate(764,560)}L${coordinate(565,560)}Q${coordinate(510,560)} ${coordinate(510,615)}L${coordinate(510,670)}`;
   const path=entry+`C${exitX},${junctionY+curveDrop*.62} ${curveX},${junctionY+curveDrop*.38} ${curveX},${curveY}`+tail;
-  canvas.setAttribute('viewBox',`0 0 ${width} ${height}`);
-  canvas.style.height=height+'px';
+  const data={width,height,mobile,compact,mainTop:mainRect.top+scrollY,mainLeft:mainRect.left,startY,endY:contactY,scale:matrix?.a||1,
+   headerBottom:header.getBoundingClientRect().bottom,documentHeight:Math.max(innerHeight,footer?footer.getBoundingClientRect().bottom+scrollY:mainRect.top+scrollY+height)};
+  const rectangles=protectedElements.map(box);
+  const nextSections=[
+   ['.hero','Início'],['.selected-work','Projetos'],['.document-case','Resumos'],
+   ['.other-work','Outros projetos'],['.method-section','Como trabalho'],
+   ['.experience-section','Experiência'],['.contact-section','Contato']
+  ].map(([selector,label])=>({y:box(main.querySelector(selector)).y,label}));
+  const nextCollisions=readCollisions(data);
+  if(path!==cachedPath){
+   lengthProbe.setAttribute('d',path);
+   routeLength=lengthProbe.getTotalLength();
+   pathLookup=buildPathLookup(path,routeLength);
+   cachedPath=path;
+  }
+  // All layout reads are complete before updating SVG and HTML attributes.
+  setAttributes(canvas,{viewBox:`0 0 ${width} ${height}`});
+  if(canvas.style.height!==height+'px')canvas.style.height=height+'px';
   for(const element of [bed,line,progress])if(element.getAttribute('d')!==path)element.setAttribute('d',path);
-  gradient.setAttribute('y2',height);
+  setAttributes(gradient,{y2:height});
   const stops=[
    [0,'#6389c7'],[boxes.paper.y-2,'#6389c7'],[boxes.paper.y+2,'#5a78a2'],
    [boxes.paper.bottom-2,'#5a78a2'],[boxes.paper.bottom+2,'#7790b4'],
    [boxes.method.y,'#7195b2'],[boxes.contact.y,'#7195b2'],[contactY,'#b6caff'],[height,'#b6caff']
   ];
-  gradient.replaceChildren(...stops.map(([y,color])=>make('stop',{offset:Math.max(0,Math.min(1,y/height)),'stop-color':color})));
-  maskBase.setAttribute('width',width);maskBase.setAttribute('height',height);
-  mask.setAttribute('x',0);mask.setAttribute('y',0);mask.setAttribute('width',width);mask.setAttribute('height',height);
-  mask.replaceChildren(maskBase,...[...main.querySelectorAll(protectedSelectors)].map(element=>{
-   const rect=box(element);
-   return make('rect',{x:rect.x-5,y:rect.y-4,width:rect.width+10,height:rect.height+8,rx:3,fill:'black'});
-  }));
+  stops.forEach(([y,color],index)=>setAttributes(gradientStops[index],{offset:Math.max(0,Math.min(1,y/height)),'stop-color':color}));
+  setAttributes(maskBase,{width,height});setAttributes(mask,{x:0,y:0,width,height});
+  rectangles.forEach((rect,index)=>setAttributes(maskRects[index],{x:rect.x-5,y:rect.y-4,width:rect.width+10,height:rect.height+8}));
   const anchors=[
    {rail:left,x:boxes.stage.x-1,y:boxes.stage.y+boxes.stage.height*.44,tone:'dark'},
    {rail:right,x:boxes.paper.right-2,y:boxes.paperArt.y+boxes.paperArt.height*.65,tone:'paper'},
    {rail:right,x:boxes.workspace.right+1,y:boxes.workspace.y+boxes.workspace.height*.5,tone:'dark'}
   ];
-  branches.setAttribute('d',anchors.map(({rail,x,y})=>`M${rail},${y}H${x}`).join(''));
+  setAttributes(branches,{d:anchors.map(({rail,x,y})=>`M${rail},${y}H${x}`).join('')});
   const size=mobile?5:7;
-  ports.replaceChildren(...anchors.map(({rail,y,tone})=>make('rect',{'class':'story-thread-port','data-tone':tone,x:rail-size/2,y:y-size/2,width:size,height:size,rx:2})),make('rect',{'class':'story-thread-port','data-tone':'contact',x:contactX-3,y:contactY-3,width:6,height:6,rx:2}));
+  anchors.forEach(({rail,y,tone},index)=>setAttributes(portRects[index],{'data-tone':tone,x:rail-size/2,y:y-size/2,width:size,height:size}));
+  setAttributes(portRects[3],{'data-tone':'contact',x:contactX-3,y:contactY-3,width:6,height:6});
   canvas.dataset.ready='true';
   canvas.dataset.height=height;
-  canvas.dataset.exitX=start.x.toFixed(2);
-  canvas.dataset.startY=startY.toFixed(2);
-  canvas.dataset.junctionY=junctionY.toFixed(2);
-  updateGuideGeometry({width,height,mobile,compact,mainTop:mainRect.top+scrollY,mainLeft:mainRect.left,startY,endY:contactY,scale:matrix?.a||1});
+  sections=nextSections;collisions=nextCollisions;
+  updateGuideGeometry(data);
  }
  const schedule=()=>{if(!queued)queued=requestAnimationFrame(draw);};
  const resize=new ResizeObserver(schedule);
  [main,...Object.values(elements)].forEach(element=>resize.observe(element));
  main.addEventListener('toggle',schedule,true);
+ window.addEventListener('resize',schedule,{passive:true});
  document.fonts.ready.then(schedule);
  schedule();
  function updateGuideGeometry(data){
   const resized=geometryData&&geometryData.width!==data.width;
   geometryData=data;
-  routeLength=line.getTotalLength();
-  const count=Math.min(360,Math.max(100,Math.ceil(routeLength/42)));
-  const headerBottom=document.querySelector('.site-header').getBoundingClientRect().bottom;
-  const weight=Math.min(.055,(innerHeight-headerBottom)/(data.width*10));
-  const raw=[];
-  for(let i=0;i<=count;i++){
-   const distance=routeLength*i/count,point=line.getPointAtLength(distance);
-   raw.push({distance,virtual:point.y+distance*weight});
-  }
+  const weight=Math.min(.055,(innerHeight-data.headerBottom)/(data.width*10));
+  const raw=pathLookup.map(point=>({distance:point.distance,virtual:point.y+point.distance*weight}));
   const min=raw[0].virtual,span=raw.at(-1).virtual-min;
   samples=raw.map(sample=>({distance:sample.distance,y:data.startY+(sample.virtual-min)/span*(data.endY-data.startY)}));
-  sections=[
-   ['.hero','Início'],['.selected-work','Projetos'],['.document-case','Resumos'],
-   ['.other-work','Outros projetos'],['.method-section','Como trabalho'],
-   ['.experience-section','Experiência'],['.contact-section','Contato']
-  ].map(([selector,label])=>({y:box(main.querySelector(selector)).y,label}));
-  collisions=[...main.querySelectorAll('a,button,summary')].filter(element=>{
-   if(guide.contains(element)||!element.getClientRects().length||element.closest('.gallery-tabs'))return false;
-   for(let ancestor=element;ancestor&&ancestor!==main;ancestor=ancestor.parentElement){
-    const style=getComputedStyle(ancestor);
-    if(style.display==='none'||style.visibility==='hidden')return false;
-    if(ancestor.tagName==='DETAILS'&&!ancestor.open&&!ancestor.querySelector(':scope>summary')?.contains(element))return false;
-   }
-   return true;
-  }).map(element=>{
-   const rect=element.getBoundingClientRect();
-   return{left:rect.left-data.mainLeft,right:rect.right-data.mainLeft,top:rect.top+scrollY-data.mainTop,bottom:rect.bottom+scrollY-data.mainTop};
-  });
+  tooltipSize=null;
   guide.style.setProperty('--guide-size',data.mobile?'16px':data.compact?'20px':Math.min(50,Math.max(32,38*data.scale))+'px');
   guide.style.setProperty('--guide-hit',data.compact?'28px':Math.max(44,Math.min(54,38*data.scale+4))+'px');
   requestMotion(Boolean(resized));
@@ -226,12 +296,12 @@
   if(distance<1)return 0;
   let sectionIndex=0;
   sections.forEach((section,index)=>{if(section.y<=geometryData.readingY)sectionIndex=index;});
-  const top=Math.max(sections[sectionIndex].y,scrollY-geometryData.mainTop+document.querySelector('.site-header').getBoundingClientRect().bottom+28);
+  const top=Math.max(sections[sectionIndex].y,scrollY-geometryData.mainTop+geometryData.headerBottom+28);
   const bottom=Math.min(sections[sectionIndex+1]?.y??geometryData.height,scrollY-geometryData.mainTop+innerHeight-28);
   for(let offset=0;offset<=innerHeight*1.5;offset+=24){
    for(const candidate of offset?[distance+offset,distance-offset]:[distance]){
     if(candidate<0||candidate>routeLength)continue;
-    const point=line.getPointAtLength(candidate);
+    const point=pointAt(candidate);
     if(point.y>=top&&point.y<=bottom&&pointClear(point))return candidate;
    }
   }
@@ -239,16 +309,16 @@
  }
  function requestMotion(snap=false){
   if(!geometryData||!samples.length||document.body.dataset.background!=='fluxos')return;
-  const headerBottom=document.querySelector('.site-header').getBoundingClientRect().bottom;
+  const headerBottom=geometryData.headerBottom;
   const focal=headerBottom+(innerHeight-headerBottom)*.55;
   geometryData.readingY=scrollY+focal-geometryData.mainTop;
   const y=Math.max(geometryData.startY,Math.min(geometryData.endY,scrollY+focal-geometryData.mainTop));
-  const atEnd=scrollY>=document.documentElement.scrollHeight-innerHeight-2;
+  const atEnd=scrollY>=geometryData.documentHeight-innerHeight-2;
   targetLength=chooseTarget(atEnd?routeLength:distanceForY(y));
   if(!initialized){
    currentLength=scrollY<40?0:targetLength;velocity=0;initialized=true;lastTime=0;
    guide.dataset.motion='entering';
-  }else if(snap||Math.abs(line.getPointAtLength(targetLength).y-line.getPointAtLength(currentLength).y)>innerHeight*1.6){
+  }else if(snap||Math.abs(pointAt(targetLength).y-pointAt(currentLength).y)>innerHeight*1.6){
    currentLength=targetLength;velocity=0;lastTime=0;
   }
   if(!motionFrame)motionFrame=requestAnimationFrame(moveGuide);
@@ -270,41 +340,44 @@
   }else velocity=0;
   if(Math.abs(currentLength-targetLength)<.35&&Math.abs(velocity)<4){currentLength=targetLength;velocity=0;}
   currentLength=Math.max(0,Math.min(routeLength,currentLength));
-  const point=line.getPointAtLength(currentLength);
+  const point=pointAt(currentLength);
   guide.style.transform=`translate(${point.x}px,${point.y}px)`;
-  guide.setAttribute('data-ready','');
-  guide.dataset.x=point.x.toFixed(2);guide.dataset.y=point.y.toFixed(2);guide.dataset.distance=currentLength.toFixed(2);
-  guide.dataset.target=targetLength.toFixed(2);
-  guide.dataset.motion=held?'held':currentLength===targetLength?'settled':'following';
-  button.style.pointerEvents=pointClear(point)?'auto':'none';
+  if(!guide.hasAttribute('data-ready'))guide.setAttribute('data-ready','');
+  guide.dataset.distance=currentLength.toFixed(2);
+  const motion=held?'held':currentLength===targetLength?'settled':'following';
+  if(guide.dataset.motion!==motion)guide.dataset.motion=motion;
+  const pointerEvents=pointClear(point)?'auto':'none';
+  if(button.style.pointerEvents!==pointerEvents)button.style.pointerEvents=pointerEvents;
   progress.style.strokeDashoffset=String(1-currentLength/routeLength);
   let section=sections[0];
   for(const candidate of sections){if(candidate.y<=geometryData.readingY+1)section=candidate;else break;}
   if(locationName.textContent!==section.label){
    locationName.textContent=section.label;
    button.setAttribute('aria-label','Localização na página: '+section.label);
+   tooltipSize=null;
   }
-  guide.dataset.section=section.label;
-  guide.dataset.tone=section.label==='Resumos'?'paper':'dark';
+  if(guide.dataset.section!==section.label)guide.dataset.section=section.label;
+  const tone=section.label==='Resumos'?'paper':'dark';
+  if(guide.dataset.tone!==tone)guide.dataset.tone=tone;
   if(!tooltip.hidden)placeTooltip(point);
   if(!held&&(currentLength!==targetLength||Math.abs(velocity)>=4))motionFrame=requestAnimationFrame(moveGuide);
  }
  function placeTooltip(point){
-  const bounds=tooltip.getBoundingClientRect(),buttonBounds=button.getBoundingClientRect();
-  const viewportWidth=document.documentElement.clientWidth;
+  if(!tooltipSize){const bounds=tooltip.getBoundingClientRect();tooltipSize={width:bounds.width,height:bounds.height};}
+  const bounds=tooltipSize,viewportWidth=geometryData.width;
   const viewX=geometryData.mainLeft+point.x,viewY=geometryData.mainTop+point.y-scrollY;
-  const gap=buttonBounds.width/2+10;
+  const gap=(geometryData.compact?12:Math.max(22,Math.min(27,38*geometryData.scale/2+2)))+10;
   let x=viewX+gap;
   if(x+bounds.width>viewportWidth-12)x=viewX-gap-bounds.width;
   x=Math.max(12,Math.min(viewportWidth-bounds.width-12,x));
-  const ceiling=document.querySelector('.site-header').getBoundingClientRect().bottom+8;
+  const ceiling=geometryData.headerBottom+8;
   const y=Math.max(ceiling,Math.min(innerHeight-bounds.height-12,viewY-bounds.height/2));
   tooltip.style.transform=`translate(${x-viewX}px,${y-viewY}px)`;
  }
  function renderTooltip(){
   const open=!suppressed&&(hovered||focused||pinned);
   tooltip.hidden=!open;button.setAttribute('aria-expanded',String(open));
-  if(open){button.setAttribute('aria-describedby',tooltip.id);placeTooltip(line.getPointAtLength(currentLength));}
+  if(open){button.setAttribute('aria-describedby',tooltip.id);placeTooltip(pointAt(currentLength));}
   else button.removeAttribute('aria-describedby');
  }
  function dismiss(){pinned=false;hovered=false;held=false;suppressed=true;renderTooltip();requestMotion();}
@@ -328,11 +401,15 @@
   if(document.hidden){cancelAnimationFrame(motionFrame);motionFrame=0;velocity=0;lastTime=0;}
   else requestMotion();
  });
- const sceneChanges=new MutationObserver(schedule);
+ const refreshCollisions=()=>{
+  if(queued||collisionFrame||!geometryData)return;
+  collisionFrame=requestAnimationFrame(()=>{collisionFrame=0;collisions=readCollisions(geometryData);requestMotion();});
+ };
+ const sceneChanges=new MutationObserver(records=>{if(records.some(record=>record.target.dataset.motionScene==='complete'))refreshCollisions();});
  sceneChanges.observe(main,{subtree:true,attributes:true,attributeFilter:['data-motion-scene']});
- const introChanges=new MutationObserver(()=>{if(document.documentElement.dataset.introState==='complete')schedule();});
+ const introChanges=new MutationObserver(()=>{if(document.documentElement.dataset.introState==='complete')refreshCollisions();});
  introChanges.observe(document.documentElement,{attributes:true,attributeFilter:['data-intro-state']});
- window.addEventListener('pagehide',()=>{cancelAnimationFrame(queued);queued=0;cancelAnimationFrame(motionFrame);motionFrame=0;clearTimeout(closeTimer);});
+ window.addEventListener('pagehide',()=>{cancelAnimationFrame(queued);queued=0;cancelAnimationFrame(collisionFrame);collisionFrame=0;cancelAnimationFrame(motionFrame);motionFrame=0;clearTimeout(closeTimer);});
  window.addEventListener('pageshow',schedule);
 })();
 
@@ -391,17 +468,20 @@
   base.after(light);
   const colors={'#6389c7':'#c4dcff','#5a78a2':'#305bb7','#7790b4':'#b8d2ff','#7195b2':'#a6ddeb','#b6caff':'#e5edff'};
   const syncColors=()=>{
-   for(const name of ['gradientUnits','x1','y1','x2','y2'])light.setAttribute(name,base.getAttribute(name)||'0');
-   light.replaceChildren(...[...base.children].map(stop=>{
-    const copy=stop.cloneNode();copy.setAttribute('stop-color',colors[stop.getAttribute('stop-color')]||'#c4dcff');return copy;
-   }));
+   for(const name of ['gradientUnits','x1','y1','x2','y2']){const value=base.getAttribute(name)||'0';if(light.getAttribute(name)!==value)light.setAttribute(name,value);}
+   if(light.children.length!==base.children.length)light.replaceChildren(...[...base.children].map(()=>document.createElementNS(ns,'stop')));
+   [...base.children].forEach((stop,index)=>{
+    const copy=light.children[index],offset=stop.getAttribute('offset')||'0',color=colors[stop.getAttribute('stop-color')]||'#c4dcff';
+    if(copy.getAttribute('offset')!==offset)copy.setAttribute('offset',offset);
+    if(copy.getAttribute('stop-color')!==color)copy.setAttribute('stop-color',color);
+   });
   };
   const halo=document.createElementNS(ns,'path');
   halo.setAttribute('class','story-thread-ambient-halo');halo.setAttribute('pathLength','1');
   sheen.before(halo);
   const syncPath=()=>halo.setAttribute('d',sheen.getAttribute('d')||'');
   syncColors();syncPath();
-  new MutationObserver(syncColors).observe(base,{attributes:true,childList:true});
+  new MutationObserver(syncColors).observe(base,{attributes:true,childList:true,subtree:true});
   new MutationObserver(syncPath).observe(sheen,{attributes:true,attributeFilter:['d']});
  }
 })();
