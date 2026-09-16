@@ -1,5 +1,5 @@
 {
-  "commit": "9a0656da7c6285b12924149f9ab6e6d7a2e92aa3",
+  "commit": "0e2b62fb2d9e13a9c0a078a290fde135ad3145f0",
   "files": {
     ".nojekyll": {
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -242,8 +242,8 @@
       "bytes": 472
     },
     "index.html": {
-      "sha256": "4303b4ef1ba2007d7a66e8925d78b1dcc2bf88856695b7cceafd3dcbc24acc4b",
-      "bytes": 48653
+      "sha256": "3b3ceed0f784b4d4c39c96a3419e18f5086daf1d00eae9de47122ebac5f8c935",
+      "bytes": 47166
     },
     "projetos/planejamento-de-estudos/index.html": {
       "sha256": "f94ad004e5cff4e59f58e0b5947029db330cc246c1c3c7f1de73588a56c1f7ae",
@@ -262,7 +262,7 @@
       "bytes": 35468
     },
     "assets/build.json": {
-      "sha256": "85a4d78a0b0054e24c7bc59b134968c8f6cb076a9ab132626a1712231c43f23a",
+      "sha256": "1091206b0c71330517d4f2b0ee7993a943d74859b5bed7e6dc91272dd661bfd1",
       "bytes": 203
     },
     "sitemap.xml": {
