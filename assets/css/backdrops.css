@@ -143,16 +143,18 @@ body.portfolio-home[data-background="fluxos"] .hero { z-index: 4; }
 .portfolio-home .story-thread-bed { stroke-width: 21; opacity: 0.12; }
 .portfolio-home .story-thread-line { stroke-width: 3.5; opacity: 0.85; }
 body.portfolio-home[data-background="fluxos"] .story-thread-progress { stroke-width: 3.5; stroke-dasharray: 1; stroke-dashoffset: 1; opacity: 0.68; animation: auto ease 0s 1 normal none running none !important; }
-.route-guide { --guide-size: 38px; --guide-hit: 44px; position: absolute; inset: 0px auto auto 0px; z-index: 8; width: 0px; height: 0px; display: none; pointer-events: none; }
+.route-guide { --guide-size: 38px; --guide-hit: 44px; --guide-fill:#14213a; --guide-stroke:#89a9dc; --guide-core:#a4bee9; --guide-hover-fill:#203758; --guide-hover-stroke:#bdd1f3; position: absolute; inset: 0px auto auto 0px; z-index: 8; width: 0px; height: 0px; display: none; pointer-events: none; will-change:transform; }
+.route-guide[data-tone="paper"]{--guide-fill:#3453f5;--guide-stroke:#2745b9;--guide-core:#f2f5fa;--guide-hover-fill:#2b49db;--guide-hover-stroke:#213a9e}
+.route-guide[data-tone="accent"]{--guide-fill:#e9eef5;--guide-stroke:#c4d3f3;--guide-core:#2745b9;--guide-hover-fill:#f2f5fa;--guide-hover-stroke:#dce7ff}
 body.portfolio-home[data-background="fluxos"] .route-guide[data-ready] { display: block; }
 .route-guide-button { position: absolute; left: 0px; top: 0px; translate: -50% -50%; display: grid; place-items: center; width: var(--guide-hit); height: var(--guide-hit); padding: 0px; background: transparent; border: 0px; border-radius: 11px; pointer-events: auto; touch-action: manipulation; }
-.route-guide-symbol { display: grid; place-items: center; width: var(--guide-size); height: var(--guide-size); border: 2.5px solid rgb(137, 169, 220); border-radius: 9px; background: rgb(20, 33, 58); box-shadow: rgba(32, 57, 88, 0.13) 0px 0px 0px 5px; pointer-events: none; transition: background 0.18s, border-color 0.18s; }
-.route-guide-symbol::after { content: ""; width: 10px; height: 10px; border-radius: 2px; background: rgb(164, 190, 233); }
+.route-guide-symbol { display: grid; place-items: center; width: var(--guide-size); height: var(--guide-size); border: 2.5px solid var(--guide-stroke); border-radius: 9px; background: var(--guide-fill); box-shadow: rgba(32, 57, 88, 0.13) 0px 0px 0px 5px; pointer-events: none; transition: background .2s ease, border-color .2s ease; }
+.route-guide-symbol::after { content: ""; width: 10px; height: 10px; border-radius: 2px; background: var(--guide-core); transition:background .2s ease; }
 .route-guide-button:focus-visible { outline: rgb(201, 217, 250) solid 3px; outline-offset: 2px; }
 .route-guide[data-tone="paper"] .route-guide-button:focus-visible { outline-color: rgb(39, 69, 185); }
-.route-guide-button[aria-expanded="true"] .route-guide-symbol { background: rgb(32, 55, 88); border-color: rgb(189, 209, 243); }
+.route-guide-button[aria-expanded="true"] .route-guide-symbol { background: var(--guide-hover-fill); border-color: var(--guide-hover-stroke); }
 @media (hover: hover) {
-.route-guide-button:hover .route-guide-symbol { background: rgb(32, 55, 88); border-color: rgb(189, 209, 243); }
+.route-guide-button:hover .route-guide-symbol { background: var(--guide-hover-fill); border-color: var(--guide-hover-stroke); }
 }
 .route-guide-tooltip { position: absolute; left: 0px; top: 0px; min-width: 126px; max-width: min(232px, -24px + 100vw); padding: 11px 15px; border: 1px solid rgb(102, 127, 172); border-radius: 11px; background: rgba(17, 27, 43, 0.96); box-shadow: rgba(2, 8, 21, 0.2) 0px 8px 24px; color: rgb(242, 245, 250); font-family: Geist, Arial, sans-serif; font-size: 14px; line-height: 1.45; white-space: normal; pointer-events: auto; }
 .route-guide-tooltip > span { display: block; font-size: 11px; color: rgb(189, 203, 225); margin-bottom: 3px; }
@@ -167,6 +169,17 @@ body.portfolio-home[data-background="fluxos"] .route-guide[data-ready] { display
 .route-guide-tooltip { min-width: 116px; padding: 10px 12px; }
 }
 @media (max-width: 760px) {
+.portfolio-home #conteudo{isolation:isolate}
+body.portfolio-home[data-background="fluxos"] .hero{z-index:auto;isolation:auto}
+.portfolio-home .hero-copy,.portfolio-home .hero-art{z-index:4}
+.portfolio-home .selected-work,.portfolio-home .software-case,.portfolio-home .software-stage,.portfolio-home .document-case{isolation:auto}
+.portfolio-home .main-screen{z-index:4}
+.portfolio-home .document-art{z-index:4;pointer-events:none}
+.portfolio-home .document-art a{pointer-events:auto}
+.portfolio-home .story-thread{z-index:2;contain:strict;will-change:transform}
+.portfolio-home .route-guide{z-index:3}
+.portfolio-home .route-guide:focus-within,.portfolio-home .route-guide:has([aria-expanded="true"]){z-index:8}
+.portfolio-home .route-guide-button:focus-visible{outline-width:2px;outline-offset:-2px;box-shadow:inset 0 0 0 4px #14213a}
 .portfolio-home .story-thread-line,
 .portfolio-home .story-thread-progress { stroke-width: 2.5; }
 .portfolio-home .story-thread-bed { stroke-width: 13; }
@@ -236,3 +249,14 @@ body.portfolio-home[data-background="fluxos"] .section-backdrop .route-signal { 
 .story-thread-ambient-halo { display: none !important; }
 }
 @media print{body.portfolio-home #conteudo{background:#fff}}
+
+.story-thread-window{position:absolute;left:0;width:100%;z-index:2;overflow:hidden;pointer-events:none;contain:strict;will-change:transform}
+.story-thread-window path{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.story-window-progress{stroke:url(#story-thread-colors);stroke-width:2.5;stroke-dasharray:1;opacity:.68}
+.story-window-light,.story-window-halo{stroke:url(#story-thread-light);stroke-dasharray:var(--window-dash) var(--window-gap);animation:story-window-flow 8.5s linear infinite;animation-play-state:var(--ambient-state)}
+.story-window-light{stroke-width:3.4;opacity:.9}
+.story-window-halo{stroke-width:8;opacity:.18}
+@keyframes story-window-flow{from{stroke-dashoffset:calc(var(--window-origin) + var(--window-step))}to{stroke-dashoffset:var(--window-origin)}}
+@media(max-width:760px){.story-thread[data-windowed] :is(.story-thread-progress,.story-thread-ambient,.story-thread-ambient-halo){display:none}}
+@media(forced-colors:active){.story-thread-window{display:none!important}}
+@media print{.story-thread-window{display:none!important}}

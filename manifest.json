@@ -1,5 +1,5 @@
 {
-  "commit": "59c3d6643339cd09783ce2897421eaacf6eb5536",
+  "commit": "e0db574e3f65a60e6ee9c7f6858c1dde5503495d",
   "files": {
     ".nojekyll": {
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -38,8 +38,8 @@
       "bytes": 5057
     },
     "assets/css/backdrops.css": {
-      "sha256": "040ad4a69f1ff58f4bd2fa31b53b0090e81f1ac3b58ff06713ec7abc2054ab86",
-      "bytes": 18805
+      "sha256": "232c143e40740e9af3e08dc4b7b2be2085a33232e0928f30e92686d2ed290270",
+      "bytes": 21233
     },
     "assets/css/projects.css": {
       "sha256": "1dc5c3969e04e4f61bdb79fedf75b243be0b63c2a682884952d98d3094c44595",
@@ -54,8 +54,12 @@
       "bytes": 16071
     },
     "assets/js/backdrops.js": {
-      "sha256": "5f03a4820615d8a25a75b8c967331e1cac66f09916e86953f5f1f48b60772f32",
-      "bytes": 28821
+      "sha256": "deb7a6b4ff400af8bf6aea7e0fe2ff85867e542748cbb9e664ff131c1f3a70b0",
+      "bytes": 32407
+    },
+    "assets/css/site.13e02b2ea62f.css": {
+      "sha256": "13e02b2ea62fc3e12632cd3b5fa8639c1534cc3258f44dd04a89a88500854dba",
+      "bytes": 68277
     },
     "assets/css/site.190a2da95ab3.css": {
       "sha256": "190a2da95ab30895dea585620722c4d15e0ff88cb1c7781fe57fe99be35e08ac",
@@ -201,6 +205,10 @@
       "sha256": "5d0bbee2ddaec28f6ca29cc1b7dd78e34121ad223bd7462775bec222b24bc5f6",
       "bytes": 7367
     },
+    "assets/js/site.6c8064a96984.js": {
+      "sha256": "6c8064a969842e2f0b2646251a807150da0ce0623b24a70bd65987a7450df52d",
+      "bytes": 35468
+    },
     "assets/js/site.791a93a07030.js": {
       "sha256": "791a93a0703015f89aae0613ccecd96a78154fea8981dbd53b76e671c6c856bc",
       "bytes": 18406
@@ -242,27 +250,27 @@
       "bytes": 472
     },
     "index.html": {
-      "sha256": "eb34288fd2451a85c45fbeeffc539bc0a75c1f17daf7a565e9e92651bfaa62e7",
+      "sha256": "16429b2a540c832e7ab53434b843d5a30939fc108cb73919822c2909c54b6aeb",
       "bytes": 47161
     },
     "projetos/planejamento-de-estudos/index.html": {
-      "sha256": "f94ad004e5cff4e59f58e0b5947029db330cc246c1c3c7f1de73588a56c1f7ae",
+      "sha256": "266ee4393bec92b992c7e02b3dae575571a4e0516e2b4c9805f0bdee3da0b4f9",
       "bytes": 20719
     },
     "projetos/resumos-de-estudo/index.html": {
-      "sha256": "7356f0559f5a701eb7383b95855890c875a751016c63e41b89b27fcd5a719ddc",
+      "sha256": "229e64c3d8562a147b2b2a0d01e87be775ceeaf5fa99c7201e5a99f68b21006f",
       "bytes": 13491
     },
-    "assets/css/site.13e02b2ea62f.css": {
-      "sha256": "13e02b2ea62fc3e12632cd3b5fa8639c1534cc3258f44dd04a89a88500854dba",
-      "bytes": 68277
+    "assets/css/site.08354bbb02fe.css": {
+      "sha256": "08354bbb02fe83e8b90a64a307be5b3b2dbcef1f270cc81a22abfb7ad4293825",
+      "bytes": 70725
     },
-    "assets/js/site.6c8064a96984.js": {
-      "sha256": "6c8064a969842e2f0b2646251a807150da0ce0623b24a70bd65987a7450df52d",
-      "bytes": 35468
+    "assets/js/site.179e9004f0a3.js": {
+      "sha256": "179e9004f0a3bf058e7639f540634430c884d41bee5c50befedf797646cc9f97",
+      "bytes": 37255
     },
     "assets/build.json": {
-      "sha256": "3316b2169b4cc7a45b9a32d252084ec54fdc3f0687b565d2fa929f646d2bb20e",
+      "sha256": "48104481b968935ce109940c47985a035081ec32d4f9ea0b5fbb148114b236c6",
       "bytes": 203
     },
     "sitemap.xml": {
