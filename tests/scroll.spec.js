@@ -8,7 +8,7 @@ for(const width of [1024,1440,1920])test('Roda, registros horizontais e teclado 
  await open(page,width);await jump(page,'#metodo-detalhes>summary');await page.locator('#metodo-detalhes>summary').click();
  for(const id of ['registro-supervisao','registro-validacao']){
   const selector='#'+id+' .registro-rolagem',record=page.locator(selector);await jump(page,selector);await page.mouse.move(5,450);
-  const before=await page.evaluate(()=>{scrollProbe={frames:[],inputs:[]};return scrollY});await page.mouse.wheel(0,80);await page.waitForTimeout(30);
+  const before=await page.evaluate(()=>{scrollProbe={frames:[],inputs:[]};return scrollY});await page.mouse.wheel(0,80);await settle(page);
   const box=await record.boundingBox();await page.mouse.move(box.x+box.width/2,box.y+box.height/2);
   for(let i=0;i<8;i++){await page.mouse.wheel(0,40);await page.waitForTimeout(50)}await settle(page);
   const data=await page.evaluate(()=>{const data={...scrollProbe,y:scrollY};scrollProbe=null;return data});
