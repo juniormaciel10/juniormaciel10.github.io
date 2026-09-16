@@ -32,7 +32,7 @@ test('Visual aprovado, ordem dos projetos, textos removidos e rodapé simples',a
  await open(page);
  await expect(page.locator('h1')).toHaveText('Inteligênciaem aplicação.');
  await expect(page.locator('.hero-intro')).toContainText('Desenho soluções e coordeno agentes de IA.');
- expect(await page.locator('#p-ciclo,#p-resumos,#p-funil,#p-instagram,#p-transcricao,#p-copy,#experimentos').evaluateAll(es=>es.map(e=>e.id))).toEqual(['p-ciclo','p-resumos','p-funil','p-instagram','p-transcricao','p-copy','experimentos']);
+ expect(await page.locator('#p-ciclo,#p-resumos,#p-funil,#p-transcricao,#p-copy,#experimentos').evaluateAll(es=>es.map(e=>e.id))).toEqual(['p-ciclo','p-resumos','p-funil','p-transcricao','p-copy','experimentos']);
  expect(await page.locator('body').innerText()).not.toMatch(/confiro cada entrega|copywriter|remoto.*Bagé|setembro/i);
  await expect(page.locator('footer')).toHaveText('© 2026 Franklin Junior Maciel.');
  await page.locator('.hero .button').click();await settle(page);
