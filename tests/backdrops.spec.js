@@ -37,6 +37,9 @@ for(const width of [390,1440])test('Indicador identifica a dobra e mantém a eti
  await button.click();await page.mouse.move(1,1);await expect(tooltip).toBeVisible();await page.keyboard.press('Escape');await expect(tooltip).not.toBeVisible();
  await page.keyboard.press('Tab');await page.keyboard.press('Shift+Tab');await expect(button).toBeFocused();await expect(tooltip).toBeVisible();
  await page.keyboard.press('Escape');await expect(tooltip).not.toBeVisible();
+ // Tab follows document order and can scroll back to the project controls.
+ // Put the reading section in view before checking offscreen animation pause.
+ await jump(page,'.document-copy');await guideReady(page);
  const hero=width<=760?'.backdrop-mobile-routes .route-signal':'.backdrop-desktop-routes .route-signal';
  await expect(page.locator('.hero '+hero)).toHaveCSS('animation-play-state','paused');
  await expect(page.locator('.document-case .ambient-trace').first()).toHaveCSS('animation-play-state','running');
@@ -66,7 +69,7 @@ test('O controlador da página inicial não interfere nas páginas dos projetos'
  const errors=[];page.on('pageerror',error=>errors.push(error.message));
  for(const route of ['/projetos/planejamento-de-estudos/','/projetos/resumos-de-estudo/']){
   await page.goto(route);await expect(page.locator('h1')).toBeVisible();
-  await expect(page.locator('.route-guide,.story-thread,.section-backdrop')).toHaveCount(0);
+  await expect(page.locator('.route-guide,.story-thread,.story-thread-window,.section-backdrop')).toHaveCount(0);
  }
  expect(errors).toEqual([]);
 });

@@ -31,23 +31,19 @@
  const ports=make('g');
  canvas.append(lines,ports);
  main.append(canvas);
-
- // Preserve the original junction and let the guide enter along the upper route.
- const desktopSvg=main.querySelector('.backdrop-desktop-routes');
- const mobileSvg=main.querySelector('.backdrop-mobile-routes');
- const upstream={
-  desktop:'M1510 100H890Q820 100 820 170V504Q820 560 764 560H565Q510 560 510 615V670',
-  mobile:'M170-30V6Q170 25 190 25H345Q367 25 367 47V355Q367 412 310 412H250Q220 412 220 442V477'
- };
- for(const [svg,key]of [[desktopSvg,'desktop'],[mobileSvg,'mobile']]){
-  svg.querySelectorAll('.route-main,.route-underlay,.route-signal').forEach(path=>path.setAttribute('d',upstream[key]));
- }
- desktopSvg.querySelector('.route-junctions rect')?.setAttribute('data-guide-anchor','');
- desktopSvg.querySelector('.route-centers rect')?.setAttribute('data-guide-anchor','');
- desktopSvg.querySelector('.route-junctions rect:nth-child(2)')?.setAttribute('data-guide-anchor','');
- desktopSvg.querySelector('.route-centers rect:nth-child(2)')?.setAttribute('data-guide-anchor','');
- mobileSvg.querySelector('.route-junctions rect:first-child')?.setAttribute('data-guide-anchor','');
- mobileSvg.querySelector('.route-junctions rect:nth-child(2)')?.setAttribute('data-guide-anchor','');
+ // Keep mobile illumination in a small native-scrolling SVG. Its geometry is
+ // cropped only when the viewport approaches an edge of the buffered window.
+ const windowCanvas=make('svg',{'class':'story-thread-window','aria-hidden':'true',focusable:'false',hidden:''});
+ const windowDefs=make('defs');
+ const windowClip=make('clipPath',{id:'story-window-safe',clipPathUnits:'userSpaceOnUse'});
+ const windowCutouts=make('path',{'clip-rule':'evenodd'});
+ windowClip.append(windowCutouts);windowDefs.append(windowClip);windowCanvas.append(windowDefs);
+ const windowLines=make('g',{'clip-path':'url(#story-window-safe)'});
+ const windowProgress=make('path',{'class':'story-window-progress',pathLength:1});
+ const windowHalo=make('path',{'class':'story-window-halo'});
+ const windowLight=make('path',{'class':'story-window-light'});
+ windowLines.append(windowProgress,windowHalo,windowLight);windowCanvas.append(windowLines);main.append(windowCanvas);
+ let windowRange=null;
 
  const guide=document.createElement('div');
  guide.className='route-guide';
@@ -142,6 +138,7 @@
  const protectedSelectors='.section-heading,.project-heading,.gallery-toolbar,.project-footnote,.document-copy,.case-details,.project-index,.method-top,.profile-note,.experience-section,.contact-surface h2,.contact-bottom';
  const protectedElements=[...main.querySelectorAll(protectedSelectors)];
  const controls=[...main.querySelectorAll('a,button,summary')].filter(element=>!guide.contains(element)&&!element.closest('.gallery-tabs'));
+ const mobileControls=[...controls,...main.querySelectorAll('.hero-art .art-screen,.hero-art .art-document,.hero-art .art-plinth')];
  const maskRects=protectedElements.map(()=>make('rect',{rx:3,fill:'black'}));
  mask.append(...maskRects);
  const gradientStops=Array.from({length:9},()=>make('stop'));
@@ -151,7 +148,7 @@
 
  function readCollisions(data){
   const result=[];
-  for(const element of controls){
+  for(const element of data.mobile?mobileControls:controls){
    let hidden=false;
    // Querying geometry inside a closed details element can lay out its entire
    // hidden subtree. Check native disclosure state before any style or size read.
@@ -210,7 +207,14 @@
   const curveX=exitX-curveShift,curveY=junctionY+curveDrop;
   const points=[
    [curveX,curveY],[curveX,boxes.hero.bottom+introGap],
-   [left,boxes.hero.bottom+introGap],[left,paperEntry],[right,paperEntry],
+   [left,boxes.hero.bottom+introGap],
+   ...(mobile?[
+    [left,boxes.stage.y+boxes.stage.height*.8],
+    [boxes.stage.x+boxes.stage.width*.2,boxes.stage.y+boxes.stage.height*.8],
+    [boxes.stage.x+boxes.stage.width*.2,boxes.stage.bottom-18],
+    [left,boxes.stage.bottom-18]
+   ]:[]),
+   [left,paperEntry],[right,paperEntry],
    [right,paperExit],[left,paperExit],[left,methodEntry],[right,methodEntry],
    [right,methodExit],[left,methodExit],[left,contactY],[contactX,contactY]
   ];
@@ -219,9 +223,10 @@
    ?`M${coordinate(367,-40)}L${coordinate(367,355)}Q${coordinate(367,412)} ${coordinate(310,412)}L${coordinate(250,412)}Q${coordinate(220,412)} ${coordinate(220,442)}L${coordinate(220,477)}`
    :`M${coordinate(820,-60)}L${coordinate(820,504)}Q${coordinate(820,560)} ${coordinate(764,560)}L${coordinate(565,560)}Q${coordinate(510,560)} ${coordinate(510,615)}L${coordinate(510,670)}`;
   const path=entry+`C${exitX},${junctionY+curveDrop*.62} ${curveX},${junctionY+curveDrop*.38} ${curveX},${curveY}`+tail;
-  const data={width,height,mobile,compact,mainTop:mainRect.top+scrollY,mainLeft:mainRect.left,startY,endY:contactY,scale:matrix?.a||1,
+  const data={width,height,mobile,compact,paper:boxes.paper,accent:[boxes.stage,boxes.contact],mainTop:mainRect.top+scrollY,mainLeft:mainRect.left,startY,endY:contactY,scale:matrix?.a||1,
    headerBottom:header.getBoundingClientRect().bottom,documentHeight:Math.max(innerHeight,footer?footer.getBoundingClientRect().bottom+scrollY:mainRect.top+scrollY+height)};
   const rectangles=protectedElements.map(box);
+  data.rectangles=rectangles;
   const nextSections=[
    ['.hero','Início'],['.selected-work','Projetos'],['.document-case','Resumos'],
    ['.other-work','Outros projetos'],['.method-section','Como trabalho'],
@@ -260,6 +265,9 @@
   canvas.dataset.height=height;
   sections=nextSections;collisions=nextCollisions;
   updateGuideGeometry(data);
+  windowRange=null;
+  windowCanvas.toggleAttribute('hidden',!mobile);
+  canvas.toggleAttribute('data-windowed',mobile);
  }
  const schedule=()=>{if(!queued)queued=requestAnimationFrame(draw);};
  const resize=new ResizeObserver(schedule);
@@ -271,7 +279,7 @@
  function updateGuideGeometry(data){
   const resized=geometryData&&geometryData.width!==data.width;
   geometryData=data;
-  const weight=Math.min(.055,(innerHeight-data.headerBottom)/(data.width*10));
+  const weight=data.mobile ? .18 : Math.min(.055,(innerHeight-data.headerBottom)/(data.width*10));
   const raw=pathLookup.map(point=>({distance:point.distance,virtual:point.y+point.distance*weight}));
   const min=raw[0].virtual,span=raw.at(-1).virtual-min;
   samples=raw.map(sample=>({distance:sample.distance,y:data.startY+(sample.virtual-min)/span*(data.endY-data.startY)}));
@@ -291,6 +299,46 @@
   while(low+1<high){const mid=(low+high)>>1;if(samples[mid].y<y)low=mid;else high=mid;}
   const a=samples[low],b=samples[high],fraction=Math.max(0,Math.min(1,(y-a.y)/(b.y-a.y||1)));
   return a.distance+(b.distance-a.distance)*fraction;
+ }
+ function updateWindow(){
+  const data=geometryData,viewTop=Math.max(0,scrollY-data.mainTop),viewBottom=viewTop+innerHeight;
+  if(!windowRange||windowRange.viewport!==innerHeight||viewTop<windowRange.top+64&&windowRange.top>0||viewBottom>windowRange.bottom-64&&windowRange.bottom<data.height){
+   const top=Math.max(0,viewTop-192),bottom=Math.min(data.height,viewBottom+192);
+   const cut=(y,a,b)=>{
+    const fraction=Math.max(0,Math.min(1,(y-a.y)/(b.y-a.y||1)));
+    return{x:a.x+(b.x-a.x)*fraction,y:a.y+(b.y-a.y)*fraction,distance:a.distance+(b.distance-a.distance)*fraction};
+   };
+   let start=pathLookup.findIndex(point=>point.y>=top);
+   if(start<0)start=pathLookup.length-1;
+   const points=[start?cut(top,pathLookup[start-1],pathLookup[start]):pathLookup[0]];
+   let index=start;
+   for(;index<pathLookup.length&&pathLookup[index].y<=bottom;index++)points.push(pathLookup[index]);
+   if(index<pathLookup.length&&index>0)points.push(cut(bottom,pathLookup[index-1],pathLookup[index]));
+   const d=points.map((point,index)=>`${index?'L':'M'}${point.x.toFixed(2)},${point.y.toFixed(2)}`).join('');
+   windowRange={top,bottom,viewport:innerHeight,start:points[0].distance,end:points.at(-1).distance};
+   setAttributes(windowCanvas,{viewBox:`0 ${top} ${data.width} ${bottom-top}`});
+   windowCanvas.style.top=top+'px';windowCanvas.style.height=(bottom-top)+'px';
+   for(const path of [windowProgress,windowHalo,windowLight])setAttributes(path,{d});
+   for(const [name,value]of Object.entries({origin:windowRange.start,dash:routeLength*.024,gap:routeLength*.144,step:routeLength*.168}))windowCanvas.style.setProperty('--window-'+name,value+'px');
+   // Union intersecting text boxes before using even-odd clipping. This avoids
+   // an alpha mask allocation and prevents overlapping holes from reopening.
+   const areas=[];
+   for(const rect of data.rectangles){
+    const area={x:rect.x-5,y:Math.max(top,rect.y-4),right:rect.right+5,bottom:Math.min(bottom,rect.bottom+4)};
+    if(area.bottom<=area.y)continue;
+    for(let index=0;index<areas.length;index++){
+     const other=areas[index];
+     if(area.x>other.right||area.right<other.x||area.y>other.bottom||area.bottom<other.y)continue;
+     area.x=Math.min(area.x,other.x);area.y=Math.min(area.y,other.y);area.right=Math.max(area.right,other.right);area.bottom=Math.max(area.bottom,other.bottom);
+     areas.splice(index,1);index=-1;
+    }
+    areas.push(area);
+   }
+   const outline=rect=>`M${rect.x},${rect.y}H${rect.right}V${rect.bottom}H${rect.x}Z`;
+   setAttributes(windowCutouts,{d:outline({x:0,y:top,right:data.width,bottom})+areas.map(outline).join('')});
+  }
+  const offset=1-Math.max(0,Math.min(1,(currentLength-windowRange.start)/(windowRange.end-windowRange.start||1)));
+  if(windowProgress.style.strokeDashoffset!==String(offset))windowProgress.style.strokeDashoffset=String(offset);
  }
  function chooseTarget(distance){
   if(distance<1)return 0;
@@ -321,34 +369,35 @@
   }else if(snap||Math.abs(pointAt(targetLength).y-pointAt(currentLength).y)>innerHeight*1.6){
    currentLength=targetLength;velocity=0;lastTime=0;
   }
-  if(!motionFrame)motionFrame=requestAnimationFrame(moveGuide);
+  if(!motionFrame){lastTime=0;motionFrame=requestAnimationFrame(moveGuide);}
  }
  function moveGuide(time){
   motionFrame=0;
   if(document.hidden||document.body.dataset.background!=='fluxos'){
    velocity=0;lastTime=0;guide.dataset.motion='paused';return;
   }
-  const elapsed=(lastTime?Math.min(40,time-lastTime):16)/1000;lastTime=time;
+  const elapsed=(lastTime?Math.min(geometryData.mobile?250:40,time-lastTime):16)/1000;lastTime=time;
   if(!held){
    // Critically damped motion preserves velocity when the scroll direction changes.
-   const omega=5.5,offset=currentLength-targetLength,combined=velocity+omega*offset,decay=Math.exp(-omega*elapsed);
+   const omega=geometryData.mobile?22:5.5,offset=currentLength-targetLength,combined=velocity+omega*offset,decay=Math.exp(-omega*elapsed);
    let next=targetLength+(offset+combined*elapsed)*decay;
    let nextVelocity=(velocity-omega*combined*elapsed)*decay;
-   const maxSpeed=geometryData.compact?950:1550,maxStep=maxSpeed*elapsed;
+   const maxSpeed=geometryData.mobile?5000:geometryData.compact?950:1550,maxStep=maxSpeed*elapsed;
    if(Math.abs(next-currentLength)>maxStep){next=currentLength+Math.sign(next-currentLength)*maxStep;nextVelocity=Math.sign(next-currentLength)*maxSpeed;}
    currentLength=next;velocity=nextVelocity;
   }else velocity=0;
   if(Math.abs(currentLength-targetLength)<.35&&Math.abs(velocity)<4){currentLength=targetLength;velocity=0;}
   currentLength=Math.max(0,Math.min(routeLength,currentLength));
   const point=pointAt(currentLength);
-  guide.style.transform=`translate(${point.x}px,${point.y}px)`;
+  guide.style.transform=`translate3d(${point.x}px,${point.y}px,0)`;
   if(!guide.hasAttribute('data-ready'))guide.setAttribute('data-ready','');
   guide.dataset.distance=currentLength.toFixed(2);
   const motion=held?'held':currentLength===targetLength?'settled':'following';
   if(guide.dataset.motion!==motion)guide.dataset.motion=motion;
-  const pointerEvents=pointClear(point)?'auto':'none';
+  const pointerEvents=focused||pinned||pointClear(point)?'auto':'none';
   if(button.style.pointerEvents!==pointerEvents)button.style.pointerEvents=pointerEvents;
-  progress.style.strokeDashoffset=String(1-currentLength/routeLength);
+  if(geometryData.mobile)updateWindow();
+  else progress.style.strokeDashoffset=String(1-currentLength/routeLength);
   let section=sections[0];
   for(const candidate of sections){if(candidate.y<=geometryData.readingY+1)section=candidate;else break;}
   if(locationName.textContent!==section.label){
@@ -357,7 +406,9 @@
    tooltipSize=null;
   }
   if(guide.dataset.section!==section.label)guide.dataset.section=section.label;
-  const tone=section.label==='Resumos'?'paper':'dark';
+  const paper=geometryData.paper;
+  const tone=geometryData.accent.some(rect=>point.x>=rect.x&&point.x<=rect.right&&point.y>=rect.y&&point.y<=rect.bottom)
+   ?'accent':point.y>=paper.y&&point.y<=paper.bottom?'paper':'dark';
   if(guide.dataset.tone!==tone)guide.dataset.tone=tone;
   if(!tooltip.hidden)placeTooltip(point);
   if(!held&&(currentLength!==targetLength||Math.abs(velocity)>=4))motionFrame=requestAnimationFrame(moveGuide);

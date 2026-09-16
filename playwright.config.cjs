@@ -7,6 +7,10 @@ module.exports = defineConfig({
   fullyParallel: false,
   workers: 1,
   retries: 0,
+  projects: [
+    { name: 'chromium', use: { browserName: 'chromium' } },
+    { name: 'webkit', testMatch: /marker-mobile\.spec\.js$/, use: { browserName: 'webkit' } }
+  ],
   reporter: [['list'], ['html', { open: 'never' }]],
   use: { baseURL, browserName: 'chromium', headless: true, trace: 'retain-on-failure', screenshot: 'only-on-failure' },
   webServer: process.env.SITE_URL ? undefined : { command: 'node scripts/serve.mjs --port 4175', url: baseURL, reuseExistingServer: false, timeout: 10000 }

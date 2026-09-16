@@ -12,13 +12,15 @@ As superfícies das seções ficam em `assets/css/surfaces.css`. Os grafismos e 
 
 O percurso usa uma tabela geométrica calculada quando o desenho muda, com subdivisão adaptativa das curvas. A animação reutiliza essa tabela sem consultar a geometria SVG a cada quadro. Leituras de layout precedem as atualizações do desenho, os nós de máscara e gradiente são reutilizados e o conteúdo de detalhes fechados não é medido. Os testes comparam a interpolação com a geometria nativa do navegador.
 
+No celular, a iluminação usa um trecho do SVG limitado à área próxima da tela, com recorte vetorial para proteger os textos. O quadrado responde mais rápido à rolagem, passa atrás das imagens da abertura e das folhas do resumo e percorre a borda do painel de estudos. O foco por teclado o traz à frente. As cores acompanham as superfícies claras, escuras e azuis, também no desktop.
+
 ## Desenvolvimento
 
 Requer Node.js 22 ou superior.
 
 ```sh
 npm ci
-npx playwright install chromium
+npx playwright install chromium webkit
 npm run dev
 ```
 
@@ -34,7 +36,7 @@ A página do planejador oferece um percurso de 24 segundos pelas seis telas reai
 npm run verify
 ```
 
-A suíte usa o próprio Playwright do projeto e verifica layout responsivo, navegação, rolagem, carregamento progressivo, galeria, recuperação de erros, downloads, indicador de localização e conteúdo sem JavaScript. O bundle de JavaScript tem limites de 36 KB minificados e 12,5 KB comprimidos, incluindo o controlador do percurso. Relatórios ficam em `playwright-report/` e evidências em `test-results/`.
+A suíte usa o próprio Playwright do projeto e verifica layout responsivo, navegação, rolagem, carregamento progressivo, galeria, recuperação de erros, downloads, indicador de localização e conteúdo sem JavaScript. O indicador móvel também é verificado em WebKit. O bundle de JavaScript tem limites de 38 KB minificados e 13,5 KB comprimidos, incluindo a renderização limitada à tela no celular. Relatórios ficam em `playwright-report/` e evidências em `test-results/`.
 
 Para executar contra o site publicado, configure a variável `SITE_URL`. Os testes usam somente os arquivos e o ambiente deste projeto.
 

@@ -17,8 +17,8 @@ test('Publicação contém apenas o site; bundles íntegros e metadados do perfi
  for(const file of [...css,...js])expect(sha(await(await request.get('/'+file)).body())).toBe(manifest.files[file].sha256);
  // O percurso animado tem um controlador próprio; limitar também o custo de transferência.
  const javascript=await(await request.get('/'+js[0])).body();
- expect(manifest.files[js[0]].bytes).toBeLessThan(36000);
- expect(gzipSync(javascript).length).toBeLessThan(12500);
+ expect(manifest.files[js[0]].bytes).toBeLessThan(38000);
+ expect(gzipSync(javascript).length).toBeLessThan(13500);
  expect(await page.content()).not.toMatch(/preview-replay|motion-preview-tools|__motionPreview/);
  expect(javascript.toString('utf8')).not.toMatch(/__motionPreview|preview-replay|data-option|study-description/);
  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href','https://juniormaciel10.github.io/');
