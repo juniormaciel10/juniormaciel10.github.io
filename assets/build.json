@@ -1,7 +1,47 @@
 {
-  "commit": "e0db574e3f65a60e6ee9c7f6858c1dde5503495d",
-  "data": "2026-09-16T07:16:56-03:00",
+  "commit": "16bb22fb3d78c5562feda97ed86af6253f21260d",
+  "data": "2026-09-27T07:16:21-03:00",
   "dirty": false,
-  "css": "assets/css/site.08354bbb02fe.css",
-  "js": "assets/js/site.179e9004f0a3.js"
+  "css": "assets/css/site.6602645c2ca2.css",
+  "js": "assets/js/site.8f744d0968ef.js",
+  "pages": {
+    "index.html": {
+      "css": "assets/css/site.6602645c2ca2.css",
+      "js": "assets/js/site.8f744d0968ef.js",
+      "modules": [
+        "assets/js/scene.527e282d43aa.js"
+      ],
+      "earlyJsBytes": 4742
+    },
+    "estudos/index.html": {
+      "css": "assets/css/site.6cb1124d38d7.css",
+      "js": "assets/js/site.5519a81490cc.js",
+      "modules": [],
+      "earlyJsBytes": 4742
+    },
+    "plataforma/index.html": {
+      "css": "assets/css/site.eea3e944fa39.css",
+      "js": "assets/js/site.6bd95203b1ff.js",
+      "modules": [],
+      "earlyJsBytes": 4742
+    },
+    "jogos/index.html": {
+      "css": "assets/css/site.ef4309c01bcb.css",
+      "js": "assets/js/site.6bd95203b1ff.js",
+      "modules": [],
+      "earlyJsBytes": 4742
+    },
+    "projetos/planejamento-de-estudos/index.html": {
+      "css": "assets/css/site.fb89892511a6.css",
+      "js": "assets/js/site.9c9dd929a84a.js",
+      "modules": [],
+      "earlyJsBytes": 0
+    },
+    "projetos/resumos-de-estudo/index.html": {
+      "css": "assets/css/site.fb89892511a6.css",
+      "js": "assets/js/site.9c9dd929a84a.js",
+      "modules": [],
+      "earlyJsBytes": 0
+    }
+  }
 }

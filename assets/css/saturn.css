@@ -1,0 +1,35 @@
+/* One viewport scene, behind the existing HTML and its controls. */
+.saturn-home{isolation:isolate}
+/* Keep Chromium from culling the lower canvas behind an opaque sticky header. */
+.saturn-home .site-header{background:rgba(11,11,11,.995)}
+.saturn-scene{position:fixed;inset:0 0 auto;height:100vh;height:100lvh;z-index:0;overflow:hidden;pointer-events:none;contain:strict;opacity:.84;transition:opacity .25s}
+/* The expanded method has small text across the full width of the backdrop. */
+.saturn-home:has(#metodo-detalhes[open]) .saturn-scene[data-pose="metodo"],.saturn-scene:not([data-pose]){opacity:.3}
+/* Reveal after the name and cards, including when the 3D module cannot load. */
+.js .saturn-scene:not([data-visible]){opacity:0;visibility:hidden}
+.saturn-scene::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#0b0b0bbd 0%,#0b0b0bb3 38%,#0b0b0b45 76%,#0b0b0b14),linear-gradient(0deg,#0b0b0ba3,transparent 50%);pointer-events:none}
+.saturn-canvas{position:absolute;inset:0;display:block;width:100%;height:100%;opacity:0;transition:opacity .5s}
+.saturn-fallback{position:absolute;left:50%;top:56%;width:110vmin;max-width:none;transform:translate(-50%,-50%);opacity:.74;transition:opacity .5s}
+.saturn-fallback img{display:block;width:100%;height:auto;max-width:none}
+.saturn-scene:not([data-pose]) .saturn-fallback img{animation:saturn-poster-life 16s ease-in-out infinite alternate}
+.saturn-home:has(dialog[open]) .saturn-fallback img{animation-play-state:paused}
+@keyframes saturn-poster-life{from{transform:translateY(-5px) rotate(-.7deg)}to{transform:translateY(5px) rotate(.7deg)}}
+.saturn-scene[data-renderer="webgl"] .saturn-canvas{opacity:1}
+.saturn-scene[data-renderer="webgl"] .saturn-fallback{opacity:0!important}
+.saturn-home>#conteudo,.saturn-home>[data-opening-rest]{position:relative;z-index:1}
+.saturn-home .editorial-hero{position:relative;isolation:isolate;min-height:clamp(340px,44svh,440px);display:flex;flex-direction:column;justify-content:center}
+/* Without scripts, cover only the introduction and cards above the poster. */
+html:not(.js) .saturn-home :is(.editorial-hero,.destinations){isolation:isolate}
+html:not(.js) .saturn-home :is(.editorial-hero,.destinations)::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--paper);box-shadow:0 0 0 100vmax var(--paper);clip-path:inset(0 -100vmax);pointer-events:none}
+.saturn-home .editorial-hero h1{position:relative;text-shadow:0 2px 16px #0b0b0b99}
+.saturn-home .hero-caption{align-self:center;max-width:100%;color:#cecdc8;text-shadow:0 1px 6px #0b0b0b,0 0 24px #0b0b0b}
+.saturn-home :where(.section-intro,.workspace-note,.about-top,.capabilities,.case-details,.footer-main){text-shadow:0 1px 5px #0b0b0b99}
+@media(max-width:760px){
+ .saturn-scene{opacity:.78}
+ .saturn-scene::after{background:linear-gradient(90deg,#0b0b0bbd,#0b0b0b80 50%,#0b0b0b80),linear-gradient(0deg,#0b0b0b99,transparent 55%)}
+ .saturn-fallback{opacity:.64}
+ .saturn-home .editorial-hero{min-height:clamp(270px,39svh,340px)}
+ .saturn-home .work-method .section-intro>p{color:#c5c4bf}
+}
+@media(forced-colors:active){.saturn-scene{display:none}}
+@media print{.saturn-scene{display:none}.saturn-home .editorial-hero{min-height:0}.saturn-home :where(h1,.hero-caption,.section-intro,.workspace-note,.about-top,.capabilities,.case-details,.footer-main){text-shadow:none}}

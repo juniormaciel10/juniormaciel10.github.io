@@ -1,0 +1,34 @@
+/* This single line belongs to the opening, not to the site's former dividers. */
+.opening-top-sentinel { position: absolute; top: 0; left: 0; width: 1px; height: 1px; pointer-events: none; }
+.project-film { position: relative; }
+.opening-signal { position: absolute; top: -16px; inset-inline: 0; height: 8px; overflow: hidden; overflow: clip; pointer-events: none; overflow-anchor: none; }
+.opening-signal-track { position: relative; width: calc(100% - var(--gutter) * 2); max-width: 1600px; height: 8px; margin-inline: auto; }
+.opening-signal-line { position: absolute; top: 50%; inset-inline: 0; height: 1px; transform-origin: left center; }
+.opening-signal-ink { display: block; width: 100%; height: 100%; background: #f4f4f4; opacity: .6; }
+.opening-signal-travel { position: absolute; inset: 0; transform: translateX(100%); }
+.opening-signal-dot { position: absolute; top: 50%; left: 0; width: 6px; height: 6px; margin: -2.5px 0 0 -3px; border-radius: 50%; background: #f4f4f4; opacity: 0; }
+[data-home-intro], [data-opening-slides], [data-opening-rest] { overflow-anchor: none; }
+
+/* Markup is fully readable without JS; only a prepared, finite opening hides it. */
+html.js[data-home-opening='true']:is([data-intro='pending'], [data-intro='playing']) :is([data-opening-name], [data-opening-caption], [data-opening-slides], [data-opening-rest], .header-inner) { opacity: 0; }
+html.js[data-home-opening='true']:is([data-intro='pending'], [data-intro='playing']) [data-opening-line] { transform: scaleX(0); }
+html.js[data-home-opening='true']:is([data-intro='pending'], [data-intro='playing']) [data-opening-travel] { transform: translateX(0); }
+
+.footer-motion-toggle { display: inline-flex; align-items: center; gap: 8px; min-width: 44px; min-height: 44px; margin-block: -12px; padding: 8px 0; border: 0; border-radius: 0; background: transparent; color: var(--ink); font-size: 12px; line-height: 1.5; white-space: nowrap; }
+.footer-motion-toggle .icon { width: 14px; height: 14px; }
+@media (hover: hover) {
+  .footer-motion-toggle:hover [data-motion-label] { text-decoration: underline; text-underline-offset: 4px; }
+}
+@media (max-width: 700px) {
+  .opening-signal { top: -12px; }
+  .opening-signal-dot { width: 5px; height: 5px; margin: -2px 0 0 -2.5px; }
+  .footer-motion-toggle { margin-block: 0; margin-left: auto; }
+}
+@media (forced-colors: active) {
+  .opening-signal-ink, .opening-signal-dot { background: CanvasText; }
+  .footer-motion-toggle { color: ButtonText; }
+}
+@media print {
+  .opening-signal, .opening-top-sentinel, .footer-motion-toggle { display: none !important; }
+  html.js[data-home-opening='true'] :is([data-opening-name], [data-opening-caption], [data-opening-slides], [data-opening-rest], .header-inner) { opacity: 1 !important; transform: none !important; }
+}

@@ -306,3 +306,6 @@ html:not(.js) .autoplay-control{display:none}
   .experience-section{padding-top:18px}
   .dialog-image-wrap img{max-height:calc(100dvh - 270px)}
 }
+
+/* Keep the complete menu in normal flow when JavaScript is unavailable. */
+@media(max-width:760px){html:not(.js) .site-header{position:static;margin-bottom:0}html:not(.js) .header-inner{height:auto;flex-wrap:wrap;row-gap:0}html:not(.js) .brand{min-height:70px;display:flex;align-items:center}html:not(.js) .main-nav{position:static;inset:auto;flex-basis:100%;width:100%;flex-direction:row;flex-wrap:wrap;gap:0 18px;padding:0 0 18px;border-bottom:0}}

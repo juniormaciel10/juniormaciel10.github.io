@@ -191,10 +191,6 @@
     ['.document-word',{x:-20,delay:240,opacity:.35,duration:1300}]
   ]);
   scene('.document-copy', [['h3',{y:28,duration:1100}],['p',{y:16,delay:130}],['.document-file',{y:12,delay:230}]]);
-  scene('.other-work', [
-    ['h3',{y:30}],
-    ...[...document.querySelectorAll('.project-row')].map((_,i)=>['.project-row:nth-child('+(i+1)+')',{y:18,delay:120+i*85,duration:900}])
-  ]);
   scene('.method-top', [['h2',{y:34,duration:1100}],['.method-copy p:first-child',{y:18,delay:130}],['.method-copy p:last-child',{y:18,delay:240}]]);
   scene('.workspace', [['&',{y:24,duration:1150}]]);
   scene('.contact-surface', [

@@ -1,347 +1,108 @@
 <!doctype html>
-<html lang="pt-BR">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="dark">
-  <script>
-    document.documentElement.classList.add('js');
-    document.documentElement.classList.add('motion-pending');
-    document.documentElement.dataset.motion = 'full';
-    setTimeout(function () {
-      if (!document.documentElement.classList.contains('motion-pending')) return;
-      document.documentElement.classList.remove('motion-pending');
-      document.documentElement.dataset.introState = 'complete';
-    }, 3500);
-    document.addEventListener('error', function (event) {
-      if (event.target.tagName === 'SCRIPT' && event.target.src) document.documentElement.classList.remove('js', 'motion-pending', 'has-motion');
-    }, true);
-  </script>
-  <meta name="description" content="Franklin Junior Maciel. Projetos em software, conteúdo e automação com agentes de IA.">
-  <title>Franklin Junior Maciel · Projetos e tecnologia</title>
-  <meta name="theme-color" content="#0c1017">
-<link rel="canonical" href="https://juniormaciel10.github.io/">
-<meta property="og:type" content="website">
-<meta property="og:locale" content="pt_BR">
-<meta property="og:title" content="Franklin Junior Maciel · Inteligência em aplicação">
-<meta property="og:description" content="Projetos em software, conteúdo e automação com agentes de IA.">
-<meta property="og:url" content="https://juniormaciel10.github.io/">
-<meta property="og:image" content="https://juniormaciel10.github.io/assets/img/og.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Franklin Junior Maciel. Inteligência em aplicação. Projetos em software, conteúdo e automação com agentes de IA.">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%232448EE'/%3E%3Ctext x='32' y='41' font-family='sans-serif' font-size='24' font-weight='700' fill='%23FAFBFC' text-anchor='middle'%3Efj.%3C/text%3E%3C/svg%3E">
-<link rel="preload" href="assets/fonts/ClashDisplay-Semibold.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/Geist.woff2" as="font" type="font/woff2" crossorigin>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ProfilePage",
-  "@id": "https://juniormaciel10.github.io/#perfil",
-  "url": "https://juniormaciel10.github.io/",
-  "name": "Franklin Junior Maciel · Automação e orquestração de agentes de IA",
-  "inLanguage": "pt-BR",
-  "mainEntity": {
-    "@type": "Person",
-    "@id": "https://juniormaciel10.github.io/#pessoa",
-    "name": "Franklin Junior Maciel",
-    "jobTitle": "Automação e orquestração de agentes de IA",
-    "url": "https://juniormaciel10.github.io/",
-    "sameAs": [
-      "https://www.linkedin.com/in/franklin-junior-maciel/",
-      "https://github.com/juniormaciel10"
-    ]
-  }
-}
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Franklin Júnior Maciel | Automação e agentes de IA</title><meta name="description" content="Desenho soluções e coordeno agentes de IA. Conheça meus projetos em estudos, plataformas, jogos e produção digital."><meta name="theme-color" content="#0b0b0b">
+<link rel="canonical" href="https://juniormaciel10.github.io/"><meta property="og:type" content="website"><meta property="og:locale" content="pt_BR"><meta property="og:title" content="Franklin Júnior Maciel | Automação e agentes de IA"><meta property="og:description" content="Desenho soluções e coordeno agentes de IA. Conheça meus projetos em estudos, plataformas, jogos e produção digital."><meta property="og:url" content="https://juniormaciel10.github.io/"><meta property="og:image" content="https://juniormaciel10.github.io/assets/img/og.png"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/img/favicon.svg"><link rel="preload" href="assets/fonts/Geist.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfilePage", "name": "Franklin Júnior Maciel | Automação e agentes de IA", "url": "https://juniormaciel10.github.io/", "inLanguage": "pt-BR", "mainEntity": {"@type": "Person", "name": "Franklin Júnior Maciel", "url": "https://juniormaciel10.github.io/", "sameAs": ["https://www.linkedin.com/in/franklin-junior-maciel/", "https://github.com/juniormaciel10"]}}</script>
+<script>(function(){var root=document.documentElement;root.classList.add('js');root.dataset.motion='full';root.dataset.homeOpening='true';root.dataset.intro='pending';var timer=setTimeout(function(){root.dataset.intro='complete';if(!document.body.classList.contains('js'))root.classList.remove('js','ui-ready');},9500);window.addEventListener('portfolio:intro-mounted',function(){clearTimeout(timer);},{once:true});document.addEventListener('error',function(e){if(e.target.tagName==='SCRIPT'&&e.target.src){root.classList.remove('js','ui-ready');root.dataset.intro='complete';}},true);})();</script>
+<link rel="stylesheet" href="assets/css/site.6602645c2ca2.css">
+
+
+<script data-home="./">(()=>{"use strict";const r=document.documentElement,p=document.querySelector('meta[name="theme-color"]')?.content;p&&CSS.supports("color",p)&&r.style.setProperty("--page-transition-bg",p);const T=new URL(document.currentScript?.dataset.home||"./",document.baseURI),h="onpageswap"in window&&"onpagereveal"in window&&CSS.supports("view-transition-name","root"),a="portfolio:card-entry:v1",k="portfolio:card-last:v1",l=(t,e)=>{try{const n=new URL(t,location.href),i=new URL(e,location.href);return n.origin===i.origin&&n.pathname.replace(/index\.html$/,"")===i.pathname.replace(/index\.html$/,"")}catch{return!1}},w=t=>{try{return JSON.parse(sessionStorage.getItem(t)||"null")}catch{return null}},v=(t,e)=>{try{sessionStorage.setItem(t,JSON.stringify(e))}catch{}},u=t=>{try{sessionStorage.removeItem(t)}catch{}},E=t=>t&&Date.now()-t.time<15e3,f=w(a);E(f)&&l(f.to,location.href)&&(r.dataset.cardEntry="true",r.classList.remove("motion-pending"),l(location.href,T.href)&&(r.dataset.intro="complete"),f.kind==="close"&&f.color&&CSS.supports("color",f.color)&&r.style.setProperty("--page-transition-bg",f.color),h||u(a));let d=null,g=null,s=null,m=null,o=0;function c(){g?.style.removeProperty("view-transition-name"),g=null,r.style.removeProperty("view-transition-name"),p&&CSS.supports("color",p)&&r.style.setProperty("--page-transition-bg",p),delete r.dataset.cardDirection,delete r.dataset.cardTransition,document.querySelectorAll("[data-page-card][aria-busy]").forEach(t=>t.removeAttribute("aria-busy")),s?.remove(),s=null}function x(t){return[...document.querySelectorAll("[data-page-card]")].find(e=>l(e.href,t))}function L(t){g=t.querySelector("[data-page-preview]")||t,r.style.viewTransitionName="page-backdrop",g.style.viewTransitionName="root"}function K(t){if(t.defaultPrevented||t.button!==0||t.metaKey||t.ctrlKey||t.shiftKey||t.altKey)return null;const e=t.target.closest?.("a[data-page-card]");return!e||e.hasAttribute("download")||e.target&&e.target!=="_self"?null:new URL(e.href,document.baseURI).origin===location.origin?e:null}async function C(t,e,n){if(typeof Element.prototype.animate!="function"){location.assign(e);return}const i=t.querySelector("[data-page-preview]")||t,y=i.getBoundingClientRect();s=document.createElement("div"),s.className="page-portal",s.setAttribute("aria-hidden","true");const b=i.querySelector("img");if(b){const S=document.createElement("img");S.src=b.currentSrc||b.src,S.alt="",s.append(S)}document.body.append(s),await s.animate([{left:y.left+"px",top:y.top+"px",width:y.width+"px",height:y.height+"px",borderRadius:"3px"},{left:"0px",top:"0px",width:innerWidth+"px",height:innerHeight+"px",borderRadius:"0px"}],{duration:650,easing:"cubic-bezier(.22,1,.36,1)",fill:"forwards"}).finished.catch(()=>{}),n===o&&location.assign(e)}document.addEventListener("click",t=>{const e=K(t);if(!e){s&&t.target.closest?.("a[href]")&&!t.metaKey&&!t.ctrlKey&&!t.shiftKey&&!t.altKey&&(o++,d=null,c(),u(a));return}if(t.preventDefault(),d?.card===e)return;c();const n=++o,i={from:location.href,to:e.href,scrollY,card:e.dataset.pageCard,time:Date.now(),kind:"open"};d={card:e,record:i},e.setAttribute("aria-busy","true"),v(a,i),v(k,i),h?location.assign(i.to):C(e,i.to,n)}),addEventListener("pageswap",t=>{if(!h){t.viewTransition?.skipTransition();return}const e=t.activation?.entry?.url,n=w(k);if(d&&l(d.record.to,e))r.dataset.cardDirection="open",L(d.card);else if(t.activation?.navigationType==="traverse"&&n&&l(n.to,location.href)&&l(n.from,e)&&l(e,T.href))r.dataset.cardDirection="close",v(a,{...n,from:location.href,to:e,time:Date.now(),kind:"close",color:p});else{u(a),t.viewTransition?.skipTransition();return}const i=o;t.viewTransition?.finished.catch(()=>{}).then(()=>{i===o&&c()})}),addEventListener("pagereveal",t=>{if(!h){t.viewTransition?.skipTransition(),c();return}const e=w(a);if(!E(e)||!l(e.to,location.href))return;const n=++o;if(r.dataset.cardDirection=e.kind,e.kind==="close"){r.dataset.intro="complete",e.color&&CSS.supports("color",e.color)&&r.style.setProperty("--page-transition-bg",e.color);const i=x(e.from);if(!i){t.viewTransition?.skipTransition(),c(),u(a);return}scrollTo({top:Number(e.scrollY)||0,behavior:"instant"}),L(i)}u(a),t.viewTransition?(m=t.viewTransition,t.viewTransition.ready.then(()=>{n===o&&(r.dataset.cardTransition="active")}).catch(()=>{}),t.viewTransition.finished.catch(()=>{}).then(()=>{n===o&&(m=null,c())})):c()}),addEventListener("pagehide",()=>{o++}),addEventListener("pageshow",t=>{t.persisted&&(o++,d=null,c())}),addEventListener("wheel",()=>m?.skipTransition(),{passive:!0}),addEventListener("touchstart",()=>m?.skipTransition(),{passive:!0}),addEventListener("keydown",()=>m?.skipTransition()),addEventListener("popstate",()=>{s&&(o++,d=null,c(),u(a))})})();
 </script>
-<link rel="stylesheet" href="assets/css/site.08354bbb02fe.css">
-
-
-
-</head>
-<body class="portfolio-home" data-background="fluxos">
-  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
-  <header class="site-header">
-    <div class="header-inner wrap">
-      <a class="brand" href="#inicio" aria-label="Franklin Junior Maciel, início">Franklin Junior Maciel<span class="brand-stroke" aria-hidden="true"></span></a>
-      <button class="menu-toggle round-button" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav"><svg
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
-  class="icon icon-tabler icons-tabler-outline icon-tabler-menu-2"
->
+</head><body class="portfolio-site home-page saturn-home"><div class="saturn-scene" data-saturn-module="assets/js/scene.527e282d43aa.js" data-saturn-surface="assets/img/saturn/surface.webp" data-saturn-rings="assets/img/saturn/rings.png" aria-hidden="true"><div class="saturn-fallback"><img src="assets/img/saturn/poster.webp" width="750" height="500" alt="" decoding="async" fetchpriority="low"></div></div>
+<span class="opening-top-sentinel" data-opening-anchor aria-hidden="true"></span><a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+<header class="site-header"><div class="header-inner wrap">
+<a class="brand" href="./">Franklin Júnior Maciel<span class="brand-note">Portfólio</span></a>
+<button class="menu-toggle icon-button round-button" type="button" aria-label="Abrir menu" aria-controls="main-nav" aria-expanded="false"><svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
   <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
   <path d="M4 6l16 0" />
   <path d="M4 12l16 0" />
   <path d="M4 18l16 0" />
 </svg></button>
-      <nav class="main-nav" id="main-nav" aria-label="Principal">
-        <a href="#projetos">Projetos</a>
-        <a href="#metodo">Como trabalho</a>
-        <a class="nav-contact" href="#contato">Contato <svg
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
-  class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-up-right"
->
+<nav class="main-nav" id="main-nav" aria-label="Navegação principal"><a href="./" aria-current="page">Início</a><a href="estudos/">Estudos</a><a href="plataforma/">Plataforma</a><a href="jogos/">3D e programação</a><a href="#metodo">Habilidades</a><a href="#contato">Contato</a></nav>
+</div></header><main id="conteudo" tabindex="-1">
+<section class="editorial-hero wrap" id="inicio" aria-labelledby="hero-name" data-home-intro><span id="titulo" class="anchor-alias" aria-hidden="true"></span><h1 id="hero-name" data-opening-name>Franklin Júnior Maciel</h1><p class="hero-caption" data-opening-caption>Automação e coordenação de agentes de IA.</p></section>
+<section class="destinations" id="projetos" aria-label="Áreas de trabalho">
+<div class="opening-signal" data-opening-signal aria-hidden="true"><div class="opening-signal-track" data-opening-track><span class="opening-signal-line" data-opening-line><span class="opening-signal-ink" data-opening-ink></span></span><span class="opening-signal-travel" data-opening-travel><span class="opening-signal-dot" data-opening-dot></span></span></div></div>
+<div class="destination-grid wrap" data-opening-slides>
+<a class="destination destination-study" href="estudos/" data-page-card="estudos"><div class="destination-preview" data-page-preview><img src="assets/img/portfolio/previews/estudos-960.webp" srcset="assets/img/portfolio/previews/estudos-640.webp 640w, assets/img/portfolio/previews/estudos-960.webp 960w" sizes="(max-width:760px) calc(100vw - 66px), 30vw" width="960" height="600" alt="" decoding="async"></div><div class="destination-caption"><div><h2 id="destination-study-title">Estudos</h2><p id="destination-study-description">Planejamento e resumos de estudo.</p></div><svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
   <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
   <path d="M17 7l-10 10" />
   <path d="M8 7l9 0l0 9" />
-</svg></a>
-      </nav>
-    </div>
-  </header>
-  <main id="conteudo" tabindex="-1">
-    <section class="hero wrap" id="inicio" aria-labelledby="hero-title">
-<div class="section-backdrop" data-backdrop-scene="hero" aria-hidden="true">
- <svg class="backdrop-routes backdrop-desktop-routes" viewBox="0 0 1440 850" preserveAspectRatio="xMidYMid slice" focusable="false">
-  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
-   <path class="route-underlay" d="M1510 100H890Q820 100 820 170V504Q820 560 764 560H565Q510 560 510 615V670"></path>
-   <path class="route-main" d="M1510 100H890Q820 100 820 170V504Q820 560 764 560H565Q510 560 510 615V670"></path>
-   <path class="route-secondary" d="M-80 790H540Q600 790 600 730V662Q600 610 652 610H790Q836 610 836 564V244Q836 180 900 180H1510"></path>
-   <path class="route-secondary" d="M990 880V630Q990 574 1046 574H1195Q1250 574 1250 519V-40"></path>
-   <path class="route-tertiary" d="M-20 700H374Q430 700 430 644V620Q430 492 558 492H630Q686 492 686 436V126Q686 44 768 44H1340"></path>
-   <path class="route-signal" pathLength="1" d="M1510 100H890Q820 100 820 170V504Q820 560 764 560H565Q510 560 510 615V670"></path>
-  </g>
-  <g class="route-junctions"><rect x="491" y="651" width="38" height="38" rx="9" data-guide-anchor=""></rect><rect x="741" y="283" width="38" height="38" rx="9" data-guide-anchor=""></rect><rect x="1231" y="431" width="38" height="38" rx="9"></rect></g>
-  <g class="route-centers"><rect x="505" y="665" width="10" height="10" rx="2" data-guide-anchor=""></rect><rect x="755" y="297" width="10" height="10" rx="2" data-guide-anchor=""></rect><rect x="1245" y="445" width="10" height="10" rx="2"></rect></g>
- </svg><svg class="backdrop-routes backdrop-mobile-routes" viewBox="0 0 390 850" preserveAspectRatio="none" fill="none" focusable="false"><path class="route-underlay" d="M170-30V6Q170 25 190 25H345Q367 25 367 47V355Q367 412 310 412H250Q220 412 220 442V477"></path><path class="route-main" d="M170-30V6Q170 25 190 25H345Q367 25 367 47V355Q367 412 310 412H250Q220 412 220 442V477"></path><path class="route-secondary" d="M194-30V0H351Q385 0 385 34V367Q385 436 316 436H270Q246 436 246 460V559Q246 587 218 587H-30"></path><path class="route-signal" pathLength="1" d="M170-30V6Q170 25 190 25H345Q367 25 367 47V355Q367 412 310 412H250Q220 412 220 442V477"></path><g class="route-junctions"><rect x="359" y="74" width="16" height="16" rx="4" data-guide-anchor=""></rect><rect x="212" y="469" width="16" height="16" rx="4" data-guide-anchor=""></rect></g></svg>
-
-
-</div>
-      <span class="anchor-alias" id="quem-sou" aria-hidden="true"></span><div class="hero-copy">
-        <p class="eyebrow">Automação e agentes de IA</p>
-        <span class="anchor-alias" id="titulo" aria-hidden="true"></span><h1 id="hero-title"><span>Inteligência</span><span class="accent-text">em aplicação.</span></h1>
-        <p class="hero-intro">Desenho soluções e coordeno agentes de IA. Software, conteúdo e automações conectados a problemas reais.</p>
-        <a class="button button-primary" href="#projetos">Ver projetos <span class="button-icon"><svg
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
-  class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-right"
->
+</svg></div></a>
+<a class="destination destination-platform" href="plataforma/" data-page-card="plataforma"><div class="destination-preview" data-page-preview><img src="assets/img/portfolio/previews/plataforma-960.webp" srcset="assets/img/portfolio/previews/plataforma-640.webp 640w, assets/img/portfolio/previews/plataforma-960.webp 960w" sizes="(max-width:760px) calc(100vw - 66px), 30vw" width="960" height="600" alt="" decoding="async"></div><div class="destination-caption"><div><h2 id="destination-platform-title">Plataforma de estudos</h2><p id="destination-platform-description">Uma jornada de aprendizado conectada.</p></div><svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M17 7l-10 10" />
+  <path d="M8 7l9 0l0 9" />
+</svg></div></a>
+<a class="destination destination-games" href="jogos/" data-page-card="jogos"><div class="destination-preview" data-page-preview><img src="assets/img/portfolio/previews/jogos-960.webp" srcset="assets/img/portfolio/previews/jogos-640.webp 640w, assets/img/portfolio/previews/jogos-960.webp 960w" sizes="(max-width:760px) calc(100vw - 66px), 30vw" width="960" height="600" alt="" decoding="async"></div><div class="destination-caption"><div><h2 id="destination-games-title">Modelagem 3D e programação</h2><p id="destination-games-description">Blender, Ruby e C# aplicados a projetos.</p></div><svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M17 7l-10 10" />
+  <path d="M8 7l9 0l0 9" />
+</svg></div></a>
+</div></section>
+<section class="work-method wrap section-space" id="metodo" data-opening-rest aria-labelledby="method-title"><span class="anchor-alias" id="como-trabalho" aria-hidden="true"></span><span class="anchor-alias" id="na-pratica" aria-hidden="true"></span>
+<div class="section-intro skills-intro"><span class="anchor-alias" id="habilidades" aria-hidden="true"></span><h2 id="method-title">Qualidades e habilidades.</h2><div class="skills-summary"><div><h3>Qualidades</h3><ul><li>Organização</li><li>Autonomia</li><li>Visão analítica</li><li>Atenção aos detalhes</li></ul></div><div><h3>Conhecimentos</h3><ul><li>Automação e coordenação de agentes de IA</li><li>Python, Node.js e Playwright</li><li>HTML, CSS, JavaScript/TypeScript, React e Next.js</li><li>WordPress e Supabase</li><li>Criação de marcas, SVG e copywriting</li></ul></div></div></div>
+<div class="media-gallery workspace-gallery" id="workspace-gallery" data-gallery data-interval="9000" role="region" aria-roledescription="carrossel" aria-label="Capturas da minha área de trabalho" tabindex="0">
+<div class="gallery-viewport"><figure class="media-slide" data-gallery-slide data-title="Minha área de trabalho" data-description="Projetos organizados em sessões separadas.">
+<a class="gallery-open" href="assets/img/portfolio/trabalho-visao-geral.webp" target="_blank" rel="noopener" aria-label="Ampliar: Minha área de trabalho"><picture><img src="assets/img/portfolio/trabalho-visao-geral.webp" width="1919" height="1033" alt="Projetos organizados em sessões separadas." loading="lazy" decoding="async" srcset="assets/img/portfolio/mesa-real-720.webp 720w, assets/img/portfolio/mesa-real-1120.webp 1120w, assets/img/portfolio/trabalho-visao-geral.webp 1919w" sizes="(max-width: 760px) calc(100vw - 44px), (max-width: 1777px) 90vw, 1600px"></picture><span class="gallery-expand"><svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M12 5l0 14" />
+  <path d="M5 12l14 0" />
+</svg><span>Ampliar</span></span></a>
+<figcaption><strong>Minha área de trabalho</strong><p>Projetos organizados em sessões separadas.</p></figcaption></figure><figure class="media-slide" data-gallery-slide data-title="Projetos lado a lado" data-description="Cada frente mantém seu contexto.">
+<a class="gallery-open" href="assets/img/portfolio/trabalho-01.webp" target="_blank" rel="noopener" aria-label="Ampliar: Projetos lado a lado"><picture><img src="assets/img/portfolio/trabalho-01-1120.webp" width="1120" height="604" alt="Cada frente mantém seu contexto." loading="lazy" decoding="async" srcset="assets/img/portfolio/trabalho-01-720.webp 720w, assets/img/portfolio/trabalho-01-1120.webp 1120w, assets/img/portfolio/trabalho-01.webp 1915w" sizes="(max-width: 760px) calc(100vw - 44px), (max-width: 1777px) 90vw, 1600px"></picture><span class="gallery-expand"><svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M12 5l0 14" />
+  <path d="M5 12l14 0" />
+</svg><span>Ampliar</span></span></a>
+<figcaption><strong>Projetos lado a lado</strong><p>Cada frente mantém seu contexto.</p></figcaption></figure><figure class="media-slide" data-gallery-slide data-title="Pesquisa e execução" data-description="Pesquisa e desenvolvimento em paralelo.">
+<a class="gallery-open" href="assets/img/portfolio/trabalho-02.webp" target="_blank" rel="noopener" aria-label="Ampliar: Pesquisa e execução"><picture><img src="assets/img/portfolio/trabalho-02-1120.webp" width="1120" height="601" alt="Pesquisa e desenvolvimento em paralelo." loading="lazy" decoding="async" srcset="assets/img/portfolio/trabalho-02-720.webp 720w, assets/img/portfolio/trabalho-02-1120.webp 1120w, assets/img/portfolio/trabalho-02.webp 1915w" sizes="(max-width: 760px) calc(100vw - 44px), (max-width: 1777px) 90vw, 1600px"></picture><span class="gallery-expand"><svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M12 5l0 14" />
+  <path d="M5 12l14 0" />
+</svg><span>Ampliar</span></span></a>
+<figcaption><strong>Pesquisa e execução</strong><p>Pesquisa e desenvolvimento em paralelo.</p></figcaption></figure><figure class="media-slide" data-gallery-slide data-title="Implementação e revisão" data-description="Alterações acompanhadas por verificações.">
+<a class="gallery-open" href="assets/img/portfolio/trabalho-03.webp" target="_blank" rel="noopener" aria-label="Ampliar: Implementação e revisão"><picture><img src="assets/img/portfolio/trabalho-03-1120.webp" width="1120" height="598" alt="Alterações acompanhadas por verificações." loading="lazy" decoding="async" srcset="assets/img/portfolio/trabalho-03-720.webp 720w, assets/img/portfolio/trabalho-03-1120.webp 1120w, assets/img/portfolio/trabalho-03.webp 1915w" sizes="(max-width: 760px) calc(100vw - 44px), (max-width: 1777px) 90vw, 1600px"></picture><span class="gallery-expand"><svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M12 5l0 14" />
+  <path d="M5 12l14 0" />
+</svg><span>Ampliar</span></span></a>
+<figcaption><strong>Implementação e revisão</strong><p>Alterações acompanhadas por verificações.</p></figcaption></figure><figure class="media-slide" data-gallery-slide data-title="Retomar com contexto" data-description="Continuidade a partir dos registros.">
+<a class="gallery-open" href="assets/img/portfolio/trabalho-04.webp" target="_blank" rel="noopener" aria-label="Ampliar: Retomar com contexto"><picture><img src="assets/img/portfolio/trabalho-04-1120.webp" width="1120" height="603" alt="Continuidade a partir dos registros." loading="lazy" decoding="async" srcset="assets/img/portfolio/trabalho-04-720.webp 720w, assets/img/portfolio/trabalho-04-1120.webp 1120w, assets/img/portfolio/trabalho-04.webp 1916w" sizes="(max-width: 760px) calc(100vw - 44px), (max-width: 1777px) 90vw, 1600px"></picture><span class="gallery-expand"><svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M12 5l0 14" />
+  <path d="M5 12l14 0" />
+</svg><span>Ampliar</span></span></a>
+<figcaption><strong>Retomar com contexto</strong><p>Continuidade a partir dos registros.</p></figcaption></figure><figure class="media-slide" data-gallery-slide data-title="Frentes independentes" data-description="Desenvolvimento e conteúdo em paralelo.">
+<a class="gallery-open" href="assets/img/portfolio/trabalho-05.webp" target="_blank" rel="noopener" aria-label="Ampliar: Frentes independentes"><picture><img src="assets/img/portfolio/trabalho-05-1120.webp" width="1120" height="605" alt="Desenvolvimento e conteúdo em paralelo." loading="lazy" decoding="async" srcset="assets/img/portfolio/trabalho-05-720.webp 720w, assets/img/portfolio/trabalho-05-1120.webp 1120w, assets/img/portfolio/trabalho-05.webp 1885w" sizes="(max-width: 760px) calc(100vw - 44px), (max-width: 1777px) 90vw, 1600px"></picture><span class="gallery-expand"><svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M12 5l0 14" />
+  <path d="M5 12l14 0" />
+</svg><span>Ampliar</span></span></a>
+<figcaption><strong>Frentes independentes</strong><p>Desenvolvimento e conteúdo em paralelo.</p></figcaption></figure><figure class="media-slide" data-gallery-slide data-title="Ferramentas por projeto" data-description="Ferramentas escolhidas conforme a tarefa.">
+<a class="gallery-open" href="assets/img/portfolio/trabalho-06.webp" target="_blank" rel="noopener" aria-label="Ampliar: Ferramentas por projeto"><picture><img src="assets/img/portfolio/trabalho-06-1120.webp" width="1120" height="597" alt="Ferramentas escolhidas conforme a tarefa." loading="lazy" decoding="async" srcset="assets/img/portfolio/trabalho-06-720.webp 720w, assets/img/portfolio/trabalho-06-1120.webp 1120w, assets/img/portfolio/trabalho-06.webp 1909w" sizes="(max-width: 760px) calc(100vw - 44px), (max-width: 1777px) 90vw, 1600px"></picture><span class="gallery-expand"><svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M12 5l0 14" />
+  <path d="M5 12l14 0" />
+</svg><span>Ampliar</span></span></a>
+<figcaption><strong>Ferramentas por projeto</strong><p>Ferramentas escolhidas conforme a tarefa.</p></figcaption></figure></div>
+<div class="gallery-controls" data-gallery-controls hidden><div class="gallery-dots"><button type="button" class="gallery-dot" data-gallery-select="0" aria-label="Mostrar: Minha área de trabalho" aria-current="true"><span></span></button><button type="button" class="gallery-dot" data-gallery-select="1" aria-label="Mostrar: Projetos lado a lado"><span></span></button><button type="button" class="gallery-dot" data-gallery-select="2" aria-label="Mostrar: Pesquisa e execução"><span></span></button><button type="button" class="gallery-dot" data-gallery-select="3" aria-label="Mostrar: Implementação e revisão"><span></span></button><button type="button" class="gallery-dot" data-gallery-select="4" aria-label="Mostrar: Retomar com contexto"><span></span></button><button type="button" class="gallery-dot" data-gallery-select="5" aria-label="Mostrar: Frentes independentes"><span></span></button><button type="button" class="gallery-dot" data-gallery-select="6" aria-label="Mostrar: Ferramentas por projeto"><span></span></button></div><div class="gallery-actions">
+<button type="button" data-gallery-pause aria-pressed="false">Pausar</button><button type="button" class="icon-button" data-gallery-prev aria-label="Imagem anterior"><svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
   <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
   <path d="M5 12l14 0" />
   <path d="M13 18l6 -6" />
   <path d="M13 6l6 6" />
-</svg></span></a>
-      </div>
-      <div class="hero-art" aria-hidden="true">
-        <div class="hero-art-inner">
-          <span class="art-initial">F</span>
-          <div class="art-plinth"></div>
-          <div class="art-screen art-screen-back"><img src="assets/img/estudo-revisoes.webp" width="1031" height="854" alt=""></div>
-          <div class="art-screen art-screen-front"><img src="assets/img/estudo-tarefas.webp" fetchpriority="high" width="973" height="849" alt=""></div>
-          <div class="art-document"><img src="assets/img/resumo-ia-previa.webp" width="480" height="679" alt=""></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="selected-work wrap" data-surface="software" id="projetos" tabindex="-1" aria-labelledby="work-title">
-      <div class="section-heading reveal">
-        <h2 id="work-title">Projetos para<br>ver de perto<span class="accent-text">.</span></h2>
-        <p>Ferramentas, documentos e processos que já desenvolvi.</p>
-      </div>
-      <article class="software-case" id="p-ciclo" aria-labelledby="software-title">
-<div class="section-backdrop" data-backdrop-scene="software" aria-hidden="true">
- <svg class="backdrop-routes" viewBox="0 0 1440 850" preserveAspectRatio="none" fill="none" focusable="false"><g stroke="#6285c1" stroke-width="1.5"><path d="M40 40H250M40 40V230M1400 40H1190M1400 40V230M40 810H250M40 810V620M1400 810H1190M1400 810V620"></path><path d="M0 98H1440M0 752H1440M98 0V850M1342 0V850" stroke-dasharray="4 10"></path><path d="M1120 0V205L1410 495M1156 0V190L1440 474M0 555L290 845M0 595L250 845" stroke-width="3"></path></g></svg>
-
-
-</div>
-        <div class="project-heading reveal">
-          <div><h3 id="software-title">Planejamento de estudos</h3><p>Software · Planejamento, tarefas e revisões</p></div>
-          <a class="round-link" href="#ciclo-detalhes" aria-label="Conhecer o projeto de planejamento de estudos"><svg
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
-  class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-up-right"
->
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <path d="M17 7l-10 10" />
-  <path d="M8 7l9 0l0 9" />
-</svg></a>
-        </div>
-        <span class="anchor-alias" id="ci-galeria" aria-hidden="true"></span><div class="software-stage reveal" id="software-gallery">
-          <span class="stage-word" aria-hidden="true"><span class="stage-word-inner">Estudo.</span></span>
-          <div class="stage-plane" aria-hidden="true"></div>
-          <div class="secondary-screen" aria-hidden="true"><img src="assets/img/estudo-revisoes.webp" width="1031" height="854" alt="" loading="lazy"></div>
-          <a class="main-screen" id="gallery-expand" href="assets/img/estudo-galeria-disponibilidade.png" target="_blank" rel="noopener" aria-label="Ampliar a tela de disponibilidade">
-            <img id="gallery-image" src="assets/img/estudo-galeria-disponibilidade.png" width="994" height="775" alt="Definição da disponibilidade semanal na ferramenta de estudos." loading="lazy">
-            <span class="expand-affordance"><svg
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
-  class="icon icon-tabler icons-tabler-outline icon-tabler-plus"
->
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <path d="M12 5l0 14" />
-  <path d="M5 12l14 0" />
-</svg></span>
-          </a>
-          <p class="gallery-error" hidden>Esta imagem não abriu. <a id="gallery-fallback" href="assets/img/estudo-galeria-disponibilidade.png" target="_blank" rel="noopener">Abrir a captura original</a>.</p>
-        </div>
-        <div class="gallery-toolbar">
-          <div class="gallery-tabs" role="group" aria-label="Telas da ferramenta">
-            <a href="assets/img/estudo-galeria-disponibilidade.png" data-slide="0" data-label="Disponibilidade" data-description="Definição da disponibilidade semanal na ferramenta de estudos." aria-current="true" target="_blank" rel="noopener">Disponibilidade</a>
-            <a href="assets/img/estudo-galeria-disciplinas.png" data-slide="1" data-label="Disciplinas" data-description="Escolha e ordenação das disciplinas do plano de estudos." target="_blank" rel="noopener">Disciplinas</a>
-            <a href="assets/img/estudo-galeria-formatos.png" data-slide="2" data-label="Formatos" data-description="Configuração da dificuldade e dos formatos de estudo por disciplina." target="_blank" rel="noopener">Formatos</a>
-            <a href="assets/img/estudo-galeria-retomada.png" data-slide="3" data-label="Retomada" data-description="Seleção das aulas já estudadas para retomar o plano." target="_blank" rel="noopener">Retomada</a>
-            <a href="assets/img/estudo-galeria-tarefas.png" data-slide="4" data-label="Tarefas" data-description="Fila das próximas tarefas de estudo." target="_blank" rel="noopener">Tarefas</a>
-            <a href="assets/img/estudo-galeria-revisoes.png" data-slide="5" data-label="Revisões" data-description="Lista de revisões planejadas na ferramenta de estudos." target="_blank" rel="noopener">Revisões</a>
-          </div>
-          <button class="autoplay-control" id="gallery-pause" type="button" aria-label="Pausar troca automática" aria-pressed="false"><span data-pause-icon><svg
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
-  class="icon icon-tabler icons-tabler-outline icon-tabler-player-pause"
->
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <path d="M6 5m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v12a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
-  <path d="M14 5m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v12a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
-</svg></span><span data-play-icon hidden><svg
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
-  class="icon icon-tabler icons-tabler-outline icon-tabler-player-play"
->
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <path d="M7 4v16l13 -8z" />
-</svg></span><span data-pause-text>Pausar</span></button>
-        </div>
-        <div class="project-footnote">
-          <p>Da disponibilidade real de tempo à próxima tarefa, com revisões integradas à rotina.</p>
-          <a class="text-link" href="projetos/planejamento-de-estudos/">Conhecer o projeto <svg
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
-  class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-up-right"
->
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <path d="M17 7l-10 10" />
-  <path d="M8 7l9 0l0 9" />
-</svg></a>
-        </div>
-        <p class="sr-only" id="gallery-announcement" role="status"></p><details class="case-details" id="ciclo-detalhes"><summary>Como projetei a ferramenta<span class="row-toggle"><svg
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
-  class="icon icon-tabler icons-tabler-outline icon-tabler-plus"
->
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <path d="M12 5l0 14" />
-  <path d="M5 12l14 0" />
-</svg></span></summary><div class="case-details-body"><dl class="caso-fatos"><div><dt>Minha atuação</dt><dd>Planejamento, desenho das telas e implementação com agentes.</dd></div><div><dt>Entrega</dt><dd>Uma ferramenta de uso próprio para organizar tarefas e revisões.</dd></div></dl><div class="ciclo-ideia"><p>A ideia nasceu da minha própria rotina. Quem estuda para concurso lida com muitas disciplinas, pouco tempo e a dúvida diária sobre o que estudar agora. Eu queria um planejador que partisse das horas que a pessoa realmente tem, ajustasse o peso de cada disciplina pela dificuldade e trouxesse de volta o que precisa ser revisado, sem refazer o plano toda semana.</p><p>Projetei a ferramenta para mim. Comecei pelo problema e pelas regras do plano, depois escrevi um roteiro em nove etapas com as telas, o comportamento do planejamento e o que a IA pode e não pode fazer. A implementação seguiu esse roteiro, e o roteiro foi ajustado conforme o uso.</p></div>
-    <div class="ciclo-funcionamento"><h4>Como funciona</h4><ul class="lista-texto"><li>A pessoa informa a disponibilidade: quantas tarefas consegue fazer por dia.</li><li>Escolhe e ordena as disciplinas, define a dificuldade e os formatos de estudo de cada uma.</li><li>Marca o que já estudou, para retomar do ponto certo.</li><li>O plano gera a fila de próximas tarefas e as revisões planejadas.</li><li>Caderno de erros e revisões inteligentes trazem de volta o que rendeu menos.</li><li>Simulados e prática de discursivas com avaliação orientativa por IA.</li></ul></div></div></details>
-      </article>
-
-      <article class="document-case" data-surface="paper" id="p-resumos" aria-labelledby="document-title">
-<div class="section-backdrop" data-backdrop-scene="paper" aria-hidden="true">
- <svg class="backdrop-routes" viewBox="0 0 1440 850" preserveAspectRatio="none" fill="none" focusable="false"><g stroke="#647e9e" stroke-width="1.5"><rect x="40" y="36" width="670" height="778"></rect><path d="M24 72H75M60 20V66M676 20V66M662 72H730M24 778H75M60 795V830M676 795V830M662 778H730"></path><path d="M128 112V735" stroke="#8a5261"></path><path d="M78 155H680"></path><path d="M78 199H680"></path><path d="M78 243H680"></path><path d="M78 287H680"></path><path d="M78 331H680"></path><path d="M78 375H680"></path><path d="M78 419H680"></path><path d="M78 463H680"></path><path d="M78 507H680"></path><path d="M78 551H680"></path><path d="M78 595H680"></path><path d="M78 639H680"></path><path d="M78 683H680"></path></g></svg>
-
-
-</div>
-        <div class="document-art reveal">
-          <span class="document-word" aria-hidden="true">Ler.</span>
-          <div class="document-orbit" aria-hidden="true"></div>
-          <div class="sheet sheet-back" aria-hidden="true"><img src="assets/img/resumo-ia-previa.webp" width="480" height="679" alt="" loading="lazy"></div>
-          <a class="sheet sheet-front" href="assets/downloads/resumo-inteligencia-artificial.pdf" target="_blank" rel="noopener" aria-label="Ler o resumo completo de Inteligência Artificial em PDF">
-            <img src="assets/img/resumo-ia-previa.webp" width="480" height="679" alt="Página do resumo de Inteligência Artificial, com conceitos e quadros de comparação." loading="lazy">
-          </a>
-        </div>
-        <div class="document-copy reveal">
-          <h3 id="document-title">Da aula<br>ao resumo<span class="accent-text">.</span></h3>
-          <p>Estruturei a produção de resumos a partir de aulas em PDF, com revisão por agentes e documentos prontos para estudar.</p>
-          <div class="document-file"><span>Inteligência Artificial</span><span>PDF + DOCX</span></div>
-          <a class="button button-primary" href="assets/downloads/resumo-inteligencia-artificial.pdf" target="_blank" rel="noopener" id="resumo-pdf">Ler resumo <span class="button-icon"><svg
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
-  class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-up-right"
->
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <path d="M17 7l-10 10" />
-  <path d="M8 7l9 0l0 9" />
-</svg></span></a>
-          <a class="document-download text-link" id="resumo-download" href="assets/downloads/resumo-inteligencia-artificial.docx" download="Resumo-Inteligencia-Artificial.docx">Baixar DOCX <svg
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
-  class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-right"
->
+</svg></button><button type="button" class="icon-button" data-gallery-next aria-label="Próxima imagem"><svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
   <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
   <path d="M5 12l14 0" />
   <path d="M13 18l6 -6" />
   <path d="M13 6l6 6" />
-</svg></a>
-          <a class="text-link project-story-link" href="projetos/resumos-de-estudo/">Conhecer o projeto de resumos <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 7 7 17M8 7h9v9"/></svg></a>
-        </div>
-      <details class="case-details" id="resumo-detalhes"><summary>Como o resumo é produzido<span class="row-toggle"><svg
+</svg></button></div></div>
+<p class="sr-only" data-gallery-status role="status"></p></div>
+<p class="workspace-note">Capturas reais de diferentes momentos do trabalho.</p>
+<details class="case-details workflow-details" id="metodo-detalhes"><summary>Ferramentas, processo e registros<span class="row-toggle"><svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -356,173 +117,35 @@
   <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
   <path d="M12 5l0 14" />
   <path d="M5 12l14 0" />
-</svg></span></summary><div class="case-details-body"><dl class="caso-fatos"><div><dt>Minha atuação</dt><dd>Estruturar a produção, a revisão independente e as verificações dos arquivos.</dd></div><div><dt>Entrega</dt><dd>Resumos em DOCX, prontos para estudar e revisar.</dd></div></dl><h4>Como funciona</h4><ul class="lista-texto"><li>Produzir: estrutura definida, PDF como fonte e auditoria mecânica do arquivo.</li><li>Confrontar com a fonte: um agente revisa em contexto separado da produção.</li><li>Revisar em cópia: outro agente faz a revisão posterior, preservando o original.</li><li>Revalidar e registrar: conferir o arquivo corrigido e documentar o retrabalho.</li></ul><p>Scripts verificam páginas, questões, gabaritos e âncoras de ligação com o PDF. Se falta dependência, o hash diverge ou a auditoria reprova, o avanço para e a causa é corrigida antes de registrar a entrega.</p><figure class="inventario"><img src="assets/img/auditoria-inventario.png" width="615" height="182" alt="Exemplo real de inventário agregado da auditoria: 37 questões únicas, zero resíduos e zero questões perdidas pela heurística." loading="lazy"><figcaption>Recorte literal do instrumento. É um exemplo, não uma medida de qualidade de todas as aulas.</figcaption></figure></div></details></article>
-
-      <div class="other-work reveal" data-surface="index">
-<div class="section-backdrop" data-backdrop-scene="index" aria-hidden="true">
- <svg class="backdrop-routes" viewBox="0 0 1440 850" preserveAspectRatio="none" fill="none" focusable="false"><g stroke="#777baa" stroke-width="2"><path d="M1120-20V190Q1120 230 1160 230H1450M1160-20V150Q1160 190 1200 190H1450"></path><path d="M1400 470H1230Q1180 470 1180 520V900M1400 520H1270Q1230 520 1230 560V900"></path></g><g fill="#777baa"><circle cx="1180" cy="660" r="8"></circle><circle cx="1280" cy="230" r="8"></circle></g></svg>
-
-
-</div>
-        <h3>Outras frentes<span class="accent-text">.</span></h3>
-        <div class="project-index">
-          <details class="project-row" id="p-funil">
-            <summary><span class="row-title">Identidade e produção visual</span><span class="row-kind">Design e conteúdo</span><span class="row-toggle"><svg
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
-  class="icon icon-tabler icons-tabler-outline icon-tabler-plus"
->
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <path d="M12 5l0 14" />
-  <path d="M5 12l14 0" />
-</svg></span></summary>
-            <div class="row-content case-details-body"><p>Estruturo identidades visuais e a produção de peças digitais, com regras para manter a consistência da marca entre formatos.</p><dl class="caso-fatos"><div><dt>Minha atuação</dt><dd>Definir a identidade, documentar as regras e organizar a produção de conteúdo.</dd></div><div><dt>Entrega</dt><dd>Logos em SVG, guias de marca e peças digitais com suas legendas.</dd></div></dl><details class="projeto-detalhes"><summary>Criação de marcas (branding)</summary><div class="detalhes-projeto"><p>Desenvolvo marcas desde o conceito, com logos vetoriais em SVG, paleta de cores e tipografia. Os guias de identidade e a documentação reúnem regras de aplicação, referências e direções criativas para novas peças.</p><p>Essas definições orientam a criação e a revisão com agentes de IA. Nas peças estáticas, uso HTML e CSS para compor e exportar os arquivos, conferindo legibilidade, proporções e consistência visual.</p></div></details><details class="projeto-detalhes" id="p-instagram"><summary>Conteúdo e administração de Instagram</summary><div class="detalhes-projeto"><p>Desde março de 2026, atuo na administração e na produção de conteúdo para Instagram no segmento de concursos públicos. Crio publicações avulsas, legendas e campanhas com posts estáticos, carrosséis, vídeos e Reels.</p><p>A identidade visual e a linguagem da marca orientam a adaptação do conteúdo a cada formato.</p></div></details></div></details>
-          <details class="project-row" id="p-transcricao">
-            <summary><span class="row-title">Transcrição de aulas</span><span class="row-kind">Áudio e documentos</span><span class="row-toggle"><svg
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
-  class="icon icon-tabler icons-tabler-outline icon-tabler-plus"
->
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <path d="M12 5l0 14" />
-  <path d="M5 12l14 0" />
-</svg></span></summary>
-            <div class="row-content case-details-body"><p>Transformo áudio de aulas em documentos organizados, com sumário, glossário e trechos incertos destacados para revisão.</p><dl class="caso-fatos"><div><dt>Minha atuação</dt><dd>Projetar a transcrição, a revisão por trechos e a validação do documento.</dd></div><div><dt>Entrega</dt><dd>Um documento estruturado, com os pontos que precisam de conferência.</dd></div></dl><p class="caso-resultado">Em áudios longos, ajustei a detecção para recuperar trechos de fala que estavam sendo descartados.</p><details class="projeto-detalhes"><summary>Como funciona a transcrição</summary><div class="detalhes-projeto"><p>Extraio o áudio, reconheço a fala localmente com faster-whisper e preservo o JSON bruto com timestamps. Um passo de contexto organiza título, tema, tópicos e glossário; a revisão por LLM usa essa base em trechos que mantêm a continuidade. Essa revisão não é toda offline.</p><ol class="fluxo-transcricao"><li>ASR local</li><li>Triagem</li><li>Contexto e glossário</li><li>Revisão por trechos</li><li>Validação e DOCX</li></ol><p>Em áudio longo, o detector de fala perdia trechos; passei a reiniciar o estado dele por blocos e recuperei fala descartada. A validação confere timestamps e proporção de tamanho; se falha, há uma retentativa e, depois, o texto bruto fica marcado como incerto. O DOCX final traz sumário, glossário e as incertezas destacadas para revisão humana.</p></div></details><aside class="incerteza"><h4>A dúvida precisa aparecer.</h4><p>Heurísticas orientam a triagem, não determinam a verdade. Se a revisão falha, o fluxo preserva o bruto e marca a incerteza. Não completa a fala por suposição.</p></aside></div></details>
-          <details class="project-row compact-project" id="p-copy">
-            <summary><span class="row-title">Automação de campanhas</span><span class="row-kind">Marketing</span><span class="row-toggle"><svg
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
-  class="icon icon-tabler icons-tabler-outline icon-tabler-plus"
->
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <path d="M12 5l0 14" />
-  <path d="M5 12l14 0" />
-</svg></span></summary>
-            <div class="row-content case-details-body"><p>Fluxo com agentes para campanhas de uma editora de cursos preparatórios: planejamento, produção e revisão de mensagens, e-mails e páginas de vendas. As regras de linguagem e os fatos de cada oferta ficam reunidos em uma skill; a publicação passa pela aprovação do responsável de copy.</p></div></details>
-          <details class="project-row compact-project" id="experimentos">
-            <summary><span class="row-title">Jogos e experimentos</span><span class="row-kind">Colaboração e exploração</span><span class="row-toggle"><svg
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
-  class="icon icon-tabler icons-tabler-outline icon-tabler-plus"
->
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <path d="M12 5l0 14" />
-  <path d="M5 12l14 0" />
-</svg></span></summary>
-            <div class="row-content case-details-body"><h3 id="titulo-experimentos">Jogos</h3><p>Um espaço secundário.</p><div class="experimentos-grade">
-    <div id="p-gametwo"><p>game-two: colaboro em um jogo de ação e RPG em Ruby, de outro desenvolvedor, com cenários no LDtk, capturas e verificações de mudanças.</p><p class="caso-links"><a href="https://github.com/YeeVeeX/game-two">Repositório público</a><a href="https://github.com/YeeVeeX/game-two/commits?author=juniormaciel10">Minhas contribuições</a></p></div>
-    <div id="p-govoice"><p>go-voice: desenvolvo um mod de voz por proximidade para Valheim, em C#: captura, transmissão e áudio espacial. Em desenvolvimento, código ainda não publicado.</p></div>
-  </div><details class="outros-projetos"><summary>Outros experimentos de software</summary><div class="detalhes-corpo"><p><strong>pv-re:</strong> análise técnica e engenharia reversa de um mod de voz.</p><p><strong>Jogo no navegador:</strong> exploração de uma engine de MMORPG em Node.js.</p><p><strong>VetGestor:</strong> aplicação de gestão de clínica veterinária em Next.js.</p></div></details></div></details>
-        </div>
-      </div>
-    </section>
-
-    <section class="method-section" data-surface="method" id="metodo" aria-labelledby="method-title">
-<div class="section-backdrop" data-backdrop-scene="method" aria-hidden="true">
- <svg class="backdrop-routes" viewBox="0 0 1440 850" preserveAspectRatio="none" fill="none" focusable="false"><g stroke="#5b999e" stroke-width="2"><path d="M-20 310H110Q145 310 145 345V540Q145 575 180 575H290M145 430H320"></path><path d="M1440 120H1275Q1230 120 1230 165V610Q1230 655 1275 655H1440M1230 290H1090M1230 460H1060"></path></g><g stroke="#75aeb3" stroke-width="2" fill="#153841"><rect x="127" y="412" width="36" height="36" rx="8"></rect><rect x="1212" y="272" width="36" height="36" rx="8"></rect><rect x="1212" y="442" width="36" height="36" rx="8"></rect></g></svg>
-
-
-</div>
-      <div class="wrap">
-        <span class="anchor-alias" id="como-trabalho" aria-hidden="true"></span><div class="method-top reveal">
-          <h2 id="method-title">Por trás<br>dos projetos<span class="accent-text">.</span></h2>
-          <div class="method-copy">
-            <p>Começo pelo problema, defino o que precisa ser construído e organizo a execução com agentes de IA.</p>
-            <p>Minha atuação conecta decisões de produto, tecnologia e conteúdo. As ferramentas mudam conforme o projeto.</p>
-          </div>
-        </div>
-        <span class="anchor-alias" id="na-pratica" aria-hidden="true"></span><figure class="workspace reveal">
-          <a href="assets/img/mesa-real.webp" target="_blank" rel="noopener" aria-label="Ampliar a imagem da minha mesa de trabalho">
-            <img src="assets/img/mesa-real.webp" width="1919" height="1033" alt="Mesa de trabalho real com frentes de desenvolvimento e agentes em diferentes janelas." loading="lazy">
-            <span class="workspace-expand"><svg
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
-  class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-up-right"
->
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <path d="M17 7l-10 10" />
-  <path d="M8 7l9 0l0 9" />
-</svg></span>
-          </a>
-        </figure>
-        <details class="case-details" id="metodo-detalhes"><summary>Ferramentas, processo e registros<span class="row-toggle"><svg
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
-  class="icon icon-tabler icons-tabler-outline icon-tabler-plus"
->
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <path d="M12 5l0 14" />
-  <path d="M5 12l14 0" />
-</svg></span></summary><div class="case-details-body"><div><h3>Com o que trabalho</h3><ul class="lista-texto"><li>Harnesses e modelos de IA escolhidos por projeto, com instruções e skills versionadas.</li><li>Python, Node.js e Playwright para automações e verificações.</li><li>HTML, CSS e JavaScript para interfaces e materiais visuais.</li></ul></div><div><h3>Da ideia ao uso</h3><p>Desenho a solução, coordeno a implementação com agentes e ajusto o resultado a partir dos testes e do uso. Aplico esse trabalho a software, documentos de estudo, campanhas e identidade visual.</p></div><ol class="metodo-passos" id="registros"><li><div class="passo-texto"><h4>Delimitar.</h4><p>Defino escopo, fontes e critério de aceite de cada tarefa.</p></div></li><li><div class="passo-texto"><h4>Distribuir.</h4><p>Tarefas independentes rodam em paralelo, com um agente por tarefa. Quando uma etapa depende da memória da anterior, o trabalho fica em sequência.</p></div><figure class="registro-execucao" id="registro-subagentes">
+</svg></span></summary><div class="case-details-body"><p class="method-tools">Instruções por projeto, automações com Python e Node.js e testes com Playwright.</p><ol class="metodo-passos" id="registros"><li><div class="passo-texto"><h4>Delimitar.</h4><p>Defino escopo, fontes e critérios de aceite.</p></div></li><li><div class="passo-texto"><h4>Distribuir.</h4><p>Distribuo tarefas independentes e mantenho as etapas dependentes em sequência.</p></div><figure class="registro-execucao" id="registro-subagentes">
 
         <a class="registro-imagem" href="assets/img/execucao-subagentes.png" target="_blank" rel="noopener" aria-label="Ampliar registro de subagentes em outra aba"><img src="assets/img/execucao-subagentes.png" width="459" height="100" alt="Fragmento histórico de uma rodada com subagentes em execução; identificadores e caminhos cobertos por tarjas." loading="lazy"></a>
-        <figcaption>Uma rodada de subagentes em execução. A quantidade é daquela tarefa, não uma equipe fixa.</figcaption>
+        <figcaption>Registro histórico de execução.</figcaption>
         <a class="registro-link" href="assets/img/execucao-subagentes.png" target="_blank" rel="noopener">Ampliar registro<span class="so-leitor"> de subagentes em outra aba</span><span class="seta" aria-hidden="true"></span></a>
-      </figure></li><li><div class="passo-texto"><h4>Supervisionar.</h4><p>Um agente supervisor recolhe resultados e traz para mim as decisões fora do escopo.</p></div><figure class="registro-execucao" id="registro-supervisao"><div class="registro-rolagem" data-lenis-prevent-horizontal="" tabindex="0" role="region" aria-label="Registro de supervisão em escala original. Use as setas para rolar."><a class="registro-imagem" href="assets/img/execucao-supervisao.png" target="_blank" rel="noopener" aria-label="Ampliar registro de supervisão em outra aba"><img src="assets/img/execucao-supervisao.png" width="590" height="187" alt="Fragmento de uma atualização ao supervisor, com identificadores ocultados e relato de correção e verificações de uma tarefa." loading="lazy"></a></div><figcaption>Atualização enviada por um agente ao supervisor, com o estado dos testes daquela tarefa. Identificadores removidos.</figcaption><a class="registro-link" href="assets/img/execucao-supervisao.png" target="_blank" rel="noopener">Ampliar registro<span class="so-leitor"> de supervisão em outra aba</span><span class="seta" aria-hidden="true"></span></a></figure></li><li><div class="passo-texto"><h4>Verificar.</h4><p>Scripts medem o que pode ser medido: tamanhos, hashes, testes, refluxo, contraste, contagens.</p></div><figure class="registro-execucao" id="registro-validacao"><div class="registro-rolagem" data-lenis-prevent-horizontal="" tabindex="0" role="region" aria-label="Registro de validação em escala original. Use as setas para rolar."><a class="registro-imagem" href="assets/img/execucao-validacao.png" target="_blank" rel="noopener" aria-label="Ampliar registro de validação em outra aba"><img src="assets/img/execucao-validacao.png" width="660" height="93" alt="Saída histórica com aceite, integridade e diff marcados PASS para uma tarefa específica." loading="lazy"></a></div><figcaption>Saída de uma verificação mecânica: aceite, integridade e diff de uma entrega específica. Não são métricas gerais.</figcaption><a class="registro-link" href="assets/img/execucao-validacao.png" target="_blank" rel="noopener">Ampliar registro<span class="so-leitor"> de validação em outra aba</span><span class="seta" aria-hidden="true"></span></a></figure></li><li><div class="passo-texto"><h4>Revisar.</h4><p>Outro agente, com contexto limpo, revisa a entrega antes de eu aprovar. Quando faz sentido, uso um modelo diferente do que produziu.</p></div></li><li><div class="passo-texto"><h4>Aprovar e registrar.</h4><p>Eu aprovo, e o registro fica salvo para retomar o trabalho de onde parou.</p></div></li></ol></div></details><div class="profile-note reveal">
-          <p>Da gestão de uma lan house por mais de cinco anos ao trabalho com tecnologia. Hoje curso Análise e Desenvolvimento de Sistemas.</p>
-          <a class="text-link" href="#experiencia">Experiência e formação <svg
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
-  class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-up-right"
->
+      </figure></li><li><div class="passo-texto"><h4>Supervisionar.</h4><p>Um agente supervisor reúne os resultados; eu decido sobre exceções.</p></div><figure class="registro-execucao" id="registro-supervisao"><div class="registro-rolagem" data-lenis-prevent-horizontal="" tabindex="0" role="region" aria-label="Registro de supervisão em escala original. Use as setas para rolar."><a class="registro-imagem" href="assets/img/execucao-supervisao.png" target="_blank" rel="noopener" aria-label="Ampliar registro de supervisão em outra aba"><img src="assets/img/execucao-supervisao.png" width="590" height="187" alt="Fragmento de uma atualização ao supervisor, com identificadores ocultados e relato de correção e verificações de uma tarefa." loading="lazy"></a></div><figcaption>Registro histórico de supervisão.</figcaption><a class="registro-link" href="assets/img/execucao-supervisao.png" target="_blank" rel="noopener">Ampliar registro<span class="so-leitor"> de supervisão em outra aba</span><span class="seta" aria-hidden="true"></span></a></figure></li><li><div class="passo-texto"><h4>Verificar.</h4><p>Confiro arquivos e comportamento com scripts e testes.</p></div><figure class="registro-execucao" id="registro-validacao"><div class="registro-rolagem" data-lenis-prevent-horizontal="" tabindex="0" role="region" aria-label="Registro de validação em escala original. Use as setas para rolar."><a class="registro-imagem" href="assets/img/execucao-validacao.png" target="_blank" rel="noopener" aria-label="Ampliar registro de validação em outra aba"><img src="assets/img/execucao-validacao.png" width="660" height="93" alt="Saída histórica com aceite, integridade e diff marcados PASS para uma tarefa específica." loading="lazy"></a></div><figcaption>Registro histórico de validação.</figcaption><a class="registro-link" href="assets/img/execucao-validacao.png" target="_blank" rel="noopener">Ampliar registro<span class="so-leitor"> de validação em outra aba</span><span class="seta" aria-hidden="true"></span></a></figure></li><li><div class="passo-texto"><h4>Revisar.</h4><p>Outro agente revisa a entrega com contexto limpo.</p></div></li><li><div class="passo-texto"><h4>Aprovar e registrar.</h4><p>Aprovo o resultado e registro o necessário para continuar.</p></div></li></ol></div></details></section>
+<section class="about-section wrap section-space" id="sobre" data-opening-rest aria-labelledby="about-title"><span class="anchor-alias" id="quem-sou" aria-hidden="true"></span>
+<div class="about-top"><h2 id="about-title">Sobre mim.</h2><div><p class="about-lead">Sou de Bagé (RS), trabalho com automação e agentes de IA e curso ADS na UniCesumar.</p><p>Minha experiência reúne software, conteúdo, produção visual e gestão de negócios.</p></div></div>
+<div class="capabilities">
+<article><h3>Software e integrações</h3><p>Aplicações web, APIs e integrações. Python, Node.js, JavaScript/TypeScript, React, Next.js, WordPress e Supabase.</p><a class="text-link" href="plataforma/">Ver a plataforma <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
   <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
   <path d="M17 7l-10 10" />
   <path d="M8 7l9 0l0 9" />
-</svg></a>
-        </div>
-      </div>
-    </section>
+</svg></a></article>
+<article><h3>Ferramentas de estudo</h3><p>Planejamento e resumos, com revisão e validação dos materiais.</p><a class="text-link" href="estudos/">Explorar estudos <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M17 7l-10 10" />
+  <path d="M8 7l9 0l0 9" />
+</svg></a></article>
+<article id="p-funil"><h3>Identidade e produção visual</h3><p id="p-instagram">Criação de marcas (branding), logos SVG, guias visuais e conteúdo para Instagram: posts, carrosséis e vídeos.</p></article>
+<article id="p-copy"><h3>Campanhas e conteúdo</h3><p>Copywriting para mensagens, e-mails e páginas de vendas, com revisão por agentes.</p></article>
+<article><h3>Modelagem 3D e programação</h3><p>Criação no Blender, desenvolvimento em Ruby e integrações em C#.</p><a class="text-link" href="jogos/">Explorar os projetos <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M17 7l-10 10" />
+  <path d="M8 7l9 0l0 9" />
+</svg></a></article>
+</div>
 
-    <section class="experience-section wrap" data-surface="reading"><details class="case-details" id="experiencia"><summary>Experiência e formação<span class="row-toggle"><svg
+<details class="case-details bio-details" id="experiencia"><summary>Experiência e formação<span class="row-toggle"><svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -537,147 +160,54 @@
   <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
   <path d="M12 5l0 14" />
   <path d="M5 12l14 0" />
-</svg></span></summary><div class="case-details-body">
-  <h2 id="titulo-experiencia" data-ancora="experiencia">Experiência e formação</h2><p class="secao-intro">Fui dono de uma lan house em Bagé por mais de cinco anos e migrei para tecnologia. Hoje curso Análise e Desenvolvimento de Sistemas na UniCesumar e me preparo para o concurso da Polícia Rodoviária Federal.</p>
-  <div class="experiencia-grade"><ol class="tempo">
-    <li><span class="quando">Desde ago/2026</span><div class="oque"><h3>Automação com agentes de IA, freelance</h3><p>Editora de cursos preparatórios para concursos. Lançamentos, WhatsApp, e-mail e páginas de vendas, com aprovação do responsável de copy.</p></div></li>
-    <li><span class="quando">Desde mar/2026</span><div class="oque"><h3>Produção criativa e conteúdo</h3><p>Identidade visual, materiais digitais e administração de Instagram para concursos, com produções individuais e campanhas.</p></div></li>
-    <li><span class="quando">2026</span><div class="oque"><h3>Colaborador no game-two</h3><p>Cenários, captura de telas e verificações de mudanças.</p></div></li>
-    <li><span class="quando">2019 a 2024</span><div class="oque"><h3>Proprietário, BuddyGames Lan House, Bagé</h3><p>Mais de cinco anos de gestão, atendimento e manutenção de equipamentos.</p></div></li>
-    <li><span class="quando">2017 a 2019</span><div class="oque"><h3>Estágio jurídico</h3><p>Dois anos, durante o curso de Direito.</p></div></li>
-  </ol><ol class="tempo tempo-formacao"><li><span class="quando">em curso</span><div class="oque"><h3>Análise e Desenvolvimento de Sistemas</h3><p>UniCesumar.</p></div></li></ol></div>
-</div></details></section>
-    <section class="contact-section wrap" data-surface="contact" id="contato" aria-labelledby="contact-title">
-      <div class="contact-surface reveal">
-<div class="section-backdrop" data-backdrop-scene="contact" aria-hidden="true">
-
- <span class="backdrop-monogram">FJM</span>
-
-</div><span class="contact-motion-ornament" aria-hidden="true"></span>
-        <h2 id="contact-title">Qual é o<br>próximo projeto?</h2>
-        <div class="contact-bottom">
-          <div class="email-group"><a class="email-link" id="email" href="mailto:jrmaciell92@gmail.com">jrmaciell92@gmail.com <svg
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
-  class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-up-right"
->
+</svg></span></summary><div class="case-details-body"><dl class="short-cv" id="titulo-experiencia">
+<div><dt>2026</dt><dd>Produção criativa desde março; freelance com agentes de IA desde agosto.</dd></div>
+<div><dt>2019 a 2024</dt><dd>Proprietário da Buddy Games Lan House: gestão, atendimento e manutenção de computadores.</dd></div>
+<div><dt>2017 a 2019</dt><dd>Estágio jurídico na Prefeitura de Bagé.</dd></div>
+<div><dt>Formação</dt><dd>ADS na UniCesumar, com conclusão prevista para dezembro de 2026. Oito semestres de Direito cursados.</dd></div>
+</dl></div></details></section></main><div data-opening-rest><footer class="site-footer wrap" id="contato" aria-labelledby="contact-title">
+<div class="footer-main"><div><h2 id="contact-title">Contato.</h2></div>
+<div class="footer-contact"><a class="footer-email" href="mailto:jrmaciell92@gmail.com">jrmaciell92@gmail.com <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
   <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
   <path d="M17 7l-10 10" />
   <path d="M8 7l9 0l0 9" />
-</svg></a><button class="copy-email" id="copiar" type="button" aria-label="Copiar e-mail"><svg
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
-  class="icon icon-tabler icons-tabler-outline icon-tabler-copy"
->
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" />
-  <path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" />
-</svg> <span>Copiar e-mail</span></button></div>
-          <div class="social-links"><a href="https://www.linkedin.com/in/franklin-junior-maciel/" target="_blank" rel="noopener">LinkedIn <svg
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
-  class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-up-right"
->
+</svg></a>
+<div class="footer-links"><button type="button" class="text-button" data-copy-email="jrmaciell92@gmail.com">Copiar e-mail</button><a href="https://www.linkedin.com/in/franklin-junior-maciel/" target="_blank" rel="noopener">LinkedIn <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
   <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
   <path d="M17 7l-10 10" />
   <path d="M8 7l9 0l0 9" />
-</svg></a><a href="https://github.com/juniormaciel10" target="_blank" rel="noopener">GitHub <svg
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
-  class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-up-right"
->
+</svg></a><a href="https://github.com/juniormaciel10" target="_blank" rel="noopener">GitHub <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
   <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
   <path d="M17 7l-10 10" />
   <path d="M8 7l9 0l0 9" />
-</svg></a></div>
-        </div>
-        <p class="sr-only" id="copy-status" role="status"></p>
-      </div>
-    </section>
-  </main>
-  <footer class="site-footer wrap"><p>© <span id="ano">2026</span> Franklin Junior Maciel.</p></footer>
-
-  <dialog id="gallery-dialog" class="gallery-dialog" aria-labelledby="dialog-title">
-    <div class="dialog-top"><h2 id="dialog-title">Disponibilidade</h2><form method="dialog"><button class="round-button" aria-label="Fechar imagem"><svg
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
-  class="icon icon-tabler icons-tabler-outline icon-tabler-x"
->
+</svg></a></div><p class="sr-only" role="status" data-copy-status></p></div></div>
+<div class="footer-bottom"><span>© 2026 Franklin Júnior Maciel.</span><a href="#inicio">Voltar ao início <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M17 7l-10 10" />
+  <path d="M8 7l9 0l0 9" />
+</svg></a></div></footer></div><dialog class="media-dialog" id="media-dialog" aria-labelledby="media-dialog-title">
+<div class="media-dialog-top"><h2 id="media-dialog-title">Imagem ampliada</h2><form method="dialog"><button class="icon-button" aria-label="Fechar imagem"><svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
   <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
   <path d="M18 6l-12 12" />
   <path d="M6 6l12 12" />
 </svg></button></form></div>
-    <div class="dialog-image-wrap"><img id="dialog-image" src="assets/img/estudo-galeria-disponibilidade.png" width="994" height="775" alt="Definição da disponibilidade semanal na ferramenta de estudos."></div>
-    <p class="dialog-file"><a id="dialog-original" href="assets/img/estudo-galeria-disponibilidade.png" target="_blank" rel="noopener">Abrir imagem original em outra aba</a></p><div class="dialog-bottom"><button id="dialog-prev" class="round-button" aria-label="Tela anterior"><svg
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
-  class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-right"
->
+<div class="media-dialog-image"><img id="media-dialog-image" alt="" width="1600" height="900"><p id="media-dialog-error" hidden>Não foi possível carregar a imagem. Use o link abaixo para abrir o arquivo.</p></div>
+<div class="media-dialog-bottom"><p id="media-dialog-description"></p><div><button class="icon-button" type="button" id="media-dialog-prev" aria-label="Imagem anterior"><svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
   <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
   <path d="M5 12l14 0" />
   <path d="M13 18l6 -6" />
   <path d="M13 6l6 6" />
-</svg></button><span id="dialog-position">1 / 6</span><button id="dialog-next" class="round-button" aria-label="Próxima tela"><svg
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
-  class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-right"
->
+</svg></button><button class="icon-button" type="button" id="media-dialog-next" aria-label="Próxima imagem"><svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
   <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
   <path d="M5 12l14 0" />
   <path d="M13 18l6 -6" />
   <path d="M13 6l6 6" />
-</svg></button></div>
-  </dialog>
-  <!-- Tabler Icons 3.35.0
+</svg></button></div></div>
+<div class="media-dialog-tools"><button class="text-button" type="button" id="media-dialog-zoom" aria-pressed="false">Tamanho real</button><a class="text-link" id="media-dialog-original" href="assets/img/portfolio/trabalho-visao-geral.webp" target="_blank" rel="noopener">Abrir imagem em outra aba <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M17 7l-10 10" />
+  <path d="M8 7l9 0l0 9" />
+</svg></a></div></dialog><!-- Tabler Icons 3.35.0
 MIT License
 
 Copyright (c) 2020-2025 Paweł Kuna
@@ -700,9 +230,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-  -->
-  <script src="assets/js/site.179e9004f0a3.js" defer></script>
-  
-  
-</body>
-</html>
+  --><script src="assets/js/site.8f744d0968ef.js" defer></script>
+
+
+</body></html>

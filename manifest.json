@@ -1,21 +1,21 @@
 {
-  "commit": "e0db574e3f65a60e6ee9c7f6858c1dde5503495d",
+  "commit": "16bb22fb3d78c5562feda97ed86af6253f21260d",
   "files": {
     ".nojekyll": {
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "bytes": 0
     },
     "assets/img/og.png": {
-      "sha256": "8b376d28d30e1e8a958bec329a6cc96c029aadd91d334f35ad5b876fea378329",
-      "bytes": 168159
+      "sha256": "ab2cb4c648f8a266803d9cad57cd27016f16e40c32de4bca71b877ea5129c20a",
+      "bytes": 164201
     },
     "assets/img/mesa-hero.png": {
       "sha256": "cbc0e0b78f0adb0aa9ffde877e895d12e26eb3c1eaea1a4d4fb6d6d6cba0c61d",
       "bytes": 322160
     },
     "assets/img/mesa-real.png": {
-      "sha256": "a67f186480ca0d8571c16aff64821663515e0e39241dc8226baa4d1c8e7783bd",
-      "bytes": 501416
+      "sha256": "3b0b3654b7381ae6828aa05a3de4c16e4b0be83964c648bb2d9916d4d67813d4",
+      "bytes": 557172
     },
     "assets/fonts/ClashDisplay-FFL.txt": {
       "sha256": "145e7fe2429a3336ba215c070ef722000e01348a3e1baaa127e871bb5012f554",
@@ -25,9 +25,29 @@
       "sha256": "9a25b7067bdb6adf110e81fc8c8e6f86f1df88f339b417799e33a21bc304759c",
       "bytes": 664
     },
+    "assets/css/portfolio.css": {
+      "sha256": "15b00f55be3b428ccd9b0e749bbfa5d6698d0b6077c9f33499b55ecf12242e1a",
+      "bytes": 12343
+    },
+    "assets/css/home.css": {
+      "sha256": "0bcec102dec1fa1f963217b1dfadec0cb956f2b68f446842c54518c4ab31fc17",
+      "bytes": 7673
+    },
+    "assets/css/home-opening.css": {
+      "sha256": "4231ae19b9a8c3e05f5f02d32eeed5f89a128bf279c8b0bc13bed2d22ed1afab",
+      "bytes": 2793
+    },
+    "assets/css/saturn.css": {
+      "sha256": "06040f1062ba57da1ba9df9a77ca687226c2806539cfb0acb6b70c85657cbf87",
+      "bytes": 3368
+    },
+    "assets/css/page-transitions.css": {
+      "sha256": "d5d09cfffd5154dd44cc8aedcef80f6e0e86a7dbff401ab27a78aaf1646db6b0",
+      "bytes": 1707
+    },
     "assets/css/site.css": {
-      "sha256": "577ef89af8f145d383abd8af61af463782c6e8d45925b9d689672068f9e6d737",
-      "bytes": 31681
+      "sha256": "dd33dbe8ee582bfbbd5a9dac9804398b2cfa553358b65e3569b87731076284fc",
+      "bytes": 32133
     },
     "assets/css/motion.css": {
       "sha256": "c670868669576d311b3572177be545cf733581fd7ba24961fd813dfb199f34e4",
@@ -41,21 +61,61 @@
       "sha256": "232c143e40740e9af3e08dc4b7b2be2085a33232e0928f30e92686d2ed290270",
       "bytes": 21233
     },
+    "assets/css/studies.css": {
+      "sha256": "e6f6c7a94231c0af4df5aa1f1214d2e6555453eb8dfed6561adbfe69611db56b",
+      "bytes": 614
+    },
+    "assets/css/platform.css": {
+      "sha256": "22bc61ec8d65f98a04e7b4c9c0bc8ed0eefd8ff83ebb3ef5a07b69ba8fcd5bf5",
+      "bytes": 3903
+    },
+    "assets/css/games.css": {
+      "sha256": "84ca9e413f5067a70f25b1c6e25b4da35d35662f936cb998197c090b81aa20d9",
+      "bytes": 5033
+    },
     "assets/css/projects.css": {
-      "sha256": "1dc5c3969e04e4f61bdb79fedf75b243be0b63c2a682884952d98d3094c44595",
-      "bytes": 8762
+      "sha256": "dfed7074c271b6d30ccc136ef91f4c1bb83bc8bf0f3994ceede9d0742ff4ed8c",
+      "bytes": 8758
+    },
+    "assets/js/portfolio-ui.js": {
+      "sha256": "1a2f949270a6f5938f9ccb283ab0e0e3add469739ec196e3ebe2e43fd214e281",
+      "bytes": 15323
+    },
+    "assets/js/home-opening.js": {
+      "sha256": "ae820cb8bb62e9d0178de18db1cba3bc07830758350ec62fd51456f16de34911",
+      "bytes": 9441
+    },
+    "assets/js/saturn-loader.js": {
+      "sha256": "baf1dd42584b5db5685487014bbcb6a4cc85fe4c0abd12c2aee0abe68fe8912c",
+      "bytes": 1412
+    },
+    "assets/js/card-previews.js": {
+      "sha256": "816227cc54d79d7ace60d51ed438d5e42c81e4c4cdb643efc4a7fb61caeea7a9",
+      "bytes": 2144
     },
     "assets/js/site.js": {
       "sha256": "d81e81a53e97178b21382da67507e24eeb2c7b45ee55f9e6a2e33b21012ade1c",
       "bytes": 11573
     },
     "assets/js/motion.js": {
-      "sha256": "b2f1ce11272f59a1367b5e7920afc557209834d8b74fb30dde60751005c231a4",
-      "bytes": 16071
+      "sha256": "055084bd275ea89648f9c944b8378ff6695233dfb469c08525417d88c8ae7bcd",
+      "bytes": 15882
     },
     "assets/js/backdrops.js": {
-      "sha256": "deb7a6b4ff400af8bf6aea7e0fe2ff85867e542748cbb9e664ff131c1f3a70b0",
-      "bytes": 32407
+      "sha256": "fc3c882efb415a85569063148b0a10aba25275747101e8192b0f41b8fa61fc51",
+      "bytes": 32424
+    },
+    "assets/js/page-transitions.js": {
+      "sha256": "054d6f205fe197622b0f292d56ff8ea61f201b9df9abab360601cde88c33774e",
+      "bytes": 6894
+    },
+    "assets/img/saturn/Three-LICENSE.txt": {
+      "sha256": "8b378ebe60e2fe500158cb0ac71cb5e8b7d92953c2abcc63a0eb90499653b5bc",
+      "bytes": 1081
+    },
+    "assets/fonts/OFL-Figtree.txt": {
+      "sha256": "bb272dfcd8801eb31fb98fe51828f76f0e41ac82f89256101df8021aa3d30ce2",
+      "bytes": 4387
     },
     "assets/css/site.13e02b2ea62f.css": {
       "sha256": "13e02b2ea62fc3e12632cd3b5fa8639c1534cc3258f44dd04a89a88500854dba",
@@ -174,8 +234,8 @@
       "bytes": 8874
     },
     "assets/img/execucao-supervisao.png": {
-      "sha256": "16064496e86416eaa2d24544f59ec6fcf46826e50aa540add2966714d7c50e72",
-      "bytes": 14801
+      "sha256": "fe3886da528a193c1987d9e337d1fc93e86e74d8ce902d03cdd8ae68ab80cfa0",
+      "bytes": 21390
     },
     "assets/img/execucao-validacao.png": {
       "sha256": "0f813de7db512f13dc302db360d18de8b62e108310e1798e6cd3bfba472d08b1",
@@ -186,8 +246,8 @@
       "bytes": 239926
     },
     "assets/img/mesa-real.webp": {
-      "sha256": "ab5161835bd96c2f54c31268ca871ae51aa065442e95a5712b9e729c7fc9d758",
-      "bytes": 300496
+      "sha256": "297811a2b83569091c984cc9675bc229850799389719f3ce124077bf8e35b683",
+      "bytes": 407454
     },
     "assets/img/resumo-ia-previa.webp": {
       "sha256": "3e710550292e74df6bb0063b3f7850589f385062330331bda214d1e6a22341cd",
@@ -229,6 +289,130 @@
       "sha256": "b092c9602a26689f988d78d911172cfe184a1cf864958bd01cd1a78609bc154f",
       "bytes": 7412
     },
+    "assets/img/favicon.svg": {
+      "sha256": "7a1abf74ac4f3202d7f3b18cba59a48e5635d8e19308a142d94dd83647258544",
+      "bytes": 250
+    },
+    "assets/img/saturn/poster.webp": {
+      "sha256": "285359a4b3fec0d403b835b8d2cb4628df5d37861fe9520aee70699640d5d96e",
+      "bytes": 52338
+    },
+    "assets/img/portfolio/previews/estudos-960.webp": {
+      "sha256": "02d44c0742bcfa89fbd9db4564ef5bdb01b92361c2051849fc0ba7c422c3c420",
+      "bytes": 44262
+    },
+    "assets/img/portfolio/previews/plataforma-960.webp": {
+      "sha256": "a6644296600b01fac5eec62b9975801ab590b206e589d4104b5b2aff35371fa3",
+      "bytes": 27766
+    },
+    "assets/img/portfolio/previews/jogos-960.webp": {
+      "sha256": "7e992bb64641d96a78ff7d95259662c31bdc69f169a61915b19108b820f15ffa",
+      "bytes": 41384
+    },
+    "assets/img/portfolio/trabalho-visao-geral.webp": {
+      "sha256": "297811a2b83569091c984cc9675bc229850799389719f3ce124077bf8e35b683",
+      "bytes": 407454
+    },
+    "assets/img/portfolio/trabalho-01.webp": {
+      "sha256": "299be8f69d7aff44246706f5079617e2d3ffb9eb64afdde8bf6b0d2aa01731f9",
+      "bytes": 196024
+    },
+    "assets/img/portfolio/trabalho-01-1120.webp": {
+      "sha256": "cd36e64fd0035ec7f0121d51520e61b7369ef089beb1721765c200154a1aa7a5",
+      "bytes": 24228
+    },
+    "assets/img/portfolio/trabalho-02.webp": {
+      "sha256": "d454ba6117a7c99323e71cf9c8124401b3cc2dd4f54b233da2b140b0f9fef80a",
+      "bytes": 171358
+    },
+    "assets/img/portfolio/trabalho-02-1120.webp": {
+      "sha256": "ac554312895cb0a791258c283cc0e15e5ce7aea6f71e583873d25a02c5cb0b34",
+      "bytes": 28108
+    },
+    "assets/img/portfolio/trabalho-03.webp": {
+      "sha256": "93a86b1ad5da1af17388c83b3d6cba0e1157aa8e370908a812fc467558cdbe68",
+      "bytes": 270672
+    },
+    "assets/img/portfolio/trabalho-03-1120.webp": {
+      "sha256": "e1819cfd805a4deffb2c582fdcd52aad71ea45b749e7ffbc10d772a0c94bc94d",
+      "bytes": 28500
+    },
+    "assets/img/portfolio/trabalho-04.webp": {
+      "sha256": "65b54511db384d3acf55962ec17bd976d20b19926e0f868fe3be95c5550426aa",
+      "bytes": 246190
+    },
+    "assets/img/portfolio/trabalho-04-1120.webp": {
+      "sha256": "81471eeb6ebcae2541453500b13b7ce0491ca669c6d8c1ddf75c41f400a590c3",
+      "bytes": 29600
+    },
+    "assets/img/portfolio/trabalho-05.webp": {
+      "sha256": "c630a143fbfaceb54cca44f73d435495a602d44a44b4f8c57cb15b9793ae102a",
+      "bytes": 245018
+    },
+    "assets/img/portfolio/trabalho-05-1120.webp": {
+      "sha256": "28b1c393287c154f6ce288e9f771297b200e45014417cfcf56980419e04e445a",
+      "bytes": 25630
+    },
+    "assets/img/portfolio/trabalho-06.webp": {
+      "sha256": "999568c5cecdafd3b7a39ed71af781d483d36c7dd20ba45552323dc7f082d302",
+      "bytes": 337968
+    },
+    "assets/img/portfolio/trabalho-06-1120.webp": {
+      "sha256": "63a34804d6ed35d5a81eda277f860176c96cab510d5383e1bc7362573ea05138",
+      "bytes": 48902
+    },
+    "assets/img/saturn/surface.webp": {
+      "sha256": "4b0b75989aea7776a20d52a4fb03ca652d75ecba344b45052ae720e74ea977fc",
+      "bytes": 23750
+    },
+    "assets/img/saturn/rings.png": {
+      "sha256": "1f3b3df63ae1f979c450fc47057ac1ff429e43df0262258c998fd09dce1706a7",
+      "bytes": 798
+    },
+    "assets/img/portfolio/previews/estudos-640.webp": {
+      "sha256": "4a7fc2dabf416213a2ac3ccaf4b4e2df8565a8f4cb0b625ab555115d8908b192",
+      "bytes": 26518
+    },
+    "assets/img/portfolio/previews/plataforma-640.webp": {
+      "sha256": "0d8c4601512789bcae974a56b3373cfe1695ebfe033e121acbd8afca6bd8dba2",
+      "bytes": 16210
+    },
+    "assets/img/portfolio/previews/jogos-640.webp": {
+      "sha256": "7a9d11c2686008f62525a389ad05efc600b1d11c68a0394d6d8ba0a5a2f80b94",
+      "bytes": 23212
+    },
+    "assets/img/portfolio/mesa-real-720.webp": {
+      "sha256": "4357bdb73be757ce6b32c87a8d47096d4f7934118cc91316097b45910b1d41bf",
+      "bytes": 28090
+    },
+    "assets/img/portfolio/mesa-real-1120.webp": {
+      "sha256": "3178f8b6cd6a19d1fd28cc7daa57f5a83794ff89e4a6e256be8c0ab601367125",
+      "bytes": 52804
+    },
+    "assets/img/portfolio/trabalho-01-720.webp": {
+      "sha256": "77273b9913c2249460ab599b1e7284d045fb0db58b712a5cc3a6e041f637c9b5",
+      "bytes": 14306
+    },
+    "assets/img/portfolio/trabalho-02-720.webp": {
+      "sha256": "0298af35237e1274c855708e022782f2ba14ba7e77c8725dc67563216c32f70e",
+      "bytes": 16220
+    },
+    "assets/img/portfolio/trabalho-03-720.webp": {
+      "sha256": "46a33534e1b484e4a4c9f0d075fa4af31e6d1b337242f4df28f0aab119f6f7c1",
+      "bytes": 16120
+    },
+    "assets/img/portfolio/trabalho-04-720.webp": {
+      "sha256": "6c7d43fd26ce500a69fda434cf1678c286348d76c9649bf179036df62ad82589",
+      "bytes": 16364
+    },
+    "assets/img/portfolio/trabalho-05-720.webp": {
+      "sha256": "447906c2110857751554c739998c6577bf077051f3f1a177fa3e70a1817be768",
+      "bytes": 13994
+    },
+    "assets/img/portfolio/trabalho-06-720.webp": {
+      "sha256": "231f4ea344cbad7e558f598c5b44835af25873ebed15c9708abfccba19a472a0",
+      "bytes": 26702
+    },
     "assets/img/estudo-revisoes.webp": {
       "sha256": "69f6333bf596d8b30f18b67f357acdadffa3cc945f5ba1b5b0ee580d49e23be7",
       "bytes": 32028
@@ -236,6 +420,90 @@
     "assets/img/estudo-tarefas.webp": {
       "sha256": "7ac847127c84a17e0d8e8df0c9f6a6af48e1ef0a39ce6a83f3bebf61657182fa",
       "bytes": 31766
+    },
+    "assets/img/portfolio/plataforma-inicio.webp": {
+      "sha256": "8bc6f6ca2b1c0fb986717b401c830faa0f6f75fc7b40eb76556b79fa089262cf",
+      "bytes": 223122
+    },
+    "assets/img/portfolio/plataforma-aulas.webp": {
+      "sha256": "0bc932b4594f84737edc4fb67b7d89f1de34aba5a8aa41cd178acdad6f22b4d8",
+      "bytes": 203074
+    },
+    "assets/img/portfolio/plataforma-questoes.webp": {
+      "sha256": "d85cadac817b8d7d3ef4f45c02309914cdf22a29bac85d1936ddba59a00ab3bb",
+      "bytes": 209748
+    },
+    "assets/img/portfolio/plataforma-ranking.webp": {
+      "sha256": "bb276edee4b91da9e2971db1ce1f807e727569d5d64b25ccad9e0a0a8d45808b",
+      "bytes": 182940
+    },
+    "assets/img/portfolio/plataforma-inicio-mobile.webp": {
+      "sha256": "5de6e5158a5a6c22301280157161fe0798984bd575eb52e609c477192c9dcf30",
+      "bytes": 219004
+    },
+    "assets/img/portfolio/plataforma-aulas-mobile.webp": {
+      "sha256": "3ec25c6696fbb54872532b8e28dcc9be38bb566cb192ed42ead2373f64631ed6",
+      "bytes": 261750
+    },
+    "assets/img/portfolio/plataforma-questoes-mobile.webp": {
+      "sha256": "279451eb997ffe330d4c9b25100cf2edc08b796a7c9cb8f1ac383b3c36dbc8fc",
+      "bytes": 249474
+    },
+    "assets/img/portfolio/plataforma-ranking-mobile.webp": {
+      "sha256": "11b5e4e34d042a5cde8d28f7027ecf378440f184da2da69c890013d71e336c59",
+      "bytes": 243232
+    },
+    "assets/img/portfolio/game-two-praca-20260927.webp": {
+      "sha256": "b908c9ece6343886cf229568b0db96f5cad3aca84254cf8dc28b5750c0c98c53",
+      "bytes": 159522
+    },
+    "assets/img/portfolio/modelo-jaqueta-metro.webp": {
+      "sha256": "90374847b0ebb9c506a88f45d41a3df414acbca26a5dcef1fe0a40f157fc676a",
+      "bytes": 186504
+    },
+    "assets/img/portfolio/modelo-jaqueta-metro-640.webp": {
+      "sha256": "5983ed6ffd537e9080895bd8b46e371229f1ad6ceed000894f3a542f93906e08",
+      "bytes": 96682
+    },
+    "assets/img/portfolio/modelo-botas-orbita.webp": {
+      "sha256": "36051aef30467a60224ba3858a132654c9dd0d8dde0169d3bf7aa35be7780695",
+      "bytes": 148194
+    },
+    "assets/img/portfolio/modelo-botas-orbita-640.webp": {
+      "sha256": "da4ce8bfd3dea1d965c595baa7ab3328b8ca6b1d0066b0ee6a9fb43a60d8dcc9",
+      "bytes": 81280
+    },
+    "assets/img/portfolio/modelo-blusa-trama.webp": {
+      "sha256": "f15b0e938cc1aeec02e4d2cb8cbe25207a70c19d67e8bc150a602eb2807b2576",
+      "bytes": 192402
+    },
+    "assets/img/portfolio/modelo-blusa-trama-640.webp": {
+      "sha256": "4d6b747cb4f31a0665ba76014f48c615dedb6860abc8b2d038ebe309c1fa29af",
+      "bytes": 105630
+    },
+    "assets/img/portfolio/modelo-kit-passarela.webp": {
+      "sha256": "19ae5ceaf743288628059802d486885802f32f06e328fcbb10fccddaace79149",
+      "bytes": 136438
+    },
+    "assets/img/portfolio/modelo-kit-passarela-640.webp": {
+      "sha256": "623ce02fdebb5867619a3e1e82fb6c4afe8f6675067a19821badabae7c3a0133",
+      "bytes": 79144
+    },
+    "assets/downloads/portfolio-modelagem-3d.pdf": {
+      "sha256": "a423fe81b9e3f413f8dd6552caada9887b2ca2ab98c4ccc8ad944ec53667358a",
+      "bytes": 1336070
+    },
+    "assets/img/portfolio/game-two-combate-20260927.webp": {
+      "sha256": "720b2e9a12dd36b8a2ea845e86e5279cbf0c258d1c6640258fdd05b98a184e27",
+      "bytes": 108734
+    },
+    "assets/img/portfolio/game-two-encontro-20260927.webp": {
+      "sha256": "589f7cd559890f833b2d3c36d8999cabe9704099f4bc158659757cc82c8def52",
+      "bytes": 65542
+    },
+    "assets/img/portfolio/game-two-praca-640.webp": {
+      "sha256": "bb68591087b4df2cab0c985cd051ccbe3b567d9c0d82ed1054c77a0710a2f111",
+      "bytes": 139604
     },
     "assets/img/planejamento-percurso.webp": {
       "sha256": "5056dc58c4988fe3571e2177f2d71a13cb89dc104d424d08f5ab35e9a3dff7ea",
@@ -249,33 +517,81 @@
       "sha256": "e7c687bc855c31e86c0f362d6ca5789cb179e8f3be69a5347691b816a3b162ba",
       "bytes": 472
     },
+    "assets/fonts/figtree-latin.woff2": {
+      "sha256": "4ba7d3d096695818fe0686be4f1e82c6b05134e18a22260336130335027462dd",
+      "bytes": 20156
+    },
     "index.html": {
-      "sha256": "16429b2a540c832e7ab53434b843d5a30939fc108cb73919822c2909c54b6aeb",
-      "bytes": 47161
+      "sha256": "a049b3bc342641f7d50827ef8ee400117eea5245b411d4c14be668954384bcd9",
+      "bytes": 37014
+    },
+    "estudos/index.html": {
+      "sha256": "2fd931925692152593fa29e0881edab1f2885e8e42244e614691e904192a4535",
+      "bytes": 37131
+    },
+    "plataforma/index.html": {
+      "sha256": "208729e89b78eef45f9339bdf5d05582144c94d0e3d9249cdd9ea708b8cb1c76",
+      "bytes": 22710
+    },
+    "jogos/index.html": {
+      "sha256": "f76c553ca0b996a1f8cec18d0fc335d935b4ecb99a04592825d627b276f2f0cd",
+      "bytes": 28929
     },
     "projetos/planejamento-de-estudos/index.html": {
-      "sha256": "266ee4393bec92b992c7e02b3dae575571a4e0516e2b4c9805f0bdee3da0b4f9",
-      "bytes": 20719
+      "sha256": "19054ec883bfed22554b0801ce94c56a6087ebad0153d5e4dfdcf827f141d79c",
+      "bytes": 19397
     },
     "projetos/resumos-de-estudo/index.html": {
-      "sha256": "229e64c3d8562a147b2b2a0d01e87be775ceeaf5fa99c7201e5a99f68b21006f",
-      "bytes": 13491
+      "sha256": "5e3b6149093308c14130f588b4b0c34e6bb477c79569837bf4c1b431aa2f8cd8",
+      "bytes": 12511
     },
-    "assets/css/site.08354bbb02fe.css": {
-      "sha256": "08354bbb02fe83e8b90a64a307be5b3b2dbcef1f270cc81a22abfb7ad4293825",
-      "bytes": 70725
+    "assets/js/scene.527e282d43aa.js": {
+      "sha256": "527e282d43aa89305b048355ba90ae705f73040efc30f55f41ad2a60987f8079",
+      "bytes": 546481
     },
-    "assets/js/site.179e9004f0a3.js": {
-      "sha256": "179e9004f0a3bf058e7639f540634430c884d41bee5c50befedf797646cc9f97",
-      "bytes": 37255
+    "assets/css/site.6602645c2ca2.css": {
+      "sha256": "6602645c2ca2f1e9ea999d3091f6fa780a0e83ccc832f40885bd35677c2a90ad",
+      "bytes": 26607
+    },
+    "assets/js/site.8f744d0968ef.js": {
+      "sha256": "8f744d0968ef1105308ed2661a370a4ec67538d1bf1a92c2ad6f6ce4e7693a11",
+      "bytes": 17881
+    },
+    "assets/css/site.6cb1124d38d7.css": {
+      "sha256": "6cb1124d38d77bf19e705468a7137899cb3bec87991e62c571b9129c71bc2bd7",
+      "bytes": 64781
+    },
+    "assets/js/site.5519a81490cc.js": {
+      "sha256": "5519a81490cc2fc8b088084aa026e582bd411f66388e4e56a8a56d309a287ed6",
+      "bytes": 37087
+    },
+    "assets/css/site.eea3e944fa39.css": {
+      "sha256": "eea3e944fa39c09b421a32e22ab8d02ac08604b53a1698bfd2cdf165eedc575b",
+      "bytes": 17665
+    },
+    "assets/js/site.6bd95203b1ff.js": {
+      "sha256": "6bd95203b1ffad2af33e931c60c5060a10ca679c70253f2f65c280c3a7dd1311",
+      "bytes": 9781
+    },
+    "assets/css/site.ef4309c01bcb.css": {
+      "sha256": "ef4309c01bcb6bf7dc0fe3ecda985c45d6fb0eaa776221fa63c7ec8fe9a6c0e5",
+      "bytes": 18786
+    },
+    "assets/css/site.fb89892511a6.css": {
+      "sha256": "fb89892511a66fe70f081f1597e1e2d6c7842c109a8af0eefa2ba752171ca170",
+      "bytes": 44812
+    },
+    "assets/js/site.9c9dd929a84a.js": {
+      "sha256": "9c9dd929a84add13344b521f8cc60c52b24a1ffb8a90f9270c1b227c5d5dbebb",
+      "bytes": 7669
     },
     "assets/build.json": {
-      "sha256": "48104481b968935ce109940c47985a035081ec32d4f9ea0b5fbb148114b236c6",
-      "bytes": 203
+      "sha256": "1a420fd30dde38442ea236cfdf0af2cbe394ba5ad4b3cfe9a3530cf6716f4805",
+      "bytes": 1368
     },
     "sitemap.xml": {
-      "sha256": "cda352b06ce2651beab25ad012b6f8b03d25de211d94446db4fda962c1af723c",
-      "bytes": 431
+      "sha256": "cc8098be2043ee8a3caecf6abbc892507fccdfabfb7f95ceeb5c16b6bd3725d4",
+      "bytes": 717
     },
     "robots.txt": {
       "sha256": "12fa3f163273ff8b7596c5e3c8d6a9f3777ef1c135c83e4a3502723146996e23",
