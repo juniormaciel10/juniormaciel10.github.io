@@ -1,5 +1,5 @@
 {
-  "commit": "00476a419d2d3a3a19d45375f40701e17580568c",
+  "commit": "59ebc78f3e304e2b02dae2f1b6547d4713df0c37",
   "files": {
     ".nojekyll": {
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -522,7 +522,7 @@
       "bytes": 20156
     },
     "index.html": {
-      "sha256": "65402fc8133a49739bc0f92e64c88ebe82b645f9507bec26f1d9957e48388800",
+      "sha256": "eb948a7af4300a8793292e365c93530cdd38665910271df9ba6159b5452c1921",
       "bytes": 37014
     },
     "estudos/index.html": {
@@ -545,9 +545,9 @@
       "sha256": "5e3b6149093308c14130f588b4b0c34e6bb477c79569837bf4c1b431aa2f8cd8",
       "bytes": 12511
     },
-    "assets/js/scene.8aa13668a014.js": {
-      "sha256": "8aa13668a0149166386a9cdfa48be81b88489471bdb6a55a9fca038c55fdd037",
-      "bytes": 546508
+    "assets/js/scene.b3f427b2e095.js": {
+      "sha256": "b3f427b2e0958a0179deabf9803b6f7b802442156ffd73df6d19b6e6b92f7896",
+      "bytes": 546716
     },
     "assets/css/site.2b47e664edc6.css": {
       "sha256": "2b47e664edc655e432c03beee01b37c7b988cda705088fe391088dc1a9796b31",
@@ -586,7 +586,7 @@
       "bytes": 7669
     },
     "assets/build.json": {
-      "sha256": "82480e003201029105e77cbbb8cdb72e06f33033d595d43b4010bfd552e6f33f",
+      "sha256": "aff04ec25cc2dc750fab1cbd82d5ad31b2533d43ab787d93504ffa70b6ba658f",
       "bytes": 1368
     },
     "sitemap.xml": {
