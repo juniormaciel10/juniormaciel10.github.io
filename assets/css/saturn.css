@@ -5,8 +5,8 @@
 .saturn-scene{position:fixed;inset:0 0 auto;height:100vh;height:100lvh;z-index:0;overflow:hidden;pointer-events:none;contain:strict;opacity:.84;transition:opacity .25s}
 /* The expanded method has small text across the full width of the backdrop. */
 .saturn-home:has(#metodo-detalhes[open]) .saturn-scene[data-pose="metodo"],.saturn-scene:not([data-pose]){opacity:.3}
-/* Reveal after the name and cards, including when the 3D module cannot load. */
-.js .saturn-scene:not([data-visible]){opacity:0;visibility:hidden}
+/* The prepared scene enters with the skills section; no scroll-triggered fade. */
+.js .saturn-scene:not([data-visible]){visibility:hidden}
 .saturn-scene::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#0b0b0bbd 0%,#0b0b0bb3 38%,#0b0b0b45 76%,#0b0b0b14),linear-gradient(0deg,#0b0b0ba3,transparent 50%);pointer-events:none}
 .saturn-canvas{position:absolute;inset:0;display:block;width:100%;height:100%;opacity:0;transition:opacity .5s}
 .saturn-fallback{position:absolute;left:50%;top:56%;width:110vmin;max-width:none;transform:translate(-50%,-50%);opacity:.74;transition:opacity .5s}

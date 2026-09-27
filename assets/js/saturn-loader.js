@@ -2,11 +2,12 @@
   const host=document.querySelector('[data-saturn-module]');
   if(!host)return;
   const start=document.getElementById('metodo');
-  const header=document.querySelector('.site-header');
-  let visibilityFrame=0;
+  let visibilityFrame=0,offset=-1;
   const reveal=()=>{
     visibilityFrame=0;
-    const visible=start.getBoundingClientRect().top<=header.offsetHeight+32;
+    const next=Math.max(0,start.getBoundingClientRect().top);
+    if(next!==offset){host.style.translate='0 '+next+'px';offset=next;}
+    const visible=offset<innerHeight;
     if(visible===host.hasAttribute('data-visible'))return;
     host.toggleAttribute('data-visible',visible);
     host.dispatchEvent(new Event('saturnvisibilitychange'));

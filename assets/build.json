@@ -1,15 +1,15 @@
 {
-  "commit": "16bb22fb3d78c5562feda97ed86af6253f21260d",
-  "data": "2026-09-27T07:16:21-03:00",
+  "commit": "00476a419d2d3a3a19d45375f40701e17580568c",
+  "data": "2026-09-27T17:41:02-03:00",
   "dirty": false,
-  "css": "assets/css/site.6602645c2ca2.css",
-  "js": "assets/js/site.8f744d0968ef.js",
+  "css": "assets/css/site.2b47e664edc6.css",
+  "js": "assets/js/site.cf633c82d420.js",
   "pages": {
     "index.html": {
-      "css": "assets/css/site.6602645c2ca2.css",
-      "js": "assets/js/site.8f744d0968ef.js",
+      "css": "assets/css/site.2b47e664edc6.css",
+      "js": "assets/js/site.cf633c82d420.js",
       "modules": [
-        "assets/js/scene.527e282d43aa.js"
+        "assets/js/scene.8aa13668a014.js"
       ],
       "earlyJsBytes": 4742
     },
