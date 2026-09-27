@@ -42,9 +42,9 @@ export async function mountSaturn(host) {
   const renderCanvas=webkit?document.createElement('canvas'):canvas;
   const abort=new AbortController();
   const events={signal:abort.signal};
-  let renderer=null,model=null,presenter=null,ready=false,frame=0,layoutFrame=0,transition=null;
+  let renderer=null,model=null,presenter=null,ready=false,frame=0,layoutFrame=0,sectionFrame=0,transition=null;
   let active=-1,width=0,height=0,compact=false,disposed=false,hiddenPage=false,pauseAt=0;
-  let positions=[],current=pose(DESKTOP[2]),renderRatio=0;
+  let positions=[],contactHeight=0,current=pose(DESKTOP[2]),renderRatio=0;
   let lifeTime=0,lastTick=0,lastDraw=0,dirty=true;
   const lifeEuler=new Euler();
   const lifeQuaternion=new Quaternion();
@@ -156,12 +156,22 @@ export async function mountSaturn(host) {
   function readSection(immediate=false,retarget=false) {
     if(disposed||!positions.length)return;
     const scroll=window.scrollY;
-    const reading=scroll+height*.34;
+    // Section selection follows the scrolling viewport, not the stable lvh canvas.
+    const viewport=window.innerHeight;
+    const reading=scroll+viewport*.34;
     let index=0;
     positions.forEach((top,i)=>{if(top<=reading)index=i;});
-    const maxScroll=document.documentElement.scrollHeight-height;
-    if(maxScroll-scroll<=12)index=4;
+    // A short footer cannot reach the usual reading line. Start its journey once
+    // half the footer is visible, without waiting for the last (rounded) pixel.
+    const contactReading=scroll+viewport-Math.min(contactHeight,viewport)*.5;
+    if(positions[4]<=contactReading || root.scrollHeight-viewport-scroll<=1)index=4;
     select(index,immediate,retarget);
+  }
+  function scheduleSection() {
+    if(!sectionFrame&&!disposed)sectionFrame=requestAnimationFrame(()=>{
+      sectionFrame=0;
+      readSection();
+    });
   }
   function sizeRenderer(force=false) {
     if(!renderer)return;
@@ -184,6 +194,7 @@ export async function mountSaturn(host) {
     const wasCompact=compact;
     width=newWidth;height=newHeight;compact=width<=760;
     positions=sections.map(section=>section.getBoundingClientRect().top+window.scrollY);
+    contactHeight=sections[4].getBoundingClientRect().height;
     host.dataset.quality=compact?'compact':'full';
     if(resized) {
       camera.aspect=width/height;
@@ -230,6 +241,7 @@ export async function mountSaturn(host) {
   resizeObserver.observe(document.querySelector('.site-header'));
   const introObserver=new MutationObserver(scheduleMeasure);
   introObserver.observe(root,{attributes:true,attributeFilter:['data-intro']});
+  window.addEventListener('scroll',scheduleSection,{...events,passive:true});
   window.addEventListener('resize',scheduleMeasure,{...events,passive:true});
   window.visualViewport?.addEventListener('resize',scheduleMeasure,{...events,passive:true});
   window.addEventListener('hashchange',scheduleMeasure,events);
@@ -267,6 +279,7 @@ export async function mountSaturn(host) {
     abort.abort();
     if(frame)cancelAnimationFrame(frame);
     if(layoutFrame)cancelAnimationFrame(layoutFrame);
+    if(sectionFrame)cancelAnimationFrame(sectionFrame);
     sectionObserver.disconnect();endObserver.disconnect();resizeObserver.disconnect();introObserver.disconnect();
     if(renderer)renderer.dispose();
     if(model)model.dispose();

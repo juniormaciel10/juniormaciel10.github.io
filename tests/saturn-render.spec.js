@@ -106,6 +106,46 @@ test('Saturno aparece depois dos projetos e permanece inteiro nas poses de deskt
  }finally{await context.close()}
 });
 
+for(const [width,height]of [[390,844],[1440,960],[1916,940]])test('Saturno termina no centro ao rolar até o contato em '+width+'px',async({browser,baseURL})=>{
+ const context=await browser.newContext({baseURL,viewport:{width,height},deviceScaleFactor:width>760?1:2});
+ const page=await context.newPage();
+ try{
+  await page.goto('/');await page.evaluate(()=>document.fonts.ready);await page.keyboard.press('Shift');
+  const scene=page.locator('.saturn-scene');
+  await expect(scene).toHaveAttribute('data-renderer','webgl',{timeout:20000});
+  const aboutTop=await page.locator('#sobre').evaluate(e=>scrollY+e.getBoundingClientRect().top);
+  await page.mouse.wheel(0,aboutTop);
+  await expect(scene).toHaveAttribute('data-pose','sobre');
+  await expect(scene).toHaveAttribute('data-motion','idle');
+  const nearEnd=await page.evaluate(()=>document.documentElement.scrollHeight-innerHeight-20);
+  // Small wheel steps leave no hash, focus or resize event to select the last pose.
+  while(nearEnd-await page.evaluate(()=>scrollY)>1){
+   const remaining=nearEnd-await page.evaluate(()=>scrollY);
+   await page.mouse.wheel(0,Math.min(80,remaining));
+   await page.waitForTimeout(140);
+  }
+  await expect(scene).toHaveAttribute('data-pose','contato');
+  await expect(scene).toHaveAttribute('data-motion','idle');
+  expect(await page.locator('.saturn-fallback').evaluate(e=>parseFloat(e.style.left))).toBe(50);
+  const body=width>760?{x:Math.floor(width/2)+60,y:Math.floor(height*.8),width:120,height:100}:{x:230,y:690,width:120,height:65};
+  expect(await visibleFraction(page,scene,body),'O corpo do planeta deve chegar ao centro na imagem renderizada').toBeGreaterThan(.25);
+  await page.mouse.wheel(0,40);
+  await expect.poll(()=>page.evaluate(()=>document.documentElement.scrollHeight-innerHeight-scrollY)).toBeLessThanOrEqual(1);
+  await expect(scene).toHaveAttribute('data-pose','contato');
+  await expect(scene).toHaveAttribute('data-motion','idle');
+  await page.waitForTimeout(500);
+  expect(await page.locator('.saturn-fallback').evaluate(e=>parseFloat(e.style.left))).toBe(50);
+  // Returning to Sobre must release the final pose; coming back must center again.
+  await page.mouse.wheel(0,aboutTop-await page.evaluate(()=>scrollY));
+  await expect(scene).toHaveAttribute('data-pose','sobre');
+  await expect(scene).toHaveAttribute('data-motion','idle');
+  await page.keyboard.press('End');
+  await expect(scene).toHaveAttribute('data-pose','contato');
+  await expect(scene).toHaveAttribute('data-motion','idle');
+  expect(await visibleFraction(page,scene,body),'A chegada pelo teclado também deve mostrar o planeta centralizado').toBeGreaterThan(.25);
+ }finally{await context.close()}
+});
+
 test('A abertura fica livre e Saturno continua visível nas habilidades ao mudar a orientação',async({browser,baseURL})=>{
  const context=await browser.newContext({baseURL,viewport:{width:390,height:844},deviceScaleFactor:2,hasTouch:true});
  const page=await context.newPage();
