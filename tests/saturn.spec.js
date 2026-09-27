@@ -32,6 +32,16 @@ async function assertNoDraws(page){
  await page.waitForTimeout(400);
  expect(await page.evaluate(()=>window.saturnProbe.draws)).toBe(draws);
 }
+async function assertBeforeSkills(page){
+ const scene=page.locator('.saturn-scene');
+ await expect.poll(()=>page.evaluate(()=>{
+  const section=document.getElementById('metodo').getBoundingClientRect();
+  return Math.abs(document.querySelector('.saturn-scene').getBoundingClientRect().top-Math.max(0,section.top));
+ })).toBeLessThan(1);
+ const outside=await page.locator('#metodo').evaluate(e=>e.getBoundingClientRect().top>=innerHeight);
+ await expect(scene).toHaveCSS('visibility',outside?'hidden':'visible');
+ if(outside)await assertNoDraws(page);
+}
 async function assertAlive(page){
  await page.waitForTimeout(200);
  const before=await page.evaluate(()=>({draws:window.saturnProbe.draws,pose:document.querySelector('.saturn-scene').dataset.pose}));
@@ -53,8 +63,7 @@ for(const width of [390,1440])test('Saturno: nome e projetos livres, três poses
   await expect(page.locator('.saturn-scene canvas')).toHaveCount(1);
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
   if(id==='inicio'||id==='projetos'){
-   await expect(page.locator('.saturn-scene')).toHaveCSS('visibility','hidden');
-   await assertNoDraws(page);
+   await assertBeforeSkills(page);
   }else{
    await expect(page.locator('.saturn-scene')).toHaveCSS('visibility','visible');
    snapshots.push(await page.evaluate(()=>window.saturnProbe.draws));
@@ -73,7 +82,7 @@ test('Saturno acompanha rolagem rápida e links sem enfileirar movimentos',async
  await expect(page.locator('.saturn-scene')).toHaveCSS('visibility','hidden');
  await assertNoDraws(page);
  await page.mouse.wheel(0,1100);
- await expect(page.locator('.saturn-scene')).toHaveAttribute('data-motion','moving');
+ await expect(page.locator('.saturn-scene')).toHaveCSS('visibility','visible');
  for(const id of ['metodo','sobre','projetos','sobre']){
   await page.locator('#'+id).evaluate(e=>e.scrollIntoView({block:'start',behavior:'instant'}));
   await page.waitForTimeout(80);
@@ -144,6 +153,7 @@ test('Saturno mantém uma cena ao redimensionar, abrir detalhes e restaurar a p�
 
 for(const failure of ['webgl','module','material'])test('Saturno conserva imagem e navegação quando falha '+failure,async({page})=>{
  const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await instrument(page);
  if(failure==='webgl')await page.addInitScript(()=>{
   const original=HTMLCanvasElement.prototype.getContext;
   HTMLCanvasElement.prototype.getContext=function(type,...args){return type.startsWith('webgl')?null:original.call(this,type,...args)};
@@ -154,7 +164,7 @@ for(const failure of ['webgl','module','material'])test('Saturno conserva imagem
  await expect(page.locator('.saturn-scene')).toHaveAttribute('data-renderer','image',{timeout:20000});
  await expect(page.locator('.saturn-scene')).toHaveCSS('visibility','hidden');
  await page.locator('#projetos').evaluate(e=>e.scrollIntoView({block:'start',behavior:'instant'}));
- await expect(page.locator('.saturn-scene')).toHaveCSS('visibility','hidden');
+ await assertBeforeSkills(page);
  await page.locator('#metodo').evaluate(e=>e.scrollIntoView({block:'start',behavior:'instant'}));
  await expect(page.locator('.saturn-fallback')).toBeVisible();
  expect(await page.locator('.saturn-fallback img').evaluate(img=>img.complete&&img.naturalWidth>0)).toBe(true);
@@ -185,7 +195,7 @@ test('Saturno troca para imagem após perder o contexto WebGL',async({page})=>{
  expect(supported).toBe(true);
  await expect(page.locator('.saturn-scene')).toHaveAttribute('data-renderer','image');
  await expect(page.locator('.saturn-scene canvas')).toHaveCount(0);
- await expect(page.locator('.saturn-fallback')).toHaveCSS('opacity','0.64');
+ await expect(page.locator('.saturn-fallback')).toHaveCSS('opacity','0.544');
  await go(page,'contato');await assertNoDraws(page);
  expect(errors).toEqual([]);
 });

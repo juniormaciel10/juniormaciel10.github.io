@@ -44,7 +44,7 @@ export async function mountSaturn(host) {
   const events={signal:abort.signal};
   let renderer=null,model=null,presenter=null,ready=false,frame=0,layoutFrame=0,transition=null;
   let active=-1,width=0,height=0,compact=false,disposed=false,hiddenPage=false,pauseAt=0;
-  let positions=[],current=pose(DESKTOP[0]),renderRatio=0;
+  let positions=[],current=pose(DESKTOP[2]),renderRatio=0;
   let lifeTime=0,lastTick=0,lastDraw=0,dirty=true;
   const lifeEuler=new Euler();
   const lifeQuaternion=new Quaternion();
@@ -135,8 +135,9 @@ export async function mountSaturn(host) {
     active=index;
     dirty=true;
     host.dataset.pose=IDS[index];
-    const destination=target(index);
-    if(immediate || previous<0 || index<=1) {
+    const destination=target(Math.max(2,index));
+    // The first visible pose is already in place while the section approaches.
+    if(immediate || previous<0 || index<=1 || (previous<=1&&index===2)) {
       current=copyPose(destination);
       transition=null;
       host.dataset.motion='idle';

@@ -26,6 +26,12 @@ async function cardEdgeClip(page,scene){
  const x=Math.ceil(card.x+card.width+4);
  return {x,y:140,width:Math.floor(bounds.width-x-4),height:80};
 }
+async function goToPose(page,id){
+ await page.locator('#'+id).evaluate((e,id)=>{
+  if(id==='metodo')window.scrollTo({top:scrollY+e.getBoundingClientRect().top,behavior:'instant'});
+  else e.scrollIntoView({block:'start',behavior:'instant'});
+ },id);
+}
 
 test('Saturno permanece visível após a entrada e o repouso em tela móvel de alta densidade',async({browser,baseURL})=>{
  const context=await browser.newContext({baseURL,viewport:{width:390,height:844},deviceScaleFactor:2,hasTouch:true});
@@ -36,7 +42,7 @@ test('Saturno permanece visível após a entrada e o repouso em tela móvel de a
   await expect(scene).toHaveAttribute('data-renderer','webgl',{timeout:20000});
   await expect(page.locator('.saturn-canvas')).toHaveCSS('opacity','1');
   for(const id of ['inicio','projetos','metodo','contato','inicio']){
-   await page.locator('#'+id).evaluate(e=>e.scrollIntoView({block:'start',behavior:'instant'}));
+   await goToPose(page,id);
    await expect(scene).toHaveAttribute('data-pose',id);
    await expect(scene).toHaveAttribute('data-motion','idle');
    await page.waitForTimeout(200);
@@ -56,7 +62,7 @@ for(const width of [390,1440])test('A superfície de Saturno continua em movimen
   const scene=page.locator('.saturn-scene');
   await expect(scene).toHaveAttribute('data-renderer','webgl',{timeout:20000});
   await expect(page.locator('.saturn-canvas')).toHaveCSS('opacity','1');
-  await page.locator('#metodo').evaluate(e=>e.scrollIntoView({block:'start',behavior:'instant'}));
+  await goToPose(page,'metodo');
   await expect(scene).toHaveAttribute('data-pose','metodo');
   await expect(scene).toHaveAttribute('data-motion','idle');
   const clip=width>760?{x:1320,y:140,width:100,height:100}:{x:260,y:100,width:110,height:80};
@@ -90,7 +96,7 @@ test('Saturno aparece depois dos projetos e permanece inteiro nas poses de deskt
    ['contato',{x:780,y:760,width:120,height:100}],
    ['inicio',{x:1280,y:140,width:100,height:100}]
   ]){
-   await page.locator('#'+id).evaluate(e=>e.scrollIntoView({behavior:'instant',block:'start'}));
+   await goToPose(page,id);
    await expect(scene).toHaveAttribute('data-pose',id);
    await expect(scene).toHaveAttribute('data-motion','idle');
    const changed=await visibleFraction(page,scene,clip||await cardEdgeClip(page,scene));
@@ -120,7 +126,7 @@ test('A abertura fica livre e Saturno continua visível nas habilidades ao mudar
    await expect(scene).toHaveAttribute('data-motion','idle');
    await page.waitForTimeout(200);
    expect(await visibleFraction(page,scene,clip),'A abertura deve ficar livre em '+width+' × '+height).toBe(0);
-   await page.locator('#metodo').evaluate(e=>e.scrollIntoView({block:'start',behavior:'instant'}));
+   await goToPose(page,'metodo');
    await expect(scene).toHaveAttribute('data-pose','metodo');
    await expect(scene).toHaveAttribute('data-motion','idle');
    const bounds=await scene.boundingBox();
@@ -128,6 +134,28 @@ test('A abertura fica livre e Saturno continua visível nas habilidades ao mudar
    expect(await visibleFraction(page,scene,body),'Saturno deve continuar visível em '+width+' × '+height).toBeGreaterThan(.25);
    await page.evaluate(()=>window.scrollTo({top:0,behavior:'instant'}));
    await expect(scene).toHaveAttribute('data-pose','inicio');
+  }
+ }finally{await context.close()}
+});
+
+for(const width of [390,1440])test('Saturno já está nas habilidades e acompanha sua chegada sem aparecer por gatilho em '+width+'px',async({browser,baseURL})=>{
+ const context=await browser.newContext({baseURL,viewport:{width,height:width>760?960:844},deviceScaleFactor:width>760?1:2});
+ const page=await context.newPage();
+ try{
+  await page.goto('/');await page.evaluate(()=>document.fonts.ready);await page.keyboard.press('Shift');
+  const scene=page.locator('.saturn-scene');
+  await expect(scene).toHaveAttribute('data-renderer','webgl',{timeout:20000});
+  const sectionTop=await page.locator('#metodo').evaluate(e=>scrollY+e.getBoundingClientRect().top);
+  for(const offset of [180,128,96,128]){
+   await page.evaluate(top=>window.scrollTo({top,behavior:'instant'}),sectionTop-offset);
+   await expect.poll(()=>scene.evaluate(e=>Math.abs(e.getBoundingClientRect().top-document.getElementById('metodo').getBoundingClientRect().top))).toBeLessThan(.1);
+   const actualOffset=await scene.evaluate(e=>e.getBoundingClientRect().top);
+   expect(Math.abs(actualOffset-offset)).toBeLessThan(1);
+   await expect(scene).toHaveAttribute('data-motion','idle');
+   const body=width>760?{x:1320,y:140+actualOffset,width:100,height:100}:{x:260,y:100+actualOffset,width:110,height:80};
+   expect(await visibleFraction(page,scene,body),'O planeta já deve estar presente antes e depois do antigo ponto de entrada').toBeGreaterThan(.25);
+   const before={x:width-120,y:offset-90,width:100,height:70};
+   expect(await visibleFraction(page,scene,before),'O fundo dos projetos deve continuar sem Saturno').toBe(0);
   }
  }finally{await context.close()}
 });
