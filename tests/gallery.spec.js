@@ -1,7 +1,7 @@
 const {test,expect}=require('@playwright/test');
 const {open,jump}=require('./helpers.cjs');
 const names=['disponibilidade','disciplinas','formatos','retomada','tarefas','revisoes'];
-const src=index=>'assets/img/estudo-galeria-'+names[index]+'.png';
+const src=index=>'../assets/img/estudo-galeria-'+names[index]+'.png';
 async function gallery(page,width=1440){await open(page,width);await jump(page,'#software-gallery');await page.mouse.move(5,400);await expect(page.locator('#gallery-image')).toHaveJSProperty('complete',true)}
 async function screen(page,index){await expect(page.locator('#software-gallery')).toHaveAttribute('data-current',String(index));await expect(page.locator('#gallery-image')).toHaveAttribute('src',src(index));await expect(page.locator('[data-slide][aria-current]')).toHaveAttribute('href',src(index));await expect.poll(()=>page.locator('#gallery-image').evaluate(e=>e.naturalWidth)).toBeGreaterThan(900)}
 
@@ -33,13 +33,13 @@ for(const width of [390,1440])test('Autoplay, pausa, retomada e estabilidade em 
 
 test('Toque emulado: seleção, ampliação, navegação e fechamento',async({browser,baseURL})=>{
  const context=await browser.newContext({baseURL,viewport:{width:390,height:844},isMobile:true,hasTouch:true});const page=await context.newPage();
- try{await page.goto('/');await page.evaluate(()=>document.fonts.ready);await page.locator('#gallery-pause').tap();await page.locator('[data-slide="3"]').tap();await screen(page,3);await page.locator('#gallery-expand').tap();await expect(page.locator('#gallery-dialog')).toBeVisible();await page.locator('#dialog-next').tap();await screen(page,4);await page.getByRole('button',{name:'Fechar imagem'}).tap();await expect(page.locator('#gallery-dialog')).not.toBeVisible();expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true)}finally{await context.close()}
+ try{await page.goto('/estudos/');await page.evaluate(()=>document.fonts.ready);await page.locator('#gallery-pause').tap();await page.locator('[data-slide="3"]').tap();await screen(page,3);await page.locator('#gallery-expand').tap();await expect(page.locator('#gallery-dialog')).toBeVisible();await page.locator('#dialog-next').tap();await screen(page,4);await page.getByRole('button',{name:'Fechar imagem'}).tap();await expect(page.locator('#gallery-dialog')).not.toBeVisible();expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true)}finally{await context.close()}
 });
 
 test('Deslize horizontal no modal troca a tela; gesto vertical preserva a seleção',async({browser,baseURL})=>{
  const context=await browser.newContext({baseURL,viewport:{width:390,height:844},isMobile:true,hasTouch:true});const page=await context.newPage();
  try{
-  await page.goto('/');await page.locator('#gallery-pause').tap();await page.locator('#gallery-expand').tap();
+  await page.goto('/estudos/');await page.locator('#gallery-pause').tap();await page.locator('#gallery-expand').tap();
   const session=await context.newCDPSession(page);const rect=await page.locator('.dialog-image-wrap').boundingBox();const y=rect.y+rect.height/2;
   await session.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:rect.x+rect.width*.8,y}]});
   await session.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:rect.x+rect.width*.2,y}]});

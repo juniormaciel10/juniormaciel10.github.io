@@ -1,20 +1,50 @@
-# Franklin Junior Maciel · Portfólio
+# Franklin Júnior Maciel · Portfólio
 
 Site pessoal de automação e orquestração de agentes de IA, publicado em https://juniormaciel10.github.io/.
 
-HTML, CSS e JavaScript, com fontes locais, animações em CSS e rolagem nativa. O build reúne e minifica CSS/JavaScript, identifica os arquivos por hash e gera um pacote estático para o GitHub Pages.
+HTML, CSS e JavaScript, com fontes locais e rolagem nativa. O build minifica CSS/JavaScript por conjunto de fontes: cada página carrega seu tema e páginas com os mesmos recursos compartilham o bundle. Os arquivos recebem hash e formam um pacote estático para o GitHub Pages.
 
-As entradas em camadas e a profundidade ao ponteiro ficam em `assets/js/motion.js`; transições, folhas em leque e movimento do contato usam `assets/css/motion.css`. Os detalhes têm transições reversíveis e a galeria mantém sua pausa própria.
+## Páginas
+
+- `/`: apresentação pessoal, três cards com prévias das páginas, qualidades e habilidades, carrossel da área de trabalho, registros, trajetória e contato.
+- `/estudos/`: ferramenta de planejamento e resumos, com a identidade e o indicador do portfólio anterior. O bloco de transcrição foi removido; a âncora antiga encaminha para os resumos.
+- `/plataforma/`: apresentação anônima de uma plataforma de estudos, com capturas protegidas.
+- `/jogos/`: modelagem no Blender, programação em Ruby e integrações em C#, com galeria e catálogo de exemplos.
+- `/projetos/planejamento-de-estudos/` e `/projetos/resumos-de-estudo/`: páginas de aprofundamento, nos endereços já compartilhados.
+
+A abertura de `/jogos/` usa uma captura nativa do game-two registrada em 27/09/2026. A galeria reúne três capturas atuais do jogo, com limite de 840 px de largura. A seleção de modelagem contém quatro trabalhos: Jaqueta Metro Nexo, Botas Órbita, Blusa Trama Nexo e Kit Passarela Nexo. Sua galeria tem limite de 640 px, e o PDF público contém somente essa seleção. As imagens completas continuam disponíveis na ampliação. As fontes dos projetos foram apenas consultadas; dados e capturas antigos permanecem nos materiais locais.
+
+A inicial preserva a abertura da referência Gabriel V2 em `assets/js/home-opening.js` e `assets/css/home-opening.css`. `portfolio.css` reúne navegação, contato e galerias das páginas novas; `home.css`, `platform.css` e `games.css` definem suas composições.
+
+Os acessos a Estudos, Plataforma de estudos e Jogos usam capturas reais das páginas dentro de cards sobre fundo preto, com bordas discretas e setas. Ficam em três colunas no desktop e empilhados no celular. A prévia cresce até ocupar a janela e se tornar a página de destino; o botão Voltar do navegador faz o caminho inverso e restaura a posição anterior.
+
+`assets/js/page-transitions.js` registra os eventos de transição antes da primeira pintura. O build transforma seu `<script data-inline>` em um inicializador compacto no cabeçalho das quatro páginas principais, com limite de 6 KB por documento e tamanho registrado em `earlyJsBytes`. `page-transitions.css` anima os snapshots nativos entre documentos; a página continua com URL, título e histórico próprios. Sem essa API, a imagem se expande antes da navegação. Cliques modificados, ausência de JavaScript e storage indisponível conservam a navegação. Uma interação de leitura encerra a transição nativa imediatamente.
+
+`assets/js/card-previews.js`, carregado de forma adiada somente na inicial, prepara estilos, fontes e imagens principais após intenção por mouse ou teclado. As capturas responsivas estão em `assets/img/portfolio/previews/`. A seção antes chamada “Como eu trabalho” apresenta qualidades e conhecimentos, mantendo as âncoras existentes e os registros de apoio.
+
+Saturno aparece somente na inicial, depois da segunda dobra: a apresentação do nome e os três cards ficam livres do planeta. `assets/js/saturn-loader.js` revela a cena quando a seção de habilidades chega à área de leitura abaixo do cabeçalho, inclusive quando o módulo 3D falha. Ao voltar aos projetos ou ao nome, o planeta fica oculto. O 3D é preparado após o conteúdo e só mantém a animação enquanto Saturno está visível. Sem JavaScript, os fundos da apresentação e dos cards cobrem o poster.
+
+`assets/js/saturn-scene.js` define três poses visíveis, com enquadramentos próprios para desktop e celular: habilidades, Sobre e contato. Os estados `inicio` e `projetos` guardam posições ocultas de preparação. O planeta muda de posição, escala e orientação em cerca de um segundo. Ao chegar, continua com rotação da atmosfera, flutuação e uma leve oscilação do conjunto, com cadência de até 24 quadros por segundo durante a leitura. No contato, o centro horizontal fica fixo no meio da janela, mantendo a composição vinda de baixo. Uma nova seção interrompe o percurso anterior a partir da posição atual. A rolagem continua nativa, e o link do rodapé retorna à abertura sem recarregar a página.
+
+`assets/js/saturn-model.js` constrói o corpo achatado, os anéis transparentes e a atmosfera, com sombras entre os elementos e texturas procedurais em `assets/img/saturn/`. Os anéis têm transições suaves de densidade e filtragem por mipmaps; a sombra usa derivadas explícitas para amostrar a textura. `saturn.css` mantém o canvas atrás do HTML e protege o contraste com uma sombra ampla. A cena usa três chamadas de desenho, suavização de bordas também no celular e limite de 3 milhões de pixels. O DPR fica limitado a 1,75 no celular e 2 no desktop, sem redução de resolução durante o movimento. A animação pausa em aba oculta, durante a ampliação das fotos e quando a cena é suprimida para impressão ou cores forçadas. Uma imagem de 52 KB permanece disponível sem JavaScript, sem WebGL ou quando o módulo, os materiais ou o contexto gráfico falham, com movimento discreto de reserva. A licença MIT do Three.js acompanha os arquivos.
+
+No WebKit, cada quadro WebGL é copiado para o canvas 2D de apresentação, na mesma tarefa de desenho. Isso evita o desaparecimento do planeta na abertura e após redimensionar a tela; o contexto WebGL e a cena continuam únicos. A cópia acompanha a cadência da animação e suas pausas. Chrome e Edge apresentam o canvas WebGL diretamente para evitar uma leitura síncrona dos pixels a cada quadro. A cena usa a altura estável da janela (`lvh`, com fallback para `vh`), e mudanças de altura preservam o percurso em andamento. Ao abrir os registros do método, o fundo fica mais discreto para proteger os textos pequenos. O poster recebe essa atenuação enquanto não há controlador de poses.
+
+Os carrosséis de `assets/js/portfolio-ui.js` têm seleção, pausa, navegação por teclado, ampliação e tamanho real. A troca automática pausa durante a leitura por mouse/teclado, fora da tela, em aba oculta e com a ampliação aberta. As sete capturas da área de trabalho conservam registros reais, com nomes de modelos, caminhos, identificadores e conteúdo reservado desfocados nos próprios arquivos. As versões menores e as imagens ampliadas usam os mesmos recortes protegidos. A página da plataforma apresenta o trabalho sem identificar o cliente; suas capturas também protegem a marca e dados de pessoas. Os registros da edição e as cópias de trabalho sem proteção permanecem nos artefatos locais. O build usa os arquivos já tratados.
+
+Na página de Estudos, as entradas em camadas e a profundidade ao ponteiro ficam em `assets/js/motion.js`; transições, folhas em leque e movimento do contato usam `assets/css/motion.css`. Os detalhes têm transições reversíveis e a galeria mantém sua pausa própria.
 
 As animações ficam ativas por padrão, sem botão de ativação, conforme a escolha do autor. A preferência de movimento reduzido do sistema e escolhas antigas salvas no navegador não desligam os efeitos. Galeria e vídeo mantêm seus controles próprios de pausa.
 
-As superfícies das seções ficam em `assets/css/surfaces.css`. Os grafismos e o percurso luminoso da página inicial ficam em `assets/css/backdrops.css` e `assets/js/backdrops.js`. O indicador entra pelo alto, acompanha a rolagem e informa a dobra atual com mouse, teclado ou toque. O movimento pausa fora da área visível ou quando a aba fica oculta; a rolagem permanece nativa.
+As superfícies de Estudos ficam em `assets/css/surfaces.css`; seus grafismos e percurso luminoso, em `assets/css/backdrops.css` e `assets/js/backdrops.js`. O indicador entra pelo alto, acompanha a rolagem e informa a dobra atual com mouse, teclado ou toque. O movimento pausa fora da área visível ou quando a aba fica oculta; a rolagem permanece nativa.
 
 O percurso usa uma tabela geométrica calculada quando o desenho muda, com subdivisão adaptativa das curvas. A animação reutiliza essa tabela sem consultar a geometria SVG a cada quadro. Leituras de layout precedem as atualizações do desenho, os nós de máscara e gradiente são reutilizados e o conteúdo de detalhes fechados não é medido. Os testes comparam a interpolação com a geometria nativa do navegador.
 
 No celular, a iluminação usa um trecho do SVG limitado à área próxima da tela, com recorte vetorial para proteger os textos. O quadrado responde mais rápido à rolagem, passa atrás das imagens da abertura e das folhas do resumo e percorre a borda do painel de estudos. O foco por teclado o traz à frente. As cores acompanham as superfícies claras, escuras e azuis, também no desktop.
 
 ## Desenvolvimento
+
+A apresentação de Saturno tem verificações visuais em Chromium e WebKit, incluindo alta densidade, abertura completa e mudança de orientação da tela.
 
 Requer Node.js 22 ou superior.
 
@@ -36,7 +66,9 @@ A página do planejador oferece um percurso de 24 segundos pelas seis telas reai
 npm run verify
 ```
 
-A suíte usa o próprio Playwright do projeto e verifica layout responsivo, navegação, rolagem, carregamento progressivo, galeria, recuperação de erros, downloads, indicador de localização e conteúdo sem JavaScript. O indicador móvel também é verificado em WebKit. O bundle de JavaScript tem limites de 38 KB minificados e 13,5 KB comprimidos, incluindo a renderização limitada à tela no celular. Relatórios ficam em `playwright-report/` e evidências em `test-results/`.
+A suíte usa o Playwright do projeto e verifica layout responsivo, navegação entre páginas, rolagem, carregamento progressivo, carrosséis, recuperação de erros, downloads, indicador e conteúdo sem JavaScript. O indicador móvel, os novos carrosséis e Saturno também são verificados em WebKit. Os testes de Saturno incluem retorno, rolagem rápida, movimento ambiente com cadência limitada, pausas, redimensionamento até 4K e falhas do módulo, dos materiais e do contexto WebGL. Comparações de pixels confirmam a presença do planeta e a mudança de sua imagem durante a leitura. Há cobertura da abertura, da orientação com DPR 2 e de mudanças de altura durante uma transição. O estado `data-motion="idle"` indica a chegada à pose da seção; a animação ambiente continua. WebKit no Windows não substitui a conferência em um iPhone físico.
+
+O JavaScript de Estudos conserva os limites de 38 KB minificados e 13,5 KB comprimidos; a interface da inicial tem limite de 18 KB e os dois novos casos, de 12 KB. O módulo 3D tem orçamento separado de 560 KB minificados e 145 KB com gzip, e não é solicitado pelas páginas internas. Relatórios ficam em `playwright-report/` e evidências em `test-results/`.
 
 Para executar contra o site publicado, configure a variável `SITE_URL`. Os testes usam somente os arquivos e o ambiente deste projeto.
 
@@ -60,11 +92,12 @@ npm run publish:site
 
 O comando gera o build, executa os testes, confere a integridade do pacote e envia `main` e `gh-pages`, sem sobrescrever o histórico remoto. Também configura o GitHub Pages para servir `gh-pages`. O GitHub conclui a atualização do endereço público após receber o pacote.
 
-`dist/assets/build.json` e `dist/manifest.json` são gerados automaticamente a partir do commit, sem informações técnicas no rodapé e sem um segundo commit manual. O diretório temporário de publicação é removido ao final.
+`dist/assets/build.json` e `dist/manifest.json` são gerados automaticamente a partir do commit, sem informações técnicas no rodapé e sem um segundo commit manual. O campo `pages` do build registra os bundles de cada página, incluindo `modules` para carregamento separado; `css` e `js` continuam apontando para a interface da inicial. O diretório temporário de publicação é removido ao final.
 
 ## Estrutura
 
-- `index.html` e `assets/`: conteúdo, estilos, comportamento e mídia.
+- `index.html`, `estudos/`, `plataforma/` e `jogos/`: páginas principais.
+- `assets/`: estilos, comportamento, fontes e mídia.
 - `projetos/`: páginas de apresentação dos principais trabalhos.
 - `scripts/`: build, prévia, auditoria e publicação.
 - `tests/`: verificações de interface e funcionamento.

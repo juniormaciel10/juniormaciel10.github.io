@@ -1,0 +1,9 @@
+.studies-page .brand-note{display:none}
+.studies-page .main-nav{gap:clamp(16px,2vw,30px)}
+.studies-page .main-nav>a{font-size:13px}
+.studies-page .menu-toggle .icon{width:24px;height:24px}
+.studies-page .workspace{margin-bottom:34px}
+.studies-page .workspace img{width:100%;max-width:1100px;max-height:440px;object-fit:contain;margin-inline:auto;background:#0b121b}
+.studies-page .workspace figcaption{padding-top:18px;font-size:14px;color:#b1c4d6}
+.studies-page .other-work .project-index{max-width:none}
+@media(max-width:760px){.studies-page .brand{font-size:14px}.studies-page .workspace img{max-height:300px}}

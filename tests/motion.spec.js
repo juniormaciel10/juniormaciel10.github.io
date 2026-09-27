@@ -74,7 +74,7 @@ test('Animações continuam ativas quando a configuração do sistema muda',asyn
 test('O conteúdo aparece se o script ultrapassa o prazo e não reinicia ao chegar tarde',async({page})=>{
  let release;const gate=new Promise(resolve=>{release=resolve});
  await page.route('**/assets/js/site.*.js',async route=>{await gate;await route.continue()});
- const navigation=page.goto('/');
+ const navigation=page.goto('/estudos/');
  try{
   await page.locator('h1').waitFor({state:'visible'});await expect(page.locator('html')).not.toHaveClass(/motion-pending/,{timeout:5000});
   expect(await page.locator('.art-screen-front').evaluate(e=>getComputedStyle(e).opacity)).toBe('1');

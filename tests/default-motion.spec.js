@@ -3,7 +3,7 @@ const {test,expect}=require('@playwright/test');
 for(const width of [390,1440])test('Movimento inicia sem botão ou escolha prévia em '+width+'px',async({page})=>{
  await page.setViewportSize({width,height:960});await page.emulateMedia({reducedMotion:'reduce'});
  await page.addInitScript(()=>localStorage.setItem('portfolio-motion','reduced'));
- await page.goto('/');await expect(page.locator('html')).toHaveAttribute('data-motion','full');
+ await page.goto('/estudos/');await expect(page.locator('html')).toHaveAttribute('data-motion','full');
  await expect(page.locator('#motion-toggle,.motion-control')).toHaveCount(0);
  await expect(page.locator('html')).toHaveAttribute('data-intro-state','playing');
  expect(await page.evaluate(()=>matchMedia('(prefers-reduced-motion: reduce)').matches)).toBe(true);

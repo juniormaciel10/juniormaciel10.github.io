@@ -1,7 +1,7 @@
 const { test, expect } = require('@playwright/test');
 
 async function ready(page) {
-  await page.goto('/');
+  await page.goto('/estudos/');
   await page.evaluate(() => document.fonts.ready);
   await expect(page.locator('html')).toHaveAttribute('data-intro-state', 'complete');
   await expect(page.locator('.route-guide')).toHaveAttribute('data-motion', /settled|held/, { timeout: 10000 });

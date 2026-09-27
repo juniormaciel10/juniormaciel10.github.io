@@ -9,6 +9,7 @@ async function visit(page,route,width=1440){await page.setViewportSize({width,he
 for(const route of routes)for(const width of [320,390,768,1024,1440,1920])test('Projeto '+route+' em '+width+'px',async({page},info)=>{
  await visit(page,route,width);await expect(page.locator('h1')).toHaveCount(1);await expect(page.locator('.case-cover img')).toBeVisible();
  expect(await page.locator('.case-cover img').evaluate(e=>e.naturalWidth)).toBeGreaterThan(0);
+ await expect(page.locator('#main-nav a').filter({hasText:/^Início$/})).toHaveJSProperty('pathname','/');
  await page.screenshot({path:info.outputPath('abertura.png')});
  for(const heading of await page.locator('main h1,main h2,.case-facts,.case-next').all()){
   await heading.scrollIntoViewIfNeeded({timeout:8000});await expect(heading).toBeVisible();
@@ -26,7 +27,7 @@ test('Páginas compartilham bundles íntegros, canonical e sitemap',async({page,
  let bundles;
  for(const route of routes){
   await visit(page,route);await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href','https://juniormaciel10.github.io'+route);
-  const schema=JSON.parse(await page.locator('script[type="application/ld+json"]').textContent());expect(schema['@type']).toBe('WebPage');expect(schema.author.name).toBe('Franklin Junior Maciel');
+  const schema=JSON.parse(await page.locator('script[type="application/ld+json"]').textContent());expect(schema['@type']).toBe('WebPage');expect(schema.author.name).toBe('Franklin Júnior Maciel');
   const files=await page.locator('link[rel="stylesheet"],script[src]').evaluateAll(es=>es.map(e=>new URL(e.href||e.src).pathname.slice(1)));
   expect(files).toHaveLength(2);if(bundles)expect(files).toEqual(bundles);else bundles=files;
   for(const file of files){const response=await request.get('/'+file);expect(response.status()).toBe(200);expect(crypto.createHash('sha256').update(await response.body()).digest('hex')).toBe(manifest.files[file].sha256)}

@@ -1,10 +1,11 @@
 const { expect } = require('@playwright/test');
 async function open(page, width = 1440) {
   await page.setViewportSize({ width, height: 960 });
-  await page.goto('/');
+  await page.goto('/estudos/');
   await page.evaluate(() => document.fonts.ready);
   await expect(page.locator('body')).toHaveClass(/\bjs\b/);
   await expect(page.getByRole('heading', {level:1})).toBeVisible();
+  await expect(page.locator('#main-nav a').filter({hasText:/^Início$/})).toHaveJSProperty('pathname','/');
 }
 async function settle(page) {
   await page.waitForFunction(() => new Promise(resolve => {

@@ -8,7 +8,7 @@ async function guideReady(page){
 test('Fundos aprovados são publicados sem os controles da comparação',async({page})=>{
  await open(page);
  await expect(page.locator('body')).toHaveClass(/portfolio-home/);
- await expect(page.locator('.section-backdrop')).toHaveCount(6);
+ await expect(page.locator('.section-backdrop')).toHaveCount(5);
  await expect(page.locator('[data-option],.study-controls,[data-study]')).toHaveCount(0);
  await guideReady(page);
  const path=await page.locator('.story-thread-line').evaluate(el=>({start:el.getPointAtLength(0).y,length:el.getTotalLength()}));
@@ -54,7 +54,7 @@ for(const width of [390,1440])test('Indicador identifica a dobra e mantém a eti
 test('Toque abre e fecha a localização; detalhes preservam o percurso',async({browser,baseURL})=>{
  const context=await browser.newContext({baseURL,viewport:{width:390,height:844},isMobile:true,hasTouch:true,reducedMotion:'reduce'});
  try{
-  const page=await context.newPage();await page.goto('/');await page.evaluate(()=>document.fonts.ready);
+  const page=await context.newPage();await page.goto('/estudos/');await page.evaluate(()=>document.fonts.ready);
   await jump(page,'.document-copy');await guideReady(page);
   const button=page.locator('.route-guide-button'),tooltip=page.locator('.route-guide-tooltip');
   await button.tap();await expect(tooltip).toBeVisible();await button.tap();await expect(tooltip).not.toBeVisible();

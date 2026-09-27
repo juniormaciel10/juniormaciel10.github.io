@@ -2,7 +2,7 @@
   "name": "franklin-maciel-portfolio",
   "version": "1.0.0",
   "private": true,
-  "description": "Portfólio de Franklin Junior Maciel",
+  "description": "Portfólio de Franklin Júnior Maciel",
   "engines": {
     "node": ">=22"
   },
@@ -22,5 +22,8 @@
   },
   "allowScripts": {
     "esbuild@0.28.2": true
+  },
+  "dependencies": {
+    "three": "0.186.1"
   }
 }

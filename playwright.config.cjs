@@ -9,7 +9,7 @@ module.exports = defineConfig({
   retries: 0,
   projects: [
     { name: 'chromium', use: { browserName: 'chromium' } },
-    { name: 'webkit', testMatch: /marker-mobile\.spec\.js$/, use: { browserName: 'webkit' } }
+    { name: 'webkit', testMatch: /(?:marker-mobile|multipage-mobile|page-transitions|saturn(?:-render)?)\.spec\.js$/, use: { browserName: 'webkit' } }
   ],
   reporter: [['list'], ['html', { open: 'never' }]],
   use: { baseURL, browserName: 'chromium', headless: true, trace: 'retain-on-failure', screenshot: 'only-on-failure' },

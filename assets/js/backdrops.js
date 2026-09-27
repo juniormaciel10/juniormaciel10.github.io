@@ -229,9 +229,9 @@
   data.rectangles=rectangles;
   const nextSections=[
    ['.hero','Início'],['.selected-work','Projetos'],['.document-case','Resumos'],
-   ['.other-work','Outros projetos'],['.method-section','Como trabalho'],
+   ['.method-section','Como trabalho'],
    ['.experience-section','Experiência'],['.contact-section','Contato']
-  ].map(([selector,label])=>({y:box(main.querySelector(selector)).y,label}));
+  ].filter(([selector])=>main.querySelector(selector)).map(([selector,label])=>({y:box(main.querySelector(selector)).y,label}));
   const nextCollisions=readCollisions(data);
   if(path!==cachedPath){
    lengthProbe.setAttribute('d',path);
