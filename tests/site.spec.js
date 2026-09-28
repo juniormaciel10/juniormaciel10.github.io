@@ -80,7 +80,7 @@ test('Links dos projetos e endereços antigos abrem o conteúdo completo',async(
   await expect(page.locator(hash)).toBeInViewport();
  }
  for(const hash of ['#quem-sou','#como-trabalho','#na-pratica','#titulo','#ci-galeria']){await page.goto((hash==='#ci-galeria'?'/estudos/':'/')+hash);await expect(page.locator(hash)).toHaveCount(1)}
- await page.goto('/jogos/#p-gametwo');await expect(page.locator('#p-gametwo')).toContainText('em parceria com Gabriel');await expect(page.locator('#p-govoice')).toContainText('Projeto em desenvolvimento');
+ await page.goto('/jogos/#p-gametwo');await expect(page.locator('#p-gametwo')).toContainText('Lógica de jogo e cenários em Ruby e Gosu.');await expect(page.locator('#p-govoice')).toContainText('Projeto em desenvolvimento');
 });
 
 test('PDF e DOCX íntegros, com download por ação do visitante',async({page,request})=>{
