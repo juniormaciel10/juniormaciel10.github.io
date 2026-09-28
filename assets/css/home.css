@@ -44,17 +44,17 @@ details[open]>summary .row-toggle svg{transform:rotate(45deg)}
 .registro-execucao .registro-link{padding-top:10px;text-decoration:underline;text-underline-offset:4px;font-size:12px}
 .registro-rolagem{max-width:100%;overflow:auto}
 .so-leitor{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
-.about-section{padding-top:52px}
+.about-section{padding-top:52px;min-block-size:calc(100svh - var(--header-height,88px))}
 .about-top{display:grid;grid-template-columns:1fr 1.05fr;gap:64px;align-items:start}
 .about-top h2{max-width:13ch}
 .about-top>div{max-width:65ch}
-.about-lead{font-size:clamp(21px,2vw,28px);line-height:1.55;letter-spacing:-.025em}
+.about-lead{font-size:clamp(18px,1.6vw,22px);line-height:1.6;letter-spacing:0;text-wrap:pretty}
 .about-top p+p{color:var(--muted);font-size:16px;margin-top:24px}
-.capabilities{display:grid;grid-template-columns:1fr 1fr;gap:30px 70px;margin-top:42px}
-.capabilities article{max-width:62ch}
-.capabilities h3{font-size:25px}
-.capabilities p{font-size:15px;color:var(--muted);margin-top:18px}
-.capabilities .text-link{margin-top:15px;font-size:13px}
+.about-areas{margin-top:28px}
+.capabilities{display:grid;grid-template-columns:minmax(0,1fr);gap:28px}
+.capabilities h3{font-size:18px;line-height:1.4;letter-spacing:-.02em;margin-bottom:0}
+.capabilities p{font-size:15px;color:var(--muted);margin-top:8px}
+.capabilities .text-link{margin-top:8px;font-size:13px}
 .additional-work{margin-top:50px}
 .row-kind{font-size:12px;color:var(--muted);margin-left:auto}
 .additional-detail .case-details-body{padding-bottom:26px}
@@ -69,7 +69,9 @@ details[open]>summary .row-toggle svg{transform:rotate(45deg)}
 .biography p{color:var(--muted);font-size:16px}
 .biography-note{padding-left:32px;border-left:1px solid var(--line)}
 .bio-details{margin-top:40px}
+.about-top .bio-details{margin-top:0}
 .short-cv{display:grid;grid-template-columns:1fr 1fr;gap:24px 38px}
+.about-top .short-cv{grid-template-columns:1fr;gap:20px}
 .short-cv dt{font-size:13px;color:var(--ink);margin-bottom:8px}
 .short-cv dd{font-size:15px}
 .experiencia-grade{display:grid;grid-template-columns:1.4fr 1fr;gap:50px;margin-top:34px}
@@ -80,7 +82,7 @@ details[open]>summary .row-toggle svg{transform:rotate(45deg)}
 .oque p{font-size:14px}
 @media(hover:hover){.destination:hover{background:var(--field)}.destination:hover h2{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:6px}.destination:hover .destination-caption>.icon{transform:translate(2px,-2px);opacity:1}}
 .destination:active{background:var(--surface);transition-duration:0s}
-@media(max-width:1100px){.about-top{gap:40px}.capabilities,.biography{gap:42px}.metodo-passos{grid-template-columns:1fr 1fr}}
+@media(max-width:1100px){.about-top{gap:40px}.biography{gap:42px}.metodo-passos{grid-template-columns:1fr 1fr}}
 @media(max-width:760px){
 .editorial-hero{padding-block:38px 32px}
 .editorial-hero h1{font-size:clamp(24px,7.7vw,58px);letter-spacing:-.065em}
@@ -100,10 +102,7 @@ details[open]>summary .row-toggle svg{transform:rotate(45deg)}
 .registro-execucao{max-width:540px}
 .about-top{grid-template-columns:1fr;gap:28px}
 .about-top h2{max-width:none}
-.capabilities{grid-template-columns:1fr;gap:28px;margin-top:34px}
 .short-cv{grid-template-columns:1fr;gap:20px}
-.capabilities h3{font-size:24px}
-.capabilities p{margin-top:14px}
 .biography{grid-template-columns:1fr;margin-top:56px;gap:24px}
 .biography-note{padding:0;border:0}
 .experiencia-grade,.caso-fatos{grid-template-columns:1fr;gap:26px}
@@ -112,3 +111,4 @@ details[open]>summary .row-toggle svg{transform:rotate(45deg)}
 .case-details>summary,.additional-detail>summary{font-size:16px}
 .additional-work{margin-top:34px}
 }
+@media print{.about-section{min-block-size:auto}}

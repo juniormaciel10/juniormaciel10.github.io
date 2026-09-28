@@ -1,5 +1,5 @@
 {
-  "commit": "59ebc78f3e304e2b02dae2f1b6547d4713df0c37",
+  "commit": "a4099b72de0546aa0ca6614fc8667fb026efeaef",
   "files": {
     ".nojekyll": {
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -14,8 +14,8 @@
       "bytes": 322160
     },
     "assets/img/mesa-real.png": {
-      "sha256": "3b0b3654b7381ae6828aa05a3de4c16e4b0be83964c648bb2d9916d4d67813d4",
-      "bytes": 557172
+      "sha256": "1dc877f27fe3dbc08e694e8b17cf1379bee899363fbf81be558550d155100e9d",
+      "bytes": 558127
     },
     "assets/fonts/ClashDisplay-FFL.txt": {
       "sha256": "145e7fe2429a3336ba215c070ef722000e01348a3e1baaa127e871bb5012f554",
@@ -30,8 +30,8 @@
       "bytes": 12343
     },
     "assets/css/home.css": {
-      "sha256": "0bcec102dec1fa1f963217b1dfadec0cb956f2b68f446842c54518c4ab31fc17",
-      "bytes": 7673
+      "sha256": "fb9cf2a285fd5d546cb199d0e5fc14ee6f99407499efa79a7aabe45aa5f56a39",
+      "bytes": 7769
     },
     "assets/css/home-opening.css": {
       "sha256": "4231ae19b9a8c3e05f5f02d32eeed5f89a128bf279c8b0bc13bed2d22ed1afab",
@@ -246,8 +246,8 @@
       "bytes": 239926
     },
     "assets/img/mesa-real.webp": {
-      "sha256": "297811a2b83569091c984cc9675bc229850799389719f3ce124077bf8e35b683",
-      "bytes": 407454
+      "sha256": "39436fd6a280da73e0143fa95d59b81be2e02e007007e4c2a774dad14555e672",
+      "bytes": 390328
     },
     "assets/img/resumo-ia-previa.webp": {
       "sha256": "3e710550292e74df6bb0063b3f7850589f385062330331bda214d1e6a22341cd",
@@ -309,57 +309,57 @@
       "sha256": "7e992bb64641d96a78ff7d95259662c31bdc69f169a61915b19108b820f15ffa",
       "bytes": 41384
     },
-    "assets/img/portfolio/trabalho-visao-geral.webp": {
-      "sha256": "297811a2b83569091c984cc9675bc229850799389719f3ce124077bf8e35b683",
-      "bytes": 407454
-    },
-    "assets/img/portfolio/trabalho-01.webp": {
-      "sha256": "299be8f69d7aff44246706f5079617e2d3ffb9eb64afdde8bf6b0d2aa01731f9",
-      "bytes": 196024
-    },
-    "assets/img/portfolio/trabalho-01-1120.webp": {
-      "sha256": "cd36e64fd0035ec7f0121d51520e61b7369ef089beb1721765c200154a1aa7a5",
-      "bytes": 24228
-    },
     "assets/img/portfolio/trabalho-02.webp": {
-      "sha256": "d454ba6117a7c99323e71cf9c8124401b3cc2dd4f54b233da2b140b0f9fef80a",
-      "bytes": 171358
+      "sha256": "313b70ac1b0681ead49d7cb9f6ca0c90194522498a3712bc629d6e2c2fb45a90",
+      "bytes": 149268
     },
     "assets/img/portfolio/trabalho-02-1120.webp": {
-      "sha256": "ac554312895cb0a791258c283cc0e15e5ce7aea6f71e583873d25a02c5cb0b34",
-      "bytes": 28108
+      "sha256": "2c0ca2737a404ee26da9ca9acb53a751ca2aac1a71c8af195e50189b7d258d30",
+      "bytes": 61446
     },
-    "assets/img/portfolio/trabalho-03.webp": {
-      "sha256": "93a86b1ad5da1af17388c83b3d6cba0e1157aa8e370908a812fc467558cdbe68",
-      "bytes": 270672
+    "assets/img/portfolio/trabalho-01.webp": {
+      "sha256": "e039382a8c7197216b5486ed0faf7e62d17a59754ab327a32dccdf0c1a9bd02a",
+      "bytes": 172708
     },
-    "assets/img/portfolio/trabalho-03-1120.webp": {
-      "sha256": "e1819cfd805a4deffb2c582fdcd52aad71ea45b749e7ffbc10d772a0c94bc94d",
-      "bytes": 28500
-    },
-    "assets/img/portfolio/trabalho-04.webp": {
-      "sha256": "65b54511db384d3acf55962ec17bd976d20b19926e0f868fe3be95c5550426aa",
-      "bytes": 246190
-    },
-    "assets/img/portfolio/trabalho-04-1120.webp": {
-      "sha256": "81471eeb6ebcae2541453500b13b7ce0491ca669c6d8c1ddf75c41f400a590c3",
-      "bytes": 29600
-    },
-    "assets/img/portfolio/trabalho-05.webp": {
-      "sha256": "c630a143fbfaceb54cca44f73d435495a602d44a44b4f8c57cb15b9793ae102a",
-      "bytes": 245018
-    },
-    "assets/img/portfolio/trabalho-05-1120.webp": {
-      "sha256": "28b1c393287c154f6ce288e9f771297b200e45014417cfcf56980419e04e445a",
-      "bytes": 25630
+    "assets/img/portfolio/trabalho-01-1120.webp": {
+      "sha256": "e2bd583fe81d6a0d6ab4255edea0dffdd95b51a739e7445c651191565bb338d8",
+      "bytes": 60456
     },
     "assets/img/portfolio/trabalho-06.webp": {
-      "sha256": "999568c5cecdafd3b7a39ed71af781d483d36c7dd20ba45552323dc7f082d302",
-      "bytes": 337968
+      "sha256": "7d80954bfc30beb3cf94e119959ae4cd443adb731ca9a9436ebab5cc6bce4c4a",
+      "bytes": 329682
     },
     "assets/img/portfolio/trabalho-06-1120.webp": {
-      "sha256": "63a34804d6ed35d5a81eda277f860176c96cab510d5383e1bc7362573ea05138",
-      "bytes": 48902
+      "sha256": "4ff6fa71f0a87c6631a579913ea27cac59434763eb7cfeb22dfaaf9e5abce00a",
+      "bytes": 86446
+    },
+    "assets/img/portfolio/trabalho-03.webp": {
+      "sha256": "f359729b4606a6cc4f75b67ac9fadd95b0cfbb6c091f05b2a5312a02153cfdbd",
+      "bytes": 244180
+    },
+    "assets/img/portfolio/trabalho-03-1120.webp": {
+      "sha256": "ccc881338e57e9e63ad1bfd6fc84bfcebcb904061e88c8fad34eb7c7a6d22222",
+      "bytes": 87160
+    },
+    "assets/img/portfolio/trabalho-04.webp": {
+      "sha256": "3fb5fdc5621065a1c2f4ceab22312fe19ff9ee4f59a9dfd960c043395468b56c",
+      "bytes": 212430
+    },
+    "assets/img/portfolio/trabalho-04-1120.webp": {
+      "sha256": "37f9011624f2e3a3fb719b11e1bfae00f048598665b51751bc07b952b8660868",
+      "bytes": 73416
+    },
+    "assets/img/portfolio/trabalho-05.webp": {
+      "sha256": "a816d2ff758dcb080b08a3f638728cd837453a5117d10d93bde4784790d467d8",
+      "bytes": 214598
+    },
+    "assets/img/portfolio/trabalho-05-1120.webp": {
+      "sha256": "f73d25b5c212449f4945cd882b326ab40aa6561863fba5f73dd0bf606b8551bb",
+      "bytes": 73592
+    },
+    "assets/img/portfolio/trabalho-visao-geral.webp": {
+      "sha256": "39436fd6a280da73e0143fa95d59b81be2e02e007007e4c2a774dad14555e672",
+      "bytes": 390328
     },
     "assets/img/saturn/surface.webp": {
       "sha256": "4b0b75989aea7776a20d52a4fb03ca652d75ecba344b45052ae720e74ea977fc",
@@ -381,37 +381,37 @@
       "sha256": "7a9d11c2686008f62525a389ad05efc600b1d11c68a0394d6d8ba0a5a2f80b94",
       "bytes": 23212
     },
-    "assets/img/portfolio/mesa-real-720.webp": {
-      "sha256": "4357bdb73be757ce6b32c87a8d47096d4f7934118cc91316097b45910b1d41bf",
-      "bytes": 28090
-    },
-    "assets/img/portfolio/mesa-real-1120.webp": {
-      "sha256": "3178f8b6cd6a19d1fd28cc7daa57f5a83794ff89e4a6e256be8c0ab601367125",
-      "bytes": 52804
+    "assets/img/portfolio/trabalho-02-720.webp": {
+      "sha256": "b38da0cf330281767cdcc2c07030277af22256929e1ce28fa1bf959d5207a219",
+      "bytes": 32848
     },
     "assets/img/portfolio/trabalho-01-720.webp": {
-      "sha256": "77273b9913c2249460ab599b1e7284d045fb0db58b712a5cc3a6e041f637c9b5",
-      "bytes": 14306
-    },
-    "assets/img/portfolio/trabalho-02-720.webp": {
-      "sha256": "0298af35237e1274c855708e022782f2ba14ba7e77c8725dc67563216c32f70e",
-      "bytes": 16220
-    },
-    "assets/img/portfolio/trabalho-03-720.webp": {
-      "sha256": "46a33534e1b484e4a4c9f0d075fa4af31e6d1b337242f4df28f0aab119f6f7c1",
-      "bytes": 16120
-    },
-    "assets/img/portfolio/trabalho-04-720.webp": {
-      "sha256": "6c7d43fd26ce500a69fda434cf1678c286348d76c9649bf179036df62ad82589",
-      "bytes": 16364
-    },
-    "assets/img/portfolio/trabalho-05-720.webp": {
-      "sha256": "447906c2110857751554c739998c6577bf077051f3f1a177fa3e70a1817be768",
-      "bytes": 13994
+      "sha256": "ce56e0d93a12dfe183c19fb24595ed3f35c5a0ae3818d07cf901acffa727928a",
+      "bytes": 31620
     },
     "assets/img/portfolio/trabalho-06-720.webp": {
-      "sha256": "231f4ea344cbad7e558f598c5b44835af25873ebed15c9708abfccba19a472a0",
-      "bytes": 26702
+      "sha256": "b354534796aa4befad4f8e4c9869d11f89d0d70a5f21da335a0ab5a7f4f6f323",
+      "bytes": 43690
+    },
+    "assets/img/portfolio/trabalho-03-720.webp": {
+      "sha256": "104fd76725a10aea7d40d8472e279dc44c9adf8017beb3d1ccfd09d93ac97892",
+      "bytes": 43760
+    },
+    "assets/img/portfolio/trabalho-04-720.webp": {
+      "sha256": "e85eee8c7676bdf5ff9ccb43dbf4617679119d05df6e6199b2d84ff4e498a6d1",
+      "bytes": 39246
+    },
+    "assets/img/portfolio/trabalho-05-720.webp": {
+      "sha256": "c0e916d153516c38daa1dbafdff711aaeacfdf31ba6b5fe419da911151a36154",
+      "bytes": 36480
+    },
+    "assets/img/portfolio/mesa-real-720.webp": {
+      "sha256": "74e985c3ade99337d530b461f7358bfb7b76a047ff4b935092f85c46c62deb99",
+      "bytes": 40978
+    },
+    "assets/img/portfolio/mesa-real-1120.webp": {
+      "sha256": "917a5d4695cbcfa648a018f3e98f221ef93dc3f31995f731eda9a89148396d5d",
+      "bytes": 79722
     },
     "assets/img/estudo-revisoes.webp": {
       "sha256": "69f6333bf596d8b30f18b67f357acdadffa3cc945f5ba1b5b0ee580d49e23be7",
@@ -522,8 +522,8 @@
       "bytes": 20156
     },
     "index.html": {
-      "sha256": "eb948a7af4300a8793292e365c93530cdd38665910271df9ba6159b5452c1921",
-      "bytes": 37014
+      "sha256": "8b2c4e65e55aa85893518030adea96990b3ea07dd4220995144bbb9db551023a",
+      "bytes": 37598
     },
     "estudos/index.html": {
       "sha256": "2fd931925692152593fa29e0881edab1f2885e8e42244e614691e904192a4535",
@@ -549,9 +549,9 @@
       "sha256": "b3f427b2e0958a0179deabf9803b6f7b802442156ffd73df6d19b6e6b92f7896",
       "bytes": 546716
     },
-    "assets/css/site.2b47e664edc6.css": {
-      "sha256": "2b47e664edc655e432c03beee01b37c7b988cda705088fe391088dc1a9796b31",
-      "bytes": 26597
+    "assets/css/site.6040bdf91ad9.css": {
+      "sha256": "6040bdf91ad992c2030ed02d5ad95cc918c213996d277472d8249ee3ff8621f7",
+      "bytes": 26693
     },
     "assets/js/site.cf633c82d420.js": {
       "sha256": "cf633c82d420e26725a94ee20c1eac08d18ba151b92e99a6896459a118f9b443",
@@ -586,7 +586,7 @@
       "bytes": 7669
     },
     "assets/build.json": {
-      "sha256": "aff04ec25cc2dc750fab1cbd82d5ad31b2533d43ab787d93504ffa70b6ba658f",
+      "sha256": "90390455ba4fd6c305cd6df0ee5b51eba779abd0cd13feb6ab138cade329a107",
       "bytes": 1368
     },
     "sitemap.xml": {
