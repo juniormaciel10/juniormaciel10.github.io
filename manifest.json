@@ -1,5 +1,5 @@
 {
-  "commit": "a4099b72de0546aa0ca6614fc8667fb026efeaef",
+  "commit": "5f4f5375a141d563ec4b3577081bbaf0686cca4d",
   "files": {
     ".nojekyll": {
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -66,12 +66,12 @@
       "bytes": 614
     },
     "assets/css/platform.css": {
-      "sha256": "22bc61ec8d65f98a04e7b4c9c0bc8ed0eefd8ff83ebb3ef5a07b69ba8fcd5bf5",
-      "bytes": 3903
+      "sha256": "53b0a0bdb105002931e676638f3168da88b8da8e793bd1a92ce86b6ba9c174c9",
+      "bytes": 11849
     },
     "assets/css/games.css": {
-      "sha256": "84ca9e413f5067a70f25b1c6e25b4da35d35662f936cb998197c090b81aa20d9",
-      "bytes": 5033
+      "sha256": "5a8337334ef72b05f44db49abbdd9c3a4370750d51e40565c86982b83ff1816b",
+      "bytes": 14050
     },
     "assets/css/projects.css": {
       "sha256": "dfed7074c271b6d30ccc136ef91f4c1bb83bc8bf0f3994ceede9d0742ff4ed8c",
@@ -104,6 +104,10 @@
     "assets/js/backdrops.js": {
       "sha256": "fc3c882efb415a85569063148b0a10aba25275747101e8192b0f41b8fa61fc51",
       "bytes": 32424
+    },
+    "assets/js/model-gallery.js": {
+      "sha256": "af4571f6117d5be66db539a097e5550990b1666d78040ff76be6637ca6df9203",
+      "bytes": 759
     },
     "assets/js/page-transitions.js": {
       "sha256": "054d6f205fe197622b0f292d56ff8ea61f201b9df9abab360601cde88c33774e",
@@ -249,6 +253,26 @@
       "sha256": "39436fd6a280da73e0143fa95d59b81be2e02e007007e4c2a774dad14555e672",
       "bytes": 390328
     },
+    "assets/img/portfolio/game-two-praca-640.webp": {
+      "sha256": "bb68591087b4df2cab0c985cd051ccbe3b567d9c0d82ed1054c77a0710a2f111",
+      "bytes": 139604
+    },
+    "assets/img/portfolio/modelo-jaqueta-metro-640.webp": {
+      "sha256": "5983ed6ffd537e9080895bd8b46e371229f1ad6ceed000894f3a542f93906e08",
+      "bytes": 96682
+    },
+    "assets/img/portfolio/modelo-botas-orbita-640.webp": {
+      "sha256": "da4ce8bfd3dea1d965c595baa7ab3328b8ca6b1d0066b0ee6a9fb43a60d8dcc9",
+      "bytes": 81280
+    },
+    "assets/img/portfolio/modelo-blusa-trama-640.webp": {
+      "sha256": "4d6b747cb4f31a0665ba76014f48c615dedb6860abc8b2d038ebe309c1fa29af",
+      "bytes": 105630
+    },
+    "assets/img/portfolio/modelo-kit-passarela-640.webp": {
+      "sha256": "623ce02fdebb5867619a3e1e82fb6c4afe8f6675067a19821badabae7c3a0133",
+      "bytes": 79144
+    },
     "assets/img/resumo-ia-previa.webp": {
       "sha256": "3e710550292e74df6bb0063b3f7850589f385062330331bda214d1e6a22341cd",
       "bytes": 59718
@@ -302,12 +326,12 @@
       "bytes": 44262
     },
     "assets/img/portfolio/previews/plataforma-960.webp": {
-      "sha256": "a6644296600b01fac5eec62b9975801ab590b206e589d4104b5b2aff35371fa3",
-      "bytes": 27766
+      "sha256": "5c969101a4a726af885732b67a4ac91fe91b8043a36b3491021070e06c45a7c0",
+      "bytes": 35266
     },
     "assets/img/portfolio/previews/jogos-960.webp": {
-      "sha256": "7e992bb64641d96a78ff7d95259662c31bdc69f169a61915b19108b820f15ffa",
-      "bytes": 41384
+      "sha256": "bb821c8e1822b2f22ae4cc0776b8c8edb12118387936edc6c73f5947b8812540",
+      "bytes": 38750
     },
     "assets/img/portfolio/trabalho-02.webp": {
       "sha256": "313b70ac1b0681ead49d7cb9f6ca0c90194522498a3712bc629d6e2c2fb45a90",
@@ -374,12 +398,12 @@
       "bytes": 26518
     },
     "assets/img/portfolio/previews/plataforma-640.webp": {
-      "sha256": "0d8c4601512789bcae974a56b3373cfe1695ebfe033e121acbd8afca6bd8dba2",
-      "bytes": 16210
+      "sha256": "5ca1c1fe5ae2ec8c68c2179d41b400021a022f8e79c3821dedd4f67cf4ae1d63",
+      "bytes": 21100
     },
     "assets/img/portfolio/previews/jogos-640.webp": {
-      "sha256": "7a9d11c2686008f62525a389ad05efc600b1d11c68a0394d6d8ba0a5a2f80b94",
-      "bytes": 23212
+      "sha256": "ef909619f42cfc144d883725a7441deedd6643cb34501bcef1d883755deacbdd",
+      "bytes": 23178
     },
     "assets/img/portfolio/trabalho-02-720.webp": {
       "sha256": "b38da0cf330281767cdcc2c07030277af22256929e1ce28fa1bf959d5207a219",
@@ -453,57 +477,109 @@
       "sha256": "11b5e4e34d042a5cde8d28f7027ecf378440f184da2da69c890013d71e336c59",
       "bytes": 243232
     },
+    "assets/img/portfolio/game-two-praca-preview-640.webp": {
+      "sha256": "72ff3f0399bdc10fd131072476d30d91002851ae0355036449348b67f897098a",
+      "bytes": 20786
+    },
     "assets/img/portfolio/game-two-praca-20260927.webp": {
       "sha256": "b908c9ece6343886cf229568b0db96f5cad3aca84254cf8dc28b5750c0c98c53",
       "bytes": 159522
-    },
-    "assets/img/portfolio/modelo-jaqueta-metro.webp": {
-      "sha256": "90374847b0ebb9c506a88f45d41a3df414acbca26a5dcef1fe0a40f157fc676a",
-      "bytes": 186504
-    },
-    "assets/img/portfolio/modelo-jaqueta-metro-640.webp": {
-      "sha256": "5983ed6ffd537e9080895bd8b46e371229f1ad6ceed000894f3a542f93906e08",
-      "bytes": 96682
-    },
-    "assets/img/portfolio/modelo-botas-orbita.webp": {
-      "sha256": "36051aef30467a60224ba3858a132654c9dd0d8dde0169d3bf7aa35be7780695",
-      "bytes": 148194
-    },
-    "assets/img/portfolio/modelo-botas-orbita-640.webp": {
-      "sha256": "da4ce8bfd3dea1d965c595baa7ab3328b8ca6b1d0066b0ee6a9fb43a60d8dcc9",
-      "bytes": 81280
-    },
-    "assets/img/portfolio/modelo-blusa-trama.webp": {
-      "sha256": "f15b0e938cc1aeec02e4d2cb8cbe25207a70c19d67e8bc150a602eb2807b2576",
-      "bytes": 192402
-    },
-    "assets/img/portfolio/modelo-blusa-trama-640.webp": {
-      "sha256": "4d6b747cb4f31a0665ba76014f48c615dedb6860abc8b2d038ebe309c1fa29af",
-      "bytes": 105630
-    },
-    "assets/img/portfolio/modelo-kit-passarela.webp": {
-      "sha256": "19ae5ceaf743288628059802d486885802f32f06e328fcbb10fccddaace79149",
-      "bytes": 136438
-    },
-    "assets/img/portfolio/modelo-kit-passarela-640.webp": {
-      "sha256": "623ce02fdebb5867619a3e1e82fb6c4afe8f6675067a19821badabae7c3a0133",
-      "bytes": 79144
-    },
-    "assets/downloads/portfolio-modelagem-3d.pdf": {
-      "sha256": "a423fe81b9e3f413f8dd6552caada9887b2ca2ab98c4ccc8ad944ec53667358a",
-      "bytes": 1336070
     },
     "assets/img/portfolio/game-two-combate-20260927.webp": {
       "sha256": "720b2e9a12dd36b8a2ea845e86e5279cbf0c258d1c6640258fdd05b98a184e27",
       "bytes": 108734
     },
+    "assets/img/portfolio/game-two-combate-preview-640.webp": {
+      "sha256": "bf3f7837c55dd3d1ae927d5e34856b9e14d9b019a5c3132051bc3aafc7ea6b9d",
+      "bytes": 21370
+    },
     "assets/img/portfolio/game-two-encontro-20260927.webp": {
       "sha256": "589f7cd559890f833b2d3c36d8999cabe9704099f4bc158659757cc82c8def52",
       "bytes": 65542
     },
-    "assets/img/portfolio/game-two-praca-640.webp": {
-      "sha256": "bb68591087b4df2cab0c985cd051ccbe3b567d9c0d82ed1054c77a0710a2f111",
-      "bytes": 139604
+    "assets/img/portfolio/game-two-encontro-preview-640.webp": {
+      "sha256": "eac743db83426b72cda2d96b827415c7544253c762439456432ea6501cdae1dd",
+      "bytes": 21926
+    },
+    "assets/img/portfolio/modelo-jaqueta-metro.webp": {
+      "sha256": "90374847b0ebb9c506a88f45d41a3df414acbca26a5dcef1fe0a40f157fc676a",
+      "bytes": 186504
+    },
+    "assets/img/portfolio/modelo-jaqueta-metro-recorte-640.webp": {
+      "sha256": "2acb09538c6cc90408ffedc4d2f8d5243f50cd76a9e96f74e6472fc0a9b0acfc",
+      "bytes": 33702
+    },
+    "assets/img/portfolio/modelo-botas-orbita.webp": {
+      "sha256": "36051aef30467a60224ba3858a132654c9dd0d8dde0169d3bf7aa35be7780695",
+      "bytes": 148194
+    },
+    "assets/img/portfolio/modelo-botas-orbita-recorte-640.webp": {
+      "sha256": "12ae2adf4f992acbefbb84712d2502971c26d1d842be32bc014c4136419b0a3e",
+      "bytes": 34812
+    },
+    "assets/img/portfolio/modelo-blusa-trama.webp": {
+      "sha256": "f15b0e938cc1aeec02e4d2cb8cbe25207a70c19d67e8bc150a602eb2807b2576",
+      "bytes": 192402
+    },
+    "assets/img/portfolio/modelo-blusa-trama-recorte-640.webp": {
+      "sha256": "0ae5848be95c48214f2c131d14fe534391c6fe91bf0c8854035745fe9cc71d65",
+      "bytes": 36276
+    },
+    "assets/img/portfolio/modelo-kit-passarela.webp": {
+      "sha256": "19ae5ceaf743288628059802d486885802f32f06e328fcbb10fccddaace79149",
+      "bytes": 136438
+    },
+    "assets/img/portfolio/modelo-kit-passarela-recorte-640.webp": {
+      "sha256": "1dc323de4899c165b6cef14b1e03c79ba2f89af793a58e41871999f950786297",
+      "bytes": 49910
+    },
+    "assets/img/portfolio/modelo-jaqueta-metro-miniatura.webp": {
+      "sha256": "aab569f73b2a7a069bc27732856729d794dc332815d37f42ab3f95a4f3d90678",
+      "bytes": 5450
+    },
+    "assets/img/portfolio/modelo-botas-orbita-miniatura.webp": {
+      "sha256": "acf4dbbb5a45a658671230b68ff4dcda88566bc3e5ef7579b5edb613bc0d344f",
+      "bytes": 4968
+    },
+    "assets/img/portfolio/modelo-blusa-trama-miniatura.webp": {
+      "sha256": "05474e2615b3ddee638ff7319ef12308f558ce8f469be7bef6a1122297bfba8b",
+      "bytes": 4720
+    },
+    "assets/img/portfolio/modelo-kit-passarela-miniatura.webp": {
+      "sha256": "1d6999f562c836c95282be07719eea9593d36a8393a5208ee894ebdc6a144be1",
+      "bytes": 5842
+    },
+    "assets/downloads/portfolio-modelagem-3d.pdf": {
+      "sha256": "a423fe81b9e3f413f8dd6552caada9887b2ca2ab98c4ccc8ad944ec53667358a",
+      "bytes": 1336070
+    },
+    "assets/img/portfolio/game-two-praca-preview-960.webp": {
+      "sha256": "e019b04a2adde438fbfa615e63afaba56dedcb8b18e6c7a72fb5e6581bdc60a1",
+      "bytes": 42110
+    },
+    "assets/img/portfolio/game-two-combate-preview-960.webp": {
+      "sha256": "107de7bff7847969131f94878d91754011f733bf710cf04dab87d3051acfc3ab",
+      "bytes": 44896
+    },
+    "assets/img/portfolio/game-two-encontro-preview-960.webp": {
+      "sha256": "2804367e354e6a487623273494421d767c60ba49f96fdf1ce247cfbf4ef0f54d",
+      "bytes": 48012
+    },
+    "assets/img/portfolio/modelo-jaqueta-metro-recorte.webp": {
+      "sha256": "8634299605c237ffa401364fb0a89e8a7eb6a3eaa883225f34c3640e2a9356b2",
+      "bytes": 34196
+    },
+    "assets/img/portfolio/modelo-botas-orbita-recorte.webp": {
+      "sha256": "d82f35411649057bcf45d91368079697a7cfde7bc26ceb969522a0462894dc4a",
+      "bytes": 37392
+    },
+    "assets/img/portfolio/modelo-blusa-trama-recorte.webp": {
+      "sha256": "25b3cec8d0fedd984b58a703631070d8c767c23cbf2bb81f081b5a14c24ea77d",
+      "bytes": 41018
+    },
+    "assets/img/portfolio/modelo-kit-passarela-recorte.webp": {
+      "sha256": "d43c5720e69149af7f2e5881516ecc503895e80e6858d5fbe43771a798e04852",
+      "bytes": 50142
     },
     "assets/img/planejamento-percurso.webp": {
       "sha256": "5056dc58c4988fe3571e2177f2d71a13cb89dc104d424d08f5ab35e9a3dff7ea",
@@ -521,6 +597,10 @@
       "sha256": "4ba7d3d096695818fe0686be4f1e82c6b05134e18a22260336130335027462dd",
       "bytes": 20156
     },
+    "assets/img/portfolio/game-two-ambiente.webp": {
+      "sha256": "10d684ef86da35a7e1614bd9fa4394cde03f494ae47fd3321f520eb13c457146",
+      "bytes": 9368
+    },
     "index.html": {
       "sha256": "8b2c4e65e55aa85893518030adea96990b3ea07dd4220995144bbb9db551023a",
       "bytes": 37598
@@ -530,12 +610,12 @@
       "bytes": 37131
     },
     "plataforma/index.html": {
-      "sha256": "208729e89b78eef45f9339bdf5d05582144c94d0e3d9249cdd9ea708b8cb1c76",
-      "bytes": 22710
+      "sha256": "c278fd4e04ffc45aaf58f4dce43c774436ab6cd12ccf2686867eba1ae84b27d9",
+      "bytes": 33186
     },
     "jogos/index.html": {
-      "sha256": "f76c553ca0b996a1f8cec18d0fc335d935b4ecb99a04592825d627b276f2f0cd",
-      "bytes": 28929
+      "sha256": "85f2bb5dc716f28d27c1a8d78141281bd64a8492ae5f96c87412b2a4c3338c7f",
+      "bytes": 48667
     },
     "projetos/planejamento-de-estudos/index.html": {
       "sha256": "19054ec883bfed22554b0801ce94c56a6087ebad0153d5e4dfdcf827f141d79c",
@@ -565,17 +645,21 @@
       "sha256": "5519a81490cc2fc8b088084aa026e582bd411f66388e4e56a8a56d309a287ed6",
       "bytes": 37087
     },
-    "assets/css/site.eea3e944fa39.css": {
-      "sha256": "eea3e944fa39c09b421a32e22ab8d02ac08604b53a1698bfd2cdf165eedc575b",
-      "bytes": 17665
+    "assets/css/site.8ea6672547c6.css": {
+      "sha256": "8ea6672547c6618ba8e1c6e4bb4eb0c5bd45b2afd1914c33bae41f2b4df23224",
+      "bytes": 25553
     },
     "assets/js/site.6bd95203b1ff.js": {
       "sha256": "6bd95203b1ffad2af33e931c60c5060a10ca679c70253f2f65c280c3a7dd1311",
       "bytes": 9781
     },
-    "assets/css/site.ef4309c01bcb.css": {
-      "sha256": "ef4309c01bcb6bf7dc0fe3ecda985c45d6fb0eaa776221fa63c7ec8fe9a6c0e5",
-      "bytes": 18786
+    "assets/css/site.e6648806e72f.css": {
+      "sha256": "e6648806e72ff02c415d4d32595ac6db37144f0e041758bdbe0e5f6fe962cdf4",
+      "bytes": 27701
+    },
+    "assets/js/site.38cf404454cd.js": {
+      "sha256": "38cf404454cdcfb603be32a8e5e44467663ff94892e285890d572cb45f3b4fbb",
+      "bytes": 10309
     },
     "assets/css/site.fb89892511a6.css": {
       "sha256": "fb89892511a66fe70f081f1597e1e2d6c7842c109a8af0eefa2ba752171ca170",
@@ -586,11 +670,11 @@
       "bytes": 7669
     },
     "assets/build.json": {
-      "sha256": "90390455ba4fd6c305cd6df0ee5b51eba779abd0cd13feb6ab138cade329a107",
+      "sha256": "549b21c94bb1dcea5553a58d2fc75dc54129ece63453f5f5ab30e334de43130c",
       "bytes": 1368
     },
     "sitemap.xml": {
-      "sha256": "cc8098be2043ee8a3caecf6abbc892507fccdfabfb7f95ceeb5c16b6bd3725d4",
+      "sha256": "5605dabe0f114cabe264a88f92f052f818fc538a62c186fc277f2036c65e2e9c",
       "bytes": 717
     },
     "robots.txt": {

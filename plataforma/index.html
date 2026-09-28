@@ -1,11 +1,11 @@
 <!doctype html>
 <html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Plataforma de estudos | Franklin Júnior Maciel</title><meta name="description" content="Desenvolvimento de uma plataforma de estudos: interface, aulas, questões, progresso e integrações."><meta name="theme-color" content="#f8f6ff">
+<title>Plataforma de estudos | Franklin Júnior Maciel</title><meta name="description" content="Desenvolvimento de uma plataforma de estudos: interface, aulas, questões, progresso e integrações."><meta name="theme-color" content="#f9f7ff">
 <link rel="canonical" href="https://juniormaciel10.github.io/plataforma/"><meta property="og:type" content="website"><meta property="og:locale" content="pt_BR"><meta property="og:title" content="Plataforma de estudos | Franklin Júnior Maciel"><meta property="og:description" content="Desenvolvimento de uma plataforma de estudos: interface, aulas, questões, progresso e integrações."><meta property="og:url" content="https://juniormaciel10.github.io/plataforma/"><meta property="og:image" content="https://juniormaciel10.github.io/assets/img/og.png"><meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="../assets/img/favicon.svg"><link rel="preload" href="../assets/fonts/Geist.woff2" as="font" type="font/woff2" crossorigin>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Plataforma de estudos | Franklin Júnior Maciel", "url": "https://juniormaciel10.github.io/plataforma/", "inLanguage": "pt-BR", "author": {"@type": "Person", "name": "Franklin Júnior Maciel", "url": "https://juniormaciel10.github.io/", "sameAs": ["https://www.linkedin.com/in/franklin-junior-maciel/", "https://github.com/juniormaciel10"]}}</script>
 <script>(function(){var root=document.documentElement;root.classList.add('js');root.dataset.motion='full';var timer=setTimeout(function(){root.dataset.intro='complete';if(!document.body.classList.contains('js'))root.classList.remove('js','ui-ready');},9500);window.addEventListener('portfolio:intro-mounted',function(){clearTimeout(timer);},{once:true});document.addEventListener('error',function(e){if(e.target.tagName==='SCRIPT'&&e.target.src){root.classList.remove('js','ui-ready');root.dataset.intro='complete';}},true);})();</script>
-<link rel="stylesheet" href="../assets/css/site.eea3e944fa39.css">
+<link rel="stylesheet" href="../assets/css/site.8ea6672547c6.css">
 
 <script data-home="../">(()=>{"use strict";const r=document.documentElement,p=document.querySelector('meta[name="theme-color"]')?.content;p&&CSS.supports("color",p)&&r.style.setProperty("--page-transition-bg",p);const T=new URL(document.currentScript?.dataset.home||"./",document.baseURI),h="onpageswap"in window&&"onpagereveal"in window&&CSS.supports("view-transition-name","root"),a="portfolio:card-entry:v1",k="portfolio:card-last:v1",l=(t,e)=>{try{const n=new URL(t,location.href),i=new URL(e,location.href);return n.origin===i.origin&&n.pathname.replace(/index\.html$/,"")===i.pathname.replace(/index\.html$/,"")}catch{return!1}},w=t=>{try{return JSON.parse(sessionStorage.getItem(t)||"null")}catch{return null}},v=(t,e)=>{try{sessionStorage.setItem(t,JSON.stringify(e))}catch{}},u=t=>{try{sessionStorage.removeItem(t)}catch{}},E=t=>t&&Date.now()-t.time<15e3,f=w(a);E(f)&&l(f.to,location.href)&&(r.dataset.cardEntry="true",r.classList.remove("motion-pending"),l(location.href,T.href)&&(r.dataset.intro="complete"),f.kind==="close"&&f.color&&CSS.supports("color",f.color)&&r.style.setProperty("--page-transition-bg",f.color),h||u(a));let d=null,g=null,s=null,m=null,o=0;function c(){g?.style.removeProperty("view-transition-name"),g=null,r.style.removeProperty("view-transition-name"),p&&CSS.supports("color",p)&&r.style.setProperty("--page-transition-bg",p),delete r.dataset.cardDirection,delete r.dataset.cardTransition,document.querySelectorAll("[data-page-card][aria-busy]").forEach(t=>t.removeAttribute("aria-busy")),s?.remove(),s=null}function x(t){return[...document.querySelectorAll("[data-page-card]")].find(e=>l(e.href,t))}function L(t){g=t.querySelector("[data-page-preview]")||t,r.style.viewTransitionName="page-backdrop",g.style.viewTransitionName="root"}function K(t){if(t.defaultPrevented||t.button!==0||t.metaKey||t.ctrlKey||t.shiftKey||t.altKey)return null;const e=t.target.closest?.("a[data-page-card]");return!e||e.hasAttribute("download")||e.target&&e.target!=="_self"?null:new URL(e.href,document.baseURI).origin===location.origin?e:null}async function C(t,e,n){if(typeof Element.prototype.animate!="function"){location.assign(e);return}const i=t.querySelector("[data-page-preview]")||t,y=i.getBoundingClientRect();s=document.createElement("div"),s.className="page-portal",s.setAttribute("aria-hidden","true");const b=i.querySelector("img");if(b){const S=document.createElement("img");S.src=b.currentSrc||b.src,S.alt="",s.append(S)}document.body.append(s),await s.animate([{left:y.left+"px",top:y.top+"px",width:y.width+"px",height:y.height+"px",borderRadius:"3px"},{left:"0px",top:"0px",width:innerWidth+"px",height:innerHeight+"px",borderRadius:"0px"}],{duration:650,easing:"cubic-bezier(.22,1,.36,1)",fill:"forwards"}).finished.catch(()=>{}),n===o&&location.assign(e)}document.addEventListener("click",t=>{const e=K(t);if(!e){s&&t.target.closest?.("a[href]")&&!t.metaKey&&!t.ctrlKey&&!t.shiftKey&&!t.altKey&&(o++,d=null,c(),u(a));return}if(t.preventDefault(),d?.card===e)return;c();const n=++o,i={from:location.href,to:e.href,scrollY,card:e.dataset.pageCard,time:Date.now(),kind:"open"};d={card:e,record:i},e.setAttribute("aria-busy","true"),v(a,i),v(k,i),h?location.assign(i.to):C(e,i.to,n)}),addEventListener("pageswap",t=>{if(!h){t.viewTransition?.skipTransition();return}const e=t.activation?.entry?.url,n=w(k);if(d&&l(d.record.to,e))r.dataset.cardDirection="open",L(d.card);else if(t.activation?.navigationType==="traverse"&&n&&l(n.to,location.href)&&l(n.from,e)&&l(e,T.href))r.dataset.cardDirection="close",v(a,{...n,from:location.href,to:e,time:Date.now(),kind:"close",color:p});else{u(a),t.viewTransition?.skipTransition();return}const i=o;t.viewTransition?.finished.catch(()=>{}).then(()=>{i===o&&c()})}),addEventListener("pagereveal",t=>{if(!h){t.viewTransition?.skipTransition(),c();return}const e=w(a);if(!E(e)||!l(e.to,location.href))return;const n=++o;if(r.dataset.cardDirection=e.kind,e.kind==="close"){r.dataset.intro="complete",e.color&&CSS.supports("color",e.color)&&r.style.setProperty("--page-transition-bg",e.color);const i=x(e.from);if(!i){t.viewTransition?.skipTransition(),c(),u(a);return}scrollTo({top:Number(e.scrollY)||0,behavior:"instant"}),L(i)}u(a),t.viewTransition?(m=t.viewTransition,t.viewTransition.ready.then(()=>{n===o&&(r.dataset.cardTransition="active")}).catch(()=>{}),t.viewTransition.finished.catch(()=>{}).then(()=>{n===o&&(m=null,c())})):c()}),addEventListener("pagehide",()=>{o++}),addEventListener("pageshow",t=>{t.persisted&&(o++,d=null,c())}),addEventListener("wheel",()=>m?.skipTransition(),{passive:!0}),addEventListener("touchstart",()=>m?.skipTransition(),{passive:!0}),addEventListener("keydown",()=>m?.skipTransition()),addEventListener("popstate",()=>{s&&(o++,d=null,c(),u(a))})})();
 </script>
@@ -20,18 +20,174 @@
 </svg></button>
 <nav class="main-nav" id="main-nav" aria-label="Navegação principal"><a href="../">Início</a><a href="../estudos/">Estudos</a><a href="../plataforma/" aria-current="page">Plataforma</a><a href="../jogos/">3D e programação</a><a href="../#metodo">Habilidades</a><a href="../#contato">Contato</a></nav>
 </div></header><main id="conteudo" tabindex="-1">
-<section class="platform-hero wrap" aria-labelledby="platform-title"><a class="back-link" href="../">Portfólio <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+<section class="platform-hero wrap" aria-labelledby="platform-title"><div class="platform-hero-copy"><div class="platform-breadcrumb"><a class="back-link" href="../">Portfólio <!--
+tags: [top, corner, point]
+category: Arrows
+version: "1.0"
+unicode: "ea24"
+-->
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.7"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
   <path d="M17 7l-10 10" />
   <path d="M8 7l9 0l0 9" />
-</svg></a><p class="project-context">Desenvolvimento web</p><h1 id="platform-title">Uma plataforma<br><span>para estudar.</span></h1><p class="platform-lead">Aulas, questões e acompanhamento de progresso em uma experiência integrada.</p><div class="hero-actions"><a class="button button-solid" href="#por-dentro">Conhecer o projeto <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+</svg></a><span>Desenvolvimento web</span></div><h1 id="platform-title">Uma plataforma<br><span>para estudar.</span></h1><p class="platform-lead">Aulas, questões e acompanhamento de progresso em uma experiência integrada.</p><div class="hero-actions"><a class="button button-solid" href="#por-dentro">Conhecer o projeto <!--
+tags: [next, proceed, swipe]
+category: Arrows
+version: "1.0"
+unicode: "ea1f"
+-->
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.7"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
   <path d="M5 12l14 0" />
   <path d="M13 18l6 -6" />
   <path d="M13 6l6 6" />
-</svg></a></div>
-</section>
-
+</svg></a></div></div><aside class="platform-overview" aria-label="Visão geral e tecnologias"><div class="overview-copy"><strong class="overview-title">Visão geral</strong><p>Da entrada na conta às atividades de estudo, com o progresso reunido no mesmo ambiente.</p></div><strong class="technology-title">Tecnologias e ferramentas</strong><ul class="technology-grid" aria-label="Tecnologias e ferramentas"><li><!--
+category: Devices
+tags: [monitor, computer, imac]
+version: "1.0"
+unicode: "ea89"
+-->
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.7"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M3 5a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1v-10z" />
+  <path d="M7 20h10" />
+  <path d="M9 16v4" />
+  <path d="M15 16v4" />
+</svg><span>Frontend</span></li><li><!--
+tags: [opensource, database, software, storage]
+category: Brand
+version: "2.1"
+unicode: "f6d3"
+-->
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.7"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M4 14h8v7l8 -11h-8v-7z" />
+</svg><span>Supabase</span></li><li><!--
+tags: [library, javascript, creation, interface, software]
+category: Brand
+unicode: "f34c"
+version: "1.88"
+-->
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.7"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M6.306 8.711c-2.602 .723 -4.306 1.926 -4.306 3.289c0 2.21 4.477 4 10 4c.773 0 1.526 -.035 2.248 -.102" />
+  <path d="M17.692 15.289c2.603 -.722 4.308 -1.926 4.308 -3.289c0 -2.21 -4.477 -4 -10 -4c-.773 0 -1.526 .035 -2.25 .102" />
+  <path d="M6.305 15.287c-.676 2.615 -.485 4.693 .695 5.373c1.913 1.105 5.703 -1.877 8.464 -6.66c.387 -.67 .733 -1.339 1.036 -2" />
+  <path d="M17.694 8.716c.677 -2.616 .487 -4.696 -.694 -5.376c-1.913 -1.105 -5.703 1.877 -8.464 6.66c-.387 .67 -.733 1.34 -1.037 2" />
+  <path d="M12 5.424c-1.925 -1.892 -3.82 -2.766 -5 -2.084c-1.913 1.104 -1.226 5.877 1.536 10.66c.386 .67 .793 1.304 1.212 1.896" />
+  <path d="M12 18.574c1.926 1.893 3.821 2.768 5 2.086c1.913 -1.104 1.226 -5.877 -1.536 -10.66c-.375 -.65 -.78 -1.283 -1.212 -1.897" />
+  <path d="M11.5 12.866a1 1 0 1 0 1 -1.732a1 1 0 0 0 -1 1.732z" />
+</svg><span>React e TypeScript</span></li><li><!--
+category: System
+tags: [safety, protect, protection, "yes", add]
+version: "1.0"
+unicode: "eb22"
+-->
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.7"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M11.46 20.846a12 12 0 0 1 -7.96 -14.846a12 12 0 0 0 8.5 -3a12 12 0 0 0 8.5 3a12 12 0 0 1 -.09 7.06" />
+  <path d="M15 19l2 2l4 -4" />
+</svg><span>Testes / Playwright</span></li><li><!--
+tags: [logotype, web, website, glyph, social]
+category: Brand
+version: "1.82"
+unicode: "f2d3"
+-->
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.7"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M9.5 9h3" />
+  <path d="M4 9h2.5" />
+  <path d="M11 9l3 11l4 -9" />
+  <path d="M5.5 9l3.5 11l3 -7" />
+  <path d="M18 11c.177 -.528 1 -1.364 1 -2.5c0 -1.78 -.776 -2.5 -1.875 -2.5c-.898 0 -1.125 .812 -1.125 1.429c0 1.83 2 2.058 2 3.571z" />
+  <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+</svg><span>WordPress</span></li><li><!--
+tags: [power, electricity, cable, socket]
+version: "1.53"
+category: Devices
+unicode: "f00a"
+-->
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.7"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M7 12l5 5l-1.5 1.5a3.536 3.536 0 1 1 -5 -5l1.5 -1.5z" />
+  <path d="M17 12l-5 -5l1.5 -1.5a3.536 3.536 0 1 1 5 5l-1.5 1.5z" />
+  <path d="M3 21l2.5 -2.5" />
+  <path d="M18.5 5.5l2.5 -2.5" />
+  <path d="M10 11l-2 2" />
+  <path d="M13 14l-2 2" />
+</svg><span>Integrações e CRM</span></li></ul></aside></section>
 <section class="platform-tour wrap section-space" id="por-dentro" aria-labelledby="tour-title"><div class="section-intro"><h2 id="tour-title">Por dentro da plataforma.</h2><p>Telas de uma conta de exemplo.</p></div><div class="media-gallery platform-gallery" id="platform-gallery" data-gallery data-interval="7000" role="region" aria-roledescription="carrossel" aria-label="Telas da plataforma de estudos" tabindex="0">
 <div class="gallery-viewport"><figure class="media-slide" data-gallery-slide data-title="Início e progresso" data-description="Próxima atividade e progresso.">
 <a class="gallery-open" href="../assets/img/portfolio/plataforma-inicio.webp" target="_blank" rel="noopener" aria-label="Ampliar: Início e progresso"><picture><source media="(max-width: 680px)" srcset="../assets/img/portfolio/plataforma-inicio-mobile.webp" width="780" height="1560"><img src="../assets/img/portfolio/plataforma-inicio.webp" width="1600" height="900" alt="Próxima atividade e progresso." loading="eager" fetchpriority="high" decoding="async"></picture><span class="gallery-expand"><svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
@@ -70,19 +226,254 @@
   <path d="M13 18l6 -6" />
   <path d="M13 6l6 6" />
 </svg></button></div></div>
-<p class="sr-only" data-gallery-status role="status"></p></div></section>
-
-<section class="platform-build wrap section-space" aria-labelledby="build-title"><div class="section-intro"><h2 id="build-title">Minha atuação.</h2><p>Interface, acesso, integrações e testes, com execução coordenada por agentes de IA.</p></div><div class="build-columns"><article><h3>React e TypeScript.</h3><p>Desenvolvimento da interface.</p></article><article><h3>WordPress e Supabase.</h3><p>Dados, acesso e integração com CRM.</p></article><article><h3>Revisão e testes.</h3><p>Verificação do comportamento com Playwright.</p></article></div>
-<p class="project-stage">Versão publicada, em evolução.</p></section>
-<nav class="next-area wrap" aria-label="Outras áreas"><a href="../estudos/"><span>Projetos de estudos <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+<p class="sr-only" data-gallery-status role="status"></p></div><div class="platform-features" aria-label="Funcionalidades da plataforma"><article><span class="platform-feature-icon"><!--
+tags: [power, electricity, cable, socket]
+version: "1.53"
+category: Devices
+unicode: "f00a"
+-->
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.7"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M7 12l5 5l-1.5 1.5a3.536 3.536 0 1 1 -5 -5l1.5 -1.5z" />
+  <path d="M17 12l-5 -5l1.5 -1.5a3.536 3.536 0 1 1 5 5l-1.5 1.5z" />
+  <path d="M3 21l2.5 -2.5" />
+  <path d="M18.5 5.5l2.5 -2.5" />
+  <path d="M10 11l-2 2" />
+  <path d="M13 14l-2 2" />
+</svg></span><h3>Acesso rápido</h3><p>Menu organizado para seguir a jornada de estudo.</p></article><article><span class="platform-feature-icon"><!--
+category: Media
+version: "1.28"
+tags: [start, video, film, music, player]
+unicode: "ed46"
+-->
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.7"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M7 4v16l13 -8z" />
+</svg></span><h3>Acompanhamento</h3><p>Próximas atividades e aulas reunidas na página inicial.</p></article><article><span class="platform-feature-icon"><!--
+tags: [data, pdf, txt]
+category: Document
+version: "1.0"
+unicode: "eaa2"
+-->
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.7"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M14 3v4a1 1 0 0 0 1 1h4" />
+  <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
+  <path d="M9 9l1 0" />
+  <path d="M9 13l6 0" />
+  <path d="M9 17l6 0" />
+</svg></span><h3>Questões</h3><p>Atividades para praticar os conteúdos estudados.</p></article><article><span class="platform-feature-icon"><!--
+category: System
+tags: [date, day, plan, schedule, agenda, calender]
+version: "1.1"
+unicode: "ea52"
+-->
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.7"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M4 5m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" />
+  <path d="M16 3l0 4" />
+  <path d="M8 3l0 4" />
+  <path d="M4 11l16 0" />
+  <path d="M8 15h2v2h-2z" />
+</svg></span><h3>Eventos</h3><p>Encontros e horários organizados na agenda.</p></article><article><span class="platform-feature-icon"><!--
+tags: [statistics, diagram, graph, rhythm, data, analysis]
+category: Charts
+version: "1.0"
+unicode: "ea59"
+-->
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.7"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M3 13a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+  <path d="M15 9a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+  <path d="M9 5a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+  <path d="M4 20h14" />
+</svg></span><h3>Progresso</h3><p>Pontos, presenças e histórico para acompanhar a evolução.</p></article></div></section>
+<section class="platform-build section-space" aria-labelledby="build-title"><div class="wrap"><div class="section-intro"><h2 id="build-title">Minha atuação.</h2><p>Interface, acesso, integrações e testes, com execução coordenada por agentes de IA.</p></div><div class="build-columns"><article><span class="build-icon"><!--
+category: Text
+tags: [brackets, source, programming, command]
+version: "1.0"
+unicode: "ea77"
+-->
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.7"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M7 8l-4 4l4 4" />
+  <path d="M17 8l4 4l-4 4" />
+  <path d="M14 4l-4 16" />
+</svg></span><div><h3>React e TypeScript.</h3><p>Desenvolvimento da interface.</p></div></article><article><span class="build-icon"><!--
+tags: [opensource, database, software, storage]
+category: Brand
+version: "2.1"
+unicode: "f6d3"
+-->
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.7"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M4 14h8v7l8 -11h-8v-7z" />
+</svg></span><div><h3>WordPress e Supabase.</h3><p>Dados, acesso e integração com CRM.</p></div></article><article><span class="build-icon"><!--
+category: System
+tags: [safety, protect, protection, "yes", add]
+version: "1.0"
+unicode: "eb22"
+-->
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.7"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M11.46 20.846a12 12 0 0 1 -7.96 -14.846a12 12 0 0 0 8.5 -3a12 12 0 0 0 8.5 3a12 12 0 0 1 -.09 7.06" />
+  <path d="M15 19l2 2l4 -4" />
+</svg></span><div><h3>Revisão e testes.</h3><p>Verificação do comportamento com Playwright.</p></div></article></div><p class="project-stage">Versão publicada, em evolução.</p></div></section>
+<nav class="next-area wrap" aria-label="Outras áreas"><a href="../estudos/"><span class="related-icon"><!--
+category: Document
+tags: [read, dictionary, magazine, library, booklet, novel]
+version: "1.0"
+unicode: "ea39"
+-->
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.7"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+  <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+  <path d="M3 6l0 13" />
+  <path d="M12 6l0 13" />
+  <path d="M21 6l0 13" />
+</svg></span><span class="related-copy"><strong>Projetos de estudos</strong><span>Planejamento e resumos para estudar.</span></span><!--
+tags: [top, corner, point]
+category: Arrows
+version: "1.0"
+unicode: "ea24"
+-->
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.7"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
   <path d="M17 7l-10 10" />
   <path d="M8 7l9 0l0 9" />
-</svg></span></a><a href="../jogos/"><span>Modelagem 3D e programação <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+</svg></a><a href="../jogos/"><span class="related-icon"><!--
+category: Shapes
+tags: [3d, pattern, abstract, geometric, shape]
+version: "2.20"
+unicode: "fa97"
+-->
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.7"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M21 16.008v-8.018a1.98 1.98 0 0 0 -1 -1.717l-7 -4.008a2.016 2.016 0 0 0 -2 0l-7 4.008c-.619 .355 -1 1.01 -1 1.718v8.018c0 .709 .381 1.363 1 1.717l7 4.008a2.016 2.016 0 0 0 2 0l7 -4.008c.619 -.355 1 -1.01 1 -1.718z" />
+  <path d="M12 22v-10" />
+  <path d="M12 12l8.73 -5.04" />
+  <path d="M3.27 6.96l8.73 5.04" />
+</svg></span><span class="related-copy"><strong>Modelagem 3D e programação</strong><span>Blender, Ruby e integrações em C#.</span></span><!--
+tags: [top, corner, point]
+category: Arrows
+version: "1.0"
+unicode: "ea24"
+-->
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.7"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
   <path d="M17 7l-10 10" />
   <path d="M8 7l9 0l0 9" />
-</svg></span></a></nav></main><footer class="site-footer wrap" id="contato" aria-labelledby="contact-title">
+</svg></a></nav>
+</main><footer class="site-footer wrap" id="contato" aria-labelledby="contact-title">
 <div class="footer-main"><div><h2 id="contact-title">Contato.</h2></div>
 <div class="footer-contact"><a class="footer-email" href="mailto:jrmaciell92@gmail.com">jrmaciell92@gmail.com <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
   <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -120,7 +511,7 @@
   <path d="M13 18l6 -6" />
   <path d="M13 6l6 6" />
 </svg></button></div></div>
-<div class="media-dialog-tools"><button class="text-button" type="button" id="media-dialog-zoom" aria-pressed="false">Tamanho real</button><a class="text-link" id="media-dialog-original" href="../assets/img/portfolio/trabalho-visao-geral.webp" target="_blank" rel="noopener">Abrir imagem em outra aba <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+<div class="media-dialog-tools"><button class="text-button" type="button" id="media-dialog-zoom" aria-pressed="false">Tamanho real</button><a class="text-link" id="media-dialog-original" href="../assets/img/portfolio/plataforma-inicio.webp" target="_blank" rel="noopener">Abrir imagem em outra aba <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
   <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
   <path d="M17 7l-10 10" />
   <path d="M8 7l9 0l0 9" />

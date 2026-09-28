@@ -1,6 +1,6 @@
 {
-  "commit": "a4099b72de0546aa0ca6614fc8667fb026efeaef",
-  "data": "2026-09-27T21:39:45-03:00",
+  "commit": "5f4f5375a141d563ec4b3577081bbaf0686cca4d",
+  "data": "2026-09-28T00:31:36-03:00",
   "dirty": false,
   "css": "assets/css/site.6040bdf91ad9.css",
   "js": "assets/js/site.cf633c82d420.js",
@@ -20,14 +20,14 @@
       "earlyJsBytes": 4742
     },
     "plataforma/index.html": {
-      "css": "assets/css/site.eea3e944fa39.css",
+      "css": "assets/css/site.8ea6672547c6.css",
       "js": "assets/js/site.6bd95203b1ff.js",
       "modules": [],
       "earlyJsBytes": 4742
     },
     "jogos/index.html": {
-      "css": "assets/css/site.ef4309c01bcb.css",
-      "js": "assets/js/site.6bd95203b1ff.js",
+      "css": "assets/css/site.e6648806e72f.css",
+      "js": "assets/js/site.38cf404454cd.js",
       "modules": [],
       "earlyJsBytes": 4742
     },
