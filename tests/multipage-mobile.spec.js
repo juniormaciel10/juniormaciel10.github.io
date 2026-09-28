@@ -1,4 +1,5 @@
 const {test,expect}=require('@playwright/test');
+const {jump}=require('./helpers.cjs');
 test('Celular: menu, carrossel dos terminais e ampliação em WebKit/Chromium',async({browser,baseURL})=>{
  const context=await browser.newContext({baseURL,viewport:{width:390,height:844},hasTouch:true,reducedMotion:'reduce'});
  const page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));
@@ -25,7 +26,8 @@ for(const route of ['/plataforma/','/jogos/'])test('Celular: tema, imagens e ret
  await page.setViewportSize({width:390,height:844});await page.goto(route);
  await page.evaluate(()=>document.fonts.ready);
  const gallery=page.locator('[data-gallery]').first();
- await gallery.scrollIntoViewIfNeeded();
+ // Settle the control itself; WebKit can otherwise click during a pending scroll.
+ await jump(page,'#'+await gallery.getAttribute('id')+' [data-gallery-next]');
  await gallery.locator('[data-gallery-next]').click();
  await expect(gallery).toHaveAttribute('data-current','1');
  expect(await gallery.locator('[data-gallery-slide]:not([hidden]) img').evaluate(img=>img.complete&&img.naturalWidth>0)).toBe(true);

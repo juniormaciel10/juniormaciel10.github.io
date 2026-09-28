@@ -2,13 +2,21 @@ const {test,expect}=require('@playwright/test');
 const {open,jump}=require('./helpers.cjs');
 const names=['disponibilidade','disciplinas','formatos','retomada','tarefas','revisoes'];
 const src=index=>'../assets/img/estudo-galeria-'+names[index]+'.png';
-async function gallery(page,width=1440){await open(page,width);await jump(page,'#software-gallery');await page.mouse.move(5,400);await expect(page.locator('#gallery-image')).toHaveJSProperty('complete',true)}
+async function gallery(page,width=1440,{paused=false}={}){
+ await open(page,width);
+ if(paused){
+  // Pause before waiting for layout, so autoplay cannot preload a later neighbor.
+  const control=page.locator('#gallery-pause');await control.focus();await control.press('Enter');
+  await expect(control).toHaveAttribute('aria-pressed','true');
+ }
+ await jump(page,'#software-gallery');await page.mouse.move(5,400);await expect(page.locator('#gallery-image')).toHaveJSProperty('complete',true);
+}
 async function screen(page,index){await expect(page.locator('#software-gallery')).toHaveAttribute('data-current',String(index));await expect(page.locator('#gallery-image')).toHaveAttribute('src',src(index));await expect(page.locator('[data-slide][aria-current]')).toHaveAttribute('href',src(index));await expect.poll(()=>page.locator('#gallery-image').evaluate(e=>e.naturalWidth)).toBeGreaterThan(900)}
 
 test('Imagens completas são carregadas conforme o uso, sem seis downloads antecipados',async({page})=>{
  const full=new Set();page.on('request',r=>{if(/estudo-galeria-.*\.png$/.test(r.url()))full.add(r.url().split('/').pop())});
- await gallery(page);expect([...full].every(file=>/disponibilidade|disciplinas/.test(file))).toBe(true);
- await page.locator('#gallery-pause').click();await page.locator('[data-slide="4"]').click();await screen(page,4);
+ await gallery(page,1440,{paused:true});expect([...full].every(file=>/disponibilidade|disciplinas/.test(file))).toBe(true);
+ await page.locator('[data-slide="4"]').click();await screen(page,4);
  await page.locator('#gallery-expand').click();await expect(page.locator('#gallery-dialog')).toBeVisible();await expect(page.locator('#dialog-image')).toHaveAttribute('src',src(4));
  await page.keyboard.press('ArrowLeft');await screen(page,3);await expect(page.locator('#dialog-original')).toHaveAttribute('href',src(3));
  await page.keyboard.press('Escape');await expect(page.locator('#gallery-expand')).toBeFocused();
