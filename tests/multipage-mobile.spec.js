@@ -11,19 +11,19 @@ test('Modelagem: miniaturas, ficha e ampliação acompanham a seleção',async({
  await jump(page,'#roblox-gallery [data-gallery-select="2"]');
  await gallery.locator('[data-gallery-select="2"]').click();
  await expect(gallery).toHaveAttribute('data-current','2');
- await expect(gallery.locator('[data-model-panel]:not([hidden]) h3')).toHaveText('Blusa Trama Nexo');
+ await expect(gallery.locator('[data-model-panel]:not([hidden]) h3')).toHaveText('Óculos Prisma Grafite');
  await expect(gallery.locator('[data-model-position]')).toHaveText('03 / 04');
  await gallery.focus();await page.keyboard.press('End');
  await expect(gallery).toHaveAttribute('data-current','3');
- await expect(gallery.locator('[data-model-panel]:not([hidden]) h3')).toHaveText('Kit Passarela Nexo');
+ await expect(gallery.locator('[data-model-panel]:not([hidden]) h3')).toHaveText('Satélite Órbita');
  await expect(gallery.locator('[data-model-position]')).toHaveText('04 / 04');
  await gallery.locator('[data-gallery-slide]:not([hidden]) .gallery-open').click();
  await expect(page.locator('#media-dialog')).toBeVisible();
- await expect(page.locator('#media-dialog-image')).toHaveAttribute('src',/modelo-kit-passarela\.webp$/);
+ await expect(page.locator('#media-dialog-image')).toHaveAttribute('src',/modelo-satelite-orbita\.webp$/);
  await page.keyboard.press('Escape');
  await expect(gallery.locator('[data-gallery-slide]:not([hidden]) .gallery-open')).toBeFocused();
  await gallery.locator('[data-gallery-select="0"]').focus();await page.keyboard.press('Enter');
- await expect(gallery.locator('[data-model-panel]:not([hidden]) h3')).toHaveText('Jaqueta Metro Nexo');
+ await expect(gallery.locator('[data-model-panel]:not([hidden]) h3')).toHaveText('Bolsa Metro Grafite');
  await expect(gallery.locator('[data-model-position]')).toHaveText('01 / 04');
 });
 

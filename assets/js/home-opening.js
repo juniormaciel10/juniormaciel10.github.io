@@ -111,7 +111,6 @@ if (signal) {
       stage2(line, "opening-line", { transform: "scaleX(0)" }, { transform: "scaleX(1)" }, 1e3, lineArrival);
       stage2(travel, "opening-travel", { transform: "translateX(0)" }, { transform: "translateX(100%)" }, 1e3, lineArrival);
       stage2(name, "opening-name", { opacity: 0, transform: `translateY(${compact.matches ? 14 : 28}px)` }, { opacity: 1, transform: "translateY(0)" }, contentStart, nameEnd);
-      stage2(caption, "opening-caption", { opacity: 0 }, { opacity: 1 }, contentStart, contentStart + 1850);
       stage2(header, "opening-header", { opacity: 0 }, { opacity: 1 }, contentStart, contentStart + 1500);
       stage2(slides, "opening-slides", { opacity: 0 }, { opacity: 1 }, slidesStart, slidesEnd);
       remainder.forEach((element, index) => stage2(element, `opening-rest-${index}`, { opacity: 0 }, { opacity: 1 }, restStart, total));
@@ -146,7 +145,6 @@ if (signal) {
   const travel = signal.querySelector("[data-opening-travel]");
   const dot = signal.querySelector("[data-opening-dot]");
   const name = document.querySelector("[data-opening-name]");
-  const caption = document.querySelector("[data-opening-caption]");
   const slides = document.querySelector("[data-opening-slides]");
   const header = document.querySelector(".header-inner");
   const remainder = [...document.querySelectorAll("[data-opening-rest]")];

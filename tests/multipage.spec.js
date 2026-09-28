@@ -114,11 +114,17 @@ test('Troca automática respeita pausa manual e saída da área visível',async(
 test('Galerias da plataforma e de modelagem usam imagens reais e mantêm ações independentes',async({page,request})=>{
  await visit(page,'/plataforma/',390);
  const platform=page.locator('#platform-gallery');
- await expect(platform.locator('[data-gallery-slide]')).toHaveCount(4);
+ await expect(platform.locator('[data-gallery-slide]')).toHaveCount(5);
  await platform.scrollIntoViewIfNeeded();
  await platform.locator('[data-gallery-select="1"]').click();
  await expect(platform).toHaveAttribute('data-current','1');
- await expect.poll(()=>platform.locator('[data-gallery-slide]:not([hidden]) img').evaluate(img=>img.currentSrc)).toMatch(/plataforma-aulas-mobile\.webp$/);
+ await expect.poll(()=>platform.locator('[data-gallery-slide]:not([hidden]) img').evaluate(img=>img.currentSrc)).toMatch(/plataforma-aulas-mobile-preview\.webp$/);
+ await platform.locator('[data-gallery-select="4"]').click();
+ await expect(platform).toHaveAttribute('data-current','4');
+ await expect.poll(()=>platform.locator('[data-gallery-slide]:not([hidden]) img').evaluate(img=>img.currentSrc)).toMatch(/plataforma-lp-mobile-preview\.webp$/);
+ await platform.locator('[data-gallery-slide]:not([hidden]) .gallery-open').click();
+ await expect(page.locator('#media-dialog-image')).toHaveAttribute('src',/plataforma-lp\.webp$/);
+ await page.keyboard.press('Escape');
  await visit(page,'/jogos/');
  const roblox=page.locator('#roblox-gallery'),game=page.locator('#gametwo-gallery');
  await expect(roblox.locator('[data-gallery-slide]')).toHaveCount(4);
@@ -136,7 +142,7 @@ test('Galerias da plataforma e de modelagem usam imagens reais e mantêm ações
  await expect(game).toHaveAttribute('data-current','1');
  const pdf=await request.get('/assets/downloads/portfolio-modelagem-3d.pdf');
  expect(pdf.status()).toBe(200);expect(pdf.headers()['content-type']).toContain('application/pdf');
- await expect(page.locator('#p-gametwo')).toContainText('em parceria com Gabriel');
+ await expect(page.locator('#p-gametwo')).toContainText('Lógica de jogo e cenários em Ruby e Gosu.');
  await expect(page.locator('#p-govoice')).toContainText(/em desenvolvimento/i);
 });
 

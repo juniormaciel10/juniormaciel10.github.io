@@ -42,7 +42,8 @@
 .feature-symbol .icon{width:22px;height:22px}
 .game-features h3{font-size:15px;line-height:1.4;letter-spacing:-.015em;font-weight:550}
 .game-features p{font-size:13px;line-height:1.6;color:var(--muted);margin-top:5px}
-.roblox-section{display:grid;grid-template-columns:210px minmax(0,1fr);gap:36px;align-items:start}
+.roblox-section{display:grid;grid-template-columns:minmax(min-content,250px) minmax(0,1fr);gap:36px;align-items:start}
+.roblox-section .practice-copy h2{overflow-wrap:normal;text-wrap:balance}
 .craft-list{display:grid;gap:16px;list-style:none;margin:30px 0 0;padding:0;color:var(--muted);font-size:14px}
 .craft-list li{display:flex;align-items:center;gap:12px}
 .craft-list .icon{color:var(--accent);width:21px;height:21px}
