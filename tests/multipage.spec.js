@@ -51,6 +51,7 @@ test('O carrossel dos terminais permite selecionar, ampliar, ler em tamanho real
  await gallery.scrollIntoViewIfNeeded();
  await gallery.locator('[data-gallery-pause]').click();
  await expect(gallery).toHaveAttribute('data-paused','true');
+ await expect(gallery.locator('[data-gallery-slide]:not([hidden]) .gallery-open')).toHaveAttribute('href',/trabalho-02\.webp$/);
  await gallery.locator('[data-gallery-next]').click();
  await expect(gallery).toHaveAttribute('data-current','1');
  await gallery.locator('[data-gallery-slide]:not([hidden]) .gallery-open').click();
@@ -59,7 +60,7 @@ test('O carrossel dos terminais permite selecionar, ampliar, ler em tamanho real
  await expect(dialog).not.toHaveAttribute('aria-busy');
  await expect(page.locator('#media-dialog-image')).toHaveAttribute('src',/trabalho-01\.webp$/);
  await page.locator('#media-dialog-next').click();
- await expect(page.locator('#media-dialog-image')).toHaveAttribute('src',/trabalho-02\.webp$/);
+ await expect(page.locator('#media-dialog-image')).toHaveAttribute('src',/trabalho-06\.webp$/);
  await page.locator('#media-dialog-zoom').click();
  await expect(dialog).toHaveClass(/is-zoomed/);
  expect(await page.locator('#media-dialog-image').evaluate(img=>Math.round(img.getBoundingClientRect().width)===img.naturalWidth)).toBe(true);
@@ -74,7 +75,7 @@ test('O carrossel dos terminais permite selecionar, ampliar, ler em tamanho real
 });
 
 test('Seleção rápida conserva a última escolha e falha de imagem mantém a captura anterior',async({page})=>{
- await page.route('**/trabalho-02*.webp',route=>route.abort('failed'));
+ await page.route('**/trabalho-06*.webp',route=>route.abort('failed'));
  await page.route('**/trabalho-03*.webp',async route=>{await new Promise(resolve=>setTimeout(resolve,500));await route.continue()});
  await visit(page);
  const gallery=page.locator('#workspace-gallery');

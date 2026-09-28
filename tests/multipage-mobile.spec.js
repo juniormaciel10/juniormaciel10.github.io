@@ -13,7 +13,7 @@ test('Celular: menu, carrossel dos terminais e ampliação em WebKit/Chromium',a
   await gallery.locator('[data-gallery-slide]:not([hidden]) .gallery-open').tap();
   await expect(page.locator('#media-dialog')).toBeVisible();
   await page.locator('#media-dialog-next').tap();
-  await expect(page.locator('#media-dialog-image')).toHaveAttribute('src',/trabalho-02\.webp$/);
+  await expect(page.locator('#media-dialog-image')).toHaveAttribute('src',/trabalho-06\.webp$/);
   await page.getByRole('button',{name:'Fechar imagem',exact:true}).tap();
   await expect(page.locator('#media-dialog')).not.toBeVisible();
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
