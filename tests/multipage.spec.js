@@ -26,6 +26,7 @@ for(const route of routes)for(const width of [320,390,1024,1440])test('Página '
  expect(new Set(ids).size).toBe(ids.length);
  expect(await page.locator('a[href]').evaluateAll(es=>es.filter(e=>e.origin===location.origin&&e.pathname===location.pathname&&e.hash.length>1&&!document.getElementById(decodeURIComponent(e.hash.slice(1)))).map(e=>e.href))).toEqual([]);
  expect(errors).toEqual([]);
+ expect(await page.locator('.site-header').evaluate(el=>el.getBoundingClientRect().height)).toBeLessThanOrEqual(80);
 });
 
 test('Três banners levam às áreas e o método conserva suas etapas e registros',async({page})=>{
@@ -122,13 +123,17 @@ test('Galerias da plataforma e de modelagem usam imagens reais e mantêm ações
  const roblox=page.locator('#roblox-gallery'),game=page.locator('#gametwo-gallery');
  await expect(roblox.locator('[data-gallery-slide]')).toHaveCount(4);
  await expect(game.locator('[data-gallery-slide]')).toHaveCount(3);
+ await game.locator('[data-gallery-pause]').focus();await page.keyboard.press('Enter');
+ await expect(game).toHaveAttribute('data-paused','true');
+ await game.locator('[data-gallery-select="1"]').click();
+ await expect(game).toHaveAttribute('data-current','1');
  const modelFrame=await roblox.locator('[data-gallery-slide]:not([hidden]) picture').boundingBox();
  const gameFrame=await game.locator('[data-gallery-slide]:not([hidden]) picture').boundingBox();
  expect(modelFrame.width).toBeLessThanOrEqual(640);expect(modelFrame.height).toBeLessThanOrEqual(480);
  expect(gameFrame.width).toBeLessThanOrEqual(840);expect(gameFrame.height).toBeLessThanOrEqual(473);
  await roblox.locator('[data-gallery-select="2"]').click();
  await expect(roblox).toHaveAttribute('data-current','2');
- await expect(game).toHaveAttribute('data-current','0');
+ await expect(game).toHaveAttribute('data-current','1');
  const pdf=await request.get('/assets/downloads/portfolio-modelagem-3d.pdf');
  expect(pdf.status()).toBe(200);expect(pdf.headers()['content-type']).toContain('application/pdf');
  await expect(page.locator('#p-gametwo')).toContainText('em parceria com Gabriel');
@@ -140,7 +145,7 @@ test('Cada tema tem bundle próprio e as seis páginas mantêm metadados e pacot
  const build=await(await request.get('/assets/build.json')).json();
  expect(Object.keys(build.pages)).toHaveLength(6);
  expect(new Set(['index.html','estudos/index.html','plataforma/index.html','jogos/index.html'].map(key=>build.pages[key].css)).size).toBe(4);
- expect(build.pages['plataforma/index.html'].js).toBe(build.pages['jogos/index.html'].js);
+ expect(build.pages['plataforma/index.html'].js).not.toBe(build.pages['jogos/index.html'].js);
  for(const route of routes){
   await visit(page,route);
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href','https://juniormaciel10.github.io'+route);

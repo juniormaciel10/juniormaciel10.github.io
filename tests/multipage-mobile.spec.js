@@ -1,5 +1,32 @@
 const {test,expect}=require('@playwright/test');
 const {jump}=require('./helpers.cjs');
+
+test('Modelagem: miniaturas, ficha e ampliação acompanham a seleção',async({page})=>{
+ await page.setViewportSize({width:390,height:844});await page.goto('/jogos/');
+ await page.evaluate(()=>document.fonts.ready);
+ const gallery=page.locator('#roblox-gallery');
+ await expect(gallery).toHaveClass(/is-inspected/);
+ await gallery.locator('[data-gallery-pause]').focus();await page.keyboard.press('Enter');
+ await expect(gallery).toHaveAttribute('data-paused','true');
+ await jump(page,'#roblox-gallery [data-gallery-select="2"]');
+ await gallery.locator('[data-gallery-select="2"]').click();
+ await expect(gallery).toHaveAttribute('data-current','2');
+ await expect(gallery.locator('[data-model-panel]:not([hidden]) h3')).toHaveText('Blusa Trama Nexo');
+ await expect(gallery.locator('[data-model-position]')).toHaveText('03 / 04');
+ await gallery.focus();await page.keyboard.press('End');
+ await expect(gallery).toHaveAttribute('data-current','3');
+ await expect(gallery.locator('[data-model-panel]:not([hidden]) h3')).toHaveText('Kit Passarela Nexo');
+ await expect(gallery.locator('[data-model-position]')).toHaveText('04 / 04');
+ await gallery.locator('[data-gallery-slide]:not([hidden]) .gallery-open').click();
+ await expect(page.locator('#media-dialog')).toBeVisible();
+ await expect(page.locator('#media-dialog-image')).toHaveAttribute('src',/modelo-kit-passarela\.webp$/);
+ await page.keyboard.press('Escape');
+ await expect(gallery.locator('[data-gallery-slide]:not([hidden]) .gallery-open')).toBeFocused();
+ await gallery.locator('[data-gallery-select="0"]').focus();await page.keyboard.press('Enter');
+ await expect(gallery.locator('[data-model-panel]:not([hidden]) h3')).toHaveText('Jaqueta Metro Nexo');
+ await expect(gallery.locator('[data-model-position]')).toHaveText('01 / 04');
+});
+
 test('Celular: menu, carrossel dos terminais e ampliação em WebKit/Chromium',async({browser,baseURL})=>{
  const context=await browser.newContext({baseURL,viewport:{width:390,height:844},hasTouch:true,reducedMotion:'reduce'});
  const page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));

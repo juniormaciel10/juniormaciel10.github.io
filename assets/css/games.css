@@ -1,71 +1,153 @@
-.games-page{--paper:#141512;--field:#1d1e19;--surface:#252720;--ink:#f0eee6;--muted:#b4b5a8;--line:#3e4135;--control-line:#828774;--accent:#edb95e;--action-label:#1e1c14;--focus:#ffd48a}
-.games-page h1,.games-page h2{font-family:Clash,Geist,Arial,sans-serif;font-weight:600;letter-spacing:-.055em}
-.games-hero{display:grid;grid-template-columns:1.1fr 1fr;gap:36px;align-items:center;padding-top:40px;padding-bottom:48px}
-.games-hero-copy h1{font-size:clamp(42px,5.8vw,86px);line-height:1.06}
+.games-page{--paper:#0d1510;--field:#172018;--surface:#20291e;--ink:#f2f2ea;--muted:#b7bdaf;--line:#343e2f;--control-line:#8e7950;--accent:#f4bc58;--action-label:#1a1c12;--focus:#ffda8c;position:relative;isolation:isolate;color-scheme:dark}
+.games-page::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,#0d1510ce,#0d1510f7 52%),url('../img/portfolio/game-two-ambiente.webp') left top/540px auto repeat-y;opacity:.65}
+.games-page .wrap{max-width:1440px}
+.games-page .site-header{box-shadow:inset 0 -1px var(--line);background:var(--paper)}
+.games-page .main-nav a[aria-current="page"]{color:var(--accent)}
+.games-page h1,.games-page h2{font-family:Geist,Arial,sans-serif;font-weight:650;letter-spacing:-.055em}
+.games-page h2 span{color:var(--accent)}
+.games-page .button,.games-page .icon-button{border-radius:6px}
+.games-page .button-solid{font-weight:600;box-shadow:0 5px 20px #d09a1720}
+.games-page .button-solid:active{transform:translateY(1px)}
+.games-hero{display:grid;grid-template-columns:1fr 1.12fr;gap:48px;align-items:center;padding-block:32px 36px}
+.games-hero-copy .back-link{margin-bottom:14px}
+.games-hero-copy h1{font-size:clamp(38px,4.8vw,72px);line-height:1.03}
 .games-hero-copy h1 span{color:var(--accent);white-space:nowrap}
-.games-hero-copy>p{max-width:47ch;color:var(--muted);font-size:clamp(17px,1.45vw,21px);margin-top:28px}
-.games-hero-copy>.button{margin-top:28px}
-.games-hero-art{position:relative;min-width:0}
-.games-hero-art>img{width:100%;aspect-ratio:16/9;object-fit:contain;border:1px solid var(--line);border-radius:6px;background:#080908}
-.games-hero-art figcaption{display:flex;justify-content:space-between;gap:20px;font-size:12px;padding:14px 0;color:var(--muted)}
-.games-hero-art figcaption strong{font-weight:500;color:var(--ink)}
-.games-sections{display:flex;gap:40px;border-top:1px solid var(--line);padding-top:8px}
-.games-sections a{display:flex;align-items:center;min-height:52px;font-size:13px;color:var(--muted)}
-.games-sections a:hover{color:var(--accent)}
-.games-page .project-context{color:var(--accent);font-family:'Geist Mono',monospace;font-size:12px}
-.roblox-section{padding-top:70px}
-.roblox-section .section-intro{max-width:780px}
-.roblox-gallery{--gallery-ratio:4/3;max-width:min(640px,90svh);margin-inline:auto}
-.roblox-gallery .gallery-open{background:#080908;border:1px solid var(--line)}
+.games-hero-copy>p{max-width:39ch;font-size:18px;line-height:1.6;color:var(--ink);margin-top:24px}
+.games-hero-copy>.button{margin-top:26px}
+.games-hero-art{min-width:0;padding:14px;border:1px solid #65532c;border-radius:8px;background:linear-gradient(135deg,#252b1d88,#111811);box-shadow:0 20px 50px #05090450}
+.project-frame-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:12px;font-size:11px;color:var(--muted)}
+.project-frame-head strong{font-weight:500;color:var(--ink)}
+.games-hero-art>img{width:100%;aspect-ratio:16/9;object-fit:contain;border-radius:3px;background:#080d09}
+.games-hero-art figcaption{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:6px;color:var(--muted);font-size:11px;line-height:1.5}
+.games-hero-art .text-link{font-size:11px;color:var(--accent);text-decoration:none;gap:8px;flex:none}
+.games-hero-art .text-link .icon{width:16px;height:16px}
+.games-sections{display:flex;gap:34px;padding-block:6px;border-top:1px solid var(--line)}
+.games-sections a{display:flex;align-items:center;min-height:44px;color:var(--muted);font-size:13px}
+.games-sections a:hover,.games-sections a:focus-visible{color:var(--accent)}
+.game-project{border-block:1px solid var(--line);background:#11191070}
+.games-page .section-space{padding-block:64px}
+.game-layout{display:grid;grid-template-columns:minmax(210px,.72fr) minmax(0,1.5fr) minmax(200px,.75fr);gap:28px;align-items:start}
+.practice-copy h2{font-size:clamp(32px,2.8vw,46px);line-height:1.12}
+.practice-copy>p{margin-top:20px;color:var(--muted);font-size:15px;max-width:43ch}
+.practice-copy .game-status,.practice-copy .project-stage{font-size:13px;line-height:1.6;margin-top:22px;color:var(--muted)}
+.gametwo-gallery{max-width:840px;width:100%;margin-inline:auto}
+.gametwo-gallery .gallery-open{border:1px solid #5e4d2b;border-radius:6px;background:#11160e}
+.gametwo-gallery .media-slide figcaption{min-height:68px;padding-top:12px}
+.gametwo-gallery .media-slide figcaption strong{font-size:15px}
+.gametwo-gallery .media-slide figcaption p{font-size:13px}
+.games-page .gallery-actions [data-gallery-next]{background:var(--accent);color:var(--action-label);border-color:var(--accent)}
+.game-features{display:grid;gap:8px;list-style:none;margin:0;padding:0}
+.game-features>li{display:grid;grid-template-columns:38px minmax(0,1fr);gap:12px;padding:13px 12px;border:1px solid var(--line);border-radius:6px;background:#17201880}
+.feature-symbol{display:grid;place-items:center;width:38px;height:38px;border:1px solid #66552f;border-radius:6px;color:var(--accent)}
+.feature-symbol .icon{width:22px;height:22px}
+.game-features h3{font-size:15px;line-height:1.4;letter-spacing:-.015em;font-weight:550}
+.game-features p{font-size:13px;line-height:1.6;color:var(--muted);margin-top:5px}
+.roblox-section{display:grid;grid-template-columns:210px minmax(0,1fr);gap:36px;align-items:start}
+.craft-list{display:grid;gap:16px;list-style:none;margin:30px 0 0;padding:0;color:var(--muted);font-size:14px}
+.craft-list li{display:flex;align-items:center;gap:12px}
+.craft-list .icon{color:var(--accent);width:21px;height:21px}
+.model-workspace{min-width:0}
+.roblox-gallery{--gallery-ratio:4/3;max-width:640px;margin-inline:auto}
+.roblox-gallery .gallery-open{border:1px solid #756342;border-radius:8px;background:radial-gradient(ellipse at 50% 96%,#070d07c2,transparent 52%),linear-gradient(145deg,#3a4434,#20291f)}
 .roblox-gallery .gallery-open img{object-fit:contain}
-.roblox-gallery .media-slide figcaption{min-height:84px}
-.roblox-note{display:flex;align-items:center;justify-content:space-between;gap:24px;max-width:640px;margin:24px auto 0}
-.roblox-note p{max-width:69ch;color:var(--muted);font-size:15px}
-.roblox-note .button{flex:none}
-.craft-details{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;margin-top:54px}
-.craft-details h3{font-size:22px}
-.craft-details p{font-size:14px;color:var(--muted);margin-top:16px}
-.game-project{background:#20231a}
-.game-project-top{display:grid;grid-template-columns:1fr 1.1fr;gap:50px;align-items:end;margin-bottom:44px}
-.game-project-top h2{font-size:clamp(40px,5.6vw,82px);line-height:1.08}
-.game-project-top p{color:var(--muted);max-width:62ch}
-.game-project-top .project-context{color:var(--accent)}
-.game-links{display:flex;gap:30px;flex-wrap:wrap;margin-top:22px}
-.game-links .text-link{font-size:13px}
-.gametwo-gallery{max-width:min(840px,120svh);margin-inline:auto}
-.gametwo-gallery .gallery-open{background:#131710}
-.gametwo-gallery .gallery-open img{image-rendering:auto}
-.mods-section .section-intro{max-width:760px}
-.voice-flow{display:grid;grid-template-columns:1fr 36px 1fr 36px 1fr;gap:20px;align-items:center;margin-top:44px}
-.voice-flow>span{display:grid;place-items:center;min-height:124px;padding:22px;border:1px solid var(--line);font-size:20px;letter-spacing:-.025em}
-.voice-flow>span:last-child{color:var(--accent);border-color:var(--control-line)}
-.voice-flow>b{font-weight:400;text-align:center;color:var(--accent);font-size:28px}
-.mods-notes{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:28px}
-.mods-notes h3{font-size:27px}
-.mods-notes p{font-size:15px;color:var(--muted);margin-top:18px}
-.games-page .footer-main h2{color:var(--accent);font-family:Geist,Arial,sans-serif;font-weight:420}
-.games-page .next-area{border-top:1px solid var(--line)}
-@media(max-width:1080px){.games-hero{gap:20px}.games-hero-copy h1{font-size:clamp(40px,5.8vw,74px)}.games-hero-art figcaption{flex-direction:column;gap:4px}.craft-details{gap:28px}.voice-flow{gap:10px;grid-template-columns:1fr 22px 1fr 22px 1fr}.voice-flow>span{font-size:18px}}
+.roblox-gallery .media-slide figcaption{min-height:92px;padding-top:16px}
+.model-info{display:none}
+.roblox-gallery.is-inspected{max-width:none;display:grid;grid-template-columns:64px minmax(0,640px) minmax(180px,1fr);grid-template-rows:auto auto;gap:18px 20px;align-items:start}
+.roblox-gallery.is-inspected .gallery-viewport{grid-column:2;grid-row:1/span 2;min-width:0;align-self:start}
+.roblox-gallery.is-inspected .gallery-viewport figcaption{display:none}
+.roblox-gallery.is-inspected .model-info{display:block;grid-column:3;grid-row:1;min-width:0;min-block-size:280px}
+.roblox-gallery.is-inspected .gallery-controls{display:contents}
+.roblox-gallery.is-inspected .model-thumbnails{grid-column:1;grid-row:1/span 2;display:flex;flex-direction:column;align-items:stretch;gap:9px}
+.model-thumb{width:64px;height:66px;min-height:44px;padding:4px;border:1px solid var(--line);border-radius:6px;background:linear-gradient(150deg,#283325,#121a12);transition:border-color .15s,background-color .15s}
+.model-thumb img{width:100%;height:100%;object-fit:contain}
+.model-thumb[aria-current]{border-color:var(--accent);background:#45391e}
+.model-thumb:hover{border-color:var(--control-line)}
+.model-thumb:focus-visible{outline-offset:3px}
+.model-tags{display:flex;flex-wrap:wrap;gap:7px;list-style:none;margin:0 0 16px;padding:0}
+.model-tags li{padding:3px 8px;border:1px solid #66715b;border-radius:6px;font-size:11px;color:var(--ink);line-height:1.5}
+.model-info h3{font-size:22px;line-height:1.2;font-weight:600;letter-spacing:-.03em}
+.model-info p{font-size:14px;line-height:1.65;color:var(--muted);margin-top:14px}
+.model-features{display:grid;gap:11px;list-style:none;margin:24px 0 0;padding:0;color:var(--muted);font-size:12px}
+.model-features li{display:grid;grid-template-columns:16px minmax(0,1fr);align-items:start;gap:9px}
+.model-features .icon{width:16px;height:16px;color:var(--accent);margin-top:2px}
+.roblox-gallery.is-inspected .gallery-actions{grid-column:3;grid-row:2;align-self:end;flex-wrap:wrap;gap:8px}
+.model-position{display:none;font-family:'Geist Mono',monospace;font-size:11px;color:var(--accent);order:2;margin-inline-start:6px}
+.roblox-gallery.is-inspected .model-position{display:inline}
+.roblox-gallery.is-inspected .gallery-actions [data-gallery-prev]{order:0}
+.roblox-gallery.is-inspected .gallery-actions [data-gallery-next]{order:1}
+.roblox-gallery.is-inspected .gallery-actions [data-gallery-pause]{order:3;flex-basis:100%;text-align:start;padding-inline:0}
+.roblox-note{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-top:18px;margin-top:22px;border-top:1px solid var(--line)}
+.roblox-note p{font-size:13px;color:var(--muted);max-width:46ch}
+.roblox-note .text-link{flex:none;font-size:12px;color:var(--accent)}
+.mods-section{display:grid;grid-template-columns:210px minmax(0,1fr);gap:36px;border-top:1px solid var(--line)}
+.mods-section .practice-copy h2{font-size:clamp(30px,2.55vw,38px)}
+.mods-notes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.mods-notes article{padding:25px 22px;border:1px solid #4f4b32;border-radius:8px;background:linear-gradient(140deg,#20291d9c,#10181080)}
+.integration-icon{display:block;color:var(--accent);margin-bottom:22px}
+.integration-icon .icon{width:30px;height:30px}
+.mods-notes h3{font-size:19px;line-height:1.3;letter-spacing:-.025em;font-weight:550}
+.mods-notes p{font-size:14px;line-height:1.65;color:var(--muted);margin-top:14px}
+.games-page .next-area{gap:18px;border-top:1px solid var(--line);padding-block:28px 36px}
+.games-page .next-area>a{display:grid;grid-template-columns:30px minmax(0,1fr) 18px;align-items:center;gap:18px;padding:22px;border:1px solid #615231;border-radius:7px;background:#18201780}
+.games-page .next-area .related-icon{display:grid;place-items:center;color:var(--accent)}
+.games-page .next-area .related-copy{display:grid;gap:7px;font-size:14px}
+.games-page .next-area .related-copy strong{font-size:16px;line-height:1.4;font-weight:550}
+.games-page .next-area .related-copy>span{display:block;font-size:13px;line-height:1.5;color:var(--muted)}
+.games-page .next-area>a>.icon{width:18px;height:18px;color:var(--accent)}
+.games-page .next-area>a:hover{border-color:var(--accent);background:#222b1b}
+.games-page .site-footer{border-top:1px solid var(--line)}
+.games-page .footer-main{padding-block:42px 48px;gap:60px}
+.games-page .footer-main h2{font-family:Geist,Arial,sans-serif;font-size:clamp(64px,7.5vw,118px);font-weight:650;color:var(--accent);letter-spacing:-.065em}
+.footer-invite{font-size:14px;color:var(--muted);margin-bottom:12px}
+.games-page .footer-email{font-size:clamp(17px,1.7vw,25px);padding:14px 18px;border:1px solid #70592d;border-radius:6px;background:#211f142e}
+.games-page .footer-links{gap:12px 22px;font-size:13px}
+.games-page .footer-bottom{font-size:12px;color:var(--muted)}
+@media(max-width:1180px){.games-hero{gap:30px}.games-hero-copy h1{font-size:clamp(38px,4.8vw,62px)}.game-layout{grid-template-columns:240px minmax(0,1fr);gap:28px}.game-features{grid-column:1/-1;grid-template-columns:repeat(4,minmax(0,1fr))}.game-features>li{grid-template-columns:1fr;gap:10px}.roblox-section{grid-template-columns:1fr;gap:30px}.roblox-section>.practice-copy{display:grid;grid-template-columns:240px minmax(0,1fr);gap:0 30px}.roblox-section>.practice-copy>p{margin-top:0;max-width:50ch}.craft-list{grid-column:2;margin-top:16px;gap:9px}.mods-section{grid-template-columns:1fr;gap:28px}.mods-section>.practice-copy{max-width:540px}.mods-section>.practice-copy h2 br{display:none}.mods-section>.practice-copy .project-stage{margin-top:12px}}
+@media(max-width:900px){.project-frame-head{font-size:10px}.games-hero-art{padding:10px}.games-hero-art figcaption{flex-direction:column;align-items:start;gap:0}.games-hero-copy>p{font-size:16px}.games-hero-copy h1{font-size:clamp(34px,4.7vw,48px)}.game-layout{grid-template-columns:210px minmax(0,1fr)}.mods-notes{gap:12px}.mods-notes article{padding:20px 16px}.mods-notes h3{font-size:18px}}
 @media(max-width:760px){
-.games-hero{grid-template-columns:1fr;gap:26px;padding-top:24px}
-.games-hero-copy h1{font-size:clamp(36px,9.6vw,70px)}
-.games-hero-copy .back-link{margin-bottom:24px}
-.games-hero-copy>p{font-size:18px;margin-top:24px}
-.games-hero-art{width:100%;max-width:460px;margin-inline:auto}
-.games-hero-art>img{max-height:430px}
-.games-hero-art figcaption{flex-direction:row;font-size:11px;gap:20px}
-.games-sections{gap:30px;justify-content:space-between}
-.roblox-section{padding-top:52px}
-.roblox-gallery{--gallery-ratio:4/3}
-.roblox-gallery .media-slide figcaption{min-height:104px}
-.roblox-note{flex-direction:column;align-items:flex-start;gap:22px;margin-top:30px}
-.craft-details{grid-template-columns:1fr;margin-top:40px;gap:28px}
-.craft-details h3{font-size:24px}
-.game-project-top{grid-template-columns:1fr;gap:26px;margin-bottom:32px}
-.game-project-top h2{font-size:clamp(40px,10.5vw,62px)}
-.game-links{gap:16px}
-.voice-flow{grid-template-columns:1fr;gap:5px;margin-top:32px}
-.voice-flow>span{min-height:84px}
-.voice-flow>b{transform:rotate(90deg);line-height:1.3}
-.mods-notes{grid-template-columns:1fr;gap:32px;margin-top:34px}
+.games-page .section-space{padding-block:46px}
+.games-hero{grid-template-columns:1fr;gap:28px;padding-block:25px 28px}
+.games-hero-copy .back-link{margin-bottom:20px}
+.games-hero-copy h1{font-size:clamp(36px,9.6vw,62px);line-height:1.06}
+.games-hero-copy>p{font-size:17px;margin-top:20px;max-width:42ch}
+.games-hero-copy>.button{margin-top:22px}
+.games-hero-art{max-width:620px;width:100%;margin-inline:auto;padding:12px}
+.games-hero-art figcaption{flex-direction:row;align-items:center;gap:10px}
+.project-frame-head{font-size:10px}
+.games-sections{gap:20px;justify-content:space-between}
+.games-sections a{font-size:12px;line-height:1.5}
+.game-layout{grid-template-columns:1fr;gap:26px}
+.practice-copy h2{font-size:clamp(32px,7.8vw,46px)}
+.practice-copy>p{font-size:15px;margin-top:16px;max-width:52ch}
+.practice-copy .game-status{margin-top:12px}
+.game-features{grid-template-columns:1fr 1fr;gap:10px}
+.game-features>li{padding:15px}
+.game-features h3{font-size:15px}
+.game-features p{font-size:13px}
+.roblox-section>.practice-copy{display:block}
+.roblox-section>.practice-copy>p{margin-top:16px}
+.craft-list{display:flex;flex-wrap:wrap;gap:12px 20px;margin-top:22px;font-size:12px}
+.craft-list .icon{width:18px;height:18px}
+.roblox-gallery.is-inspected{grid-template-columns:minmax(0,1fr);gap:18px}
+.roblox-gallery.is-inspected .model-thumbnails{grid-column:1;grid-row:1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.model-thumb{width:100%;height:auto;aspect-ratio:1.2;max-height:86px}
+.roblox-gallery.is-inspected .gallery-viewport{grid-column:1;grid-row:2;max-width:640px;width:100%;margin-inline:auto}
+.roblox-gallery.is-inspected .model-info{grid-column:1;grid-row:3}
+.model-tags{margin-bottom:12px}
+.model-info h3{font-size:24px}
+.model-info p{font-size:15px;max-width:52ch}
+.model-features{display:flex;flex-wrap:wrap;gap:12px 20px;margin-top:18px}
+.roblox-gallery.is-inspected .gallery-actions{grid-column:1;grid-row:4;align-items:center;gap:10px}
+.roblox-gallery.is-inspected .gallery-actions [data-gallery-pause]{flex-basis:auto;padding-inline:12px;margin-inline-start:auto}
+.roblox-note{flex-direction:column;align-items:start;gap:6px;margin-top:22px}
+.mods-notes{grid-template-columns:1fr;gap:12px}
+.mods-notes article{padding:24px}
+.integration-icon{margin-bottom:16px}
+.mods-notes h3{font-size:21px}
+.games-page .next-area{grid-template-columns:1fr;gap:12px;padding-block:26px}
+.games-page .next-area>a{padding:20px;gap:14px}
+.games-page .footer-main{gap:28px;padding-block:34px 36px}
+.games-page .footer-main h2{font-size:clamp(60px,17vw,94px)}
+.games-page .footer-email{font-size:17px;padding:14px 12px}
 }
+@media print{.games-page{--paper:#fff;--field:#f3f3f3;--ink:#111;--muted:#333;--accent:#573c00;--line:#999;background:#fff;color:#111}.games-page::before{display:none}.game-layout,.roblox-section,.mods-section{display:block}.roblox-gallery.is-inspected{display:block}.model-info,.model-thumbnails{display:none!important}.roblox-gallery.is-inspected .gallery-viewport{display:block}.roblox-gallery.is-inspected .gallery-viewport figcaption{display:block}.games-page .next-area>a,.mods-notes article{break-inside:avoid;background:#fff}.games-page .footer-email{background:none}}

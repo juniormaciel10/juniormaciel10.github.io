@@ -14,6 +14,10 @@ HTML, CSS e JavaScript, com fontes locais e rolagem nativa. O build minifica CSS
 
 A abertura de `/jogos/` usa uma captura nativa do game-two registrada em 27/09/2026. A galeria reúne três capturas atuais do jogo, com limite de 840 px de largura. A seleção de modelagem contém quatro trabalhos: Jaqueta Metro Nexo, Botas Órbita, Blusa Trama Nexo e Kit Passarela Nexo. Sua galeria tem limite de 640 px, e o PDF público contém somente essa seleção. As imagens completas continuam disponíveis na ampliação. As fontes dos projetos foram apenas consultadas; dados e capturas antigos permanecem nos materiais locais.
 
+As referências visuais das páginas internas orientam dois temas: 3D e programação usa verde escuro e âmbar, com Ruby/Gosu antes da modelagem; Plataforma usa superfícies claras e violeta, com tecnologias, galeria e funcionalidades agrupadas. A primeira destaca o jogo, a seleção dos quatro modelos e as práticas em C#; a segunda apresenta a interface e a atuação no projeto. As telas de exemplo continuam anônimas.
+
+`assets/js/model-gallery.js` é incluído somente no bundle de `/jogos/`. Ele acompanha a seleção do carrossel para atualizar a ficha e o contador do modelo. As miniaturas, o teclado e a ampliação usam o controlador de galeria existente. Sem essa melhoria, as legendas originais continuam disponíveis. As versões recortadas dos modelos removem o fundo uniforme para a apresentação; o link de ampliação conserva o arquivo original. Os tamanhos públicos anteriores continuam no pacote de compatibilidade.
+
 A inicial preserva a abertura da referência Gabriel V2 em `assets/js/home-opening.js` e `assets/css/home-opening.css`. `portfolio.css` reúne navegação, contato e galerias das páginas novas; `home.css`, `platform.css` e `games.css` definem suas composições.
 
 Os acessos a Estudos, Plataforma de estudos e Jogos usam capturas reais das páginas dentro de cards sobre fundo preto, com bordas discretas e setas. Ficam em três colunas no desktop e empilhados no celular. A prévia cresce até ocupar a janela e se tornar a página de destino; o botão Voltar do navegador faz o caminho inverso e restaura a posição anterior.
