@@ -1,5 +1,5 @@
 {
-  "commit": "5f4f5375a141d563ec4b3577081bbaf0686cca4d",
+  "commit": "050bd2ad5ef08ba54ac23d8e036727b108a0f5e4",
   "files": {
     ".nojekyll": {
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -30,16 +30,16 @@
       "bytes": 12343
     },
     "assets/css/home.css": {
-      "sha256": "fb9cf2a285fd5d546cb199d0e5fc14ee6f99407499efa79a7aabe45aa5f56a39",
-      "bytes": 7769
+      "sha256": "d9a9c4e1a10fb45e631798b67506100cb02230f837acef7e716cf5f22227825c",
+      "bytes": 7606
     },
     "assets/css/home-opening.css": {
-      "sha256": "4231ae19b9a8c3e05f5f02d32eeed5f89a128bf279c8b0bc13bed2d22ed1afab",
-      "bytes": 2793
+      "sha256": "962d0f0bedf1df9dcc1fb752165a128c62482ff592e213b068aaa54c012b3d05",
+      "bytes": 2745
     },
     "assets/css/saturn.css": {
-      "sha256": "645e7585cd1f1e024e711aa2fcc8c78101b15aaa01fc2daaaae6af14f18c1e76",
-      "bytes": 3360
+      "sha256": "18aa148e33705a527c8b2703634e709ec5ee174d7bbc3871afac1b48335bb781",
+      "bytes": 3224
     },
     "assets/css/page-transitions.css": {
       "sha256": "d5d09cfffd5154dd44cc8aedcef80f6e0e86a7dbff401ab27a78aaf1646db6b0",
@@ -70,8 +70,8 @@
       "bytes": 11849
     },
     "assets/css/games.css": {
-      "sha256": "5a8337334ef72b05f44db49abbdd9c3a4370750d51e40565c86982b83ff1816b",
-      "bytes": 14050
+      "sha256": "ee8ed274b0aa1aacd6295aadc59054cd8bd9ef107303c22100b10a0693141704",
+      "bytes": 14144
     },
     "assets/css/projects.css": {
       "sha256": "dfed7074c271b6d30ccc136ef91f4c1bb83bc8bf0f3994ceede9d0742ff4ed8c",
@@ -82,8 +82,8 @@
       "bytes": 15323
     },
     "assets/js/home-opening.js": {
-      "sha256": "ae820cb8bb62e9d0178de18db1cba3bc07830758350ec62fd51456f16de34911",
-      "bytes": 9441
+      "sha256": "b4f006b44c85c780bd70db008a36fef051ac684cff325db6cb2b6ca903fef7ec",
+      "bytes": 9264
     },
     "assets/js/saturn-loader.js": {
       "sha256": "72d3626dcc5d4c527b4dde235e572bb08ac6a378b180791e2be9326e8c39fd5c",
@@ -313,6 +313,110 @@
       "sha256": "b092c9602a26689f988d78d911172cfe184a1cf864958bd01cd1a78609bc154f",
       "bytes": 7412
     },
+    "assets/img/portfolio/plataforma-inicio.webp": {
+      "sha256": "12446985063c0cbe4bf64e73fa6dc9d0208a7f55e0d737b995e67a106360706c",
+      "bytes": 683180
+    },
+    "assets/img/portfolio/plataforma-aulas.webp": {
+      "sha256": "b22c3b36ff44e1104f2c186664ebed5a98c77b805002674f974084743e06d694",
+      "bytes": 511896
+    },
+    "assets/img/portfolio/plataforma-questoes.webp": {
+      "sha256": "a1aaffca1ebaf4bf4c22f20c42e7ccdfe16cdb444a93bf54e87cef2c4ef2b4b0",
+      "bytes": 558054
+    },
+    "assets/img/portfolio/plataforma-ranking.webp": {
+      "sha256": "4640326b442e471bfe8191b35c3fbcef2f48c5811e21745b30fbf343bbed904d",
+      "bytes": 471066
+    },
+    "assets/img/portfolio/plataforma-inicio-mobile.webp": {
+      "sha256": "5dae284d048bbe1aa69acb27e211e22fa54b3b778b745de9b7bf1bf1092b6c2c",
+      "bytes": 554108
+    },
+    "assets/img/portfolio/plataforma-aulas-mobile.webp": {
+      "sha256": "1948d787da196c671cdc9718113d19c923898e1df028739643a2c21dd3a1ee42",
+      "bytes": 468450
+    },
+    "assets/img/portfolio/plataforma-questoes-mobile.webp": {
+      "sha256": "fc1f293c179eb7e7a592665b974a172130494f17c2678fd9dcda210bf433ad6f",
+      "bytes": 377672
+    },
+    "assets/img/portfolio/plataforma-ranking-mobile.webp": {
+      "sha256": "6c7aabbf31f7890c8a250404d9b96207346475e06a4ea910bd4ca38be3ca47d9",
+      "bytes": 359294
+    },
+    "assets/img/portfolio/modelo-jaqueta-metro.webp": {
+      "sha256": "90374847b0ebb9c506a88f45d41a3df414acbca26a5dcef1fe0a40f157fc676a",
+      "bytes": 186504
+    },
+    "assets/img/portfolio/modelo-jaqueta-metro-recorte-640.webp": {
+      "sha256": "2acb09538c6cc90408ffedc4d2f8d5243f50cd76a9e96f74e6472fc0a9b0acfc",
+      "bytes": 33702
+    },
+    "assets/img/portfolio/modelo-botas-orbita.webp": {
+      "sha256": "36051aef30467a60224ba3858a132654c9dd0d8dde0169d3bf7aa35be7780695",
+      "bytes": 148194
+    },
+    "assets/img/portfolio/modelo-botas-orbita-recorte-640.webp": {
+      "sha256": "12ae2adf4f992acbefbb84712d2502971c26d1d842be32bc014c4136419b0a3e",
+      "bytes": 34812
+    },
+    "assets/img/portfolio/modelo-blusa-trama.webp": {
+      "sha256": "f15b0e938cc1aeec02e4d2cb8cbe25207a70c19d67e8bc150a602eb2807b2576",
+      "bytes": 192402
+    },
+    "assets/img/portfolio/modelo-blusa-trama-recorte-640.webp": {
+      "sha256": "0ae5848be95c48214f2c131d14fe534391c6fe91bf0c8854035745fe9cc71d65",
+      "bytes": 36276
+    },
+    "assets/img/portfolio/modelo-kit-passarela.webp": {
+      "sha256": "19ae5ceaf743288628059802d486885802f32f06e328fcbb10fccddaace79149",
+      "bytes": 136438
+    },
+    "assets/img/portfolio/modelo-kit-passarela-recorte-640.webp": {
+      "sha256": "1dc323de4899c165b6cef14b1e03c79ba2f89af793a58e41871999f950786297",
+      "bytes": 49910
+    },
+    "assets/img/portfolio/modelo-jaqueta-metro-miniatura.webp": {
+      "sha256": "aab569f73b2a7a069bc27732856729d794dc332815d37f42ab3f95a4f3d90678",
+      "bytes": 5450
+    },
+    "assets/img/portfolio/modelo-botas-orbita-miniatura.webp": {
+      "sha256": "acf4dbbb5a45a658671230b68ff4dcda88566bc3e5ef7579b5edb613bc0d344f",
+      "bytes": 4968
+    },
+    "assets/img/portfolio/modelo-blusa-trama-miniatura.webp": {
+      "sha256": "05474e2615b3ddee638ff7319ef12308f558ce8f469be7bef6a1122297bfba8b",
+      "bytes": 4720
+    },
+    "assets/img/portfolio/modelo-kit-passarela-miniatura.webp": {
+      "sha256": "1d6999f562c836c95282be07719eea9593d36a8393a5208ee894ebdc6a144be1",
+      "bytes": 5842
+    },
+    "assets/img/portfolio/modelo-jaqueta-metro-recorte.webp": {
+      "sha256": "8634299605c237ffa401364fb0a89e8a7eb6a3eaa883225f34c3640e2a9356b2",
+      "bytes": 34196
+    },
+    "assets/img/portfolio/modelo-botas-orbita-recorte.webp": {
+      "sha256": "d82f35411649057bcf45d91368079697a7cfde7bc26ceb969522a0462894dc4a",
+      "bytes": 37392
+    },
+    "assets/img/portfolio/modelo-blusa-trama-recorte.webp": {
+      "sha256": "25b3cec8d0fedd984b58a703631070d8c767c23cbf2bb81f081b5a14c24ea77d",
+      "bytes": 41018
+    },
+    "assets/img/portfolio/modelo-kit-passarela-recorte.webp": {
+      "sha256": "d43c5720e69149af7f2e5881516ecc503895e80e6858d5fbe43771a798e04852",
+      "bytes": 50142
+    },
+    "assets/img/portfolio/plataforma-lp-mobile.webp": {
+      "sha256": "3b7d01b5ab5abfcc4d483f281b23013cb8559abf3877062950f9d5af0e5c9ddd",
+      "bytes": 533612
+    },
+    "assets/img/portfolio/plataforma-capa.webp": {
+      "sha256": "d66d6cf6607a81d8384b098359fbe95c06433254f24b4c1bf919cf1a8c3a6ff9",
+      "bytes": 37228
+    },
     "assets/img/favicon.svg": {
       "sha256": "7a1abf74ac4f3202d7f3b18cba59a48e5635d8e19308a142d94dd83647258544",
       "bytes": 250
@@ -326,12 +430,12 @@
       "bytes": 44262
     },
     "assets/img/portfolio/previews/plataforma-960.webp": {
-      "sha256": "5c969101a4a726af885732b67a4ac91fe91b8043a36b3491021070e06c45a7c0",
-      "bytes": 35266
+      "sha256": "21d243cbb7d9343c697df88c24a39403240c7cc48196bbab169421d3ee8a4e56",
+      "bytes": 31628
     },
     "assets/img/portfolio/previews/jogos-960.webp": {
-      "sha256": "bb821c8e1822b2f22ae4cc0776b8c8edb12118387936edc6c73f5947b8812540",
-      "bytes": 38750
+      "sha256": "6fd24bc28bc930e0a6c036ce7a19e207ec0bbbe198276a083fa74349d61c73f8",
+      "bytes": 40612
     },
     "assets/img/portfolio/trabalho-02.webp": {
       "sha256": "313b70ac1b0681ead49d7cb9f6ca0c90194522498a3712bc629d6e2c2fb45a90",
@@ -398,12 +502,12 @@
       "bytes": 26518
     },
     "assets/img/portfolio/previews/plataforma-640.webp": {
-      "sha256": "5ca1c1fe5ae2ec8c68c2179d41b400021a022f8e79c3821dedd4f67cf4ae1d63",
-      "bytes": 21100
+      "sha256": "624669c9a0b3d61dd12d3dd3cb21bec29d0042549a2cda387e4eac4d394c191a",
+      "bytes": 17810
     },
     "assets/img/portfolio/previews/jogos-640.webp": {
-      "sha256": "ef909619f42cfc144d883725a7441deedd6643cb34501bcef1d883755deacbdd",
-      "bytes": 23178
+      "sha256": "d8ce9fdf531b3ad1651809bf6e6c4c4f85621585b2add070a764224a61f2c27a",
+      "bytes": 23884
     },
     "assets/img/portfolio/trabalho-02-720.webp": {
       "sha256": "b38da0cf330281767cdcc2c07030277af22256929e1ce28fa1bf959d5207a219",
@@ -445,37 +549,57 @@
       "sha256": "7ac847127c84a17e0d8e8df0c9f6a6af48e1ef0a39ce6a83f3bebf61657182fa",
       "bytes": 31766
     },
-    "assets/img/portfolio/plataforma-inicio.webp": {
-      "sha256": "8bc6f6ca2b1c0fb986717b401c830faa0f6f75fc7b40eb76556b79fa089262cf",
-      "bytes": 223122
+    "assets/img/portfolio/plataforma-inicio-1120.webp": {
+      "sha256": "9989b21a3087b8e448d84907805035120a944593aeb923c602e4ca6ef76ceb25",
+      "bytes": 51870
     },
-    "assets/img/portfolio/plataforma-aulas.webp": {
-      "sha256": "0bc932b4594f84737edc4fb67b7d89f1de34aba5a8aa41cd178acdad6f22b4d8",
-      "bytes": 203074
+    "assets/img/portfolio/plataforma-aulas-preview.webp": {
+      "sha256": "41582249d764bf82d16b64911a4ea8f538d0338d70c1cd759254413bb5a1311d",
+      "bytes": 62494
     },
-    "assets/img/portfolio/plataforma-questoes.webp": {
-      "sha256": "d85cadac817b8d7d3ef4f45c02309914cdf22a29bac85d1936ddba59a00ab3bb",
-      "bytes": 209748
+    "assets/img/portfolio/plataforma-questoes-preview.webp": {
+      "sha256": "ca76b7782f6193e935b81a4b15737176c48e55547d482c1b98735c2c45d6de30",
+      "bytes": 74102
     },
-    "assets/img/portfolio/plataforma-ranking.webp": {
-      "sha256": "bb276edee4b91da9e2971db1ce1f807e727569d5d64b25ccad9e0a0a8d45808b",
-      "bytes": 182940
+    "assets/img/portfolio/plataforma-ranking-preview.webp": {
+      "sha256": "88b1b7db8a4c4633db9dee7657b05a11f8e697ad43a0a785bf0692905b245060",
+      "bytes": 58558
     },
-    "assets/img/portfolio/plataforma-inicio-mobile.webp": {
-      "sha256": "5de6e5158a5a6c22301280157161fe0798984bd575eb52e609c477192c9dcf30",
-      "bytes": 219004
+    "assets/img/portfolio/plataforma-lp.webp": {
+      "sha256": "48decb8397c1ec0bb006c22497d2fbf6bc0863a32badd98af6edc46a5cd9e3d6",
+      "bytes": 523808
     },
-    "assets/img/portfolio/plataforma-aulas-mobile.webp": {
-      "sha256": "3ec25c6696fbb54872532b8e28dcc9be38bb566cb192ed42ead2373f64631ed6",
-      "bytes": 261750
+    "assets/img/portfolio/plataforma-lp-preview.webp": {
+      "sha256": "72d372507f1c570dad801cdfc982f62f5ee493374cc895c218a8b2d1ab2626fe",
+      "bytes": 47404
     },
-    "assets/img/portfolio/plataforma-questoes-mobile.webp": {
-      "sha256": "279451eb997ffe330d4c9b25100cf2edc08b796a7c9cb8f1ac383b3c36dbc8fc",
-      "bytes": 249474
+    "assets/img/portfolio/plataforma-inicio-mobile-preview.webp": {
+      "sha256": "46eb3d186290ca966579bef26c9b2e5824267f53863280f6d90cfe5ea134fffd",
+      "bytes": 69922
     },
-    "assets/img/portfolio/plataforma-ranking-mobile.webp": {
-      "sha256": "11b5e4e34d042a5cde8d28f7027ecf378440f184da2da69c890013d71e336c59",
-      "bytes": 243232
+    "assets/img/portfolio/plataforma-inicio-720.webp": {
+      "sha256": "769edd6924fd61c69a50eeb6853f75fb31edef6a33ff5fe9739d8cc9a8116763",
+      "bytes": 25702
+    },
+    "assets/img/portfolio/plataforma-inicio-preview.webp": {
+      "sha256": "599ed7d4aa33020bc350a79b42f90aebe29553fca1b24fe601da39041cc0544b",
+      "bytes": 85428
+    },
+    "assets/img/portfolio/plataforma-aulas-mobile-preview.webp": {
+      "sha256": "ec24f8fc4db7327d02b6a7f3180c49e68674cb5c0c1a569689c36961c429996a",
+      "bytes": 74306
+    },
+    "assets/img/portfolio/plataforma-questoes-mobile-preview.webp": {
+      "sha256": "51b4c4eb81ec925d92cdfd5a7c3221f569e068b16f8031bec70a206c39ee4cbe",
+      "bytes": 68270
+    },
+    "assets/img/portfolio/plataforma-ranking-mobile-preview.webp": {
+      "sha256": "59f88601ca5f1a49c20c3bca2b8075cfb06210d9eba15800906abc92af37cbae",
+      "bytes": 69144
+    },
+    "assets/img/portfolio/plataforma-lp-mobile-preview.webp": {
+      "sha256": "1718aee122c0d740f10a6fc7a69ec6526c0a86bc8aaa9a6178a9a1c06545e083",
+      "bytes": 69246
     },
     "assets/img/portfolio/game-two-praca-preview-640.webp": {
       "sha256": "72ff3f0399bdc10fd131072476d30d91002851ae0355036449348b67f897098a",
@@ -501,57 +625,57 @@
       "sha256": "eac743db83426b72cda2d96b827415c7544253c762439456432ea6501cdae1dd",
       "bytes": 21926
     },
-    "assets/img/portfolio/modelo-jaqueta-metro.webp": {
-      "sha256": "90374847b0ebb9c506a88f45d41a3df414acbca26a5dcef1fe0a40f157fc676a",
-      "bytes": 186504
+    "assets/img/portfolio/modelo-bolsa-metro.webp": {
+      "sha256": "48a946bdb40655a67ecb694fcc82174ebfb48bcf108d55d7a073dc2e474920a0",
+      "bytes": 91228
     },
-    "assets/img/portfolio/modelo-jaqueta-metro-recorte-640.webp": {
-      "sha256": "2acb09538c6cc90408ffedc4d2f8d5243f50cd76a9e96f74e6472fc0a9b0acfc",
-      "bytes": 33702
+    "assets/img/portfolio/modelo-bolsa-metro-recorte-640.webp": {
+      "sha256": "55ea697221ea3e2b94d03c0f9df2c7833f70557b6e8ec13aa32db33612797bce",
+      "bytes": 18672
     },
-    "assets/img/portfolio/modelo-botas-orbita.webp": {
-      "sha256": "36051aef30467a60224ba3858a132654c9dd0d8dde0169d3bf7aa35be7780695",
-      "bytes": 148194
+    "assets/img/portfolio/modelo-cabelo-wolfcut.webp": {
+      "sha256": "49d83832aec20ba7fb1ea353fb6fc4e971867592e0cad1c2b39a41b7c283c9e0",
+      "bytes": 182932
     },
-    "assets/img/portfolio/modelo-botas-orbita-recorte-640.webp": {
-      "sha256": "12ae2adf4f992acbefbb84712d2502971c26d1d842be32bc014c4136419b0a3e",
-      "bytes": 34812
+    "assets/img/portfolio/modelo-cabelo-wolfcut-recorte-640.webp": {
+      "sha256": "032db820dccdf46bf108ce5729348f06b9232a81653eac6b505bcc73f1d677ed",
+      "bytes": 21832
     },
-    "assets/img/portfolio/modelo-blusa-trama.webp": {
-      "sha256": "f15b0e938cc1aeec02e4d2cb8cbe25207a70c19d67e8bc150a602eb2807b2576",
-      "bytes": 192402
+    "assets/img/portfolio/modelo-oculos-prisma.webp": {
+      "sha256": "978b14acdb7372d17b4ba40f02976e4f778a526f5b84e8edbcc56d861bed3f96",
+      "bytes": 65134
     },
-    "assets/img/portfolio/modelo-blusa-trama-recorte-640.webp": {
-      "sha256": "0ae5848be95c48214f2c131d14fe534391c6fe91bf0c8854035745fe9cc71d65",
-      "bytes": 36276
+    "assets/img/portfolio/modelo-oculos-prisma-recorte-640.webp": {
+      "sha256": "db85f72e03580fa1b71133512ab92d2a740112f289377334026ce74ef34b83b1",
+      "bytes": 13414
     },
-    "assets/img/portfolio/modelo-kit-passarela.webp": {
-      "sha256": "19ae5ceaf743288628059802d486885802f32f06e328fcbb10fccddaace79149",
-      "bytes": 136438
+    "assets/img/portfolio/modelo-satelite-orbita.webp": {
+      "sha256": "4a2f39c26be9351bce2670500f140aed83ea5cbb3a76a43af8229395e5de39e0",
+      "bytes": 168102
     },
-    "assets/img/portfolio/modelo-kit-passarela-recorte-640.webp": {
-      "sha256": "1dc323de4899c165b6cef14b1e03c79ba2f89af793a58e41871999f950786297",
-      "bytes": 49910
+    "assets/img/portfolio/modelo-satelite-orbita-recorte-640.webp": {
+      "sha256": "6473195d3f450aaf8c8e0a92358a2492c9c45849840a5a2ef38405ebfc5b1f83",
+      "bytes": 34990
     },
-    "assets/img/portfolio/modelo-jaqueta-metro-miniatura.webp": {
-      "sha256": "aab569f73b2a7a069bc27732856729d794dc332815d37f42ab3f95a4f3d90678",
-      "bytes": 5450
+    "assets/img/portfolio/modelo-bolsa-metro-miniatura.webp": {
+      "sha256": "258c7d11194c63ef86f39df67bdf2ae7f1c5ecd01ad0d084a763d8b2840f53a8",
+      "bytes": 3536
     },
-    "assets/img/portfolio/modelo-botas-orbita-miniatura.webp": {
-      "sha256": "acf4dbbb5a45a658671230b68ff4dcda88566bc3e5ef7579b5edb613bc0d344f",
-      "bytes": 4968
+    "assets/img/portfolio/modelo-cabelo-wolfcut-miniatura.webp": {
+      "sha256": "9252a3e246683c7f18b28cd7cdb74781348ac0c38cf58d7c5cf52700ce3f62b0",
+      "bytes": 2980
     },
-    "assets/img/portfolio/modelo-blusa-trama-miniatura.webp": {
-      "sha256": "05474e2615b3ddee638ff7319ef12308f558ce8f469be7bef6a1122297bfba8b",
-      "bytes": 4720
+    "assets/img/portfolio/modelo-oculos-prisma-miniatura.webp": {
+      "sha256": "8f7782375c33642ca14e51b6a56856ad3b9730a826c462775a471b8b3d2a1e6d",
+      "bytes": 2360
     },
-    "assets/img/portfolio/modelo-kit-passarela-miniatura.webp": {
-      "sha256": "1d6999f562c836c95282be07719eea9593d36a8393a5208ee894ebdc6a144be1",
-      "bytes": 5842
+    "assets/img/portfolio/modelo-satelite-orbita-miniatura.webp": {
+      "sha256": "78bc7068a77dc8eb81e74bacbb65c062225078821b65dd8d87c87e3406530647",
+      "bytes": 5458
     },
     "assets/downloads/portfolio-modelagem-3d.pdf": {
-      "sha256": "a423fe81b9e3f413f8dd6552caada9887b2ca2ab98c4ccc8ad944ec53667358a",
-      "bytes": 1336070
+      "sha256": "50d673758ab741076f36d52f3bab6c6e81577cb6ef39b7918d6b5f20eadb3692",
+      "bytes": 1068253
     },
     "assets/img/portfolio/game-two-praca-preview-960.webp": {
       "sha256": "e019b04a2adde438fbfa615e63afaba56dedcb8b18e6c7a72fb5e6581bdc60a1",
@@ -565,21 +689,21 @@
       "sha256": "2804367e354e6a487623273494421d767c60ba49f96fdf1ce247cfbf4ef0f54d",
       "bytes": 48012
     },
-    "assets/img/portfolio/modelo-jaqueta-metro-recorte.webp": {
-      "sha256": "8634299605c237ffa401364fb0a89e8a7eb6a3eaa883225f34c3640e2a9356b2",
-      "bytes": 34196
+    "assets/img/portfolio/modelo-bolsa-metro-recorte.webp": {
+      "sha256": "8247c5987392ac603b8646063424740ad63b9fefbe08ec6cc5bc41d317f5f9d9",
+      "bytes": 31504
     },
-    "assets/img/portfolio/modelo-botas-orbita-recorte.webp": {
-      "sha256": "d82f35411649057bcf45d91368079697a7cfde7bc26ceb969522a0462894dc4a",
-      "bytes": 37392
+    "assets/img/portfolio/modelo-cabelo-wolfcut-recorte.webp": {
+      "sha256": "48458f38b3c1990bde28c4761f514f003f5cdfd9bfaf551f7959be2df899b513",
+      "bytes": 35162
     },
-    "assets/img/portfolio/modelo-blusa-trama-recorte.webp": {
-      "sha256": "25b3cec8d0fedd984b58a703631070d8c767c23cbf2bb81f081b5a14c24ea77d",
-      "bytes": 41018
+    "assets/img/portfolio/modelo-oculos-prisma-recorte.webp": {
+      "sha256": "6d17a0cfc1116e221e95a5a71620e1c3adb1f97ea723726c92adef5351eaba94",
+      "bytes": 21008
     },
-    "assets/img/portfolio/modelo-kit-passarela-recorte.webp": {
-      "sha256": "d43c5720e69149af7f2e5881516ecc503895e80e6858d5fbe43771a798e04852",
-      "bytes": 50142
+    "assets/img/portfolio/modelo-satelite-orbita-recorte.webp": {
+      "sha256": "03d7a5c65fcccc561e66a8207719e31cecae705e042ac112481f9e041073258f",
+      "bytes": 55914
     },
     "assets/img/planejamento-percurso.webp": {
       "sha256": "5056dc58c4988fe3571e2177f2d71a13cb89dc104d424d08f5ab35e9a3dff7ea",
@@ -602,20 +726,20 @@
       "bytes": 9368
     },
     "index.html": {
-      "sha256": "8b2c4e65e55aa85893518030adea96990b3ea07dd4220995144bbb9db551023a",
-      "bytes": 37598
+      "sha256": "6db5a0cb9a68cdc1721fbd634366c46039ce23681c292255077d3904e02eb39e",
+      "bytes": 37647
     },
     "estudos/index.html": {
       "sha256": "2fd931925692152593fa29e0881edab1f2885e8e42244e614691e904192a4535",
       "bytes": 37131
     },
     "plataforma/index.html": {
-      "sha256": "c278fd4e04ffc45aaf58f4dce43c774436ab6cd12ccf2686867eba1ae84b27d9",
-      "bytes": 33186
+      "sha256": "1d5352d23919f487554d7ee1c2e77b4dd7eba7cfb6f39bfff1b1b5f2948e09a8",
+      "bytes": 34579
     },
     "jogos/index.html": {
-      "sha256": "85f2bb5dc716f28d27c1a8d78141281bd64a8492ae5f96c87412b2a4c3338c7f",
-      "bytes": 48667
+      "sha256": "462b297531649cf75aaee02d4807b78bd64be8085f96d6176ed66f7a3f671225",
+      "bytes": 44560
     },
     "projetos/planejamento-de-estudos/index.html": {
       "sha256": "19054ec883bfed22554b0801ce94c56a6087ebad0153d5e4dfdcf827f141d79c",
@@ -629,13 +753,13 @@
       "sha256": "b3f427b2e0958a0179deabf9803b6f7b802442156ffd73df6d19b6e6b92f7896",
       "bytes": 546716
     },
-    "assets/css/site.6040bdf91ad9.css": {
-      "sha256": "6040bdf91ad992c2030ed02d5ad95cc918c213996d277472d8249ee3ff8621f7",
-      "bytes": 26693
+    "assets/css/site.799816a98f02.css": {
+      "sha256": "799816a98f0266870b9823332418767f2b972ea08ae5e32416b530c228d65296",
+      "bytes": 26351
     },
-    "assets/js/site.cf633c82d420.js": {
-      "sha256": "cf633c82d420e26725a94ee20c1eac08d18ba151b92e99a6896459a118f9b443",
-      "bytes": 17903
+    "assets/js/site.ab7363aa9a66.js": {
+      "sha256": "ab7363aa9a66a356ee5c72740105dca4748f21530ab1e6b7a75663145bcc966c",
+      "bytes": 17792
     },
     "assets/css/site.6cb1124d38d7.css": {
       "sha256": "6cb1124d38d77bf19e705468a7137899cb3bec87991e62c571b9129c71bc2bd7",
@@ -653,9 +777,9 @@
       "sha256": "6bd95203b1ffad2af33e931c60c5060a10ca679c70253f2f65c280c3a7dd1311",
       "bytes": 9781
     },
-    "assets/css/site.e6648806e72f.css": {
-      "sha256": "e6648806e72ff02c415d4d32595ac6db37144f0e041758bdbe0e5f6fe962cdf4",
-      "bytes": 27701
+    "assets/css/site.a7a952d74af0.css": {
+      "sha256": "a7a952d74af0958f4f12c14877540f6a5be568394a5eab82815808683810e990",
+      "bytes": 27794
     },
     "assets/js/site.38cf404454cd.js": {
       "sha256": "38cf404454cdcfb603be32a8e5e44467663ff94892e285890d572cb45f3b4fbb",
@@ -670,7 +794,7 @@
       "bytes": 7669
     },
     "assets/build.json": {
-      "sha256": "549b21c94bb1dcea5553a58d2fc75dc54129ece63453f5f5ab30e334de43130c",
+      "sha256": "00825686ab2172b00d05bfd057868c1802129d2eafefc843e9c9483002e55c2c",
       "bytes": 1368
     },
     "sitemap.xml": {

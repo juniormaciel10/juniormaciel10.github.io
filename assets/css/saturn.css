@@ -22,7 +22,6 @@
 html:not(.js) .saturn-home :is(.editorial-hero,.destinations){isolation:isolate}
 html:not(.js) .saturn-home :is(.editorial-hero,.destinations)::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--paper);box-shadow:0 0 0 100vmax var(--paper);clip-path:inset(0 -100vmax);pointer-events:none}
 .saturn-home .editorial-hero h1{position:relative;text-shadow:0 2px 16px #0b0b0b99}
-.saturn-home .hero-caption{align-self:center;max-width:100%;color:#cecdc8;text-shadow:0 1px 6px #0b0b0b,0 0 24px #0b0b0b}
 .saturn-home :where(.section-intro,.workspace-note,.about-top,.capabilities,.case-details,.footer-main){text-shadow:0 1px 5px #0b0b0b99}
 @media(max-width:760px){
  .saturn-scene{opacity:.78}
@@ -32,4 +31,4 @@ html:not(.js) .saturn-home :is(.editorial-hero,.destinations)::before{content:""
  .saturn-home .work-method .section-intro>p{color:#c5c4bf}
 }
 @media(forced-colors:active){.saturn-scene{display:none}}
-@media print{.saturn-scene{display:none}.saturn-home .editorial-hero{min-height:0}.saturn-home :where(h1,.hero-caption,.section-intro,.workspace-note,.about-top,.capabilities,.case-details,.footer-main){text-shadow:none}}
+@media print{.saturn-scene{display:none}.saturn-home .editorial-hero{min-height:0}.saturn-home :where(h1,.section-intro,.workspace-note,.about-top,.capabilities,.case-details,.footer-main){text-shadow:none}}

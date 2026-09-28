@@ -1,6 +1,5 @@
 .editorial-hero{padding-block:clamp(40px,4vw,68px) clamp(30px,3vw,48px);text-align:center}
 .editorial-hero h1{font-size:clamp(38px,7.7vw,148px);font-weight:420;line-height:1.08;letter-spacing:-.075em;white-space:nowrap}
-.hero-caption{margin-top:20px;color:var(--muted);font-size:clamp(14px,1.4vw,19px);line-height:1.6;text-wrap:balance}
 .destinations{position:relative;padding-block:28px 32px}
 .destination-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
 .destination{display:flex;flex-direction:column;min-width:0;padding:10px;border:1px solid var(--line);border-radius:14px;background:var(--paper);transition:background-color 150ms}
@@ -86,7 +85,6 @@ details[open]>summary .row-toggle svg{transform:rotate(45deg)}
 @media(max-width:760px){
 .editorial-hero{padding-block:38px 32px}
 .editorial-hero h1{font-size:clamp(24px,7.7vw,58px);letter-spacing:-.065em}
-.hero-caption{margin-top:14px;font-size:14px}
 .destinations{padding-block:20px 24px}
 .destination-grid{grid-template-columns:1fr;gap:12px}
 .destination{padding:10px}
