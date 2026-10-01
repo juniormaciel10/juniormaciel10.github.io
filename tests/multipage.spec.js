@@ -142,7 +142,7 @@ test('Galerias da plataforma e de modelagem usam imagens reais e mantêm ações
  await expect(game).toHaveAttribute('data-current','1');
  const pdf=await request.get('/assets/downloads/portfolio-modelagem-3d.pdf');
  expect(pdf.status()).toBe(200);expect(pdf.headers()['content-type']).toContain('application/pdf');
- await expect(page.locator('#p-gametwo')).toContainText('Lógica de jogo e cenários em Ruby e Gosu.');
+ await expect(page.locator('#p-gametwo')).toContainText('Lógica de jogo e cenários em Godot, a partir do protótipo em Ruby e Gosu.');
  await expect(page.locator('#p-govoice')).toContainText(/em desenvolvimento/i);
 });
 
@@ -207,7 +207,7 @@ for(const route of routes)test('Sem JavaScript: conteúdo, navegação e imagens
   await expect(page.locator('[data-gallery-controls]').first()).not.toBeVisible();
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
   expect(await page.locator('[data-gallery-slide]:not([hidden])').count()).toBeGreaterThan(1);
-  const target=route==='/'?'#metodo':route==='/jogos/'?'#roblox':'#por-dentro';
+  const target=route==='/'?'#metodo':route==='/jogos/'?'#p-gametwo':'#por-dentro';
   await page.locator('a[href="'+target+'"]').first().click();
   expect((await page.locator(target).boundingBox()).y).toBeGreaterThanOrEqual(-1);
   expect((await page.locator('.site-header').boundingBox()).y).toBeLessThan(0);

@@ -42,12 +42,8 @@ for(const width of [390,1440])test('Indicador identifica a dobra e mantém a eti
  await jump(page,'.document-copy');await guideReady(page);
  const hero=width<=760?'.backdrop-mobile-routes .route-signal':'.backdrop-desktop-routes .route-signal';
  await expect(page.locator('.hero '+hero)).toHaveCSS('animation-play-state','paused');
- await expect(page.locator('.document-case .ambient-trace').first()).toHaveCSS('animation-play-state','running');
- const trace=page.locator('.document-case .ambient-trace').first();
- await expect(trace).toHaveCSS('animation-name','presence-trace');
- const dash=await trace.evaluate(el=>getComputedStyle(el).strokeDashoffset);
- await page.waitForTimeout(650);
- expect(await trace.evaluate(el=>getComputedStyle(el).strokeDashoffset)).not.toBe(dash);
+ // Estudos usa só o percurso principal; os traçados decorativos das seções ficam ocultos.
+ await expect(page.locator('.document-case .backdrop-routes')).toBeHidden();
  expect(errors).toEqual([]);
 });
 

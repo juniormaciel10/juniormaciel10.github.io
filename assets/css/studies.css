@@ -7,3 +7,5 @@
 .studies-page .workspace figcaption{padding-top:18px;font-size:14px;color:#b1c4d6}
 .studies-page .other-work .project-index{max-width:none}
 @media(max-width:760px){.studies-page .brand{font-size:14px}.studies-page .workspace img{max-height:300px}}
+/* Visual mais limpo: mantém o percurso principal e retira ornamentos secundários. */
+.studies-page .software-case .backdrop-routes,.studies-page .document-case .backdrop-routes,.studies-page .method-section .backdrop-routes,.studies-page .contact-section .backdrop-monogram,.studies-page .contact-motion-ornament,.studies-page .story-thread-branches,.studies-page .hero .route-secondary,.studies-page .hero .route-tertiary{display:none!important}
