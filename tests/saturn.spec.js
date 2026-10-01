@@ -141,7 +141,7 @@ test('Saturno mantÃ©m uma cena ao redimensionar, abrir detalhes e restaurar a pÃ
  expect(buffer.width*buffer.height).toBeLessThanOrEqual(3000000);
  await page.setViewportSize({width:3840,height:2160});
  await expect(page.locator('.saturn-scene')).toHaveAttribute('data-quality','full');
- expect(await page.locator('.saturn-canvas').evaluate(canvas=>canvas.width*canvas.height)).toBeLessThanOrEqual(3000000);
+ expect(await page.locator('.saturn-canvas').evaluate(canvas=>canvas.width*canvas.height)).toBeLessThanOrEqual(6500000);
  await page.setViewportSize({width:390,height:844});
  await page.evaluate(()=>window.dispatchEvent(new PageTransitionEvent('pagehide',{persisted:true})));
  await assertNoDraws(page);
@@ -159,7 +159,7 @@ for(const failure of ['webgl','module','material'])test('Saturno conserva imagem
   HTMLCanvasElement.prototype.getContext=function(type,...args){return type.startsWith('webgl')?null:original.call(this,type,...args)};
  });
  if(failure==='module')await page.route('**/assets/js/scene.*.js',route=>route.abort('failed'));
- if(failure==='material')await page.route('**/assets/img/saturn/surface.webp',route=>route.abort('failed'));
+ if(failure==='material')await page.route('**/assets/img/saturn/surface*.webp',route=>route.abort('failed'));
  await page.setViewportSize({width:390,height:844});await page.goto('/');await page.keyboard.press('Shift');
  await expect(page.locator('.saturn-scene')).toHaveAttribute('data-renderer','image',{timeout:20000});
  await expect(page.locator('.saturn-scene')).toHaveCSS('visibility','hidden');

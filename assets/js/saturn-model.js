@@ -34,6 +34,9 @@ const planetFragment = sharedFragment + '\n' + [
   ' vec3 normal = normalize(vLocalNormal);',
   ' vec3 view = normalize(uCamera - vLocalPosition);',
   ' vec3 albedo = texture2D(uSurface, vec2(vUv.x + uRotation, vUv.y)).rgb;',
+  ' float facing = max(dot(normal, view), 0.0);',
+  // Limb darkening of a gas giant: the disk dims toward its edge.
+  ' albedo *= mix(0.62, 1.0, pow(facing, 0.38));',
   ' float direct = max(dot(normal, uLight), 0.0);',
   ' float shadow = 1.0;',
   ' if (abs(uLight.y) > 0.02) {',
@@ -52,7 +55,7 @@ const planetFragment = sharedFragment + '\n' + [
   ' }',
   ' vec3 ambient = vec3(0.075, 0.083, 0.1);',
   ' vec3 sunlight = vec3(1.25, 1.17, 1.02) * pow(direct, 0.92) * shadow;',
-  ' float rim = 1.0 - max(dot(normal, view), 0.0);',
+  ' float rim = 1.0 - facing;',
   ' float limb = rim * rim * rim;',
   ' vec3 scattering = vec3(0.13, 0.12, 0.095) * limb * smoothstep(-0.15, 0.75, dot(normal, uLight));',
   ' vec3 color = (albedo * (ambient + sunlight) + scattering) * uIntensity;',
@@ -67,16 +70,22 @@ const ringFragment = sharedFragment + '\n' + [
   'void main() {',
   ' float radius = length(vLocalPosition.xz);',
   ' float coordinate = ringCoordinate(radius);',
-  // A slightly wider mip footprint filters thin radial bands during rotation.
-  ' vec4 band = texture2D(uRings, vec2(coordinate, 0.5), 0.6);',
-  ' if (band.a <= 0.0) discard;',
+  // Explicit radial derivatives filter thin bands; the edges fade over one pixel.
+  ' float dx = dFdx(radius), dy = dFdy(radius);',
+  ' float pixel = max(abs(dx) + abs(dy), 1e-5);',
+  ' vec4 band = textureGrad(uRings, vec2(coordinate, 0.5), vec2(dx / 1.18 * 1.25, 0.0), vec2(dy / 1.18 * 1.25, 0.0));',
+  ' band.a *= smoothstep(1.18, 1.18 + pixel * 1.5, radius) * (1.0 - smoothstep(2.36 - pixel * 1.5, 2.36, radius));',
+  ' if (band.a <= 0.002) discard;',
   ' vec3 rayOrigin = vLocalPosition / vec3(1.0, 0.9, 1.0);',
   ' vec3 rayDirection = uLight / vec3(1.0, 0.9, 1.0);',
   ' float closest = max(0.0, -dot(rayOrigin, rayDirection) / dot(rayDirection, rayDirection));',
   ' float distanceToBody = length(rayOrigin + rayDirection * closest);',
   ' float lightThrough = closest > 0.001 ? smoothstep(0.985, 1.035, distanceToBody) : 1.0;',
   ' float planeLight = 0.5 + 0.5 * abs(uLight.y);',
-  ' vec3 color = band.rgb * (0.10 + vec3(1.12, 1.06, 0.95) * planeLight * lightThrough) * uIntensity;',
+  // Seen from the unlit face, sparse ring regions glow and dense ones darken.
+  ' float litFace = step(0.0, uLight.y * (uCamera.y - vLocalPosition.y));',
+  ' float transmission = mix(0.45 + 0.55 * (1.0 - band.a), 1.0, litFace);',
+  ' vec3 color = band.rgb * (0.10 + vec3(1.12, 1.06, 0.95) * planeLight * lightThrough * transmission) * uIntensity;',
   ' gl_FragColor = vec4(color, band.a);',
   ' #include <tonemapping_fragment>',
   ' #include <colorspace_fragment>',
@@ -107,7 +116,7 @@ export async function createSaturnModel({ surfaceUrl, ringUrl, compact = false }
   for (const texture of textures) {
     texture.colorSpace = SRGBColorSpace;
     texture.wrapT = ClampToEdgeWrapping;
-    texture.anisotropy = compact ? 2 : 4;
+    texture.anisotropy = compact ? 4 : 8;
   }
   surface.wrapS = RepeatWrapping;
   rings.wrapS = ClampToEdgeWrapping;
@@ -122,12 +131,12 @@ export async function createSaturnModel({ surfaceUrl, ringUrl, compact = false }
     uIntensity: { value: 1 }
   };
   const uniforms = { ...shared, uSurface: { value: surface }, uRings: { value: rings }, uRotation: { value: 0 } };
-  const globeGeometry = new SphereGeometry(1, compact ? 64 : 96, compact ? 40 : 64);
+  const globeGeometry = new SphereGeometry(1, compact ? 112 : 192, compact ? 72 : 128);
   globeGeometry.scale(1, 0.9, 1);
   const globe = new Mesh(globeGeometry, new ShaderMaterial({ vertexShader, fragmentShader: planetFragment, uniforms }));
   globe.name = 'Saturn body';
   group.add(globe);
-  const ringGeometry = new RingGeometry(1.18, 2.36, compact ? 160 : 256, 1);
+  const ringGeometry = new RingGeometry(1.18, 2.36, compact ? 320 : 640, 1);
   ringGeometry.rotateX(-Math.PI / 2);
   const ring = new Mesh(ringGeometry, new ShaderMaterial({
     vertexShader, fragmentShader: ringFragment, uniforms,
@@ -136,7 +145,7 @@ export async function createSaturnModel({ surfaceUrl, ringUrl, compact = false }
   ring.renderOrder = 2;
   ring.name = 'Saturn rings';
   group.add(ring);
-  const atmosphereGeometry = new SphereGeometry(1.014, compact ? 48 : 64, compact ? 32 : 48);
+  const atmosphereGeometry = new SphereGeometry(1.014, compact ? 96 : 160, compact ? 64 : 96);
   atmosphereGeometry.scale(1, 0.9, 1);
   const atmosphere = new Mesh(atmosphereGeometry, new ShaderMaterial({
     vertexShader, fragmentShader: atmosphereFragment, uniforms: shared,

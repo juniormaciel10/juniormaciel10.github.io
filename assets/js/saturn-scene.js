@@ -175,9 +175,11 @@ export async function mountSaturn(host) {
   }
   function sizeRenderer(force=false) {
     if(!renderer)return;
-    // Keep the drawing buffer stable during motion, including at high device DPR.
-    const cap=compact?1.75:2;
-    const ratio=Math.min(window.devicePixelRatio||1,cap,Math.sqrt(3000000/(width*height)));
+    // Keep the drawing buffer stable during motion. Desktop renders above 1x on
+    // standard screens so ring edges stay smooth while the planet moves.
+    const dpr=window.devicePixelRatio||1;
+    const desired=compact?Math.min(dpr,1.75):Math.min(Math.max(dpr,1.5),2);
+    const ratio=Math.min(desired,Math.sqrt((compact?3000000:6500000)/(width*height)));
     if(!force&&ratio===renderRatio)return;
     renderRatio=ratio;
     renderer.setPixelRatio(ratio);
@@ -302,7 +304,7 @@ export async function mountSaturn(host) {
     sizeRenderer(true);
     renderCanvas.addEventListener('webglcontextlost',event=>{event.preventDefault();useImage();},events);
     const loaded=await createSaturnModel({
-      surfaceUrl:new URL(host.dataset.saturnSurface,document.baseURI).href,
+      surfaceUrl:new URL((compact&&host.dataset.saturnSurfaceCompact)||host.dataset.saturnSurface,document.baseURI).href,
       ringUrl:new URL(host.dataset.saturnRings,document.baseURI).href,
       compact
     });

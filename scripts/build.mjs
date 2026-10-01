@@ -96,7 +96,7 @@ const files = new Set([
   '.nojekyll', 'assets/img/og.png', 'assets/img/mesa-hero.png', 'assets/img/mesa-real.png',
   'assets/fonts/ClashDisplay-FFL.txt', 'assets/fonts/ClashDisplay-SOURCE.txt', ...stylePaths, ...scriptPaths, ...earlyPaths
 ]);
-if (sceneCache.size) files.add('assets/img/saturn/Three-LICENSE.txt');
+if (sceneCache.size) { files.add('assets/img/saturn/Three-LICENSE.txt'); files.add('assets/img/saturn/CREDITOS.txt'); }
 for (const file of JSON.parse(await fs.readFile(path.join(root, 'scripts/public-assets.json'), 'utf8'))) {
   if (!/^assets\/[\w./-]+$/.test(file) || file.split('/').some(part => part === '..' || part === '.')) throw new Error('Arquivo de compatibilidade inválido.');
   files.add(file);
@@ -113,7 +113,7 @@ function addReference(reference, relativeTo = '') {
 }
 for (const page of pages) {
   for (const match of page.html.matchAll(/\b(?:src|href|poster)="([^"]+)"/g)) addReference(match[1], page.directory);
-  for (const match of page.html.matchAll(/\bdata-saturn-(?:surface|rings)="([^"]+)"/g)) addReference(match[1], page.directory);
+  for (const match of page.html.matchAll(/\bdata-saturn-(?:surface|surface-compact|rings)="([^"]+)"/g)) addReference(match[1], page.directory);
   for (const match of page.html.matchAll(/\bsrcset="([^"]+)"/g)) match[1].split(',').forEach(item => addReference(item.trim().split(/\s+/)[0], page.directory));
 }
 for (const [file, css] of bundles) {
