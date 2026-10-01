@@ -1,6 +1,6 @@
 {
-  "commit": "30cc0b1807255ccca2c6e3ffce5fd123e9b8d31c",
-  "data": "2026-10-01T01:34:43-03:00",
+  "commit": "d5ebb623d3d7680e080a423b631f81d9b8511449",
+  "data": "2026-10-01T02:30:54-03:00",
   "dirty": false,
   "css": "assets/css/site.799816a98f02.css",
   "js": "assets/js/site.ab7363aa9a66.js",
@@ -9,7 +9,7 @@
       "css": "assets/css/site.799816a98f02.css",
       "js": "assets/js/site.ab7363aa9a66.js",
       "modules": [
-        "assets/js/scene.b3f427b2e095.js"
+        "assets/js/scene.5130b8968ee4.js"
       ],
       "earlyJsBytes": 4742
     },
