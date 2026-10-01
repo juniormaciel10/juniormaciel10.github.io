@@ -1,5 +1,5 @@
 {
-  "commit": "050bd2ad5ef08ba54ac23d8e036727b108a0f5e4",
+  "commit": "30cc0b1807255ccca2c6e3ffce5fd123e9b8d31c",
   "files": {
     ".nojekyll": {
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -62,16 +62,16 @@
       "bytes": 21233
     },
     "assets/css/studies.css": {
-      "sha256": "e6f6c7a94231c0af4df5aa1f1214d2e6555453eb8dfed6561adbfe69611db56b",
-      "bytes": 614
+      "sha256": "bef25031ed416974e6b5e9d1a299f8295156923aac4028a18da2f415dd892fca",
+      "bytes": 1064
     },
     "assets/css/platform.css": {
-      "sha256": "53b0a0bdb105002931e676638f3168da88b8da8e793bd1a92ce86b6ba9c174c9",
-      "bytes": 11849
+      "sha256": "dd983ce7aa9e4186d15a9c330941fb5d9be7f4fc89084bbb3ab1f27608413b2e",
+      "bytes": 30816
     },
     "assets/css/games.css": {
-      "sha256": "ee8ed274b0aa1aacd6295aadc59054cd8bd9ef107303c22100b10a0693141704",
-      "bytes": 14144
+      "sha256": "73b0570ff0545b4368c7e919e01cdc6ab85326643119a3f20a7a4787ff3f36ec",
+      "bytes": 32566
     },
     "assets/css/projects.css": {
       "sha256": "dfed7074c271b6d30ccc136ef91f4c1bb83bc8bf0f3994ceede9d0742ff4ed8c",
@@ -104,6 +104,10 @@
     "assets/js/backdrops.js": {
       "sha256": "fc3c882efb415a85569063148b0a10aba25275747101e8192b0f41b8fa61fc51",
       "bytes": 32424
+    },
+    "assets/js/lp-animation.js": {
+      "sha256": "6286f43aff01aef043a13a9b9aece81e282cf95472d2c8272b4fd6b23d94d550",
+      "bytes": 1174
     },
     "assets/js/model-gallery.js": {
       "sha256": "af4571f6117d5be66db539a097e5550990b1666d78040ff76be6637ca6df9203",
@@ -314,36 +318,36 @@
       "bytes": 7412
     },
     "assets/img/portfolio/plataforma-inicio.webp": {
-      "sha256": "12446985063c0cbe4bf64e73fa6dc9d0208a7f55e0d737b995e67a106360706c",
-      "bytes": 683180
+      "sha256": "7e2b9a38bfa66c201b2ab8c4ebfffef6ee68cb251ae89359417de3cf92b27de2",
+      "bytes": 685722
     },
     "assets/img/portfolio/plataforma-aulas.webp": {
-      "sha256": "b22c3b36ff44e1104f2c186664ebed5a98c77b805002674f974084743e06d694",
-      "bytes": 511896
+      "sha256": "e055a09cf936c4e7b5b051dbff199f061e5a29e98d0b9cb0730475ef25e16d0f",
+      "bytes": 530430
     },
     "assets/img/portfolio/plataforma-questoes.webp": {
-      "sha256": "a1aaffca1ebaf4bf4c22f20c42e7ccdfe16cdb444a93bf54e87cef2c4ef2b4b0",
-      "bytes": 558054
+      "sha256": "e2a3e90a2355e33353f6f32de9edb5a92a5e7ceafa4beed7b0a402370c3b7f97",
+      "bytes": 574224
     },
     "assets/img/portfolio/plataforma-ranking.webp": {
-      "sha256": "4640326b442e471bfe8191b35c3fbcef2f48c5811e21745b30fbf343bbed904d",
-      "bytes": 471066
+      "sha256": "2b21204405ae0e5c315185fcc07ec528242c96f24c97892cd0f8762991679811",
+      "bytes": 496678
     },
     "assets/img/portfolio/plataforma-inicio-mobile.webp": {
-      "sha256": "5dae284d048bbe1aa69acb27e211e22fa54b3b778b745de9b7bf1bf1092b6c2c",
-      "bytes": 554108
+      "sha256": "7f70d7c8d3b7feb970c1538ae3e8425f39be07d28e890e92cdc39319208ed2ac",
+      "bytes": 677052
     },
     "assets/img/portfolio/plataforma-aulas-mobile.webp": {
-      "sha256": "1948d787da196c671cdc9718113d19c923898e1df028739643a2c21dd3a1ee42",
-      "bytes": 468450
+      "sha256": "71fe59492fdebac31d05499742ac6a80299a2e22e1e192e9dffb930082c34d1f",
+      "bytes": 464530
     },
     "assets/img/portfolio/plataforma-questoes-mobile.webp": {
-      "sha256": "fc1f293c179eb7e7a592665b974a172130494f17c2678fd9dcda210bf433ad6f",
-      "bytes": 377672
+      "sha256": "2316b8b921d5ebe2ef7d6f4a741ba748bc6a9d74463109552bd6d817a5c431b3",
+      "bytes": 416664
     },
     "assets/img/portfolio/plataforma-ranking-mobile.webp": {
-      "sha256": "6c7aabbf31f7890c8a250404d9b96207346475e06a4ea910bd4ca38be3ca47d9",
-      "bytes": 359294
+      "sha256": "4ac0e83e011c9d9b0211d6c56fccfb26e83833e6cdbf57606ffec7138e61edc2",
+      "bytes": 383840
     },
     "assets/img/portfolio/modelo-jaqueta-metro.webp": {
       "sha256": "90374847b0ebb9c506a88f45d41a3df414acbca26a5dcef1fe0a40f157fc676a",
@@ -410,12 +414,12 @@
       "bytes": 50142
     },
     "assets/img/portfolio/plataforma-lp-mobile.webp": {
-      "sha256": "3b7d01b5ab5abfcc4d483f281b23013cb8559abf3877062950f9d5af0e5c9ddd",
-      "bytes": 533612
+      "sha256": "d58477311fff21f02c55065b46c680fcb6a201f1e99089da40d498b4990f9711",
+      "bytes": 569592
     },
     "assets/img/portfolio/plataforma-capa.webp": {
-      "sha256": "d66d6cf6607a81d8384b098359fbe95c06433254f24b4c1bf919cf1a8c3a6ff9",
-      "bytes": 37228
+      "sha256": "b1bdbb55ba46eade921d4ee2d0691af79b2e22776808d3f950b27c80c0eb59e4",
+      "bytes": 40282
     },
     "assets/img/favicon.svg": {
       "sha256": "7a1abf74ac4f3202d7f3b18cba59a48e5635d8e19308a142d94dd83647258544",
@@ -426,16 +430,16 @@
       "bytes": 52338
     },
     "assets/img/portfolio/previews/estudos-960.webp": {
-      "sha256": "02d44c0742bcfa89fbd9db4564ef5bdb01b92361c2051849fc0ba7c422c3c420",
-      "bytes": 44262
+      "sha256": "0591580fefd1340def338b0ff4bf8de0b71dbb48a3454b5ae0eb7553c816659b",
+      "bytes": 31472
     },
     "assets/img/portfolio/previews/plataforma-960.webp": {
-      "sha256": "21d243cbb7d9343c697df88c24a39403240c7cc48196bbab169421d3ee8a4e56",
-      "bytes": 31628
+      "sha256": "06a79cad5168ea0d84bd8fff5b2a011754b9d5aaf0a87f95957f06c283e308c7",
+      "bytes": 35566
     },
     "assets/img/portfolio/previews/jogos-960.webp": {
-      "sha256": "6fd24bc28bc930e0a6c036ce7a19e207ec0bbbe198276a083fa74349d61c73f8",
-      "bytes": 40612
+      "sha256": "1ffbd0f8b235ad0d8b3a004f296fc7121be988380a397a5fc10cd3c3da63f6e0",
+      "bytes": 52270
     },
     "assets/img/portfolio/trabalho-02.webp": {
       "sha256": "313b70ac1b0681ead49d7cb9f6ca0c90194522498a3712bc629d6e2c2fb45a90",
@@ -498,16 +502,16 @@
       "bytes": 798
     },
     "assets/img/portfolio/previews/estudos-640.webp": {
-      "sha256": "4a7fc2dabf416213a2ac3ccaf4b4e2df8565a8f4cb0b625ab555115d8908b192",
-      "bytes": 26518
+      "sha256": "e6fc7e166050c5d91771a64160299d6f9a233e364226a7bb1644c8f2c6b925e4",
+      "bytes": 19474
     },
     "assets/img/portfolio/previews/plataforma-640.webp": {
-      "sha256": "624669c9a0b3d61dd12d3dd3cb21bec29d0042549a2cda387e4eac4d394c191a",
-      "bytes": 17810
+      "sha256": "136557f24b108705170893f969245739cf931b185cc52293670da69e306f7d1d",
+      "bytes": 20026
     },
     "assets/img/portfolio/previews/jogos-640.webp": {
-      "sha256": "d8ce9fdf531b3ad1651809bf6e6c4c4f85621585b2add070a764224a61f2c27a",
-      "bytes": 23884
+      "sha256": "65198c3446b2d5a44549ba576ea25e280e3ad544280547d244d4639a0807e20d",
+      "bytes": 29550
     },
     "assets/img/portfolio/trabalho-02-720.webp": {
       "sha256": "b38da0cf330281767cdcc2c07030277af22256929e1ce28fa1bf959d5207a219",
@@ -550,80 +554,92 @@
       "bytes": 31766
     },
     "assets/img/portfolio/plataforma-inicio-1120.webp": {
-      "sha256": "9989b21a3087b8e448d84907805035120a944593aeb923c602e4ca6ef76ceb25",
-      "bytes": 51870
+      "sha256": "bb0ff9a451b5e983d85900373bd34012084cd57d1cc593be4f399cd23dbda525",
+      "bytes": 55502
     },
     "assets/img/portfolio/plataforma-aulas-preview.webp": {
-      "sha256": "41582249d764bf82d16b64911a4ea8f538d0338d70c1cd759254413bb5a1311d",
-      "bytes": 62494
+      "sha256": "86a09104290f21c0f7fcd9e51e844279d9d43996ab1af0efe2d315a05178648b",
+      "bytes": 66376
     },
     "assets/img/portfolio/plataforma-questoes-preview.webp": {
-      "sha256": "ca76b7782f6193e935b81a4b15737176c48e55547d482c1b98735c2c45d6de30",
-      "bytes": 74102
+      "sha256": "ac0add47637868744b048b67628614bf04b800baa68ef26a2c56a604bd8e9c19",
+      "bytes": 72302
     },
     "assets/img/portfolio/plataforma-ranking-preview.webp": {
-      "sha256": "88b1b7db8a4c4633db9dee7657b05a11f8e697ad43a0a785bf0692905b245060",
-      "bytes": 58558
+      "sha256": "8a500463bdd03f337443e6f47b9870a859d2be888255ebb233dd95a89268a1b3",
+      "bytes": 61756
     },
     "assets/img/portfolio/plataforma-lp.webp": {
-      "sha256": "48decb8397c1ec0bb006c22497d2fbf6bc0863a32badd98af6edc46a5cd9e3d6",
-      "bytes": 523808
+      "sha256": "7fcacd0e5ffa609525d50d45d3dab9165adcd50471572e0103f9fd3eaff147f8",
+      "bytes": 559250
     },
     "assets/img/portfolio/plataforma-lp-preview.webp": {
-      "sha256": "72d372507f1c570dad801cdfc982f62f5ee493374cc895c218a8b2d1ab2626fe",
-      "bytes": 47404
+      "sha256": "7257541daed608852834a00751ecfb86626798a5ad637b13d797bde4c147ad62",
+      "bytes": 58264
+    },
+    "assets/img/portfolio/plataforma-lp-animacao-poster.webp": {
+      "sha256": "72700b728521031c8c7545c9f8e26ce348f650ed9c8ad0efeb56ec4ad0da2891",
+      "bytes": 34398
+    },
+    "assets/video/plataforma-lp-animacao.mp4": {
+      "sha256": "f745a6049a1872edcfeb505c7d9d3ef2fef3881e50976d5d174484ee7cc95733",
+      "bytes": 248881
     },
     "assets/img/portfolio/plataforma-inicio-mobile-preview.webp": {
-      "sha256": "46eb3d186290ca966579bef26c9b2e5824267f53863280f6d90cfe5ea134fffd",
-      "bytes": 69922
+      "sha256": "c1442e0f18d25b19c82d57d6cce3300e1134ffb4f4c510ac9aedc8904212fff3",
+      "bytes": 85294
     },
     "assets/img/portfolio/plataforma-inicio-720.webp": {
-      "sha256": "769edd6924fd61c69a50eeb6853f75fb31edef6a33ff5fe9739d8cc9a8116763",
-      "bytes": 25702
+      "sha256": "81bd2a84d2196a82fb4b70978be8d25821e993985c3403d5131a742e6da1a521",
+      "bytes": 28784
     },
     "assets/img/portfolio/plataforma-inicio-preview.webp": {
-      "sha256": "599ed7d4aa33020bc350a79b42f90aebe29553fca1b24fe601da39041cc0544b",
-      "bytes": 85428
+      "sha256": "102d894dc6cfaae2c003e4676d26e1188123cbc036916c4742d99fd4a33491e5",
+      "bytes": 91338
     },
     "assets/img/portfolio/plataforma-aulas-mobile-preview.webp": {
-      "sha256": "ec24f8fc4db7327d02b6a7f3180c49e68674cb5c0c1a569689c36961c429996a",
-      "bytes": 74306
+      "sha256": "f057206e522f9624c2ca82ff467a22f80337fa2c89b508c1fa3f6a206f810ad2",
+      "bytes": 71604
     },
     "assets/img/portfolio/plataforma-questoes-mobile-preview.webp": {
-      "sha256": "51b4c4eb81ec925d92cdfd5a7c3221f569e068b16f8031bec70a206c39ee4cbe",
-      "bytes": 68270
+      "sha256": "ad4c18784d0e31c19ace6277118c8220b739616152601ca3b1d7ea5f46e978bd",
+      "bytes": 71268
     },
     "assets/img/portfolio/plataforma-ranking-mobile-preview.webp": {
-      "sha256": "59f88601ca5f1a49c20c3bca2b8075cfb06210d9eba15800906abc92af37cbae",
-      "bytes": 69144
+      "sha256": "5f16a38018cd6e6629e0e4a0f8cda87e193b88ecefb6dc07084c8a681d7a969a",
+      "bytes": 70260
     },
     "assets/img/portfolio/plataforma-lp-mobile-preview.webp": {
-      "sha256": "1718aee122c0d740f10a6fc7a69ec6526c0a86bc8aaa9a6178a9a1c06545e083",
-      "bytes": 69246
+      "sha256": "b80446ef0edd3518e615bd7a5f43c9780a5c7790ef34a3e601a336a3e2c21708",
+      "bytes": 81400
     },
-    "assets/img/portfolio/game-two-praca-preview-640.webp": {
-      "sha256": "72ff3f0399bdc10fd131072476d30d91002851ae0355036449348b67f897098a",
-      "bytes": 20786
+    "assets/img/portfolio/game-two-godot-patio-preview-640.webp": {
+      "sha256": "f2808ec344bd1ae89a9189d9d79a0b5740726cba39efbfdbda93c67bc5f0791d",
+      "bytes": 16192
     },
-    "assets/img/portfolio/game-two-praca-20260927.webp": {
-      "sha256": "b908c9ece6343886cf229568b0db96f5cad3aca84254cf8dc28b5750c0c98c53",
-      "bytes": 159522
+    "assets/img/portfolio/game-two-godot-patio-20260930.webp": {
+      "sha256": "1523d21fe19af9751be2ff95fcf4358d23a2e5f44272afd7e15fdf4fc803ab5c",
+      "bytes": 59042
     },
-    "assets/img/portfolio/game-two-combate-20260927.webp": {
-      "sha256": "720b2e9a12dd36b8a2ea845e86e5279cbf0c258d1c6640258fdd05b98a184e27",
-      "bytes": 108734
+    "assets/img/portfolio/game-two-godot-guardiao-20260930.webp": {
+      "sha256": "68d1e9781e5df63b741eafc62a6be8738e496f220dc01208d6000c760dd56753",
+      "bytes": 72362
     },
-    "assets/img/portfolio/game-two-combate-preview-640.webp": {
-      "sha256": "bf3f7837c55dd3d1ae927d5e34856b9e14d9b019a5c3132051bc3aafc7ea6b9d",
-      "bytes": 21370
+    "assets/img/portfolio/game-two-godot-guardiao-preview-640.webp": {
+      "sha256": "77979c59fbd6fab4f8a31ccd41c2852cc6e29c2e38275bbd57f955eb01d2387f",
+      "bytes": 19090
     },
-    "assets/img/portfolio/game-two-encontro-20260927.webp": {
-      "sha256": "589f7cd559890f833b2d3c36d8999cabe9704099f4bc158659757cc82c8def52",
-      "bytes": 65542
+    "assets/img/portfolio/game-two-godot-cofre-20260930.webp": {
+      "sha256": "943460161ac61bf469ad4e12e55a86036af7d22d6ff70451c111c3b3fea004e8",
+      "bytes": 66778
     },
-    "assets/img/portfolio/game-two-encontro-preview-640.webp": {
-      "sha256": "eac743db83426b72cda2d96b827415c7544253c762439456432ea6501cdae1dd",
-      "bytes": 21926
+    "assets/img/portfolio/game-two-godot-cofre-preview-640.webp": {
+      "sha256": "ef41e8d93fc716bf372a9d015ba203e3a17b2857c2e4be0f7b6664611b6a9617",
+      "bytes": 17292
+    },
+    "assets/downloads/portfolio-modelagem-3d.pdf": {
+      "sha256": "50d673758ab741076f36d52f3bab6c6e81577cb6ef39b7918d6b5f20eadb3692",
+      "bytes": 1068253
     },
     "assets/img/portfolio/modelo-bolsa-metro.webp": {
       "sha256": "48a946bdb40655a67ecb694fcc82174ebfb48bcf108d55d7a073dc2e474920a0",
@@ -673,21 +689,65 @@
       "sha256": "78bc7068a77dc8eb81e74bacbb65c062225078821b65dd8d87c87e3406530647",
       "bytes": 5458
     },
-    "assets/downloads/portfolio-modelagem-3d.pdf": {
-      "sha256": "50d673758ab741076f36d52f3bab6c6e81577cb6ef39b7918d6b5f20eadb3692",
-      "bytes": 1068253
+    "assets/img/portfolio/fortuna-largada-20260930.webp": {
+      "sha256": "2aa089e7aeaef5d721fc45d0f9f52fcee26b2b716ed9267c47f387fce4243ad2",
+      "bytes": 83548
     },
-    "assets/img/portfolio/game-two-praca-preview-960.webp": {
-      "sha256": "e019b04a2adde438fbfa615e63afaba56dedcb8b18e6c7a72fb5e6581bdc60a1",
-      "bytes": 42110
+    "assets/img/portfolio/fortuna-largada-preview-640.webp": {
+      "sha256": "8935ddfb6f23aeccdf56dd2a8cd8c020a461777e00d2f12e4305b6a96bebf7e9",
+      "bytes": 14130
     },
-    "assets/img/portfolio/game-two-combate-preview-960.webp": {
-      "sha256": "107de7bff7847969131f94878d91754011f733bf710cf04dab87d3051acfc3ab",
-      "bytes": 44896
+    "assets/img/portfolio/fortuna-reta-20260930.webp": {
+      "sha256": "dbc88297d41e428e2a4ae1959ff7aab7e7bc1c7e3d73127b277f8834541a972c",
+      "bytes": 79114
     },
-    "assets/img/portfolio/game-two-encontro-preview-960.webp": {
-      "sha256": "2804367e354e6a487623273494421d767c60ba49f96fdf1ce247cfbf4ef0f54d",
-      "bytes": 48012
+    "assets/img/portfolio/fortuna-reta-preview-640.webp": {
+      "sha256": "7f312cdbd206dd8e619e9c9e6c85ca719ac8add65ea2cab2b3ec3a202b3def3f",
+      "bytes": 13988
+    },
+    "assets/img/portfolio/fortuna-oficina-20260930.webp": {
+      "sha256": "db49bb3d7ae72e5578077bdddce9d9f4f8f3ed9a1619375aecb116c7ccc20be2",
+      "bytes": 26288
+    },
+    "assets/img/portfolio/fortuna-oficina-preview-640.webp": {
+      "sha256": "7634bed7adfc54f57b8402415c1ebc965bf1c5c471adbe135587f534c47a33a2",
+      "bytes": 7262
+    },
+    "assets/img/portfolio/fortuna-residencial-20260930.webp": {
+      "sha256": "2f12787bfb360338f25eca59867e1cf4168022b860bdb4f5b6fd63e2027f43e2",
+      "bytes": 64558
+    },
+    "assets/img/portfolio/fortuna-residencial-preview-640.webp": {
+      "sha256": "13bd3a8039a557380794b1a8f2dbb5a4071740effe4c3b8fe8a76424a05dbcbc",
+      "bytes": 11184
+    },
+    "assets/img/portfolio/fortuna-blender-carro-20260930.webp": {
+      "sha256": "1c2306a675d66ce59881581f460ebfde2ef5447ee71dcded875e48c3072d96df",
+      "bytes": 17588
+    },
+    "assets/img/portfolio/fortuna-blender-carro-preview-640.webp": {
+      "sha256": "ae485de32d0ac26ac46c4dbdc1b202ef3f72896b3deb3bd1414d4c19a9d5cc0c",
+      "bytes": 6280
+    },
+    "assets/img/portfolio/fortuna-blender-moto-20260930.webp": {
+      "sha256": "734f949c44f4d26ee77a252dd0eb21561f8a1051fd95bc64385d52f933d41a2e",
+      "bytes": 22330
+    },
+    "assets/img/portfolio/fortuna-blender-moto-preview-640.webp": {
+      "sha256": "3d78c73726fc1935e7ba4fe2d51ec69bd9f48932a1810baac8ce1a6db53654c7",
+      "bytes": 7914
+    },
+    "assets/img/portfolio/game-two-godot-patio-preview-960.webp": {
+      "sha256": "f8b0cfdbd876cbe652eee50ae30b9c89a5550c51378af02ace707b18bffb6b8c",
+      "bytes": 29252
+    },
+    "assets/img/portfolio/game-two-godot-guardiao-preview-960.webp": {
+      "sha256": "a731b4c9f9d49febe103f4f147bf2124ddbd5d0346a68d285bd4b9ffadf461f4",
+      "bytes": 35850
+    },
+    "assets/img/portfolio/game-two-godot-cofre-preview-960.webp": {
+      "sha256": "5154bca6b9923e76171bede5378f472c413af36e0690f4556fed97117ba6e084",
+      "bytes": 31840
     },
     "assets/img/portfolio/modelo-bolsa-metro-recorte.webp": {
       "sha256": "8247c5987392ac603b8646063424740ad63b9fefbe08ec6cc5bc41d317f5f9d9",
@@ -705,6 +765,30 @@
       "sha256": "03d7a5c65fcccc561e66a8207719e31cecae705e042ac112481f9e041073258f",
       "bytes": 55914
     },
+    "assets/img/portfolio/fortuna-largada-preview-960.webp": {
+      "sha256": "eb7ae4d8d80ceea1c617f427906853509ffecaefa5721e78da064b9445c26223",
+      "bytes": 28830
+    },
+    "assets/img/portfolio/fortuna-reta-preview-960.webp": {
+      "sha256": "982bc2e3da4bcdcb404d50f8ed880b5df488580ec4ff41c421d7054a1c7acd52",
+      "bytes": 26432
+    },
+    "assets/img/portfolio/fortuna-oficina-preview-960.webp": {
+      "sha256": "f57c118116dccf25686a52ca82ec821a20ce5639080f37828d325457e7283597",
+      "bytes": 11870
+    },
+    "assets/img/portfolio/fortuna-residencial-preview-960.webp": {
+      "sha256": "0678c921a3cf88577a018e50b1adb1e473a68b926d48da86492c1ec5b46eca4c",
+      "bytes": 20880
+    },
+    "assets/img/portfolio/fortuna-blender-carro-preview-960.webp": {
+      "sha256": "2d50a668a327313bf9d8a4e78b0156e81528fee3317c48b2c1a19f8731b91fed",
+      "bytes": 10008
+    },
+    "assets/img/portfolio/fortuna-blender-moto-preview-960.webp": {
+      "sha256": "be3f5f4fd8b0226a5f74a93a91e7ba4937f8d0917fe142ae2dd84e62aeb3ecf8",
+      "bytes": 12760
+    },
     "assets/img/planejamento-percurso.webp": {
       "sha256": "5056dc58c4988fe3571e2177f2d71a13cb89dc104d424d08f5ab35e9a3dff7ea",
       "bytes": 43414
@@ -721,25 +805,37 @@
       "sha256": "4ba7d3d096695818fe0686be4f1e82c6b05134e18a22260336130335027462dd",
       "bytes": 20156
     },
-    "assets/img/portfolio/game-two-ambiente.webp": {
-      "sha256": "10d684ef86da35a7e1614bd9fa4394cde03f494ae47fd3321f520eb13c457146",
-      "bytes": 9368
+    "assets/img/portfolio/reference-platform-mesh.svg": {
+      "sha256": "9f064782ec44bfb4f158f3a35743dc1e9c8d9d48559dd2f6c49b0b15e83071e6",
+      "bytes": 61084
+    },
+    "assets/img/portfolio/reference-platform-hero.svg": {
+      "sha256": "63958101ddd01ccf7e76e9d974bce3c20931184e48bdca190bebeca92b01acf2",
+      "bytes": 901
+    },
+    "assets/img/portfolio/reference-game-hero.webp": {
+      "sha256": "130b4c0ac57dc1a0e3bd4109fedc35ebc471ccd0e0870afbf74738663a6a54f2",
+      "bytes": 7680
+    },
+    "assets/img/portfolio/reference-game-lower.webp": {
+      "sha256": "f4bbcbef77ea51c2f05a1151fdff8c048022205b801e4c6b523cac0e66ccd3e1",
+      "bytes": 4184
     },
     "index.html": {
-      "sha256": "6db5a0cb9a68cdc1721fbd634366c46039ce23681c292255077d3904e02eb39e",
-      "bytes": 37647
+      "sha256": "6862496c077096e6062d1fc0d6e9642290b2af4a72ecd2fab211e6d961ca379f",
+      "bytes": 37784
     },
     "estudos/index.html": {
-      "sha256": "2fd931925692152593fa29e0881edab1f2885e8e42244e614691e904192a4535",
+      "sha256": "cca52e5a77ecc65adf7588f190aec33b7742090997481a3b20df195071491537",
       "bytes": 37131
     },
     "plataforma/index.html": {
-      "sha256": "1d5352d23919f487554d7ee1c2e77b4dd7eba7cfb6f39bfff1b1b5f2948e09a8",
-      "bytes": 34579
+      "sha256": "f089cf41880b9feceff24204f571864f7803fa402be25d2f5052b237eaabc49f",
+      "bytes": 38789
     },
     "jogos/index.html": {
-      "sha256": "462b297531649cf75aaee02d4807b78bd64be8085f96d6176ed66f7a3f671225",
-      "bytes": 44560
+      "sha256": "f0d17822c20a8df0dd36434d48d617a317dba7b2c9b0d9c14b0a8430638e188c",
+      "bytes": 62401
     },
     "projetos/planejamento-de-estudos/index.html": {
       "sha256": "19054ec883bfed22554b0801ce94c56a6087ebad0153d5e4dfdcf827f141d79c",
@@ -761,25 +857,25 @@
       "sha256": "ab7363aa9a66a356ee5c72740105dca4748f21530ab1e6b7a75663145bcc966c",
       "bytes": 17792
     },
-    "assets/css/site.6cb1124d38d7.css": {
-      "sha256": "6cb1124d38d77bf19e705468a7137899cb3bec87991e62c571b9129c71bc2bd7",
-      "bytes": 64781
+    "assets/css/site.e665f33dab12.css": {
+      "sha256": "e665f33dab1233810462614961c9adccb1ab77a82b282eacc4b2e5d8490ab6dc",
+      "bytes": 65142
     },
     "assets/js/site.5519a81490cc.js": {
       "sha256": "5519a81490cc2fc8b088084aa026e582bd411f66388e4e56a8a56d309a287ed6",
       "bytes": 37087
     },
-    "assets/css/site.8ea6672547c6.css": {
-      "sha256": "8ea6672547c6618ba8e1c6e4bb4eb0c5bd45b2afd1914c33bae41f2b4df23224",
-      "bytes": 25553
+    "assets/css/site.efea3d3c7f10.css": {
+      "sha256": "efea3d3c7f10fd51bb8bad568c029ab7484cfd9b653d628a5019753b401720f0",
+      "bytes": 44436
     },
-    "assets/js/site.6bd95203b1ff.js": {
-      "sha256": "6bd95203b1ffad2af33e931c60c5060a10ca679c70253f2f65c280c3a7dd1311",
-      "bytes": 9781
+    "assets/js/site.68515481d0bd.js": {
+      "sha256": "68515481d0bda58e77a7d0fe364a2bc94f5cb6a50db30d292fe932ca0ab35ca8",
+      "bytes": 10509
     },
-    "assets/css/site.a7a952d74af0.css": {
-      "sha256": "a7a952d74af0958f4f12c14877540f6a5be568394a5eab82815808683810e990",
-      "bytes": 27794
+    "assets/css/site.fe5791788d60.css": {
+      "sha256": "fe5791788d60842f10283aed9e426e3ed9ae1c045e467328b219df8fb64369ac",
+      "bytes": 46295
     },
     "assets/js/site.38cf404454cd.js": {
       "sha256": "38cf404454cdcfb603be32a8e5e44467663ff94892e285890d572cb45f3b4fbb",
@@ -794,11 +890,11 @@
       "bytes": 7669
     },
     "assets/build.json": {
-      "sha256": "00825686ab2172b00d05bfd057868c1802129d2eafefc843e9c9483002e55c2c",
+      "sha256": "6c9408ac174640887eb4854a7995028e4b965458995f9f1d0815f51d8fbc9122",
       "bytes": 1368
     },
     "sitemap.xml": {
-      "sha256": "5605dabe0f114cabe264a88f92f052f818fc538a62c186fc277f2036c65e2e9c",
+      "sha256": "8a181290151ffe09939dc74a9004454134b707c872f9dffac1cb358de9c57c81",
       "bytes": 717
     },
     "robots.txt": {
