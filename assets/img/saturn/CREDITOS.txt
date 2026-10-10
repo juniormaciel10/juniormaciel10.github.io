@@ -1,0 +1,10 @@
+Texturas de Saturno
+
+surface.webp, surface-compact.webp e rings.png derivam dos mapas
+"Saturn" e "Saturn Ring" da Solar System Scope
+(https://www.solarsystemscope.com/textures/), baseados em imagens da NASA.
+Licença: Creative Commons Attribution 4.0 International (CC BY 4.0)
+https://creativecommons.org/licenses/by/4.0/
+
+Modificações: redimensionamento, conversão para WebP e, nos anéis,
+média radial do perfil e tonalidade quente.

@@ -1,0 +1,6 @@
+Clash Display Semibold (600) e Bold (700), Indian Type Foundry, Fontshare.
+Fonte: https://api.fontshare.com/v2/fonts/download/clash-display
+Obtidos em 09/09/2026 como arquivos WOFF2 originais. Uso self-host neste portfólio conforme ITF Free Font License 2.0 (17/08/2026), cópia integral em ClashDisplay-FFL.txt. Sem modificação, conversão ou subsetting; não distribuídos como biblioteca ou serviço para terceiros.
+SHA256 Semibold: 5271b81f6d403a5accdcee2d3791edd3f7d81b9f71efe121fc399f446dc5b591
+SHA256 Bold: aee84bf2818acb62280d04e7e1cf5d9d704c6b65e0930385709b9805fe470331
+SHA256 licença: 145e7fe2429a3336ba215c070ef722000e01348a3e1baaa127e871bb5012f554
