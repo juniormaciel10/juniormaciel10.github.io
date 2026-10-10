@@ -1,5 +1,5 @@
 {
-  "commit": "b833d1869880049d5c2527bb7cded4b23410cf88",
+  "commit": "0bcd7bd3864ff405bf840c35ae4daed07b1f5aec",
   "files": {
     ".nojekyll": {
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -830,8 +830,8 @@
       "bytes": 4184
     },
     "index.html": {
-      "sha256": "08902c4d5c8c39ae95f2245ce0074882ad51f38fcfa48e1e12848f33bd516613",
-      "bytes": 37853
+      "sha256": "81c74b8e9f70b02029b23aad4aade196e951e78e24c27165b9e43bbb74859596",
+      "bytes": 37763
     },
     "estudos/index.html": {
       "sha256": "cca52e5a77ecc65adf7588f190aec33b7742090997481a3b20df195071491537",
@@ -898,7 +898,7 @@
       "bytes": 7669
     },
     "assets/build.json": {
-      "sha256": "af0704ba3088655cda15fa60f380ca44bfa24e8ccf27f990b1f3cecfa892b3aa",
+      "sha256": "14122a456bcf9e782b719117c40204f0670f43a882916e68f3314ee24d6070d3",
       "bytes": 1368
     },
     "sitemap.xml": {
