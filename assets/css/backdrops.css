@@ -1,4 +1,3 @@
-/* Fundos e percurso aprovados. Movimento automático, com pausa fora da tela. */
 body.portfolio-home #conteudo { background: rgb(12, 20, 37); }
 .portfolio-home .art-initial { visibility: hidden; }
 .portfolio-home :is(.hero, .software-case, .document-case, .other-work, .method-section, .contact-section) { position: relative; isolation: isolate; }

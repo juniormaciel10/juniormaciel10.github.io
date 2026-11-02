@@ -1,4 +1,3 @@
-/* Entradas e interações aprovadas. Rolagem nativa e movimento reduzido. */
 .has-motion .hero h1 span,.has-motion .hero-art,.has-motion .reveal.is-arriving{animation:none!important}
 .has-motion .hero-art-inner{transition:none!important}
 .has-motion .gallery-dialog{overscroll-behavior:contain}

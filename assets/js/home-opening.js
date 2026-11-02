@@ -1,4 +1,3 @@
-// Opening preserved from the local Gabriel V2 reference. Motion follows the author preference.
 (() => {
 const root = document.documentElement;
 const signal = document.querySelector("[data-opening-signal]");
