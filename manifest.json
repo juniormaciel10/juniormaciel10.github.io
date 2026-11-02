@@ -1,13 +1,13 @@
 {
-  "commit": "0bcd7bd3864ff405bf840c35ae4daed07b1f5aec",
+  "commit": "13a1f25fb696fa47802d13151fc05699370b9863",
   "files": {
     ".nojekyll": {
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "bytes": 0
     },
     "assets/img/og.png": {
-      "sha256": "ab2cb4c648f8a266803d9cad57cd27016f16e40c32de4bca71b877ea5129c20a",
-      "bytes": 164201
+      "sha256": "94260147e65fab4e8da4ea48cbff7c4733ec3a765af1397b3f77b2a0b63d0735",
+      "bytes": 203200
     },
     "assets/img/mesa-hero.png": {
       "sha256": "cbc0e0b78f0adb0aa9ffde877e895d12e26eb3c1eaea1a4d4fb6d6d6cba0c61d",
@@ -830,7 +830,7 @@
       "bytes": 4184
     },
     "index.html": {
-      "sha256": "81c74b8e9f70b02029b23aad4aade196e951e78e24c27165b9e43bbb74859596",
+      "sha256": "99f0cde529f51c8be8024accd1305106b55ccdebced13dc22d8ff141b180daf5",
       "bytes": 37763
     },
     "estudos/index.html": {
@@ -853,9 +853,9 @@
       "sha256": "5e3b6149093308c14130f588b4b0c34e6bb477c79569837bf4c1b431aa2f8cd8",
       "bytes": 12511
     },
-    "assets/js/scene.5130b8968ee4.js": {
-      "sha256": "5130b8968ee45981e0c2edce7771be871919af93157e757b6406673722b063f3",
-      "bytes": 547306
+    "assets/js/scene.a02a1a48ce8e.js": {
+      "sha256": "a02a1a48ce8eca27d6288c7863307fd37069e5a798e3079169e7dccd53dfd932",
+      "bytes": 547420
     },
     "assets/css/site.799816a98f02.css": {
       "sha256": "799816a98f0266870b9823332418767f2b972ea08ae5e32416b530c228d65296",
@@ -898,11 +898,11 @@
       "bytes": 7669
     },
     "assets/build.json": {
-      "sha256": "14122a456bcf9e782b719117c40204f0670f43a882916e68f3314ee24d6070d3",
+      "sha256": "80171085cade100dfd1ad50591f65100dfa37a0c42ba95977a385a5f3dcbaad3",
       "bytes": 1368
     },
     "sitemap.xml": {
-      "sha256": "017c7c15f443926367c63058d7614cd694a5890faed12c5b0bc25f079870ecc9",
+      "sha256": "5834a65462d038b4ec2b86bf8a98fe18bdb221d52342dadd58d77bb5ac84f671",
       "bytes": 717
     },
     "robots.txt": {
