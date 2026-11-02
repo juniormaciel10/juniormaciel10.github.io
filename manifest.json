@@ -1,5 +1,5 @@
 {
-  "commit": "abbff411659ee143826b64f667047b86f6d920e9",
+  "commit": "1015513f76fb26e233e6ccafead4fad57eeefdc9",
   "files": {
     ".nojekyll": {
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -838,8 +838,8 @@
       "bytes": 37131
     },
     "plataforma/index.html": {
-      "sha256": "f089cf41880b9feceff24204f571864f7803fa402be25d2f5052b237eaabc49f",
-      "bytes": 38789
+      "sha256": "246f3059f71194652bc41331413c42a184dc2192275b45586c7145812208dbf6",
+      "bytes": 38838
     },
     "jogos/index.html": {
       "sha256": "f0d17822c20a8df0dd36434d48d617a317dba7b2c9b0d9c14b0a8430638e188c",
@@ -898,7 +898,7 @@
       "bytes": 7669
     },
     "assets/build.json": {
-      "sha256": "b5e7703a905861dc5a94b1952aea4495f86e476b570b2b5e525afc35ebe48439",
+      "sha256": "f6c151da6f9cea7902a32de7503f32d39fe8b74b31ca119605a50e0e0250d589",
       "bytes": 1368
     },
     "sitemap.xml": {
