@@ -28,7 +28,8 @@
     document.querySelectorAll('[data-page-card][aria-busy]').forEach(card=>card.removeAttribute('aria-busy'));
     overlay?.remove();overlay=null;
   }
-  function cardFor(url){return [...document.querySelectorAll('[data-page-card]')].find(card=>samePage(card.href,url));}
+  // Dois cartões podem levar à mesma página (Projetos e 3D e jogos): na volta, vale o cartão que abriu a página.
+  function cardFor(url,name){const cards=[...document.querySelectorAll('[data-page-card]')];return cards.find(card=>card.dataset.pageCard===name&&samePage(card.href,url))||cards.find(card=>samePage(card.href,url));}
   function nameCard(card){
     surface=card.querySelector('[data-page-preview]')||card;
     root.style.viewTransitionName='page-backdrop';
@@ -95,7 +96,7 @@
     if(record.kind==='close'){
       root.dataset.intro='complete';
       if(record.color&&CSS.supports('color',record.color))root.style.setProperty('--page-transition-bg',record.color);
-      const card=cardFor(record.from);
+      const card=cardFor(record.from,record.card);
       if(!card){event.viewTransition?.skipTransition();resetVisuals();remove(entryKey);return;}
       scrollTo({top:Number(record.scrollY)||0,behavior:'instant'});nameCard(card);
     }

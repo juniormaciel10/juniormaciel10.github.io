@@ -1,21 +1,13 @@
 {
-  "commit": "1015513f76fb26e233e6ccafead4fad57eeefdc9",
+  "commit": "69325a2fe275f856883a3fdf1d6f6d63d156080b",
   "files": {
     ".nojekyll": {
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "bytes": 0
     },
     "assets/img/og.png": {
-      "sha256": "94260147e65fab4e8da4ea48cbff7c4733ec3a765af1397b3f77b2a0b63d0735",
-      "bytes": 203200
-    },
-    "assets/img/mesa-hero.png": {
-      "sha256": "cbc0e0b78f0adb0aa9ffde877e895d12e26eb3c1eaea1a4d4fb6d6d6cba0c61d",
-      "bytes": 322160
-    },
-    "assets/img/mesa-real.png": {
-      "sha256": "1dc877f27fe3dbc08e694e8b17cf1379bee899363fbf81be558550d155100e9d",
-      "bytes": 558127
+      "sha256": "2eba7ea06bbff044306353a15df9e659da1284e664fbadcadf96f247c473fd92",
+      "bytes": 203492
     },
     "assets/fonts/ClashDisplay-FFL.txt": {
       "sha256": "145e7fe2429a3336ba215c070ef722000e01348a3e1baaa127e871bb5012f554",
@@ -30,8 +22,8 @@
       "bytes": 12343
     },
     "assets/css/home.css": {
-      "sha256": "d9a9c4e1a10fb45e631798b67506100cb02230f837acef7e716cf5f22227825c",
-      "bytes": 7606
+      "sha256": "28bf04bbde017a05d6e9e8067e50468b33eeac3926997df941dcd6461b21020a",
+      "bytes": 7422
     },
     "assets/css/home-opening.css": {
       "sha256": "962d0f0bedf1df9dcc1fb752165a128c62482ff592e213b068aaa54c012b3d05",
@@ -45,41 +37,37 @@
       "sha256": "d5d09cfffd5154dd44cc8aedcef80f6e0e86a7dbff401ab27a78aaf1646db6b0",
       "bytes": 1707
     },
-    "assets/css/site.css": {
-      "sha256": "dd33dbe8ee582bfbbd5a9dac9804398b2cfa553358b65e3569b87731076284fc",
-      "bytes": 32133
-    },
-    "assets/css/motion.css": {
-      "sha256": "92471aa9e644820b6a19dae2f37e4d104312ebc1f0fd2793b4b1913a668a7799",
-      "bytes": 7620
-    },
-    "assets/css/surfaces.css": {
-      "sha256": "118bb7e3d8bf8ffc3ef88fa83e919b9efbc8150550616ade473412889f343915",
-      "bytes": 5057
-    },
-    "assets/css/backdrops.css": {
-      "sha256": "7484d3e56cd500ede9ee83cbccddbf5f08160f242666b155502892be095eff08",
-      "bytes": 21151
-    },
-    "assets/css/studies.css": {
-      "sha256": "bef25031ed416974e6b5e9d1a299f8295156923aac4028a18da2f415dd892fca",
-      "bytes": 1064
-    },
     "assets/css/platform.css": {
       "sha256": "dd983ce7aa9e4186d15a9c330941fb5d9be7f4fc89084bbb3ab1f27608413b2e",
       "bytes": 30816
     },
-    "assets/css/games.css": {
-      "sha256": "73b0570ff0545b4368c7e919e01cdc6ab85326643119a3f20a7a4787ff3f36ec",
-      "bytes": 32566
+    "assets/css/plataformas.css": {
+      "sha256": "e5b4e1d3a7b248b0d9b039eccc35fd5517f6419b289a46a5424bd793a2a3a103",
+      "bytes": 15455
+    },
+    "assets/css/cristal.css": {
+      "sha256": "bc5ef016bfe48da93e23503531b26c9796a784f51e7108d5703827ec77f72879",
+      "bytes": 20168
+    },
+    "assets/css/capitulos.css": {
+      "sha256": "5755a68faba80b7d127850eb6bedafcda19e909c265ff30ccadc8d2dc097fb7c",
+      "bytes": 21521
+    },
+    "assets/css/site.css": {
+      "sha256": "dd33dbe8ee582bfbbd5a9dac9804398b2cfa553358b65e3569b87731076284fc",
+      "bytes": 32133
     },
     "assets/css/projects.css": {
       "sha256": "dfed7074c271b6d30ccc136ef91f4c1bb83bc8bf0f3994ceede9d0742ff4ed8c",
       "bytes": 8758
     },
+    "assets/css/surfaces.css": {
+      "sha256": "118bb7e3d8bf8ffc3ef88fa83e919b9efbc8150550616ade473412889f343915",
+      "bytes": 5057
+    },
     "assets/js/portfolio-ui.js": {
-      "sha256": "1a2f949270a6f5938f9ccb283ab0e0e3add469739ec196e3ebe2e43fd214e281",
-      "bytes": 15323
+      "sha256": "3577c0bafa03a567f267b17a1f01fa3c8153a763f48490117570626c111f6081",
+      "bytes": 15387
     },
     "assets/js/home-opening.js": {
       "sha256": "4d737702e351006fabdc6059fbe63c52a0adb388c1c0894eaf37e94bb3b88040",
@@ -93,29 +81,25 @@
       "sha256": "816227cc54d79d7ace60d51ed438d5e42c81e4c4cdb643efc4a7fb61caeea7a9",
       "bytes": 2144
     },
-    "assets/js/site.js": {
-      "sha256": "d81e81a53e97178b21382da67507e24eeb2c7b45ee55f9e6a2e33b21012ade1c",
-      "bytes": 11573
-    },
-    "assets/js/motion.js": {
-      "sha256": "055084bd275ea89648f9c944b8378ff6695233dfb469c08525417d88c8ae7bcd",
-      "bytes": 15882
-    },
-    "assets/js/backdrops.js": {
-      "sha256": "fc3c882efb415a85569063148b0a10aba25275747101e8192b0f41b8fa61fc51",
-      "bytes": 32424
-    },
     "assets/js/lp-animation.js": {
       "sha256": "6286f43aff01aef043a13a9b9aece81e282cf95472d2c8272b4fd6b23d94d550",
       "bytes": 1174
     },
-    "assets/js/model-gallery.js": {
-      "sha256": "af4571f6117d5be66db539a097e5550990b1666d78040ff76be6637ca6df9203",
-      "bytes": 759
+    "assets/js/capitulos.js": {
+      "sha256": "9f209072ee246ba2cb80db674018b0a0c881a0bddd03b7afbf54c230863da9e8",
+      "bytes": 31736
+    },
+    "assets/js/projetos-lista.js": {
+      "sha256": "35264af983004d59353b3b22bd0b9b38d1572499758c11fd8dbcc5d16438f96a",
+      "bytes": 1086
+    },
+    "assets/js/site.js": {
+      "sha256": "d81e81a53e97178b21382da67507e24eeb2c7b45ee55f9e6a2e33b21012ade1c",
+      "bytes": 11573
     },
     "assets/js/page-transitions.js": {
-      "sha256": "054d6f205fe197622b0f292d56ff8ea61f201b9df9abab360601cde88c33774e",
-      "bytes": 6894
+      "sha256": "ca7e36cebe263823a9a9b89767f6dc6af51e0b1a2a0ba97ba43a4ff1c416a7ee",
+      "bytes": 7121
     },
     "assets/img/saturn/Three-LICENSE.txt": {
       "sha256": "8b378ebe60e2fe500158cb0ac71cb5e8b7d92953c2abcc63a0eb90499653b5bc",
@@ -240,26 +224,6 @@
     "assets/img/estudo-thumb-tarefas.webp": {
       "sha256": "531903bee61269db77370933863e15532ce539ee0061473f0f2a3db4c814613e",
       "bytes": 3764
-    },
-    "assets/img/execucao-subagentes.png": {
-      "sha256": "c417e4d5c8c62a65b27640ef9e487c5ce786ab0ba573d6277d305a82c60704ad",
-      "bytes": 8874
-    },
-    "assets/img/execucao-supervisao.png": {
-      "sha256": "fe3886da528a193c1987d9e337d1fc93e86e74d8ce902d03cdd8ae68ab80cfa0",
-      "bytes": 21390
-    },
-    "assets/img/execucao-validacao.png": {
-      "sha256": "0f813de7db512f13dc302db360d18de8b62e108310e1798e6cd3bfba472d08b1",
-      "bytes": 6766
-    },
-    "assets/img/mesa-hero.webp": {
-      "sha256": "3dec254f328a9c604035b1865a4bc238c748559c97151817b031f91b53e85543",
-      "bytes": 239926
-    },
-    "assets/img/mesa-real.webp": {
-      "sha256": "39436fd6a280da73e0143fa95d59b81be2e02e007007e4c2a774dad14555e672",
-      "bytes": 390328
     },
     "assets/img/portfolio/game-two-praca-640.webp": {
       "sha256": "bb68591087b4df2cab0c985cd051ccbe3b567d9c0d82ed1054c77a0710a2f111",
@@ -433,69 +397,13 @@
       "sha256": "ba0a8e783381776019627a568eff9e72b8eb9f85842a9d0e6c7a9e02f1a87e32",
       "bytes": 65332
     },
-    "assets/img/portfolio/previews/estudos-960.webp": {
-      "sha256": "0591580fefd1340def338b0ff4bf8de0b71dbb48a3454b5ae0eb7553c816659b",
-      "bytes": 31472
-    },
     "assets/img/portfolio/previews/plataforma-960.webp": {
-      "sha256": "06a79cad5168ea0d84bd8fff5b2a011754b9d5aaf0a87f95957f06c283e308c7",
-      "bytes": 35566
+      "sha256": "54ac80b79b85a014f433d6dfbd04b4397bc7115969a77938da4f16e1434fa5fb",
+      "bytes": 36132
     },
-    "assets/img/portfolio/previews/jogos-960.webp": {
-      "sha256": "1ffbd0f8b235ad0d8b3a004f296fc7121be988380a397a5fc10cd3c3da63f6e0",
-      "bytes": 52270
-    },
-    "assets/img/portfolio/trabalho-02.webp": {
-      "sha256": "313b70ac1b0681ead49d7cb9f6ca0c90194522498a3712bc629d6e2c2fb45a90",
-      "bytes": 149268
-    },
-    "assets/img/portfolio/trabalho-02-1120.webp": {
-      "sha256": "2c0ca2737a404ee26da9ca9acb53a751ca2aac1a71c8af195e50189b7d258d30",
-      "bytes": 61446
-    },
-    "assets/img/portfolio/trabalho-01.webp": {
-      "sha256": "e039382a8c7197216b5486ed0faf7e62d17a59754ab327a32dccdf0c1a9bd02a",
-      "bytes": 172708
-    },
-    "assets/img/portfolio/trabalho-01-1120.webp": {
-      "sha256": "e2bd583fe81d6a0d6ab4255edea0dffdd95b51a739e7445c651191565bb338d8",
-      "bytes": 60456
-    },
-    "assets/img/portfolio/trabalho-06.webp": {
-      "sha256": "7d80954bfc30beb3cf94e119959ae4cd443adb731ca9a9436ebab5cc6bce4c4a",
-      "bytes": 329682
-    },
-    "assets/img/portfolio/trabalho-06-1120.webp": {
-      "sha256": "4ff6fa71f0a87c6631a579913ea27cac59434763eb7cfeb22dfaaf9e5abce00a",
-      "bytes": 86446
-    },
-    "assets/img/portfolio/trabalho-03.webp": {
-      "sha256": "f359729b4606a6cc4f75b67ac9fadd95b0cfbb6c091f05b2a5312a02153cfdbd",
-      "bytes": 244180
-    },
-    "assets/img/portfolio/trabalho-03-1120.webp": {
-      "sha256": "ccc881338e57e9e63ad1bfd6fc84bfcebcb904061e88c8fad34eb7c7a6d22222",
-      "bytes": 87160
-    },
-    "assets/img/portfolio/trabalho-04.webp": {
-      "sha256": "3fb5fdc5621065a1c2f4ceab22312fe19ff9ee4f59a9dfd960c043395468b56c",
-      "bytes": 212430
-    },
-    "assets/img/portfolio/trabalho-04-1120.webp": {
-      "sha256": "37f9011624f2e3a3fb719b11e1bfae00f048598665b51751bc07b952b8660868",
-      "bytes": 73416
-    },
-    "assets/img/portfolio/trabalho-05.webp": {
-      "sha256": "a816d2ff758dcb080b08a3f638728cd837453a5117d10d93bde4784790d467d8",
-      "bytes": 214598
-    },
-    "assets/img/portfolio/trabalho-05-1120.webp": {
-      "sha256": "f73d25b5c212449f4945cd882b326ab40aa6561863fba5f73dd0bf606b8551bb",
-      "bytes": 73592
-    },
-    "assets/img/portfolio/trabalho-visao-geral.webp": {
-      "sha256": "39436fd6a280da73e0143fa95d59b81be2e02e007007e4c2a774dad14555e672",
-      "bytes": 390328
+    "assets/img/portfolio/previews/projetos-960.webp": {
+      "sha256": "863e77e358b1f6daed9ad48353bcd29316203484a7c7b3dc188b4eb74c9afc7d",
+      "bytes": 35008
     },
     "assets/img/saturn/surface.webp": {
       "sha256": "46cb8ce7f825e703fb6a4b03a11fc1d427c7ab466fc6d3a6d0574858e65a73fc",
@@ -509,57 +417,121 @@
       "sha256": "1eb635e9fcb409ceea298050dcc6250375c191b77b640d62b2118fa5008efbef",
       "bytes": 7094
     },
-    "assets/img/portfolio/previews/estudos-640.webp": {
-      "sha256": "e6fc7e166050c5d91771a64160299d6f9a233e364226a7bb1644c8f2c6b925e4",
-      "bytes": 19474
-    },
     "assets/img/portfolio/previews/plataforma-640.webp": {
-      "sha256": "136557f24b108705170893f969245739cf931b185cc52293670da69e306f7d1d",
-      "bytes": 20026
+      "sha256": "60ea99b5a41110318261eeb8030e08bf7f60280ee95a41540dc4e87dd1b73ae0",
+      "bytes": 20650
     },
-    "assets/img/portfolio/previews/jogos-640.webp": {
-      "sha256": "65198c3446b2d5a44549ba576ea25e280e3ad544280547d244d4639a0807e20d",
-      "bytes": 29550
+    "assets/img/portfolio/previews/projetos-640.webp": {
+      "sha256": "2bab7e4bb683322685dc442d46116effe1ffc3edecc1c5320a73a188c15bc71b",
+      "bytes": 18366
     },
-    "assets/img/portfolio/trabalho-02-720.webp": {
-      "sha256": "b38da0cf330281767cdcc2c07030277af22256929e1ce28fa1bf959d5207a219",
-      "bytes": 32848
+    "assets/img/portfolio/plataformas/metas-1-visao-geral.webp": {
+      "sha256": "d131391e64480e39fcd33d722212ec77816e6466374fced3f1e5f4a163215a03",
+      "bytes": 60546
     },
-    "assets/img/portfolio/trabalho-01-720.webp": {
-      "sha256": "ce56e0d93a12dfe183c19fb24595ed3f35c5a0ae3818d07cf901acffa727928a",
-      "bytes": 31620
+    "assets/img/portfolio/plataformas/metas-2-destaques-do-dia.webp": {
+      "sha256": "9dc64a20a1511840b39478e1ddc5b0fd9b73e5b76bee06b7b7486fb54a56650e",
+      "bytes": 49890
     },
-    "assets/img/portfolio/trabalho-06-720.webp": {
-      "sha256": "b354534796aa4befad4f8e4c9869d11f89d0d70a5f21da335a0ab5a7f4f6f323",
-      "bytes": 43690
+    "assets/img/portfolio/plataformas/metas-3-metas-do-mes.webp": {
+      "sha256": "a80a4573c74a3bac82a2867c49fc045ee9c9169115d93d64cff494c318c539a3",
+      "bytes": 27498
     },
-    "assets/img/portfolio/trabalho-03-720.webp": {
-      "sha256": "104fd76725a10aea7d40d8472e279dc44c9adf8017beb3d1ccfd09d93ac97892",
-      "bytes": 43760
+    "assets/img/portfolio/plataformas/metas-4-vendas-por-dia.webp": {
+      "sha256": "5c57c5b3f597baf028e326a0e7c4e993dc2378c6900908291180f821e783567e",
+      "bytes": 18126
     },
-    "assets/img/portfolio/trabalho-04-720.webp": {
-      "sha256": "e85eee8c7676bdf5ff9ccb43dbf4617679119d05df6e6199b2d84ff4e498a6d1",
-      "bytes": 39246
+    "assets/img/portfolio/plataformas/metas-5-tabela-diaria.webp": {
+      "sha256": "a105d7c6356530d924f37bb776aea574bfb0dd97ee281e7eef0a3a415e7c0150",
+      "bytes": 25164
     },
-    "assets/img/portfolio/trabalho-05-720.webp": {
-      "sha256": "c0e916d153516c38daa1dbafdff711aaeacfdf31ba6b5fe419da911151a36154",
-      "bytes": 36480
+    "assets/img/portfolio/plataformas/painel-de-vendas-e-metas-poster.webp": {
+      "sha256": "17847d8f15efce9cde9b494ec915e3f69530f501c49191a6ba0b7ad94dd99dbd",
+      "bytes": 134344
     },
-    "assets/img/portfolio/mesa-real-720.webp": {
-      "sha256": "74e985c3ade99337d530b461f7358bfb7b76a047ff4b935092f85c46c62deb99",
-      "bytes": 40978
+    "assets/video/plataformas/painel-de-vendas-e-metas.mp4": {
+      "sha256": "fb2e11018faecc362cd8696f72e7530e1d3730acda4e414a43a56c4417d3a8a2",
+      "bytes": 949855
     },
-    "assets/img/portfolio/mesa-real-1120.webp": {
-      "sha256": "917a5d4695cbcfa648a018f3e98f221ef93dc3f31995f731eda9a89148396d5d",
-      "bytes": 79722
+    "assets/video/plataformas/painel-de-vendas-e-metas.webm": {
+      "sha256": "f474ca5c4bbcff457b028988a14dfde53499988bc8ea906019a57ae3c1a00d37",
+      "bytes": 721402
     },
-    "assets/img/estudo-revisoes.webp": {
-      "sha256": "69f6333bf596d8b30f18b67f357acdadffa3cc945f5ba1b5b0ee580d49e23be7",
-      "bytes": 32028
+    "assets/img/portfolio/plataformas/metas-no-celular.webp": {
+      "sha256": "0ac8ca5bf8b5507cb689664ed5a0a3bd405319e5bc23710056702103567e94fd",
+      "bytes": 89030
     },
-    "assets/img/estudo-tarefas.webp": {
-      "sha256": "7ac847127c84a17e0d8e8df0c9f6a6af48e1ef0a39ce6a83f3bebf61657182fa",
-      "bytes": 31766
+    "assets/img/portfolio/plataformas/central-1-cadastro.webp": {
+      "sha256": "886323ae28f226fb2aa71b11a0fdcbbd48d339d3c8b5a83b7c8ddcaaed7415e2",
+      "bytes": 99300
+    },
+    "assets/img/portfolio/plataformas/central-2-materiais-da-prf.webp": {
+      "sha256": "d38f1caf9ff366a29502ca80bc62146cc4f901ee8484e5943dda7a30d292a0a4",
+      "bytes": 125242
+    },
+    "assets/img/portfolio/plataformas/central-3-da-busca-ao-estudo.webp": {
+      "sha256": "3c9cf5b0693b35736e888b52f108453344c1aec632353ffbf89ea7dd08d15174",
+      "bytes": 56894
+    },
+    "assets/img/portfolio/plataformas/central-4-blog.webp": {
+      "sha256": "95e803ed88601010ccab9af24e0cd98307d22722868cdfa0714be0f9909c73d6",
+      "bytes": 41890
+    },
+    "assets/img/portfolio/plataformas/central-5-duvidas.webp": {
+      "sha256": "44057e30b31c6350cee46126e5014a9c378db67f32c2ace0ceb92bb8ea8522c0",
+      "bytes": 39456
+    },
+    "assets/img/portfolio/plataformas/central-de-materiais-gratuitos-poster.webp": {
+      "sha256": "5c38e2864e346dfacb8946501c8d04d8f8dfa741941ba0c274f691497b367142",
+      "bytes": 162180
+    },
+    "assets/video/plataformas/central-de-materiais-gratuitos.mp4": {
+      "sha256": "faa5a6ea4bf58b5469ec8b56bdd502dc2b5aa71238b86b9d31e02ba7391528fe",
+      "bytes": 3400393
+    },
+    "assets/video/plataformas/central-de-materiais-gratuitos.webm": {
+      "sha256": "626ca09ef30a3c9090b125841d219de140e38858c252a13b8e91846fe2ba72e4",
+      "bytes": 3693271
+    },
+    "assets/img/portfolio/plataformas/central-no-celular.webp": {
+      "sha256": "37a3060beae9c54f66f8e925178db43bb306a5f49cf2fbd3df83d1178e9581a8",
+      "bytes": 100822
+    },
+    "assets/img/portfolio/plataformas/inside-1-visao-geral.webp": {
+      "sha256": "8e0090ed25b38484a9e663e2c57e6757b6b414ef7e474c44b571da05ee768ea2",
+      "bytes": 86256
+    },
+    "assets/img/portfolio/plataformas/inside-2-campanhas.webp": {
+      "sha256": "60eecdaa375de6aed5974399304e7d0fbfae768aa66091391f401e3c0a1a49ff",
+      "bytes": 85750
+    },
+    "assets/img/portfolio/plataformas/inside-3-atendimento.webp": {
+      "sha256": "4e40dfdec740299b79a2ddc3b158a9c5b0304fed37c869e90b904726bb7c50e7",
+      "bytes": 74628
+    },
+    "assets/img/portfolio/plataformas/inside-4-analises.webp": {
+      "sha256": "43843a350b82686cc2fa9f052f9b6ab3960dd724cc64360531fdc040c6e28ea9",
+      "bytes": 72798
+    },
+    "assets/img/portfolio/plataformas/inside-5-dados-e-fontes.webp": {
+      "sha256": "be92d10bd422962991f75f8effc9b8d3f6e97df01551c24c84c13fa6f262a542",
+      "bytes": 121050
+    },
+    "assets/img/portfolio/plataformas/painel-inside-sales-poster.webp": {
+      "sha256": "69f076af09de25084426376bb0631cce8b718afb0ebf533dbc79a881155105b5",
+      "bytes": 114456
+    },
+    "assets/video/plataformas/painel-inside-sales.mp4": {
+      "sha256": "b635d85fedeb487dd5ab5ffa4c36a500e1c16f704b2a03fd6cab36eb01f4b16a",
+      "bytes": 2452824
+    },
+    "assets/video/plataformas/painel-inside-sales.webm": {
+      "sha256": "b16d4ff100b249f6f53d3d93f843ebc27f10e06302ac714ac15f6d72562a6a1c",
+      "bytes": 2495167
+    },
+    "assets/img/portfolio/plataformas/inside-no-celular.webp": {
+      "sha256": "223e3c5cf555be3de2de3383fea5f81ca379d81405207639d759a68a9f403c5e",
+      "bytes": 90208
     },
     "assets/img/portfolio/plataforma-inicio-1120.webp": {
       "sha256": "bb0ff9a451b5e983d85900373bd34012084cd57d1cc593be4f399cd23dbda525",
@@ -593,6 +565,66 @@
       "sha256": "f745a6049a1872edcfeb505c7d9d3ef2fef3881e50976d5d174484ee7cc95733",
       "bytes": 248881
     },
+    "assets/img/portfolio/plataformas/metas-1-visao-geral-celular.webp": {
+      "sha256": "55e7df07f13771e74215e7ad57cf904f052808a72134d144fb6c8af4cffd5555",
+      "bytes": 28932
+    },
+    "assets/img/portfolio/plataformas/metas-2-destaques-do-dia-celular.webp": {
+      "sha256": "71c004fdf8a6b9d09bd6599663f7e9f66cbd237a3257951775da8f8ad2740844",
+      "bytes": 33232
+    },
+    "assets/img/portfolio/plataformas/metas-3-metas-do-mes-celular.webp": {
+      "sha256": "2095b53565752ae175840b0d670822295abfa35862e04f296697470fb4c3327d",
+      "bytes": 24450
+    },
+    "assets/img/portfolio/plataformas/metas-4-vendas-por-dia-celular.webp": {
+      "sha256": "00aee602087f78b5d562bbd09975b39627e82977b29b713feed2348ec5bf7acb",
+      "bytes": 8380
+    },
+    "assets/img/portfolio/plataformas/metas-5-tabela-diaria-celular.webp": {
+      "sha256": "d4dbacfefc774e942b0cd70a21866a5ad3fb63e637dec06258b7bd9cbff32c51",
+      "bytes": 103090
+    },
+    "assets/img/portfolio/plataformas/central-1-cadastro-celular.webp": {
+      "sha256": "28af5cf6982494a6320399c0741d930f9df222052d598a40c459a23fcf51a12b",
+      "bytes": 65172
+    },
+    "assets/img/portfolio/plataformas/central-2-materiais-da-prf-celular.webp": {
+      "sha256": "e69e78817212b7147853d70ca4c76ad8ad7556bcca470b44a98757284e0503c7",
+      "bytes": 93274
+    },
+    "assets/img/portfolio/plataformas/central-3-da-busca-ao-estudo-celular.webp": {
+      "sha256": "bcf12e07ce9e8aa70eb02332bcdce47355873a3600706faad9598b24eaaf2ee7",
+      "bytes": 60610
+    },
+    "assets/img/portfolio/plataformas/central-4-blog-celular.webp": {
+      "sha256": "72e2a6ad8c79cf1ee5ce8c7049110fc58abc92af1586f8c667200ea1a306d1f8",
+      "bytes": 55710
+    },
+    "assets/img/portfolio/plataformas/central-5-duvidas-celular.webp": {
+      "sha256": "26c9dcb3a093f272923065241119cb0be352b9bb494e181b70ee8b9e472b963c",
+      "bytes": 49270
+    },
+    "assets/img/portfolio/plataformas/inside-1-visao-geral-celular.webp": {
+      "sha256": "fa2dec563c9be7320441b23fbf4bcacea1c32d7e3c4c0e8018b72b94562de448",
+      "bytes": 66190
+    },
+    "assets/img/portfolio/plataformas/inside-2-campanhas-celular.webp": {
+      "sha256": "4340d8b20be72b15767e6ba3bfef25c9a52d6921a2d9188fc4a9d39d5a8f9d46",
+      "bytes": 61630
+    },
+    "assets/img/portfolio/plataformas/inside-3-atendimento-celular.webp": {
+      "sha256": "b102ba91f04aed9aaa2a3be0e4cbee1f4763edad95fdc36ff6c336ad384e4cef",
+      "bytes": 63188
+    },
+    "assets/img/portfolio/plataformas/inside-4-analises-celular.webp": {
+      "sha256": "6752175c525e3dba004750414fa4f008f54fbc8850067199eb34209f99a49c66",
+      "bytes": 60124
+    },
+    "assets/img/portfolio/plataformas/inside-5-dados-e-fontes-celular.webp": {
+      "sha256": "59cd89adeaee4435b9cd81fea8ed4536715dbcb82a85bf00692aca642ffa928f",
+      "bytes": 73410
+    },
     "assets/img/portfolio/plataforma-inicio-mobile-preview.webp": {
       "sha256": "c1442e0f18d25b19c82d57d6cce3300e1134ffb4f4c510ac9aedc8904212fff3",
       "bytes": 85294
@@ -625,177 +657,21 @@
       "sha256": "f2808ec344bd1ae89a9189d9d79a0b5740726cba39efbfdbda93c67bc5f0791d",
       "bytes": 16192
     },
-    "assets/img/portfolio/game-two-godot-patio-20260930.webp": {
-      "sha256": "1523d21fe19af9751be2ff95fcf4358d23a2e5f44272afd7e15fdf4fc803ab5c",
-      "bytes": 59042
-    },
-    "assets/img/portfolio/game-two-godot-guardiao-20260930.webp": {
-      "sha256": "68d1e9781e5df63b741eafc62a6be8738e496f220dc01208d6000c760dd56753",
-      "bytes": 72362
-    },
-    "assets/img/portfolio/game-two-godot-guardiao-preview-640.webp": {
-      "sha256": "77979c59fbd6fab4f8a31ccd41c2852cc6e29c2e38275bbd57f955eb01d2387f",
-      "bytes": 19090
-    },
-    "assets/img/portfolio/game-two-godot-cofre-20260930.webp": {
-      "sha256": "943460161ac61bf469ad4e12e55a86036af7d22d6ff70451c111c3b3fea004e8",
-      "bytes": 66778
-    },
-    "assets/img/portfolio/game-two-godot-cofre-preview-640.webp": {
-      "sha256": "ef41e8d93fc716bf372a9d015ba203e3a17b2857c2e4be0f7b6664611b6a9617",
-      "bytes": 17292
+    "assets/img/portfolio/modelo-cabelo-wolfcut-recorte-640.webp": {
+      "sha256": "032db820dccdf46bf108ce5729348f06b9232a81653eac6b505bcc73f1d677ed",
+      "bytes": 21832
     },
     "assets/downloads/portfolio-modelagem-3d.pdf": {
       "sha256": "50d673758ab741076f36d52f3bab6c6e81577cb6ef39b7918d6b5f20eadb3692",
       "bytes": 1068253
     },
-    "assets/img/portfolio/modelo-bolsa-metro.webp": {
-      "sha256": "48a946bdb40655a67ecb694fcc82174ebfb48bcf108d55d7a073dc2e474920a0",
-      "bytes": 91228
-    },
-    "assets/img/portfolio/modelo-bolsa-metro-recorte-640.webp": {
-      "sha256": "55ea697221ea3e2b94d03c0f9df2c7833f70557b6e8ec13aa32db33612797bce",
-      "bytes": 18672
-    },
-    "assets/img/portfolio/modelo-cabelo-wolfcut.webp": {
-      "sha256": "49d83832aec20ba7fb1ea353fb6fc4e971867592e0cad1c2b39a41b7c283c9e0",
-      "bytes": 182932
-    },
-    "assets/img/portfolio/modelo-cabelo-wolfcut-recorte-640.webp": {
-      "sha256": "032db820dccdf46bf108ce5729348f06b9232a81653eac6b505bcc73f1d677ed",
-      "bytes": 21832
-    },
-    "assets/img/portfolio/modelo-oculos-prisma.webp": {
-      "sha256": "978b14acdb7372d17b4ba40f02976e4f778a526f5b84e8edbcc56d861bed3f96",
-      "bytes": 65134
-    },
-    "assets/img/portfolio/modelo-oculos-prisma-recorte-640.webp": {
-      "sha256": "db85f72e03580fa1b71133512ab92d2a740112f289377334026ce74ef34b83b1",
-      "bytes": 13414
-    },
-    "assets/img/portfolio/modelo-satelite-orbita.webp": {
-      "sha256": "4a2f39c26be9351bce2670500f140aed83ea5cbb3a76a43af8229395e5de39e0",
-      "bytes": 168102
-    },
-    "assets/img/portfolio/modelo-satelite-orbita-recorte-640.webp": {
-      "sha256": "6473195d3f450aaf8c8e0a92358a2492c9c45849840a5a2ef38405ebfc5b1f83",
-      "bytes": 34990
-    },
-    "assets/img/portfolio/modelo-bolsa-metro-miniatura.webp": {
-      "sha256": "258c7d11194c63ef86f39df67bdf2ae7f1c5ecd01ad0d084a763d8b2840f53a8",
-      "bytes": 3536
-    },
-    "assets/img/portfolio/modelo-cabelo-wolfcut-miniatura.webp": {
-      "sha256": "9252a3e246683c7f18b28cd7cdb74781348ac0c38cf58d7c5cf52700ce3f62b0",
-      "bytes": 2980
-    },
-    "assets/img/portfolio/modelo-oculos-prisma-miniatura.webp": {
-      "sha256": "8f7782375c33642ca14e51b6a56856ad3b9730a826c462775a471b8b3d2a1e6d",
-      "bytes": 2360
-    },
-    "assets/img/portfolio/modelo-satelite-orbita-miniatura.webp": {
-      "sha256": "78bc7068a77dc8eb81e74bacbb65c062225078821b65dd8d87c87e3406530647",
-      "bytes": 5458
-    },
-    "assets/img/portfolio/fortuna-largada-20260930.webp": {
-      "sha256": "2aa089e7aeaef5d721fc45d0f9f52fcee26b2b716ed9267c47f387fce4243ad2",
-      "bytes": 83548
-    },
-    "assets/img/portfolio/fortuna-largada-preview-640.webp": {
-      "sha256": "8935ddfb6f23aeccdf56dd2a8cd8c020a461777e00d2f12e4305b6a96bebf7e9",
-      "bytes": 14130
-    },
-    "assets/img/portfolio/fortuna-reta-20260930.webp": {
-      "sha256": "dbc88297d41e428e2a4ae1959ff7aab7e7bc1c7e3d73127b277f8834541a972c",
-      "bytes": 79114
-    },
-    "assets/img/portfolio/fortuna-reta-preview-640.webp": {
-      "sha256": "7f312cdbd206dd8e619e9c9e6c85ca719ac8add65ea2cab2b3ec3a202b3def3f",
-      "bytes": 13988
-    },
-    "assets/img/portfolio/fortuna-oficina-20260930.webp": {
-      "sha256": "db49bb3d7ae72e5578077bdddce9d9f4f8f3ed9a1619375aecb116c7ccc20be2",
-      "bytes": 26288
-    },
-    "assets/img/portfolio/fortuna-oficina-preview-640.webp": {
-      "sha256": "7634bed7adfc54f57b8402415c1ebc965bf1c5c471adbe135587f534c47a33a2",
-      "bytes": 7262
-    },
-    "assets/img/portfolio/fortuna-residencial-20260930.webp": {
-      "sha256": "2f12787bfb360338f25eca59867e1cf4168022b860bdb4f5b6fd63e2027f43e2",
-      "bytes": 64558
-    },
-    "assets/img/portfolio/fortuna-residencial-preview-640.webp": {
-      "sha256": "13bd3a8039a557380794b1a8f2dbb5a4071740effe4c3b8fe8a76424a05dbcbc",
-      "bytes": 11184
-    },
-    "assets/img/portfolio/fortuna-blender-carro-20260930.webp": {
-      "sha256": "1c2306a675d66ce59881581f460ebfde2ef5447ee71dcded875e48c3072d96df",
-      "bytes": 17588
-    },
     "assets/img/portfolio/fortuna-blender-carro-preview-640.webp": {
       "sha256": "ae485de32d0ac26ac46c4dbdc1b202ef3f72896b3deb3bd1414d4c19a9d5cc0c",
       "bytes": 6280
     },
-    "assets/img/portfolio/fortuna-blender-moto-20260930.webp": {
-      "sha256": "734f949c44f4d26ee77a252dd0eb21561f8a1051fd95bc64385d52f933d41a2e",
-      "bytes": 22330
-    },
-    "assets/img/portfolio/fortuna-blender-moto-preview-640.webp": {
-      "sha256": "3d78c73726fc1935e7ba4fe2d51ec69bd9f48932a1810baac8ce1a6db53654c7",
-      "bytes": 7914
-    },
-    "assets/img/portfolio/game-two-godot-patio-preview-960.webp": {
-      "sha256": "f8b0cfdbd876cbe652eee50ae30b9c89a5550c51378af02ace707b18bffb6b8c",
-      "bytes": 29252
-    },
-    "assets/img/portfolio/game-two-godot-guardiao-preview-960.webp": {
-      "sha256": "a731b4c9f9d49febe103f4f147bf2124ddbd5d0346a68d285bd4b9ffadf461f4",
-      "bytes": 35850
-    },
-    "assets/img/portfolio/game-two-godot-cofre-preview-960.webp": {
-      "sha256": "5154bca6b9923e76171bede5378f472c413af36e0690f4556fed97117ba6e084",
-      "bytes": 31840
-    },
-    "assets/img/portfolio/modelo-bolsa-metro-recorte.webp": {
-      "sha256": "8247c5987392ac603b8646063424740ad63b9fefbe08ec6cc5bc41d317f5f9d9",
-      "bytes": 31504
-    },
-    "assets/img/portfolio/modelo-cabelo-wolfcut-recorte.webp": {
-      "sha256": "48458f38b3c1990bde28c4761f514f003f5cdfd9bfaf551f7959be2df899b513",
-      "bytes": 35162
-    },
-    "assets/img/portfolio/modelo-oculos-prisma-recorte.webp": {
-      "sha256": "6d17a0cfc1116e221e95a5a71620e1c3adb1f97ea723726c92adef5351eaba94",
-      "bytes": 21008
-    },
-    "assets/img/portfolio/modelo-satelite-orbita-recorte.webp": {
-      "sha256": "03d7a5c65fcccc561e66a8207719e31cecae705e042ac112481f9e041073258f",
-      "bytes": 55914
-    },
-    "assets/img/portfolio/fortuna-largada-preview-960.webp": {
-      "sha256": "eb7ae4d8d80ceea1c617f427906853509ffecaefa5721e78da064b9445c26223",
-      "bytes": 28830
-    },
-    "assets/img/portfolio/fortuna-reta-preview-960.webp": {
-      "sha256": "982bc2e3da4bcdcb404d50f8ed880b5df488580ec4ff41c421d7054a1c7acd52",
-      "bytes": 26432
-    },
-    "assets/img/portfolio/fortuna-oficina-preview-960.webp": {
-      "sha256": "f57c118116dccf25686a52ca82ec821a20ce5639080f37828d325457e7283597",
-      "bytes": 11870
-    },
-    "assets/img/portfolio/fortuna-residencial-preview-960.webp": {
-      "sha256": "0678c921a3cf88577a018e50b1adb1e473a68b926d48da86492c1ec5b46eca4c",
-      "bytes": 20880
-    },
-    "assets/img/portfolio/fortuna-blender-carro-preview-960.webp": {
-      "sha256": "2d50a668a327313bf9d8a4e78b0156e81528fee3317c48b2c1a19f8731b91fed",
-      "bytes": 10008
-    },
-    "assets/img/portfolio/fortuna-blender-moto-preview-960.webp": {
-      "sha256": "be3f5f4fd8b0226a5f74a93a91e7ba4937f8d0917fe142ae2dd84e62aeb3ecf8",
-      "bytes": 12760
+    "assets/img/estudo-tarefas.webp": {
+      "sha256": "7ac847127c84a17e0d8e8df0c9f6a6af48e1ef0a39ce6a83f3bebf61657182fa",
+      "bytes": 31766
     },
     "assets/img/planejamento-percurso.webp": {
       "sha256": "5056dc58c4988fe3571e2177f2d71a13cb89dc104d424d08f5ab35e9a3dff7ea",
@@ -809,6 +685,10 @@
       "sha256": "e7c687bc855c31e86c0f362d6ca5789cb179e8f3be69a5347691b816a3b162ba",
       "bytes": 472
     },
+    "assets/img/estudo-revisoes.webp": {
+      "sha256": "69f6333bf596d8b30f18b67f357acdadffa3cc945f5ba1b5b0ee580d49e23be7",
+      "bytes": 32028
+    },
     "assets/fonts/figtree-latin.woff2": {
       "sha256": "4ba7d3d096695818fe0686be4f1e82c6b05134e18a22260336130335027462dd",
       "bytes": 20156
@@ -821,73 +701,57 @@
       "sha256": "63958101ddd01ccf7e76e9d974bce3c20931184e48bdca190bebeca92b01acf2",
       "bytes": 901
     },
-    "assets/img/portfolio/reference-game-hero.webp": {
-      "sha256": "130b4c0ac57dc1a0e3bd4109fedc35ebc471ccd0e0870afbf74738663a6a54f2",
-      "bytes": 7680
-    },
-    "assets/img/portfolio/reference-game-lower.webp": {
-      "sha256": "f4bbcbef77ea51c2f05a1151fdff8c048022205b801e4c6b523cac0e66ccd3e1",
-      "bytes": 4184
-    },
     "index.html": {
-      "sha256": "99f0cde529f51c8be8024accd1305106b55ccdebced13dc22d8ff141b180daf5",
-      "bytes": 37763
+      "sha256": "dd41d5b2ac203950140d8eba7de135902f6fd9eb461164881103daae0eead484",
+      "bytes": 21408
     },
     "estudos/index.html": {
-      "sha256": "cca52e5a77ecc65adf7588f190aec33b7742090997481a3b20df195071491537",
-      "bytes": 37131
+      "sha256": "63acc96f89e71b6872b58bdf1f9da95385db216331024f91b90137fff750aa06",
+      "bytes": 585
     },
     "plataforma/index.html": {
-      "sha256": "246f3059f71194652bc41331413c42a184dc2192275b45586c7145812208dbf6",
-      "bytes": 38838
+      "sha256": "36c19bcc305804207f9ea626f4a858e405e75944214eedcb5e8ac00aae9ee607",
+      "bytes": 112792
     },
     "jogos/index.html": {
-      "sha256": "f0d17822c20a8df0dd36434d48d617a317dba7b2c9b0d9c14b0a8430638e188c",
-      "bytes": 62401
+      "sha256": "856cdac798e538f8d844806744b0f7eb076819221f18b6c7257484a2d3316942",
+      "bytes": 569
+    },
+    "projetos/index.html": {
+      "sha256": "c14a3a1c0512aa703677e5b9b9a70d835b1809202d86f2b999ca21ba828e6454",
+      "bytes": 28312
     },
     "projetos/planejamento-de-estudos/index.html": {
-      "sha256": "19054ec883bfed22554b0801ce94c56a6087ebad0153d5e4dfdcf827f141d79c",
-      "bytes": 19397
+      "sha256": "d264bfa556f0fc65078532778113121b05121d8f783a703fc55da933510693ef",
+      "bytes": 19323
     },
     "projetos/resumos-de-estudo/index.html": {
-      "sha256": "5e3b6149093308c14130f588b4b0c34e6bb477c79569837bf4c1b431aa2f8cd8",
-      "bytes": 12511
+      "sha256": "485628e5a6c841e21c9ad5d067a5095834122a2094a4d053aaa0bed041d9005d",
+      "bytes": 12466
     },
     "assets/js/scene.a02a1a48ce8e.js": {
       "sha256": "a02a1a48ce8eca27d6288c7863307fd37069e5a798e3079169e7dccd53dfd932",
       "bytes": 547420
     },
-    "assets/css/site.799816a98f02.css": {
-      "sha256": "799816a98f0266870b9823332418767f2b972ea08ae5e32416b530c228d65296",
-      "bytes": 26351
+    "assets/css/site.9138a46fbe47.css": {
+      "sha256": "9138a46fbe47dec6fd4180c5fa906885cc6402aa48142e66def48096e0c73d2e",
+      "bytes": 26170
     },
-    "assets/js/site.ab7363aa9a66.js": {
-      "sha256": "ab7363aa9a66a356ee5c72740105dca4748f21530ab1e6b7a75663145bcc966c",
-      "bytes": 17792
+    "assets/js/site.3ee563745d46.js": {
+      "sha256": "3ee563745d468099174a95eba4f45c7f159b8e0dc431d58cbd0616c39a993049",
+      "bytes": 17685
     },
-    "assets/css/site.e665f33dab12.css": {
-      "sha256": "e665f33dab1233810462614961c9adccb1ab77a82b282eacc4b2e5d8490ab6dc",
-      "bytes": 65142
+    "assets/css/site.f7df48264a4f.css": {
+      "sha256": "f7df48264a4f78d2d4987417bdee74cf9e35c8bb3da0b4a679c7822857fef5c6",
+      "bytes": 98615
     },
-    "assets/js/site.5519a81490cc.js": {
-      "sha256": "5519a81490cc2fc8b088084aa026e582bd411f66388e4e56a8a56d309a287ed6",
-      "bytes": 37087
+    "assets/js/site.f14eff6e2dfa.js": {
+      "sha256": "f14eff6e2dfa65177c4aea3ba0428459be7ddb00f2284c7c9eb06f5af0ff8c95",
+      "bytes": 28070
     },
-    "assets/css/site.efea3d3c7f10.css": {
-      "sha256": "efea3d3c7f10fd51bb8bad568c029ab7484cfd9b653d628a5019753b401720f0",
-      "bytes": 44436
-    },
-    "assets/js/site.68515481d0bd.js": {
-      "sha256": "68515481d0bda58e77a7d0fe364a2bc94f5cb6a50db30d292fe932ca0ab35ca8",
-      "bytes": 10509
-    },
-    "assets/css/site.fe5791788d60.css": {
-      "sha256": "fe5791788d60842f10283aed9e426e3ed9ae1c045e467328b219df8fb64369ac",
-      "bytes": 46295
-    },
-    "assets/js/site.38cf404454cd.js": {
-      "sha256": "38cf404454cdcfb603be32a8e5e44467663ff94892e285890d572cb45f3b4fbb",
-      "bytes": 10309
+    "assets/js/site.b8db4a2db6a4.js": {
+      "sha256": "b8db4a2db6a45976970ad1733b3006c0bcb58c2dac46e75a069aaaec2fc5458f",
+      "bytes": 27750
     },
     "assets/css/site.fb89892511a6.css": {
       "sha256": "fb89892511a66fe70f081f1597e1e2d6c7842c109a8af0eefa2ba752171ca170",
@@ -898,12 +762,12 @@
       "bytes": 7669
     },
     "assets/build.json": {
-      "sha256": "f6c151da6f9cea7902a32de7503f32d39fe8b74b31ca119605a50e0e0250d589",
-      "bytes": 1368
+      "sha256": "9aed8dda389f63c597771ec0e4a4078e3e084dfc24f0a0abc72c05a9077b0e13",
+      "bytes": 1425
     },
     "sitemap.xml": {
-      "sha256": "5834a65462d038b4ec2b86bf8a98fe18bdb221d52342dadd58d77bb5ac84f671",
-      "bytes": 717
+      "sha256": "05c32985985acb89346ff9c8cd1e063d79484a62c3f31c8aac5059ec30f6f0cb",
+      "bytes": 625
     },
     "robots.txt": {
       "sha256": "12fa3f163273ff8b7596c5e3c8d6a9f3777ef1c135c83e4a3502723146996e23",

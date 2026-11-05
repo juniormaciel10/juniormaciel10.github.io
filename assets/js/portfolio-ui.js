@@ -10,16 +10,15 @@
   root.dataset.motion = 'full';
   document.body.classList.add('js');
 
-  const legacy = {
-    'p-ciclo': 'estudos/#p-ciclo', 'p-resumos': 'estudos/#p-resumos',
-    'p-transcricao': 'estudos/#p-resumos', 'ci-galeria': 'estudos/#ci-galeria',
-    'software-gallery': 'estudos/#software-gallery', 'ciclo-detalhes': 'estudos/#ciclo-detalhes',
-    'resumo-detalhes': 'estudos/#resumo-detalhes', 'resumo-download': 'estudos/#resumo-download',
-    'experimentos': 'jogos/#p-gametwo', 'p-gametwo': 'jogos/#p-gametwo',
-    'p-govoice': 'jogos/#p-govoice'
-  };
+  // Endereços antigos da inicial: vão direto aos grupos da lista de projetos.
+  const legacy = Object.fromEntries([
+    ...['p-ciclo', 'p-resumos', 'p-transcricao', 'ci-galeria', 'software-gallery', 'ciclo-detalhes', 'resumo-detalhes', 'resumo-download']
+      .map(id => [id, 'projetos/#estudo']),
+    ...['experimentos', 'p-gametwo', 'p-govoice'].map(id => [id, 'projetos/#3d'])
+  ]);
   if (document.body.classList.contains('home-page')) {
-    const destination = legacy[location.hash.slice(1)];
+    // hasOwnProperty (e não Object.hasOwn) para não depender de navegador recente.
+    const id = location.hash.slice(1), destination = Object.prototype.hasOwnProperty.call(legacy, id) ? legacy[id] : null;
     if (destination) { location.replace(new URL(destination, location.href)); return; }
   }
 

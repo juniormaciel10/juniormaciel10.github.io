@@ -1,7 +1,7 @@
 .editorial-hero{padding-block:clamp(40px,4vw,68px) clamp(30px,3vw,48px);text-align:center}
 .editorial-hero h1{font-size:clamp(38px,7.7vw,148px);font-weight:420;line-height:1.08;letter-spacing:-.075em;white-space:nowrap}
 .destinations{position:relative;padding-block:28px 32px}
-.destination-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.destination-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
 .destination{display:flex;flex-direction:column;min-width:0;padding:10px;border:1px solid var(--line);border-radius:14px;background:var(--paper);transition:background-color 150ms}
 .destination:focus-visible{outline-offset:-4px}
 .destination-preview{position:relative;aspect-ratio:8/5;overflow:hidden;border-radius:3px;background:var(--field);outline:1px solid #ffffff1a;outline-offset:-1px}
@@ -17,8 +17,6 @@
 .skills-summary{display:grid;grid-template-columns:1fr 1.7fr;gap:54px;margin-top:34px}
 .skills-summary h3{font-size:14px;font-weight:500;letter-spacing:0;line-height:1.5;color:var(--muted);margin-bottom:14px}
 .skills-summary ul{list-style:none;padding:0;margin:0;display:grid;gap:8px;font-size:17px;line-height:1.65}
-.workspace-gallery .gallery-open{border:1px solid var(--line)}
-.workspace-gallery .media-slide figcaption{min-height:78px}
 .workflow-details{margin-top:40px}
 .case-details,.additional-detail{border-top:1px solid var(--line)}
 .case-details>summary,.additional-detail>summary{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:76px;padding-block:18px;cursor:pointer;list-style:none;font-size:17px;letter-spacing:-.02em}
@@ -94,7 +92,6 @@ details[open]>summary .row-toggle svg{transform:rotate(45deg)}
 .skills-summary{grid-template-columns:1fr;gap:26px;margin-top:26px}
 .skills-summary ul{font-size:16px;gap:7px}
 .work-method{padding-top:62px}
-.workspace-gallery .media-slide figcaption{min-height:100px}
 .workflow-details>.case-details-body{grid-template-columns:1fr;gap:28px}
 .metodo-passos{grid-template-columns:1fr;padding-top:12px;gap:34px}
 .registro-execucao{max-width:540px}

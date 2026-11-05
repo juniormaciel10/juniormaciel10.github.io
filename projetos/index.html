@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="pt-BR" data-movimento="capitulos" data-visual="cristal"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projetos | Franklin Júnior Maciel</title><meta name="description" content="Campanhas, materiais de estudo, automações, jogos e 3D: projetos prontos ou em fase avançada."><meta name="theme-color" content="#f9f7ff">
+<link rel="canonical" href="https://juniormaciel10.github.io/projetos/"><meta property="og:type" content="website"><meta property="og:locale" content="pt_BR"><meta property="og:title" content="Projetos | Franklin Júnior Maciel"><meta property="og:description" content="Campanhas, materiais de estudo, automações, jogos e 3D: projetos prontos ou em fase avançada."><meta property="og:url" content="https://juniormaciel10.github.io/projetos/"><meta property="og:image" content="https://juniormaciel10.github.io/assets/img/og.png"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/img/favicon.svg"><link rel="preload" href="../assets/fonts/Geist.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Projetos | Franklin Júnior Maciel", "url": "https://juniormaciel10.github.io/projetos/", "inLanguage": "pt-BR", "author": {"@type": "Person", "name": "Franklin Júnior Maciel", "url": "https://juniormaciel10.github.io/", "sameAs": ["https://www.linkedin.com/in/franklin-junior-maciel/", "https://github.com/juniormaciel10"]}}</script>
+<script>(function(){var root=document.documentElement;root.classList.add('js');root.dataset.motion='full';var timer=setTimeout(function(){root.dataset.intro='complete';if(!document.body.classList.contains('js'))root.classList.remove('js','ui-ready');},9500);window.addEventListener('portfolio:intro-mounted',function(){clearTimeout(timer);},{once:true});document.addEventListener('error',function(e){if(e.target.tagName==='SCRIPT'&&e.target.src){root.classList.remove('js','ui-ready');root.dataset.intro='complete';}},true);})();</script>
+<link rel="stylesheet" href="../assets/css/site.f7df48264a4f.css">
+
+<script data-home="../">(()=>{"use strict";const i=document.documentElement,p=document.querySelector('meta[name="theme-color"]')?.content;p&&CSS.supports("color",p)&&i.style.setProperty("--page-transition-bg",p);const T=new URL(document.currentScript?.dataset.home||"./",document.baseURI),h="onpageswap"in window&&"onpagereveal"in window&&CSS.supports("view-transition-name","root"),a="portfolio:card-entry:v1",k="portfolio:card-last:v1",c=(t,e)=>{try{const n=new URL(t,location.href),r=new URL(e,location.href);return n.origin===r.origin&&n.pathname.replace(/index\.html$/,"")===r.pathname.replace(/index\.html$/,"")}catch{return!1}},w=t=>{try{return JSON.parse(sessionStorage.getItem(t)||"null")}catch{return null}},v=(t,e)=>{try{sessionStorage.setItem(t,JSON.stringify(e))}catch{}},u=t=>{try{sessionStorage.removeItem(t)}catch{}},E=t=>t&&Date.now()-t.time<15e3,f=w(a);E(f)&&c(f.to,location.href)&&(i.dataset.cardEntry="true",i.classList.remove("motion-pending"),c(location.href,T.href)&&(i.dataset.intro="complete"),f.kind==="close"&&f.color&&CSS.supports("color",f.color)&&i.style.setProperty("--page-transition-bg",f.color),h||u(a));let d=null,g=null,s=null,m=null,o=0;function l(){g?.style.removeProperty("view-transition-name"),g=null,i.style.removeProperty("view-transition-name"),p&&CSS.supports("color",p)&&i.style.setProperty("--page-transition-bg",p),delete i.dataset.cardDirection,delete i.dataset.cardTransition,document.querySelectorAll("[data-page-card][aria-busy]").forEach(t=>t.removeAttribute("aria-busy")),s?.remove(),s=null}function x(t,e){const n=[...document.querySelectorAll("[data-page-card]")];return n.find(r=>r.dataset.pageCard===e&&c(r.href,t))||n.find(r=>c(r.href,t))}function L(t){g=t.querySelector("[data-page-preview]")||t,i.style.viewTransitionName="page-backdrop",g.style.viewTransitionName="root"}function C(t){if(t.defaultPrevented||t.button!==0||t.metaKey||t.ctrlKey||t.shiftKey||t.altKey)return null;const e=t.target.closest?.("a[data-page-card]");return!e||e.hasAttribute("download")||e.target&&e.target!=="_self"?null:new URL(e.href,document.baseURI).origin===location.origin?e:null}async function K(t,e,n){if(typeof Element.prototype.animate!="function"){location.assign(e);return}const r=t.querySelector("[data-page-preview]")||t,y=r.getBoundingClientRect();s=document.createElement("div"),s.className="page-portal",s.setAttribute("aria-hidden","true");const b=r.querySelector("img");if(b){const S=document.createElement("img");S.src=b.currentSrc||b.src,S.alt="",s.append(S)}document.body.append(s),await s.animate([{left:y.left+"px",top:y.top+"px",width:y.width+"px",height:y.height+"px",borderRadius:"3px"},{left:"0px",top:"0px",width:innerWidth+"px",height:innerHeight+"px",borderRadius:"0px"}],{duration:650,easing:"cubic-bezier(.22,1,.36,1)",fill:"forwards"}).finished.catch(()=>{}),n===o&&location.assign(e)}document.addEventListener("click",t=>{const e=C(t);if(!e){s&&t.target.closest?.("a[href]")&&!t.metaKey&&!t.ctrlKey&&!t.shiftKey&&!t.altKey&&(o++,d=null,l(),u(a));return}if(t.preventDefault(),d?.card===e)return;l();const n=++o,r={from:location.href,to:e.href,scrollY,card:e.dataset.pageCard,time:Date.now(),kind:"open"};d={card:e,record:r},e.setAttribute("aria-busy","true"),v(a,r),v(k,r),h?location.assign(r.to):K(e,r.to,n)}),addEventListener("pageswap",t=>{if(!h){t.viewTransition?.skipTransition();return}const e=t.activation?.entry?.url,n=w(k);if(d&&c(d.record.to,e))i.dataset.cardDirection="open",L(d.card);else if(t.activation?.navigationType==="traverse"&&n&&c(n.to,location.href)&&c(n.from,e)&&c(e,T.href))i.dataset.cardDirection="close",v(a,{...n,from:location.href,to:e,time:Date.now(),kind:"close",color:p});else{u(a),t.viewTransition?.skipTransition();return}const r=o;t.viewTransition?.finished.catch(()=>{}).then(()=>{r===o&&l()})}),addEventListener("pagereveal",t=>{if(!h){t.viewTransition?.skipTransition(),l();return}const e=w(a);if(!E(e)||!c(e.to,location.href))return;const n=++o;if(i.dataset.cardDirection=e.kind,e.kind==="close"){i.dataset.intro="complete",e.color&&CSS.supports("color",e.color)&&i.style.setProperty("--page-transition-bg",e.color);const r=x(e.from,e.card);if(!r){t.viewTransition?.skipTransition(),l(),u(a);return}scrollTo({top:Number(e.scrollY)||0,behavior:"instant"}),L(r)}u(a),t.viewTransition?(m=t.viewTransition,t.viewTransition.ready.then(()=>{n===o&&(i.dataset.cardTransition="active")}).catch(()=>{}),t.viewTransition.finished.catch(()=>{}).then(()=>{n===o&&(m=null,l())})):l()}),addEventListener("pagehide",()=>{o++}),addEventListener("pageshow",t=>{t.persisted&&(o++,d=null,l())}),addEventListener("wheel",()=>m?.skipTransition(),{passive:!0}),addEventListener("touchstart",()=>m?.skipTransition(),{passive:!0}),addEventListener("keydown",()=>m?.skipTransition()),addEventListener("popstate",()=>{s&&(o++,d=null,l(),u(a))})})();
+</script>
+</head><body class="portfolio-site platform-page"><a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+<header class="site-header nav"><div class="header-inner wrap">
+<a class="brand" href="../">Franklin Júnior Maciel<span class="brand-note">Portfólio</span></a>
+<button class="menu-toggle icon-button round-button" type="button" aria-label="Abrir menu" aria-controls="main-nav" aria-expanded="false"><svg class="icon icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 6l16 0" />
+  <path d="M4 12l16 0" />
+  <path d="M4 18l16 0" />
+</svg></button>
+<nav class="main-nav" id="main-nav" aria-label="Navegação principal"><a href="../">Início</a><a href="../plataforma/">Plataformas e sites</a><a href="../projetos/" aria-current="page">Projetos</a><a href="../#metodo">Habilidades</a><a href="../#contato">Contato</a></nav>
+</div></header><main id="conteudo" tabindex="-1" data-cp-pagina="projetos">
+<section class="pj hero wrap cp-topo" aria-labelledby="pj-title">
+  <div class="platform-breadcrumb"><a class="back-link lnk" href="../"><span class="breadcrumb-dot" aria-hidden="true"></span>Portfólio</a><span aria-hidden="true">›</span><span>Projetos</span></div>
+  <h1 id="pj-title" class="h1 cp-titulo"><span class="cp-palavra" style="--i:0">Projetos</span><span><span class="cp-palavra" style="--i:1">.</span></span></h1>
+  <p class="platform-lead t2">Campanhas, materiais de estudo, automações, jogos e 3D. Um por linha: abra a linha para ver os detalhes.</p>
+</section>
+<section class="pj section wrap section-space cp-trilho" aria-label="Lista de projetos" data-cp-trilho="">
+  <div class="cp-janela" data-cp-janela=""><div class="pj-lista cp-faixa" data-cp-faixa="">
+    <span class="pj-ancora" id="campanhas" aria-hidden="true"></span>
+    <details class="pj-linha cp-cartao" id="copy-para-campanhas" data-grupo="campanhas" data-cp-cartao="0" style="--i:0">
+      <summary><span class="pj-nome">Sistema de copy para campanhas</span><span class="pj-resumo">Planejamento, textos e páginas de campanhas, do briefing à revisão final.</span><span class="pj-tags"><span class="pj-tag">Campanhas</span></span><span class="pj-abrir" aria-hidden="true"></span></summary>
+      <div class="pj-detalhes cp-detalhes" data-cp-detalhes=""><ul><li>Briefings viram planos de campanha, textos, e-mails e páginas.</li><li>Cada peça passa por uma revisão independente antes da entrega.</li><li>Os materiais ficam organizados por campanha, com histórico.</li></ul><ul class="vt-ferramentas" aria-label="Ferramentas"><li>Fluxos de revisão</li></ul></div>
+    </details>
+    <details class="pj-linha cp-cartao" id="artes-para-redes-sociais" data-grupo="campanhas" data-cp-cartao="1" style="--i:1">
+      <summary><span class="pj-nome">Artes para redes sociais</span><span class="pj-resumo">Posts, carrosséis e vídeos curtos para uma página de estudos, com o calendário de publicação.</span><span class="pj-tags"><span class="pj-tag">Campanhas</span></span><span class="pj-abrir" aria-hidden="true"></span></summary>
+      <div class="pj-detalhes cp-detalhes" data-cp-detalhes=""><ul><li>Cada arte guarda a fonte de produção para ajustes rápidos.</li><li>Campanha de fim de ano completa, pronta para postar, uma pasta por post.</li></ul><ul class="vt-ferramentas" aria-label="Ferramentas"><li>Produção visual</li><li>Geração de imagens</li><li>Edição de vídeo</li></ul></div>
+    </details>
+    <details class="pj-linha cp-cartao" id="paginas-de-venda-para-mentores" data-grupo="campanhas" data-cp-cartao="2" style="--i:2">
+      <summary><span class="pj-nome">Páginas de venda para mentores</span><span class="pj-resumo">Um modelo de página de venda que cada mentor recebe pronto, com componentes reutilizáveis.</span><span class="pj-tags"><span class="pj-tag">Produto</span></span><span class="pj-abrir" aria-hidden="true"></span></summary>
+      <div class="pj-detalhes cp-detalhes" data-cp-detalhes=""><ul><li>Um modelo de página que cada mentor recebe pronto.</li><li>Componentes reutilizáveis e testes automáticos.</li></ul><ul class="vt-ferramentas" aria-label="Ferramentas"><li>React e TypeScript</li><li>Banco de dados</li><li>Testes automáticos</li></ul></div>
+    </details>
+    <span class="pj-ancora" id="estudo" aria-hidden="true"></span>
+    <details class="pj-linha cp-cartao" id="planejamento-de-estudos" data-grupo="estudo" data-cp-cartao="3" style="--i:3">
+      <summary><span class="pj-nome">Planejamento de estudos</span><span class="pj-resumo">Ferramenta que transforma o tempo disponível em tarefas e revisões.</span><span class="pj-tags"><span class="pj-tag">Produto</span></span><span class="pj-abrir" aria-hidden="true"></span></summary>
+      <div class="pj-detalhes pj-com-imagem cp-detalhes" data-cp-detalhes=""><img src="../assets/img/estudo-galeria-disponibilidade.png" width="994" height="775" alt="Definição da disponibilidade semanal na ferramenta de estudos." loading="lazy" decoding="async"><div><p>Da disponibilidade real de tempo à próxima tarefa, com revisões integradas à rotina.</p><ul><li>Disponibilidade, disciplinas e formatos definem o plano.</li><li>O histórico orienta as próximas tarefas e revisões.</li></ul><a class="vt-link" href="planejamento-de-estudos/">Conhecer o projeto</a></div></div>
+    </details>
+    <details class="pj-linha cp-cartao" id="da-aula-ao-resumo" data-grupo="estudo" data-cp-cartao="4" style="--i:4">
+      <summary><span class="pj-nome">Da aula ao resumo</span><span class="pj-resumo">Resumos a partir de PDFs, com revisão e validação dos arquivos.</span><span class="pj-tags"><span class="pj-tag">Dados</span></span><span class="pj-abrir" aria-hidden="true"></span></summary>
+      <div class="pj-detalhes pj-com-imagem cp-detalhes" data-cp-detalhes=""><img class="pj-documento" src="../assets/img/resumo-ia-previa.webp" width="480" height="679" alt="Primeira página de um resumo de aula." loading="lazy" decoding="async"><div><p>Estruturei a produção, a revisão independente e a entrega em DOCX.</p><div class="pj-links"><a class="vt-link" href="resumos-de-estudo/">Conhecer o projeto</a><a class="vt-link" href="../assets/downloads/resumo-inteligencia-artificial.pdf">Ler um resumo (PDF)</a></div></div></div>
+    </details>
+    <details class="pj-linha cp-cartao" id="transcricao-de-aulas" data-grupo="estudo" data-cp-cartao="5" style="--i:5">
+      <summary><span class="pj-nome">Transcrição e revisão de aulas</span><span class="pj-resumo">Aulas gravadas viram documentos revisados, com os termos técnicos conferidos.</span><span class="pj-tags"><span class="pj-tag">Dados</span></span><span class="pj-abrir" aria-hidden="true"></span></summary>
+      <div class="pj-detalhes cp-detalhes" data-cp-detalhes=""><ul><li>A transcrição roda no próprio computador, sem enviar o áudio para fora.</li><li>Uma revisão automática corrige os termos técnicos de cada área.</li><li>Entrega em DOCX, pronta para estudar.</li></ul><ul class="vt-ferramentas" aria-label="Ferramentas"><li>Transcrição local</li><li>Reconhecimento de fala</li><li>DOCX</li></ul></div>
+    </details>
+    <span class="pj-ancora" id="automacao" aria-hidden="true"></span>
+    <details class="pj-linha cp-cartao" id="agente-pessoal" data-grupo="automacao" data-cp-cartao="6" style="--i:6">
+      <summary><span class="pj-nome">Agente pessoal com memória</span><span class="pj-resumo">Assistente que lembra de cada projeto, recebe pedidos pelo WhatsApp e executa no computador.</span><span class="pj-tags"><span class="pj-tag">Automação</span></span><span class="pj-abrir" aria-hidden="true"></span></summary>
+      <div class="pj-detalhes cp-detalhes" data-cp-detalhes=""><ul><li>Guarda a memória de cada projeto em arquivos locais e consulta antes de responder.</li><li>Recebe pedidos e avisos pelo WhatsApp e devolve o resultado pelo mesmo caminho.</li><li>Roda rotinas sozinho, como conferências e resumos, e pede confirmação antes de ações sensíveis.</li></ul><ul class="vt-ferramentas" aria-label="Ferramentas"><li>Node.js</li><li>Python</li><li>WhatsApp</li></ul></div>
+    </details>
+    <details class="pj-linha cp-cartao" id="agente-de-live" data-grupo="automacao" data-cp-cartao="7" style="--i:7">
+      <summary><span class="pj-nome">Agente de live que responde sobre PC</span><span class="pj-resumo">Personagem com voz que lê o chat ao vivo, reage na hora e responde dúvidas de PC e jogos.</span><span class="pj-tags"><span class="pj-tag">Automação</span></span><span class="pj-abrir" aria-hidden="true"></span></summary>
+      <div class="pj-detalhes cp-detalhes" data-cp-detalhes=""><ul><li>Escolhe as perguntas do chat e responde por voz o que limita aquele PC naquele jogo.</li><li>Reage na hora com as peças e o jogo citados, enquanto a resposta é preparada.</li><li>Vozes locais e um modelo de reserva mantêm o tempo de resposta.</li></ul><ul class="vt-ferramentas" aria-label="Ferramentas"><li>Python</li><li>Voz sintética</li></ul></div>
+    </details>
+    <details class="pj-linha cp-cartao" id="automacao-do-fluxo" data-grupo="automacao" data-cp-cartao="8" style="--i:8">
+      <summary><span class="pj-nome">Automação do meu fluxo de trabalho</span><span class="pj-resumo">Rotinas que conferem, testam e organizam cada projeto antes de publicar.</span><span class="pj-tags"><span class="pj-tag">Automação</span></span><span class="pj-abrir" aria-hidden="true"></span></summary>
+      <div class="pj-detalhes cp-detalhes" data-cp-detalhes=""><ul><li>Testes e conferências automáticas antes de cada publicação.</li><li>Organização de arquivos, versões e registros de cada projeto.</li></ul><ul class="vt-ferramentas" aria-label="Ferramentas"><li>Python</li><li>Node.js</li><li>Playwright</li></ul></div>
+    </details>
+    <span class="pj-ancora" id="3d" aria-hidden="true"></span>
+    <details class="pj-linha cp-cartao" id="logica-de-jogo-em-godot" data-grupo="3d" data-cp-cartao="9" style="--i:9">
+      <summary><span class="pj-nome">Lógica de jogo em Godot</span><span class="pj-resumo">RPG de ação em versão de teste, com cenários, combate e um personagem que troca de forma.</span><span class="pj-tags"><span class="pj-tag">Jogos</span></span><span class="pj-abrir" aria-hidden="true"></span></summary>
+      <div class="pj-detalhes pj-com-imagem cp-detalhes" data-cp-detalhes=""><img src="../assets/img/portfolio/game-two-godot-patio-preview-640.webp" width="640" height="360" alt="Pátio da primeira zona do jogo, com inimigos, passagem e objetivo." loading="lazy" decoding="async"><div><p>Lógica de jogo e cenários em Godot, a partir do protótipo em Ruby e Gosu.</p><ul><li>Mapa com iluminação e pontos de interação.</li><li>Personagem que alterna ataque rápido, defesa e ataque à distância.</li><li>Barras de estado e retorno visual das ações.</li></ul><ul class="vt-ferramentas" aria-label="Ferramentas"><li>Godot</li><li>GDScript</li></ul></div></div>
+    </details>
+    <details class="pj-linha cp-cartao" id="modelagem-no-blender" data-grupo="3d" data-cp-cartao="10" style="--i:10">
+      <summary><span class="pj-nome">Modelagem no Blender</span><span class="pj-resumo">Acessórios e cabelo para avatares, com atenção à silhueta, à malha e aos materiais.</span><span class="pj-tags"><span class="pj-tag">3D</span></span><span class="pj-abrir" aria-hidden="true"></span></summary>
+      <div class="pj-detalhes pj-com-imagem cp-detalhes" data-cp-detalhes=""><img src="../assets/img/portfolio/modelo-cabelo-wolfcut-recorte-640.webp" width="640" height="480" alt="Cabelo Wolf Cut, em camadas, com franja assimétrica." loading="lazy" decoding="async"><div><p>Bolsa Metro Grafite, Cabelo Wolf Cut, Óculos Prisma Grafite e Satélite Órbita, com encaixe conferido em avatar.</p><ul><li>Modelagem das peças, materiais e texturas.</li><li>Validação local em avatar R15.</li></ul><div class="pj-links"><a class="vt-link" href="../assets/downloads/portfolio-modelagem-3d.pdf">Ver os quatro modelos (PDF)</a></div></div></div>
+    </details>
+    <details class="pj-linha cp-cartao" id="otimizacao-de-modelos-3d" data-grupo="3d" data-cp-cartao="11" style="--i:11">
+      <summary><span class="pj-nome">Otimização de modelos 3D</span><span class="pj-resumo">Pipeline em Python no Blender que limpa, reduz e separa veículos em peças para uso em jogo.</span><span class="pj-tags"><span class="pj-tag">3D</span></span><span class="pj-abrir" aria-hidden="true"></span></summary>
+      <div class="pj-detalhes pj-com-imagem cp-detalhes" data-cp-detalhes=""><img src="../assets/img/portfolio/fortuna-blender-carro-preview-640.webp" width="640" height="360" alt="Carro no Blender depois da limpeza e da separação em peças." loading="lazy" decoding="async"><div><p>Veículos de até 565 mil triângulos reduzidos a no máximo 50 mil, com bake de texturas e exportação em FBX.</p><ul><li>Carroceria, vidros e rodas com pivô, prontos para personalização.</li><li>Cenário com setores, casas e pistas gerados por scripts em Luau.</li></ul><p class="pj-credito t3">Veículos: modelos do Sketchfab sob CC BY 4.0, de Benit Kibabu, Lexyc16, ItsDiyor, M GARAGE LTD., Jamie Hamel-Smith e Pavlo_Holubov. Modificados: decimados, sem logotipos e separados em peças.</p></div></div>
+    </details>
+  </div></div>
+</section>
+
+<nav class="next-area section wrap" aria-label="Outras áreas"><div class="section-marker rail"><span class="section-number t3" aria-hidden="true">01</span><span class="section-label t3">Continue pelo portfólio.</span></div><a href="../plataforma/"><span class="related-icon"><svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.7"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+ class="icon">
+  <path d="M3 5a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1v-10z" />
+  <path d="M7 20h10" />
+  <path d="M9 16v4" />
+  <path d="M15 16v4" />
+</svg></span><span class="related-copy"><strong>Plataformas e sites</strong><span>Painéis de dados, uma central de materiais gratuitos e uma plataforma de estudos.</span></span><span class="related-arrow" aria-hidden="true"><svg class="icon icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+  <path d="M5 12l14 0" />
+  <path d="M13 18l6 -6" />
+  <path d="M13 6l6 6" />
+</svg></span></a><a href="../"><span class="related-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class="icon" aria-hidden="true"><path d="M5 12l-2 0l9 -9l9 9l-2 0" /><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" /><path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" /></svg></span><span class="related-copy"><strong>Início</strong><span>Apresentação, qualidades e habilidades, trajetória e contato.</span></span><span class="related-arrow" aria-hidden="true"><svg class="icon icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+  <path d="M5 12l14 0" />
+  <path d="M13 18l6 -6" />
+  <path d="M13 6l6 6" />
+</svg></span></a></nav>
+</main><footer class="site-footer section wrap" id="contato" aria-labelledby="contact-title"><div class="section-marker rail"><span class="section-number t3" aria-hidden="true">02</span><span class="section-label t3"></span></div>
+<div class="footer-main"><div><h2 id="contact-title" class="h2">Contato.</h2></div><div class="footer-contact"><a class="footer-email" href="mailto:jrmaciell92@gmail.com">jrmaciell92@gmail.com</a><div class="footer-links"><button type="button" class="text-button" data-copy-email="jrmaciell92@gmail.com">Copiar e-mail</button><a href="https://www.linkedin.com/in/franklin-junior-maciel/" target="_blank" rel="noopener"><svg class="icon icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+  <path d="M8 11v5" />
+  <path d="M8 8v.01" />
+  <path d="M12 16v-5" />
+  <path d="M16 16v-3a2 2 0 1 0 -4 0" />
+  <path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" />
+</svg>LinkedIn</a><a href="https://github.com/juniormaciel10" target="_blank" rel="noopener"><svg class="icon icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>GitHub</a></div><p class="sr-only t2" role="status" data-copy-status></p></div><a class="footer-home" href="../"><svg class="icon icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 19V5m-5 5 5-5 5 5"/></svg>Voltar ao início</a></div><div class="footer-bottom"><span>© 2026 Franklin Júnior Maciel.</span></div></footer><dialog class="media-dialog" id="media-dialog" aria-labelledby="media-dialog-title">
+<div class="media-dialog-top"><h2 id="media-dialog-title" class="h2">Imagem ampliada</h2><form method="dialog"><button class="icon-button" aria-label="Fechar imagem"><svg class="icon icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M18 6l-12 12" />
+  <path d="M6 6l12 12" />
+</svg></button></form></div>
+<div class="media-dialog-image"><img id="media-dialog-image" alt="" width="1600" height="900" class="img"><p id="media-dialog-error" hidden class="t2">Não foi possível carregar a imagem. Use o link abaixo para abrir o arquivo.</p></div>
+<div class="media-dialog-bottom"><p id="media-dialog-description" class="t2"></p><div><button class="icon-button" type="button" id="media-dialog-prev" aria-label="Imagem anterior"><svg class="icon icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M5 12l14 0" />
+  <path d="M13 18l6 -6" />
+  <path d="M13 6l6 6" />
+</svg></button><button class="icon-button" type="button" id="media-dialog-next" aria-label="Próxima imagem"><svg class="icon icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M5 12l14 0" />
+  <path d="M13 18l6 -6" />
+  <path d="M13 6l6 6" />
+</svg></button></div></div>
+<div class="media-dialog-tools"><button class="text-button" type="button" id="media-dialog-zoom" aria-pressed="false">Tamanho real</button><a class="text-link" id="media-dialog-original" href="../assets/img/portfolio/plataforma-inicio.webp" target="_blank" rel="noopener">Abrir imagem em outra aba <svg class="icon icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M17 7l-10 10" />
+  <path d="M8 7l9 0l0 9" />
+</svg></a></div></dialog><!-- Tabler Icons 3.35.0
+MIT License
+
+Copyright (c) 2020-2025 Paweł Kuna
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+  --><script src="../assets/js/site.b8db4a2db6a4.js" defer></script>
+
+</body></html>
